@@ -2,6 +2,8 @@ import LinkOptions from "@/interfaces/navbar/navbar-options.interface"
 import Image from "next/image"
 import Link from "next/link"
 
+import logo from "@/assets/images/logo_imco_blanco_transparente.png"
+
 interface NavbarProps {
   linksOptions: LinkOptions[]
 }
@@ -14,7 +16,7 @@ export default function Navbar(props: NavbarProps) {
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             <Image
-              src="/images/logo_imco_blanco_transparente.png"
+              src={logo.src}
               width={75}
               height={45}
               alt={"Logo IMCO"}
