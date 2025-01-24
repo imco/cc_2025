@@ -25,34 +25,35 @@ export const metadata: Metadata = {
 
 let linksOptions: LinkOptions[] = []
 
-if (process.env.NODE_ENV === 'development')
-  linksOptions = [
-    {
-      sectionName: 'Inicio',
-      url: "/",
-      title: "inicio"
-    },
-    {
-      sectionName: 'Compara',
-      url: "/compara",
-      title: "Compara"
-    },
-    {
-      sectionName: 'Las 10 más',
-      url: "/las-10-mas",
-      title: "Las 10 más"
-    },
-    {
-      sectionName: 'Metodología',
-      url: "/metodologia",
-      title: "Metodología"
-    },
-    {
-      sectionName: 'Preguntas Frecuentes',
-      url: "/faq",
-      title: "FAQ"
-    },
-  ]
+//if (process.env.NODE_ENV === 'development')
+linksOptions = [
+  {
+    sectionName: 'Inicio',
+    url: "/",
+    title: "inicio"
+  },
+  {
+    sectionName: 'Compara',
+    url: "/compara",
+    title: "Compara"
+  },
+  {
+    sectionName: 'Las 10 más',
+    url: "/las-10-mas",
+    title: "Las 10 más"
+  },
+  {
+    sectionName: 'Metodología',
+    url: "/metodologia",
+    title: "Metodología"
+  },
+  {
+    sectionName: 'Preguntas Frecuentes',
+    url: "/faq",
+    title: "FAQ"
+  },
+]
+/**
 else
   linksOptions = [
     {
@@ -81,6 +82,7 @@ else
       title: "FAQ"
     },
   ]
+ */
 
 export default function RootLayout({
   children,
