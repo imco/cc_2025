@@ -18,3 +18,7 @@
 .bg-principal{
   background-color: var(--background) !important;
 }
+
+.text-principal{
+  color: var(--background) !important;
+}
