@@ -22,3 +22,7 @@
 .text-principal{
   color: var(--background) !important;
 }
+
+.collapse.show {
+  visibility: visible !important;
+}
