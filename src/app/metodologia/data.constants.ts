@@ -79,3 +79,48 @@ export const PositionsInWork: MetodologyContent[] = [
     text: "Personas ocupadas que trabajan sin recibir a cambio una remuneración económica."
   }
 ]
+
+export const HowMuchWon: MetodologyContent[] = [
+  {
+    title: "25% de los profesionistas gana menos de esta cantidad (P25): ",
+    text: "Salario mensual por debajo del cual está 25% de los profesionistas que menos ganan. De manera equivalente, 75% de los profesionistas de esta carrera tienen un salario superior a éste. Es una medida de cuánto podría estar ganando un profesional en la parte baja de la escala salarial de esta carrera, o un profesional con un desempeño inferior a la mediana."
+  },
+  {
+    title: "Ingreso mediano: ",
+    text: "Salario mensual que divide a los profesionistas de una carrera en dos grupos de igual proporción, dejando 50% por debajo de ese salario y el otro 50% por arriba. Es una medida de cuánto podría estar ganando un profesional que se encuentre a la mitad de la escala salarial de esta carrera."
+  },
+  {
+    title: "25% de los profesionistas gana más de esta cantidad (P75): ",
+    text: "Salario mensual por arriba del cual está 25% de los profesionistas que más ganan. De manera equivalente, 75% de los profesionistas de esta carrera tienen un salario inferior a éste. Es una medida de cuánto podría estar ganando un profesional en la parte alta de la escala salarial de esta carrera, o un profesional con un desempeño superior a la mediana."
+  }
+]
+
+export const HowMuchWonPhD: MetodologyContent[] = [
+  {
+    title: "Obtienen posgrado: ",
+    text: "Porcentaje de profesionistas de cada carrera con estudios de maestría o doctorado."
+  },
+  {
+    title: "Salario promedio mensual con posgrado: ",
+    text: "Promedio aritmético del salario de los profesionistas de esta carrera que tienen maestría o doctorado ajustado por el estimado del subreporte de ingresos para personas con posgrado del comparativo ENOE-ENIGH."
+  },
+  {
+  title: "Incremento salarial con posgrado: ",
+  text: "Cambio porcentual en el salario promedio de los profesionistas con posgrado, respecto al promedio de los que sólo tienen licenciatura."
+  }
+]
+
+export const IdOfIds: MetodologyContent[] = [
+  {
+    title:"Universidades que imparten la carrera: ",
+    text: "Número total de universidades que ofrecen cada carrera."
+  },
+  {
+    title:"Actualmente la cursan: ",
+    text: "Número total de estudiantes matriculados en la carrera en el ciclo escolar 2022-2023."
+  },
+  {
+    title: "Top 5 en matrícula: ",
+    text: "Lista de las primeras cinco universidades con mayor número de estudiantes en la carrera y su distribución por sexo."
+  }
+]
