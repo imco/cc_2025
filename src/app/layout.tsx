@@ -31,7 +31,7 @@ export default function RootLayout({
   const pathName = usePathname()
   const link: LinkOptions | undefined = LinksList.find((link: LinkOptions) => link.url == pathName)
 
-
+  const defaultDescription: string = `Cuántos profesionistas tiene cada carrera, cuáles tienen más mujeres y hombres, cuáles ofrecen mejor salario, cuáles carreras tienen una mayor tasa de desempleo, entre otras.`
 
   return (
     <html lang="es">
@@ -42,12 +42,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <title>{`Compara Carreras - ${link?.title}`}</title>
+        <title>{`Compara Carreras - ${link?.title || `Carreras`}`}</title>
         <link rel="apple-touch-icon" href="/favicon.ico" />
 
-        <link rel="canonical" href={link?.urlCanonical} />
+        <link rel="canonical" href={link?.urlCanonical || `https://comparacarreras.imco.org.mx/las-10-mas`} />
         {/* <!-- for Google --> */}
-        <meta name="description" content={link?.content} />
+        <meta name="description" content={link?.content || defaultDescription} />
         <meta
           name="keywords"
           content="carreras, universidades, ¿que estudiar?, carreras universitarias, las 10 más, cuanto ganan, en que trabajan" />
@@ -58,10 +58,10 @@ export default function RootLayout({
         <meta name="application-name" content="Compara Carreras" />
 
         {/* <!-- for Facebook --> */}
-        <meta property="og:title" content={`Compara Carreras - ${link?.title}`} />
+        <meta property="og:title" content={`Compara Carreras - ${link?.title || `Carreras`}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={link?.urlMiniatura} />
-        <meta property="og:description" content={link?.content} />
+        <meta property="og:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
+        <meta property="og:description" content={link?.content || defaultDescription} />
 
         {/* <!-- for Twitter --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -71,10 +71,10 @@ export default function RootLayout({
           property="og:url"
           content="https://imco.org.mx/comparacarreras/"
         />
-        <meta name="twitter:title" content={`Compara Carreras - ${link?.title}`} />
-        <meta name="twitter:description" content={link?.content} />
-        <meta property="og:image" content={link?.urlMiniatura} />
-        <meta name="twitter:image" content={link?.urlMiniatura} />
+        <meta name="twitter:title" content={`Compara Carreras - ${link?.title || `Carreras`}`} />
+        <meta name="twitter:description" content={link?.content || defaultDescription} />
+        <meta property="og:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
+        <meta name="twitter:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta name="twitter:domain" content="comparacarreras.org" />
       </head>
       <body

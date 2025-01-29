@@ -1,9 +1,8 @@
-export async function generateStaticParams() {
-  const tops = await fetch('https://.../las-10-mas').then((res) => res.json())
+import { TopInfo, TopsLists } from "../data.constans"
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return tops.map((top: any) => ({
-    slug: top.slug,
+export async function generateStaticParams() {
+  return TopsLists.map((top: TopInfo) => ({
+    slug: top.titleUrl,
   }))
 }
 
