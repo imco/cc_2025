@@ -13,7 +13,7 @@ export default function Navbar(props: NavbarProps) {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg bg-principal"
+        className="navbar navbar-expand-xl bg-principal"
         data-bs-theme="dark"
       >
         <div className="container-fluid">
@@ -26,7 +26,7 @@ export default function Navbar(props: NavbarProps) {
             />
           </a>
           <button
-            className="navbar-toggler border-white text-white"
+            className="navbar-toggler border-white text-white d-flex d-lg-none"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
