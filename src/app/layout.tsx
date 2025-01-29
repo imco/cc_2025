@@ -41,6 +41,7 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
         />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <title>{`Compara Carreras - ${link?.title}`}</title>
         <link rel="apple-touch-icon" href="/favicon.ico" />
 
