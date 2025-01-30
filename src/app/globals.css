@@ -26,3 +26,8 @@
 .collapse.show {
   visibility: visible !important;
 }
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color:rgba(15, 109, 250, 0.070);
+ }

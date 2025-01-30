@@ -1,0 +1,5 @@
+# robotstxt.org
+
+User-agent: *
+
+Sitemap: https://imco.org.mx/comparacarreras/sitemap.xml
