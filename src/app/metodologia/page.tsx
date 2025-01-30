@@ -44,7 +44,7 @@ export default function Metodologia() {
                 id="collapseOne"
                 data-bs-parent="#metodologyAccordion"
               >
-                <div className="accordion-body">
+                <div className="accordion-body text-justify">
                   <div className="py-4 px-2">
                     <span className="text-lg font-light">
                       Esta sección se basa en información de la Encuesta Nacional de Ocupación y Empleo (ENOE) del Instituto Nacional de Estadística y Geografía (INEGI) con datos de los últimos cuatro trimestres disponibles. Para la edición 2024 de Compara Carreras, estos son el segundo, tercer y cuarto trimestre de 2023, así como el primer trimestre de 2024.
@@ -87,7 +87,7 @@ export default function Metodologia() {
                             id="collapseOneDotOne"
                             data-bs-parent="#indicatorAccordion"
                           >
-                            <div className="accordion-body">
+                            <div className="accordion-body text-justify">
                               <div className="py-4 px-2">
                                 <ul className="list-disc pl-6 pr-4">
                                   {HowMuchAre.map((option: MetodologyContent) => (
@@ -126,7 +126,7 @@ export default function Metodologia() {
                             id="collapseOneDotTwo"
                             data-bs-parent="#indicatorAccordion"
                           >
-                            <div className="accordion-body">
+                            <div className="accordion-body text-justify">
                               <div className="py-4 px-2">
                                 <ul className="list-disc pl-6 pr-4">
                                   {WhatTheyWork.map((option: MetodologyContent) => (
@@ -189,7 +189,7 @@ export default function Metodologia() {
                             id="collapseOneDotThree"
                             data-bs-parent="#indicatorAccordion"
                           >
-                            <div className="accordion-body">
+                            <div className="accordion-body text-justify">
                               <div className="py-4 px-2">
                                 <span className="text-lg font-light">
                                   Los primeros cinco sectores con mayor proporción de ocupados egresados de esta carrera. Esta clasificación se lleva a cabo de acuerdo con la variable Clasificación de la población ocupada según sector de actividad Subtotales (RAMA_EST2) de la ENOE que clasifica a la población ocupada en 11 categorías de actividad. Algunos nombres de las categorías fueron modificados para facilitar su interpretación, en la tabla siguiente se puede comparar el nombre original con el nombre utilizado en Compara Carreras.
@@ -226,7 +226,7 @@ export default function Metodologia() {
                             id="collapseOneDotFour"
                             data-bs-parent="#indicatorAccordion"
                           >
-                            <div className="accordion-body">
+                            <div className="accordion-body text-justify">
                               <div className="py-4 px-2">
                                 <span className="text-lg font-light">
                                   <strong className="font-medium">Salario mensual:</strong> Para los cálculos salariales se consideran los ingresos reportados por aquellas personas ocupadas, que trabajaron al menos 35 horas a la semana con una remuneración mayor a cero.
@@ -301,7 +301,7 @@ export default function Metodologia() {
                             id="collapseOneDotFive"
                             data-bs-parent="#indicatorAccordion"
                           >
-                            <div className="accordion-body">
+                            <div className="accordion-body text-justify">
                               <div className="py-4 px-2">
                                 <ul className="list-disc pl-8 pr-6 pt-3">
                                   {HowMuchWonPhD.map((option: MetodologyContent) => (
@@ -347,7 +347,7 @@ export default function Metodologia() {
                 id="collapseTwo"
                 data-bs-parent="#metodologyAccordion"
               >
-                <div className="accordion-body">
+                <div className="accordion-body text-justify">
                   <div className="py-4 px-2">
                     <span className="text-lg font-light">
                       Esta sección se basa en información del Formato 911 de educación superior por carrera, elaborado por la SEP, el cual cuenta con información sobre el total de personas matriculadas durante el ciclo escolar 2022-2023, por programa de estudio, institución de educación superior y entidad federativa.
@@ -389,7 +389,7 @@ export default function Metodologia() {
                 id="collapseThree"
                 data-bs-parent="#metodologyAccordion"
               >
-                <div className="accordion-body">
+                <div className="accordion-body text-justify">
                   <div className="py-4 px-2">
                     <span className="text-lg font-light">
                       Esta sección parte de presentar el costo total promedio de estudiar una carrera, el cual se construyó a partir de diversas fuentes:
@@ -504,7 +504,7 @@ export default function Metodologia() {
                 id="collapseFour"
                 data-bs-parent="#metodologyAccordion"
               >
-                <div className="accordion-body">
+                <div className="accordion-body text-justify">
                   <div className="py-4 px-2">
                     <span className="text-lg font-light">
                       Esta sección se basa en el retorno de inversión anualizado calculado para cada carrera en universidad pública y privada, y en información de la ENOE del INEGI de los últimos cuatro trimestres disponibles. (Ver descripción de la sección I. Indicadores de mercado laboral)

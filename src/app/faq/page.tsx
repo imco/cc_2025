@@ -42,8 +42,8 @@ export default function Faq() {
                     data-bs-parent="#carrersAccordion"
                   >
                     <div className="accordion-body">
-                      <div className="py-4 px-2">
-                        <span className="text-lg font-medium">
+                      <div className="py-4 px-2 text-justify">
+                        <span className="text-lg font-medium ">
                           La rentabilidad de la inversión en educación superior depende fundamentalmente de dos variables: el nivel de ingreso y el costo de estudiar la carrera. Debido a limitaciones de información, no es posible diferenciar los ingresos de profesionistas egresados de universidades públicas y universidades privadas, por lo que el análisis que presentamos asume que, en ambos casos, los ingresos corresponden al promedio nacional de la carrera. Dado que los ingresos son iguales, la rentabilidad está determinada por los costos de la carrera que son significativamente menores en las instituciones públicas.
                         </span>
                       </div>
@@ -68,7 +68,7 @@ export default function Faq() {
                     id="collapseTwo"
                     data-bs-parent="#carrersAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="text-lg font-medium">
                           Revisa nuestros tops en la sección Las 10 más en donde posiblemente encontrarás información que te ayudará a resolver esas dudas:
@@ -105,7 +105,7 @@ export default function Faq() {
                     id="collapseThree"
                     data-bs-parent="#carrersAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="font-medium text-lg">
                           ¿No encuentras la carrera que buscas? Prueba usando la misma nomenclatura que listamos a continuación.
@@ -164,7 +164,7 @@ export default function Faq() {
                     id="collapseTwoDotOne"
                     data-bs-parent="#plataformAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="font-medium text-lg">
                           No, Compara Carreras es una herramienta que permite analizar indicadores del mercado laboral para que los jóvenes conozcan los beneficios y riesgos de una carrera. La herramienta te permite comparar las opciones de tu interés para tomar una decisión informada.
@@ -191,7 +191,7 @@ export default function Faq() {
                     id="collapseTwoDotTwo"
                     data-bs-parent="#plataformAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="font-medium text-lg">
                           Compara Carreras se basa en la Clasificación Mexicana de Programas de Estudio por Campos de Formación Académica en su versión 2016 para generar información sobre los programas. Esta clasificación contempla 118 campos detallados dentro de 10 áreas de estudio, según la similitud de sus objetivos, contenidos y métodos de estudio. Esta herramienta solo considera 65 campos detallados, esto se debe a que las carreras que quedaron fuera cuentan con muy pocas observaciones, lo que ocasiona que sus resultados sean poco confiables.
@@ -223,7 +223,7 @@ export default function Faq() {
                     id="collapseTwoDotThree"
                     data-bs-parent="#plataformAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="font-medium text-lg">
                           Las carreras TSU son carreras Técnico Superior Universitario, popularmente conocidas como carreras técnicas. Estas carreras tienen una menor duración que una licenciatura, se enfocan en el conocimiento práctico con el fin de que sus egresados puedan ejercer lo más pronto posible. Estas carreras tienen ventajas como un menor desempleo y pueden llegar a tener mayores ingresos que ciertas licenciaturas.
@@ -232,7 +232,7 @@ export default function Faq() {
                     </div>
                   </div>
                 </article>
-                <article className="accordion-item">
+                <article className="accordion-item mb-4">
                   <h3 className="accordion-header">
                     <button
                       className="accordion-button text-xl font-semibold"
@@ -250,7 +250,7 @@ export default function Faq() {
                     id="collapseTwoDotFour"
                     data-bs-parent="#plataformAccordion"
                   >
-                    <div className="accordion-body">
+                    <div className="accordion-body text-justify">
                       <div className="py-4 px-2">
                         <span className="font-medium text-lg">
                           De acuerdo con la clasificación oficial, las carreras se agrupan por su similitud en contenido teórico, propósitos de aprendizaje y objetos de estudio.

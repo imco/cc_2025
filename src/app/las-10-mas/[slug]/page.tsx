@@ -1,5 +1,7 @@
+import TopTable from "@/components/las-10-mas/top-table/top-table.component"
 import { TopInfo, TopsLists } from "../data.constans"
 import { TopDescription, TopsTypes } from "./data.constans"
+import Link from "next/link"
 
 export async function generateStaticParams() {
   return TopsLists.map((top: TopInfo) => ({
@@ -20,7 +22,15 @@ export default async function Page({ params }: {
   const topData = require(`@/components/las-10-mas/top/${actualTop?.jsonName}`)
 
   return (
-    <main className="container-sm pt-10">
+    <main className="container-sm pt-6">
+
+      <div className="row mb-3">
+        <div className="col-s3">
+          <Link href={"/las-10-mas"} className="text-principal text-sm">
+            &larr; Volver a las 10 más
+          </Link>
+        </div>
+      </div>
       <div className="row">
         <div className="col-12">
           <div className="card shadow-md shadow-blue-500/50 py-4 px-3">
@@ -30,41 +40,12 @@ export default async function Page({ params }: {
               >
                 {actualTop?.name}
               </h1>
-              <div className="mt-3">
+              <div className="mt-3 text-justify">
                 <p className="card-text text-lg font-light">
                   {actualTop?.description}
                 </p>
               </div>
-              <table className="table table-striped mt-4 table-borderless">
-                <thead>
-                  <tr>
-                    <td className="text-principal font-medium">Rango</td>
-                    <td className="text-principal font-medium">Carrera</td>
-                    <td className="text-principal font-medium">Valor</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.keys(topData).slice(0, 10).map((key: string) => {
-                    let thirdColumnValue: string | number = Number(topData[key][1])
-                    if (thirdColumnValue) {
-                      if (!Number.isInteger(thirdColumnValue))
-                        thirdColumnValue = `${Math.round(topData[key][1] * 1000) / 10}%`
-                    } else {
-                      thirdColumnValue = topData[key][1]
-                    }
-                    return (
-                      <tr key={key}>
-                        <td>{topData[key][0]}</td>
-                        <td>{key}</td>
-                        <td>
-                          {thirdColumnValue}
-                        </td>
-                      </tr>
-                    )
-                  }
-                  )}
-                </tbody>
-              </table>
+              <TopTable topData={topData} actualTop={actualTop} />
             </div>
           </div>
         </div>
