@@ -30,4 +30,12 @@
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color:rgba(15, 109, 250, 0.070);
- }
+}
+
+.h-90-screen{
+  height: 90vh;
+}
+
+.image-blue-filter{
+  filter: brightness(0) saturate(100%) invert(14%) sepia(80%) saturate(2704%) hue-rotate(198deg) brightness(98%) contrast(98%);
+}

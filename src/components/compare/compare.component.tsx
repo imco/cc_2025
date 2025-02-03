@@ -30,14 +30,14 @@ export default function Compare() {
     <main className="pt-8 container-fluid">
       <div className="row">
         <div className={isComparing ? "col-md-3 col-12 mb-3" : "col-8 offset-2"}>
-          <div className="md:ml-2 card p-2">
+          <div className="md:ml-2 card p-2 rounded-2xl shadow-md">
             <div className="card-body">
               <div className="text-center">
                 <span className="card-title text-3xl font-bold text-principal">
                   Compara Carreras
                 </span>
               </div>
-              <div className="card-text text-justify mt-3 mb-4 font-light">
+              <div className="card-text text-justify mt-3 mb-4 font-light text-lg">
                 Compara Carreras es una herramienta que permite analizar indicadores del mercado laboral para que los jóvenes conozcan los beneficios y riesgos de una carrera. La herramienta te permite comparar las opciones de tu interés para tomar una decisión informada.
               </div>
               <CompareForm
@@ -51,7 +51,7 @@ export default function Compare() {
           </div>
         </div>
         <div className={isComparing ? "col-md-9 md:pr-6" : "hidden"}>
-          <div className="card mb-4">
+          <div className="card mb-4 rounded-2xl shadow-md">
             <div className="card-body">
               <div className="card-text">
                 <CompareTable
