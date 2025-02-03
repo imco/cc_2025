@@ -4,8 +4,6 @@ import { useState } from "react"
 import CompareForm from "@/components/carrers/compare-carrers-form/compare-form.component"
 import CompareTable from "@/components/carrers/compare-carrers-table/compare-carrers-table.component"
 
-import carrersDataCSV from "@/components/carrers/carrers-data/carrers.data.csv"
-
 export default function Compara() {
   const [isComparing, setIsComparing] = useState(false)
 
@@ -13,25 +11,11 @@ export default function Compara() {
     setIsComparing(!isComparing)
   }
 
-  const parseCSV = () => {
-    const lines = carrersDataCSV.split('\n')
-    const headers = lines[0].split(',').map(
-      (header: string) => header.trim().replace(/"/g, '')
-    )
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
 
-    console.log(headers);
+  console.log(carrersData);
 
-    return lines.slice(1).map((line: string) => {
-      const values = line.split(',');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return headers.reduce((obj: any, header: string, index: number) => {
-        obj[header] = values[index] ? values[index].replace(/"/g, '').trim() : '';
-        return obj;
-      }, {});
-    });
-  }
-
-  const carrersData = parseCSV()
 
   return (
     <main className="pt-8">
@@ -59,7 +43,9 @@ export default function Compara() {
           <div className="card">
             <div className="card-body">
               <div className="card-text">
-                <CompareTable />
+                <CompareTable
+                  carrersData={carrersData}
+                />
               </div>
             </div>
           </div>

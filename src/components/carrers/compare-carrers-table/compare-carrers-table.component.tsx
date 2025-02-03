@@ -1,5 +1,11 @@
-export default function CompareTable() {
+interface Props {
+  carrersData: object[]
+}
+
+export default function CompareTable(props: Props) {
   return (
-    <div>CompareTable</div>
+    <main className="container">
+      {props.carrersData.map((ele) => ele.CARRERA)}
+    </main>
   )
 }
