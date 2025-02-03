@@ -6,7 +6,7 @@ interface Props {
   isComparing: boolean,
   handleOnClickCompare: () => void
   carrersData: CarrersData[]
-  seCarrersToCompare: Dispatch<SetStateAction<string[]>>
+  seCarrersToCompare: Dispatch<SetStateAction<(string | null)[]>>
 }
 
 export default function CompareForm(props: Props) {
@@ -14,6 +14,7 @@ export default function CompareForm(props: Props) {
   const [carrer2, setCarrer2] = useState('')
 
   const handleOnClickCompare = () => {
+    props.seCarrersToCompare([carrer1, carrer2])
     props.seCarrersToCompare([carrer1, carrer2])
     console.log(carrer1, carrer2);
     props.handleOnClickCompare()

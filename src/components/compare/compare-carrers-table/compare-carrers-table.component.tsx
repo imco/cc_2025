@@ -3,7 +3,7 @@ import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 
 interface Props {
   carrersData: CarrersData[]
-  carrerToCompare: string[]
+  carrerToCompare: (string | null)[]
 }
 
 function formatNumber(value: number | string | undefined) {

@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
           as: '*.js',
         },
       },
-    }
+    },
   },
   webpack: (config, options) => {
     config.module.rules.push({
