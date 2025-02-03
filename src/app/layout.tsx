@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 
 import { usePathname } from "next/navigation";
+import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
@@ -86,6 +87,7 @@ export default function RootLayout({
       </body>
       {/* Google Tag Manager */}
       <GoogleTagManager gtmId="G-J7CL260VSJ" />
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html>
   );
 }
