@@ -15,6 +15,7 @@ export default function CompareForm(props: Props) {
 
   const handleOnClickCompare = () => {
     props.seCarrersToCompare([carrer1, carrer2])
+    console.log(carrer1, carrer2);
     props.handleOnClickCompare()
   }
 
