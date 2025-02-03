@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { redirect, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 import CompareForm from "@/components/compare/compare-carrers-form/compare-form.component"
 import CompareTable from "@/components/compare/compare-carrers-table/compare-carrers-table.component"
@@ -21,12 +21,6 @@ export default function Compare() {
   }, [carrer1, carrer2])
 
   const handleOnClickCompare = () => {
-    if (carrersToCompare[0] && carrersToCompare[1]) {
-      console.log(`/compara?carrer1=${carrersToCompare[0]}&carrer2=${carrersToCompare[1]}`);
-      redirect(`/compara?carrer1=${carrersToCompare[0]}&carrer2=${carrersToCompare[1]}`)
-    } else {
-      alert('Selecciona dos carreras por favor')
-    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -51,6 +45,7 @@ export default function Compare() {
                 handleOnClickCompare={handleOnClickCompare}
                 carrersData={carrersData}
                 seCarrersToCompare={setCarrersToCompare}
+                carrersToCompare={carrersToCompare}
               />
             </div>
           </div>

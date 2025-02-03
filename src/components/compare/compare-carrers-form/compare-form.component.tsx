@@ -1,12 +1,14 @@
 "use client"
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
+import { redirect } from "next/navigation"
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react"
 
 interface Props {
-  isComparing: boolean,
+  isComparing: boolean
   handleOnClickCompare: () => void
   carrersData: CarrersData[]
   seCarrersToCompare: Dispatch<SetStateAction<(string | null)[]>>
+  carrersToCompare: (string | null)[]
 }
 
 export default function CompareForm(props: Props) {
@@ -17,6 +19,12 @@ export default function CompareForm(props: Props) {
     props.seCarrersToCompare([carrer1, carrer2])
     props.seCarrersToCompare([carrer1, carrer2])
     console.log(carrer1, carrer2);
+    if (carrer1 && carrer2) {
+      console.log(`/compara?carrer1=${carrer1}&carrer2=${carrer2}`);
+      redirect(`/compara?carrer1=${carrer1}&carrer2=${carrer2}`)
+    } else {
+      alert('Selecciona dos carreras por favor')
+    }
     props.handleOnClickCompare()
   }
 
