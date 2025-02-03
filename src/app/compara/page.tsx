@@ -14,9 +14,6 @@ export default function Compara() {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
 
-  console.log(carrersData);
-
-
   return (
     <main className="pt-8">
       <div className="row">
