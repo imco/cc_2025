@@ -86,14 +86,14 @@ export default function CompareTable(props: Props) {
             <td>Nuevos egresados</td>
             <td>
               {formatNumber(
-                parseInt(carrer1?.EGRESADOS_H) +
-                parseInt(carrer1?.EGRESADOS_M)
+                parseInt(carrer1?.EGRESADOS_H || '-') +
+                parseInt(carrer1?.EGRESADOS_M || '-')
               )}
             </td>
             <td>
               {formatNumber(
-                parseInt(carrer2?.EGRESADOS_H) +
-                parseInt(carrer2?.EGRESADOS_M)
+                parseInt(carrer2?.EGRESADOS_H || '-') +
+                parseInt(carrer2?.EGRESADOS_M || '-')
               )}
             </td>
           </tr>
@@ -122,6 +122,17 @@ export default function CompareTable(props: Props) {
             </td>
             <td>
               {carrer2?.CI_PUB || '-'}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Costo de educación
+            </td>
+            <td>
+              {`$${formatNumber(carrer1?.COSTO_TOTAL_PUBLICA)}`}
+            </td>
+            <td>
+              {`$${formatNumber(carrer2?.COSTO_TOTAL_PUBLICA)}`}
             </td>
           </tr>
         </tbody>

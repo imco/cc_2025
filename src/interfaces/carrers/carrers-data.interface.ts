@@ -9,8 +9,8 @@ export default interface CarrersData {
   MATRICULA: number | string;
   MATRICULA_H: number | string;
   MATRICULA_M: number | string;
-  EGRESADOS_H: number | string;
-  EGRESADOS_M: number | string;
+  EGRESADOS_H: string;
+  EGRESADOS_M: string;
   NUEVO_INGRESO_H: number | string;
   NUEVO_INGRESO_M: number | string;
   LUGARES: number | string;
