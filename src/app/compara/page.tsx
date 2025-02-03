@@ -23,7 +23,8 @@ export default function Compara() {
 
     return lines.slice(1).map((line: string) => {
       const values = line.split(',');
-      return headers.reduce((obj: unknown, header: string, index: number) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return headers.reduce((obj: any, header: string, index: number) => {
         obj[header] = values[index] ? values[index].replace(/"/g, '').trim() : '';
         return obj;
       }, {});
