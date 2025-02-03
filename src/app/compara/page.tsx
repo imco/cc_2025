@@ -6,8 +6,11 @@ import CompareTable from "@/components/carrers/compare-carrers-table/compare-car
 
 export default function Compara() {
   const [isComparing, setIsComparing] = useState(false)
+  const [carrersToCompare, setCarrersToCompare] = useState(Array<string>)
 
   const handleOnClickCompare = () => {
+    console.log(carrersToCompare);
+
     setIsComparing(!isComparing)
   }
 
@@ -32,6 +35,7 @@ export default function Compara() {
                 isComparing={isComparing}
                 handleOnClickCompare={handleOnClickCompare}
                 carrersData={carrersData}
+                seCarrersToCompare={setCarrersToCompare}
               />
             </div>
           </div>
@@ -42,6 +46,7 @@ export default function Compara() {
               <div className="card-text">
                 <CompareTable
                   carrersData={carrersData}
+                  carrerToCompare={carrersToCompare}
                 />
               </div>
             </div>
