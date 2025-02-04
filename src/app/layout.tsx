@@ -6,11 +6,13 @@ import "./globals.css";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Suspense } from "react";
 
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
 import { LinksList } from "@/interfaces/navbar/links-lists.interface";
 import LinkOptions from "@/interfaces/navbar/navbar-options.interface";
 import Navbar from "@/components/navbar/navbar.component";
+import Footer from "@/components/footer/footer.component";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,15 +79,17 @@ export default function RootLayout({
         <meta name="twitter:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta name="twitter:domain" content="comparacarreras.org" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="min-h-screen flex flex-col">
         <Navbar linksOptions={LinksList} />
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
         <BootstrapClient />
       </body>
-      {/* Google Tag Manager */}
-      <GoogleTagManager gtmId="G-J7CL260VSJ" />
+      <Suspense>
+        <GoogleTagManager gtmId="G-J7CL260VSJ" />
+      </Suspense>
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html>
   );
