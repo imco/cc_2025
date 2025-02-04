@@ -2,7 +2,7 @@ import { CarrersList, Top10sList, TSUList } from "./carreras.constans";
 
 export default function Faq() {
   return (
-    <main className="container h-screen">
+    <main className="container">
       <div className="row mb-16">
         <div className="col-12">
           <div className="flex align-middle justify-center h-16 text-center">

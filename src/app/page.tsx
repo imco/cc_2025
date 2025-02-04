@@ -54,7 +54,7 @@ export default function Home() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Busca tu carera"
+                        placeholder="Busca tu carrera"
                         aria-label="Busca tu carrera"
                         aria-describedby="input for search your dreamed carrer"
                         list="carrersList"

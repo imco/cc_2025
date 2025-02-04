@@ -12,7 +12,6 @@ import { LinksList } from "@/interfaces/navbar/links-lists.interface";
 import LinkOptions from "@/interfaces/navbar/navbar-options.interface";
 import Navbar from "@/components/navbar/navbar.component";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

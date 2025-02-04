@@ -280,14 +280,18 @@ export default function CarrerInfo(props: Props) {
                 </h2>
               </div>
               <div className="row">
-                <div className="col-12 col-md-6 flex flex-col justify-center items-center">
-                  <h3 className="text-principal text-lg font-semibold">
-                    Probabilidad de obtener un empleo de calidad
-                  </h3>
-                  <br />
-                  <span className='text-xl font-bold'>
-                    {`${formatPercentage(carrerData.PROB_EMPL_CAL)}`}
-                  </span>
+                <div className="col-12 col-md-6 flex flex-col justify-center items-center mb-5">
+                  <div className="card p-2 rounded-2xl shadow-lg">
+                    <div className="card-body">
+                      <h3 className="text-principal text-lg font-semibold">
+                        Probabilidad de obtener un empleo de calidad
+                      </h3>
+                      <br />
+                      <span className='text-xl font-bold'>
+                        {`${formatPercentage(carrerData.PROB_EMPL_CAL)}`}
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div className="col-12 col-md-6 flex flex-col justify-center items-center h-72">
                   <Doughnut data={{
@@ -318,6 +322,206 @@ export default function CarrerInfo(props: Props) {
                     ]
                   }}
                   />
+                </div>
+              </div>
+              <div className="pt-12 pb-4">
+                <h2 className="text-principal text-xl font-semibold">
+                  ¿Cuánto ganan?
+                </h2>
+              </div>
+              <div className="my-2">
+                <span className="text-lg font-light">
+                  Salario mensual promedio, niveles de salario de los que más y menos perciben, así como el salario promedio con posgrado.
+                </span>
+              </div>
+              <div className="mt-3">
+                <div className="row">
+                  <div className="col-12 col-md-6 flex items-center justify-center mb-4">
+                    <div className="rounded-full bg-slate-100 h-full flex flex-col justify-center items-center px-4 py-4 w-full">
+                      <span className="text-lg font-bold text-principal">
+                        {`$${formatNumber(carrerData.INGRESO)}`}
+                      </span>
+                      <div className="my-2">
+                        <span className="text-md font-light">
+                          Salario mensual promedio
+                        </span>
+                      </div>
+                      <span className="text-xs font-light">
+                        Salario promedio mensual de la población ocupada en México es $10,920
+                      </span>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 flex items-center justify-center mb-4">
+                    <div className="rounded-full bg-slate-100 h-full flex flex-col justify-center items-center px-4 py-4 w-full">
+                      <span className="text-lg font-bold text-principal">
+                        {`${carrerData.RANK_INGRESO || '-'}°`}
+                      </span>
+                      <div className="my-2">
+                        <span className="text-md font-light">
+                          Carrera mejor pagada
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-8 offset-md-2 flex flex-col justify-center items-center h-96 mb-5">
+                    <div className="pt-12 pb-4">
+                      <h2 className="text-principal text-xl font-semibold">
+                        Distribución del salario mensual
+                      </h2>
+                    </div>
+                    <Doughnut data={{
+                      labels: [
+                        '25% de los profesionistas gana menos de esta cantidad',
+                        'Ingreso de un profesional a la mitad de la escala salarial',
+                        '25% de los profesionistas gana más de esta cantidad', 'Salario promedio'
+                      ],
+                      datasets: [
+                        {
+                          label: 'Distribución del salario mensual',
+                          data: [
+                            carrerData.INGRESO_Q25,
+                            carrerData.INGRESO_Q50,
+                            carrerData.INGRESO_Q75,
+                            carrerData.INGRESO
+                          ],
+                          backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(99, 255, 133, 0.2)',
+                            'rgba(255, 193, 99, 0.2)',
+                            'rgba(223, 68, 254, 0.2)',
+                          ],
+                          borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(99, 255, 133, 1)',
+                            'rgba(255, 193, 99, 1)',
+                            'rgba(223, 68, 254, 1)',
+                          ],
+                          borderWidth: 1,
+                        }
+                      ]
+                    }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="mt-12">
+                <div className="row">
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Mujeres
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_M)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Hombres
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_H)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Menos de 30 años
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_30MENOS)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Más de 30 años
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_30MAS)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Formales
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_FORMAL)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12 col-md-6 mb-3">
+                    <div className="card p-2 rounded-2xl shadow-md">
+                      <div className="card-body">
+                        <h3 className="text-principal text-xl font-semibold">
+                          Informales
+                        </h3>
+                        <br />
+                        <span className='text-xl font-semibold'>
+                          {`$${formatNumber(carrerData.INGRESO_INFORMAL)}`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-12 col-md-4 flex flex-col justify-center items-center">
+                  <div className="rounded-full bg-slate-100 h-full flex flex-col justify-center items-center px-4 py-4">
+                    <span className="text-xl font-bold text-principal">
+                      {`${formatPercentage(carrerData.POR_POSGRADO)}`}
+                    </span>
+                    <div className="my-2">
+                      <span className="text-md font-light">
+                        Del total de personas que estudian esta carrera tienen un posgrado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 flex flex-col justify-center items-center">
+                  <div className="rounded-full bg-slate-100 h-full flex flex-col justify-center items-center px-4 py-4">
+                    <span className="text-xl font-bold text-principal">
+                      {`$${formatNumber(carrerData.ING_POSG)}`}
+                    </span>
+                    <div className="my-2">
+                      <span className="text-md font-light">
+                        Salario promedio mensual con posgrado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 flex flex-col justify-center items-center">
+                  <div className="rounded-full bg-slate-100 h-full flex flex-col justify-center items-center px-4 py-4">
+                    <span className="text-xl font-bold text-principal">
+                      {`${formatNumber(carrerData.INCREMENTO_POSGRADO)}%`}
+                    </span>
+                    <div className="my-2">
+                      <span className="text-md font-light">
+                        Incremento salarial con posgrado
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
