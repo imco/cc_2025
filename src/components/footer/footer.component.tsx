@@ -19,6 +19,8 @@ export default function Footer() {
               <a
                 href="mailto:comparacarreras@imco.org.mx"
                 className="hover:text-accent transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 comparacarreras@imco.org.mx
               </a>
@@ -26,23 +28,48 @@ export default function Footer() {
 
             {/* Social Links */}
             <div className="flex gap-4 mb-4">
-              <a href="#" className="hover:text-accent transition-colors">
-                <i className="fa fa-facebook"></i>
+              <a
+                href="https://www.facebook.com/IMCOmx"
+                className="hover:text-accent transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-facebook text-lg"></i>
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <i className="fa fa-twitter"></i>
+              <a
+                href="https://twitter.com/imcomx"
+                className="hover:text-accent transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-twitter text-lg"></i>
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <i className="fa fa-instagram"></i>
+              <a
+                href="https://www.instagram.com/imcomx/"
+                className="hover:text-accent transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-instagram text-lg"></i>
               </a>
             </div>
 
             {/* Additional Links */}
             <div className="text-sm font-light">
-              <a href="#" className="hover:text-accent transition-colors block mb-1">
+              <a
+                href="https://imco.org.mx/"
+                className="hover:text-accent transition-colors block mb-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Sitio web del IMCO
               </a>
-              <a href="#" className="hover:text-accent transition-colors block">
+              <a
+                href="https://imco.org.mx/aviso-de-privacidad/"
+                className="hover:text-accent transition-colors block"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Aviso de privacidad
               </a>
             </div>
