@@ -29,39 +29,37 @@ export default function Home() {
       setCarrer(newValue)
     }
    */
-  const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
-  let searchPhraseIndex = 0;
+  const searchPhraseIndex = useRef(0);
   let searchCharIndex = 0;
   const searchPlaceholder = useRef(Object());
   //const searchInput = useRef(null);
 
   useEffect(() => {
+    const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
     searchPlaceholder.current = document.getElementById('search-placeholder');
     //searchInput = document.getElementById('search-input');
-  }, [])
-
-  const typeSearchPlaceholder = () => {
-    if (searchPlaceholder.current && searchCharIndex < searchPhrases[searchPhraseIndex].length) {
-      searchPlaceholder.current.textContent += searchPhrases[searchPhraseIndex].charAt(searchCharIndex);
-      searchCharIndex++;
-      setTimeout(typeSearchPlaceholder, 100);
-    } else {
-      setTimeout(eraseSearchPlaceholder, 2000);
+    const typeSearchPlaceholder = () => {
+      if (searchPlaceholder.current && searchCharIndex < searchPhrases[searchPhraseIndex.current].length) {
+        searchPlaceholder.current.textContent += searchPhrases[searchPhraseIndex.current].charAt(searchCharIndex);
+        searchCharIndex++;
+        setTimeout(typeSearchPlaceholder, 100);
+      } else {
+        setTimeout(eraseSearchPlaceholder, 2000);
+      }
     }
-  }
 
-  const eraseSearchPlaceholder = () => {
-    if (searchPlaceholder.current && searchCharIndex > 0) {
-      searchPlaceholder.current.textContent = searchPhrases[searchPhraseIndex].substring(0, searchCharIndex - 1);
-      searchCharIndex--;
-      setTimeout(eraseSearchPlaceholder, 50);
-    } else {
-      searchPhraseIndex = (searchPhraseIndex + 1) % searchPhrases.length;
-      setTimeout(typeSearchPlaceholder, 500);
+    const eraseSearchPlaceholder = () => {
+      if (searchPlaceholder.current && searchCharIndex > 0) {
+        searchPlaceholder.current.textContent = searchPhrases[searchPhraseIndex.current].substring(0, searchCharIndex - 1);
+        searchCharIndex--;
+        setTimeout(eraseSearchPlaceholder, 50);
+      } else {
+        searchPhraseIndex.current = (searchPhraseIndex.current + 1) % searchPhrases.length;
+        setTimeout(typeSearchPlaceholder, 500);
+      }
     }
-  }
-
-  typeSearchPlaceholder();
+    typeSearchPlaceholder()
+  }, [searchCharIndex])
 
   return (
     <>
