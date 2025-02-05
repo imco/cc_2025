@@ -1,5 +1,5 @@
 export default interface CarrersData {
-  CVE_CARRERA: number;
+  CVE_CARRERA: number | string;
   CARRERA: string;
   TOTAL: number | string;
   HOMBRE: number | string;

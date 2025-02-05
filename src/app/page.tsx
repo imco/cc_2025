@@ -1,12 +1,12 @@
 "use client"
 import Image from "next/image"
 import {
-  //  ChangeEvent,
+  ChangeEvent,
   useEffect,
   useRef,
-  //useState
+  useState,
 } from "react";
-//import { redirect } from "next/navigation"
+import { redirect } from "next/navigation"
 
 import homeImage from "@/assets/images/CC_LogoHome_Editado.png"
 import CarrersData from "@/interfaces/carrers/carrers-data.interface";
@@ -15,26 +15,17 @@ export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
 
-  // const [carrer, setCarrer] = useState('')
-
-  /*   const handleOnClickSearch = () => {
-      if (carrersData.find((_carrer: CarrersData) => carrer == _carrer.CARRERA))
-        redirect(`/${carrer.toLowerCase().replaceAll(" ", "_")}`)
-      else
-        alert('Carrera no encontrada')
-    }
-
-    const handleOnChangeInputCarrer = (event: ChangeEvent<HTMLInputElement>) => {
-      const newValue = event.target.value
-      setCarrer(newValue)
-    }
-   */
+  const [carrer, setCarrer] = useState('')
   const searchPhraseIndex = useRef(0);
   let searchCharIndex = 0;
   const searchPlaceholder = useRef(Object());
-  //const searchInput = useRef(null);
+  const searchResults = useRef(Object())
+  const carrersNames = useRef([])
 
   useEffect(() => {
+    carrersNames.current = carrersData.map(
+      (carrer: CarrersData) => carrer.CARRERA
+    )
     const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
     searchPlaceholder.current = document.getElementById('search-placeholder');
     //searchInput = document.getElementById('search-input');
@@ -59,7 +50,32 @@ export default function Home() {
       }
     }
     typeSearchPlaceholder()
-  }, [searchCharIndex])
+
+    searchResults.current = document.getElementById('search-results');
+  }, [searchCharIndex, carrersData])
+
+  const displayResults = (results: CarrersData[]) => {
+    searchPlaceholder.current.style.display = "none"
+    searchResults.current.innerHTML = '';
+    results.forEach(result => {
+      const div = document.createElement('div');
+      div.classList.add('search-result');
+      div.textContent = result.CARRERA;
+      div.addEventListener('click', () => redirect(`/${result.CARRERA.toLowerCase().replaceAll(" ", "_")}`));
+      searchResults.current.appendChild(div);
+    });
+    searchResults.current.style.display = results.length > 0 ? 'block' : 'none';
+  }
+
+  const handleOnChangeInputCarrer = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value
+    setCarrer(newValue)
+    const searchTerm = carrer.toLowerCase();
+    const filteredCareers = carrersData.filter((career: CarrersData) =>
+      career.CARRERA.toLowerCase().includes(searchTerm)
+    );
+    displayResults(filteredCareers);
+  }
 
   return (
     <>
@@ -82,7 +98,15 @@ export default function Home() {
           Compara salarios, oportunidades laborales y más para tomar la mejor decisión.
         </p>
         <div className="search-container">
-          <input type="text" id="search-input" placeholder="" />
+          <input
+            type="text"
+            id="search-input"
+            placeholder=""
+            value={carrer}
+            onChange={
+              (event: ChangeEvent<HTMLInputElement>) => handleOnChangeInputCarrer(event)
+            }
+          />
           <div id="search-placeholder"></div>
           <div id="search-results"></div>
         </div>
