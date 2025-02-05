@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image"
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { redirect } from "next/navigation"
 
 import homeImage from "@/assets/images/CC_LogoHome_Editado.png"
@@ -24,6 +24,39 @@ export default function Home() {
     setCarrer(newValue)
   }
 
+  const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
+  let searchPhraseIndex = 0;
+  let searchCharIndex = 0;
+  const searchPlaceholder = useRef(document.getElementById('search-placeholder'));
+  const searchInput = useRef(null);
+
+  useEffect(() => {
+    searchPlaceholder.current = document.getElementById('search-placeholder');
+    //searchInput = document.getElementById('search-input');
+    typeSearchPlaceholder();
+  }, [])
+
+  const typeSearchPlaceholder = () => {
+    if (searchPlaceholder.current && searchCharIndex < searchPhrases[searchPhraseIndex].length) {
+      searchPlaceholder.current.textContent += searchPhrases[searchPhraseIndex].charAt(searchCharIndex);
+      searchCharIndex++;
+      setTimeout(typeSearchPlaceholder, 100);
+    } else {
+      setTimeout(eraseSearchPlaceholder, 2000);
+    }
+  }
+
+  const eraseSearchPlaceholder = () => {
+    if (searchPlaceholder.current && searchCharIndex > 0) {
+      searchPlaceholder.current.textContent = searchPhrases[searchPhraseIndex].substring(0, searchCharIndex - 1);
+      searchCharIndex--;
+      setTimeout(eraseSearchPlaceholder, 50);
+    } else {
+      searchPhraseIndex = (searchPhraseIndex + 1) % searchPhrases.length;
+      setTimeout(typeSearchPlaceholder, 500);
+    }
+  }
+
   return (
     <>
       <datalist id="carrersList">
@@ -31,54 +64,25 @@ export default function Home() {
           <option value={carrer.CARRERA} key={carrer.CARRERA} />
         ))}
       </datalist>
-      <main className="container h-90-screen">
-        <div className="flex flex-col justify-center items-center h-4/5">
-          <div className="card shadow-lg p-2 w-4/5 rounded-2xl">
-            <div className="card-body">
-              <div className="flex flex-col justify-center items-center align-middle">
-                <Image
-                  src={homeImage.src}
-                  width={homeImage.width}
-                  height={homeImage.height * 0.9}
-                  className="image-blue-filter img-fluid"
-                  alt="Logo de Compara carreras"
-                />
-                <div className="text-center mt-8">
-                  <span className="text-2xl font-semibold text-principal">
-                    Descubre información relevante sobre más de 60 carreras universitarias. Compara salarios, oportunidades laborales y más para tomar la mejor decisión.
-                  </span>
-                </div>
-                <div className="row w-full mt-8">
-                  <div className="col-md-8 offset-md-2">
-                    <div className="input-group mb-4">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Busca tu carrera"
-                        aria-label="Busca tu carrera"
-                        aria-describedby="input for search your dreamed carrer"
-                        list="carrersList"
-                        value={carrer}
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => handleOnChangeInputCarrer(event)}
-                      />
-                    </div>
-                    <div className="flex justify-center">
-                      <button
-                        id="Search"
-                        type="button"
-                        className="btn btn-primary"
-                        onClick={() => handleOnClickSearch()}
-                      >
-                        Buscar
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="main-section">
+        <div className="compara-carreras-logo">
+          <Image
+            src={homeImage.src}
+            width={homeImage.width}
+            height={homeImage.height}
+            alt="ComparaCarreras"
+          />
         </div>
-      </main>
+        <p className="description">
+          Descubre información relevante sobre más de 60 carreras universitarias.
+          Compara salarios, oportunidades laborales y más para tomar la mejor decisión.
+        </p>
+        <div className="search-container">
+          <input type="text" id="search-input" placeholder="" />
+          <div id="search-placeholder"></div>
+          <div id="search-results"></div>
+        </div>
+      </section>
     </>
   );
 }

@@ -6,7 +6,6 @@ import "./globals.css";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Suspense } from "react";
 
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
 import { LinksList } from "@/interfaces/navbar/links-lists.interface";
@@ -44,6 +43,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
         />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
         <title>{`Compara Carreras - ${link?.title || `Carreras`}`}</title>
         <link rel="apple-touch-icon" href="/favicon.ico" />
 
@@ -87,9 +87,7 @@ export default function RootLayout({
         <Footer />
         <BootstrapClient />
       </body>
-      <Suspense>
-        <GoogleTagManager gtmId="G-J7CL260VSJ" />
-      </Suspense>
+      <GoogleTagManager gtmId="G-J7CL260VSJ" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html>
   );
