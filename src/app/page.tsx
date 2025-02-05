@@ -1,7 +1,12 @@
 "use client"
 import Image from "next/image"
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { redirect } from "next/navigation"
+import {
+  //  ChangeEvent,
+  useEffect,
+  useRef,
+  //useState
+} from "react";
+//import { redirect } from "next/navigation"
 
 import homeImage from "@/assets/images/CC_LogoHome_Editado.png"
 import CarrersData from "@/interfaces/carrers/carrers-data.interface";
@@ -10,30 +15,29 @@ export default function Home() {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
 
-  const [carrer, setCarrer] = useState('')
+  // const [carrer, setCarrer] = useState('')
 
-  const handleOnClickSearch = () => {
-    if (carrersData.find((_carrer: CarrersData) => carrer == _carrer.CARRERA))
-      redirect(`/${carrer.toLowerCase().replaceAll(" ", "_")}`)
-    else
-      alert('Carrera no encontrada')
-  }
+  /*   const handleOnClickSearch = () => {
+      if (carrersData.find((_carrer: CarrersData) => carrer == _carrer.CARRERA))
+        redirect(`/${carrer.toLowerCase().replaceAll(" ", "_")}`)
+      else
+        alert('Carrera no encontrada')
+    }
 
-  const handleOnChangeInputCarrer = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value
-    setCarrer(newValue)
-  }
-
+    const handleOnChangeInputCarrer = (event: ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value
+      setCarrer(newValue)
+    }
+   */
   const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
   let searchPhraseIndex = 0;
   let searchCharIndex = 0;
   const searchPlaceholder = useRef(document.getElementById('search-placeholder'));
-  const searchInput = useRef(null);
+  //const searchInput = useRef(null);
 
   useEffect(() => {
     searchPlaceholder.current = document.getElementById('search-placeholder');
     //searchInput = document.getElementById('search-input');
-    typeSearchPlaceholder();
   }, [])
 
   const typeSearchPlaceholder = () => {
@@ -56,6 +60,8 @@ export default function Home() {
       setTimeout(typeSearchPlaceholder, 500);
     }
   }
+
+  typeSearchPlaceholder();
 
   return (
     <>
