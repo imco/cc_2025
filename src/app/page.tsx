@@ -32,7 +32,7 @@ export default function Home() {
   const searchPhrases = ["Busca tu carrera...", "Explora oportunidades...", "Compara salarios..."];
   let searchPhraseIndex = 0;
   let searchCharIndex = 0;
-  const searchPlaceholder = useRef(Object(HTMLElement));
+  const searchPlaceholder = useRef(Object());
   //const searchInput = useRef(null);
 
   useEffect(() => {
