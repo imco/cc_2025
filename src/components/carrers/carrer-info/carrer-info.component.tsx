@@ -1,10 +1,27 @@
 "use client"
 import Link from 'next/link';
 
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+} from 'chart.js';
 import { Doughnut, Pie, Bar } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(
+  ArcElement,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+);
 
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import { useEffect } from 'react';
@@ -110,91 +127,6 @@ export default function CarrerInfo(props: Props) {
     updateSectors(carrerData)
 
   }, [carrerData])
-
-  /*                   <Pie data={{
-                      labels: ['Servicios profesionales, financieros y corporativos', 'Gobierno y organismos internacionales', 'Servicios sociales', 'Servicios diversos', 'Comercio', 'Agricultura y ganadería', 'Construcción', 'Industria extractiva', 'Industria manufacturera', 'Restaurantes y alojamientos', 'Transportes y comunicaciones'],
-                      datasets: [
-                        {
-                          label: 'Principales sectores en los que trabajan',
-                          data: [
-                            carrerData.POR_SERVPROFESIONALES,
-                            carrerData.POR_GOBIERNO_1,
-                            carrerData.POR_SERVSOCIALES,
-                            carrerData.POR_SERVDIVERSOS,
-                            carrerData.POR_COMERCIO,
-                            carrerData.POR_AGRICULTURA,
-                            carrerData.POR_GOBIERNO,
-                            carrerData.POR_EXTRACTIVA,
-                            carrerData.POR_MANUFACTURA,
-                            carrerData.POR_RESTAURANTES,
-                            carrerData.POR_TRANSPORTES
-                          ],
-                          backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(157, 175, 64, 0.2)',
-                            'rgba(255, 193, 99, 0.2)',
-                            'rgba(255, 142, 204, 0.2)',
-                            'rgba(223, 68, 254, 0.2)',
-                            'rgba(16, 23, 247, 0.2)',
-                            'rgba(16, 189, 247, 0.2)',
-                            'rgba(7, 251, 182, 0.2)',
-                            'rgba(7, 251, 23, 0.2)',
-                            'rgba(161, 251, 7, 0.2)'
-                          ],
-                          borderColor: [
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(157, 175, 64, 1)',
-                            'rgba(255, 193, 99, 1)',
-                            'rgba(255, 142, 204, 1)',
-                            'rgba(223, 68, 254, 1)',
-                            'rgba(16, 23, 247, 1)',
-                            'rgba(16, 189, 247, 1)',
-                            'rgba(7, 251, 182, 1)',
-                            'rgba(7, 251, 23, 1)',
-                            'rgba(161, 251, 7, 1)'
-                          ],
-                          borderWidth: 1,
-                        }
-                      ]
-                    }}
-                    /> */
-
-  /*                    */
-
-  /*     <Doughnut data={{
-        labels: [
-          '25% de los profesionistas gana menos de esta cantidad',
-          'Ingreso de un profesional a la mitad de la escala salarial',
-          '25% de los profesionistas gana más de esta cantidad', 'Salario promedio'
-        ],
-        datasets: [
-          {
-            label: 'Distribución del salario mensual',
-            data: [
-              carrerData.INGRESO_Q25,
-              carrerData.INGRESO_Q50,
-              carrerData.INGRESO_Q75,
-              carrerData.INGRESO
-            ],
-            backgroundColor: [
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(99, 255, 133, 0.2)',
-              'rgba(255, 193, 99, 0.2)',
-              'rgba(223, 68, 254, 0.2)',
-            ],
-            borderColor: [
-              'rgba(54, 162, 235, 1)',
-              'rgba(99, 255, 133, 1)',
-              'rgba(255, 193, 99, 1)',
-              'rgba(223, 68, 254, 1)',
-            ],
-            borderWidth: 1,
-          }
-        ]
-      }}
-      /> */
 
   return (
     <section className="graphs-section" id="graphs-section">
@@ -477,7 +409,7 @@ export default function CarrerInfo(props: Props) {
               labels: ['25% menos', 'Mediana', '25% más', 'Promedio'],
               datasets: [
                 {
-                  label: 'Salario mensual',
+                  label: 'Distribución del salario mensual',
                   data: [
                     carrerData.POR_SUBORDINADO,
                     carrerData.POR_EMPLEADOR,
@@ -502,23 +434,57 @@ export default function CarrerInfo(props: Props) {
             }}
             options={{
               responsive: true,
-              maintainAspectRatio: false,
+              maintainAspectRatio: true,
               plugins: {
                 legend: {
-                  position: 'right',
-                  labels: {
-                    color: '#FFFFFF'
-                  }
+                  display: false
                 },
                 title: {
                   display: true,
-                  text: 'Distribución por género',
+                  text: 'Distribución del salario mensual',
                   font: {
-                    size: 16,
+                    size: 18,
                   },
                   color: '#FFFFFF'
                 },
+                tooltip: {
+                  callbacks: {
+                    label: (context) => {
+                      let label = context.dataset.label || '';
+                      if (label) {
+                        label += ': ';
+                      }
+                      if (context.parsed.y !== null) {
+                        label += new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(context.parsed.y);
+                      }
+                      return label;
+                    }
+                  }
+                }
+              },
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  ticks: {
+                    callback: (value) => {
+                      return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(parseFloat(value.toString()));
+                    },
+                    color: '#FFFFFF'
+                  },
+                  grid: {
+                    color: 'rgba(255, 255, 255, 0.1)'
+                  }
+                },
+                x: {
+                  ticks: {
+                    color: '#FFFFFF'
+                  },
+                  grid: {
+                    color: 'rgba(255, 255, 255, 0.1)'
+                  }
+                }
               }
+
             }}
           />
           <div className="salary-legend">
@@ -533,46 +499,64 @@ export default function CarrerInfo(props: Props) {
           <div className="breakdown-row">
             <div className="breakdown-item">
               <h5>Mujeres</h5>
-              <p id="women-salary"></p>
+              <p id="women-salary">
+                {`$${formatNumber(carrerData.INGRESO_M)}`}
+              </p>
             </div>
             <div className="breakdown-item">
               <h5>Hombres</h5>
-              <p id="men-salary"></p>
+              <p id="men-salary">
+                {`$${formatNumber(carrerData.INGRESO_H)}`}
+              </p>
             </div>
           </div>
           <div className="breakdown-row">
             <div className="breakdown-item">
               <h5>Menos de 30 años</h5>
-              <p id="under-30-salary"></p>
+              <p id="under-30-salary">
+                {`$${formatNumber(carrerData.INGRESO_30MENOS)}`}
+              </p>
             </div>
             <div className="breakdown-item">
               <h5>Más de 30 años</h5>
-              <p id="over-30-salary"></p>
+              <p id="over-30-salary">
+                {`$${formatNumber(carrerData.INGRESO_30MAS)}`}
+              </p>
             </div>
           </div>
           <div className="breakdown-row">
             <div className="breakdown-item">
               <h5>Formales</h5>
-              <p id="formal-salary"></p>
+              <p id="formal-salary">
+                {`$${formatNumber(carrerData.INGRESO_FORMAL)}`}
+              </p>
             </div>
             <div className="breakdown-item">
               <h5>Informales</h5>
-              <p id="informal-salary"></p>
+              <p id="informal-salary">
+                {`$${formatNumber(carrerData.INGRESO_INFORMAL)}`}
+              </p>
             </div>
           </div>
         </div>
 
         <div className="postgrad-info">
           <div className="postgrad-circle">
-            <h4 id="postgrad-percentage"></h4>
+            <h4 id="postgrad-percentage">
+              {`${formatPercentage(carrerData.POR_POSGRADO)}`}
+            </h4>
             <p>del total de personas que estudian esta carrera tienen un posgrado</p>
           </div>
           <div className="postgrad-circle">
-            <h4 id="postgrad-salary"></h4>
+            <h4 id="postgrad-salary">
+              {`$${formatNumber(carrerData.ING_POSG)}`}
+            </h4>
             <p>salario promedio mensual con posgrado</p>
           </div>
           <div className="postgrad-circle">
-            <h4 id="salary-increase"></h4>
+            <h4 id="salary-increase">
+              {`${formatNumber(carrerData.INCREMENTO_POSGRADO)}%`}
+            </h4>
             <p>incremento salarial con posgrado</p>
           </div>
         </div>
