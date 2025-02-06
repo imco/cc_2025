@@ -63,12 +63,12 @@ export default function TopTable(props: Props) {
 
   return (
     <>
-      <table className="table table-striped mt-4 table-borderless">
+      <table>
         <thead>
           <tr>
-            <td className="text-principal font-medium">Rango</td>
-            <td className="text-principal font-medium">Carrera</td>
-            <td className="text-principal font-medium">Valor</td>
+            <th>Rango</th>
+            <th>Carrera</th>
+            <th>Valor</th>
           </tr>
         </thead>
         <tbody>
@@ -88,11 +88,11 @@ export default function TopTable(props: Props) {
           )}
         </tbody>
       </table>
-      <div className="row">
+      <div className="row mt-4">
         <div className="col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9">
           <div className="flex justify-center md:justify-end">
             <a
-              className="btn btn-primary text-lg font-medium md:w-full w-1/2"
+              className="download-btn"
               href={encodedUri}
               download={props.actualTop?.jsonName.replace('.json', '.csv')}
             >

@@ -22,34 +22,25 @@ export default async function Page({ params }: {
   const topData = require(`@/components/las-10-mas/top/${actualTop?.jsonName}`)
 
   return (
-    <main className="container-sm pt-6">
-
-      <div className="row mb-3">
-        <div className="col-s3">
-          <Link href={"/las-10-mas"} className="text-principal text-sm">
-            &larr; Volver a las 10 más
-          </Link>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <div className="card shadow-md shadow-blue-500/50 py-4 px-3">
-            <div className="card-body">
-              <h1
-                className="card-title text-principal text-2xl text-center font-bold"
-              >
-                {actualTop?.name}
-              </h1>
-              <div className="mt-3 text-justify">
-                <p className="card-text text-lg font-light">
-                  {actualTop?.description}
-                </p>
-              </div>
-              <TopTable topData={topData} actualTop={actualTop} />
+    <>
+      <div id="top10-modal" className="">
+        <div className="modal-conten">
+          <div className="back-option mb-4">
+            <Link href={"/las-10-mas"} className="text-white text-sm mb-5">
+              &larr; Volver a las 10 más
+            </Link>
+          </div>
+          <h3 id="modal-title">{actualTop?.name}</h3>
+          <div id="modal-data">
+            <div className="mt-3 text-justify">
+              <p className="card-text text-lg font-light">
+                {actualTop?.description}
+              </p>
             </div>
+            <TopTable topData={topData} actualTop={actualTop} />
           </div>
         </div>
       </div>
-    </main>
+    </>
   )
 }
