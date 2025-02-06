@@ -79,11 +79,9 @@ export default function RootLayout({
         <meta name="twitter:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta name="twitter:domain" content="comparacarreras.org" />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body>
         <Navbar linksOptions={LinksList} />
-        <div className="flex-grow">
-          {children}
-        </div>
+        {children}
         <Footer />
         <BootstrapClient />
       </body>
