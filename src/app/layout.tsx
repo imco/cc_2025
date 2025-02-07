@@ -1,5 +1,4 @@
 "use client"
-import { Geist, Geist_Mono } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 
@@ -13,16 +12,6 @@ import LinkOptions from "@/interfaces/navbar/navbar-options.interface";
 import Navbar from "@/components/navbar/navbar.component";
 import Footer from "@/components/footer/footer.component";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,13 +24,15 @@ export default function RootLayout({
   const defaultDescription: string = `Cuántos profesionistas tiene cada carrera, cuáles tienen más mujeres y hombres, cuáles ofrecen mejor salario, cuáles carreras tienen una mayor tasa de desempleo, entre otras.`
 
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="es">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Import Google Icon Font */}
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
         />
+        {/*eslint-disable-next-line @next/next/no-page-custom-font*/}
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
         <title>{`Compara Carreras - ${link?.title || `Carreras`}`}</title>
@@ -87,6 +78,6 @@ export default function RootLayout({
       </body>
       <GoogleTagManager gtmId="G-J7CL260VSJ" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
-    </html>
+    </html >
   );
 }
