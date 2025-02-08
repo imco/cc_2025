@@ -350,57 +350,60 @@ export default function CarrerInfo(props: Props) {
             </div>
             <div className="row">
               <div className="col-12">
-                <Doughnut
-                  data={{
-                    labels: ['Subordinado', 'Empleador', 'Cuenta propia', 'Trabajo sin pago'],
-                    datasets: [
-                      {
-                        label: 'Distribución por edad',
-                        data: [
-                          (parseFloat(carrerData.POR_SUBORDINADO.toString()) * 100).toFixed(1),
-                          (parseFloat(carrerData.POR_EMPLEADOR.toString()) * 100).toFixed(1),
-                          (parseFloat(carrerData.POR_CUENTAPROPIA.toString()) * 100).toFixed(1),
-                          (parseFloat(carrerData.POR_SIN_PAGO.toString()) * 100).toFixed(1)
-                        ],
-                        backgroundColor: [
-                          '#4DB6AC', '#FF8A65', '#81C784', '#FFD54F'
-                        ],
-                        borderColor: [
-                          '#FFF'
-                        ],
-                        borderWidth: 1,
-                      }
-                    ]
-                  }}
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                      legend: {
-                        position: 'right',
-                        labels: {
-                          color: '#FFFFFF'
-                        }
-                      },
-                      tooltip: {
-                        callbacks: {
-                          label: (context) => {
-                            return context.dataset.label + ': ' + context.parsed.valueOf() + '%';
-                          }
-                        }
-                      },
-                      title: {
-                        display: true,
-                        text: 'Distribución por género',
-                        font: {
-                          size: 16,
-                        },
-                        color: '#FFFFFF'
-                      },
+                <div style={{ height: 300 + 'px' }}>
 
-                    }
-                  }}
-                />
+                  <Doughnut
+                    data={{
+                      labels: ['Subordinado', 'Empleador', 'Cuenta propia', 'Trabajo sin pago'],
+                      datasets: [
+                        {
+                          label: 'Distribución por posición ocupada',
+                          data: [
+                            (parseFloat(carrerData.POR_SUBORDINADO.toString()) * 100).toFixed(1),
+                            (parseFloat(carrerData.POR_EMPLEADOR.toString()) * 100).toFixed(1),
+                            (parseFloat(carrerData.POR_CUENTAPROPIA.toString()) * 100).toFixed(1),
+                            (parseFloat(carrerData.POR_SIN_PAGO.toString()) * 100).toFixed(1)
+                          ],
+                          backgroundColor: [
+                            '#4DB6AC', '#FF8A65', '#81C784', '#FFD54F'
+                          ],
+                          borderColor: [
+                            '#FFF'
+                          ],
+                          borderWidth: 1,
+                        }
+                      ]
+                    }}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                        legend: {
+                          position: 'right',
+                          labels: {
+                            color: '#FFFFFF'
+                          }
+                        },
+                        tooltip: {
+                          callbacks: {
+                            label: (context) => {
+                              return context.dataset.label + ': ' + context.parsed.valueOf() + '%';
+                            }
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Distribución por posición ocupada',
+                          font: {
+                            size: 16,
+                          },
+                          color: '#FFFFFF'
+                        },
+
+                      }
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
