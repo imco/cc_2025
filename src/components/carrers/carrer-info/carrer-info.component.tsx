@@ -133,7 +133,7 @@ export default function CarrerInfo(props: Props) {
 
       <section className="graphs-section" id="graphs-section">
         <h1 className="career-title">{cleanTitle()}</h1>
-        <h2 className="section-title">CUÁNTOS SON</h2>
+        <h2 className="section-title">¿CUÁNTOS SON?</h2>
         <p className="section-subtitle">Total nacional de personas que estudiaron esta carrera, por género y edad.</p>
         <div className="stats-container">
           <div className="circular-stats">
@@ -313,7 +313,7 @@ export default function CarrerInfo(props: Props) {
           </div>
         </div>
         <div className="employment-info">
-          <h3>EN QUÉ TRABAJAN</h3>
+          <h3>¿EN QUÉ TRABAJAN?</h3>
           <p>Principales características laborales como participación laboral, desempleo, informalidad y sectores en los que se desempeñan.</p>
           <div className="employment-stats">
             <div className="employment-stat">
@@ -409,7 +409,7 @@ export default function CarrerInfo(props: Props) {
           </div>
         </div>
         <div className="cuanto-ganan">
-          <h3>CUÁNTO GANAN</h3>
+          <h3>¿CUÁNTO GANAN?</h3>
           <p>Salario mensual promedio, niveles de salario de los que más y menos perciben, así como el salario promedio con posgrado.</p>
 
           <div className="salary-main-info">
