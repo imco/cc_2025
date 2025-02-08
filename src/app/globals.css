@@ -45,7 +45,7 @@ header {
 }
 
 .logo {
-  height: 20px; /* Adjust based on the actual size of your logo */
+  height: 40px; /* Adjust based on the actual size of your logo */
   width: auto;
 }
 
@@ -248,7 +248,7 @@ header {
   }
   .stats-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       margin-top: 40px;
       max-width: 1200px;
@@ -308,7 +308,6 @@ header {
   }
 
   .pie-chart-container {
-      width: 200px;
       height: 200px;
       display: flex;
       justify-content: center;
@@ -1511,9 +1510,9 @@ header {
   }
 
   .pie-chart-container {
-      width: 200px;
-      height: 200px;
-      border: 1px solid rgba(255, 255, 255, 0.2); /* For debugging */
+    height: 200px;
+    width: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* For debugging */
   }
 
   .pie-chart {

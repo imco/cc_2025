@@ -135,408 +135,411 @@ export default function Compare() {
         </button>
       </div>
       {isComparing &&
-        <div className="comparison-results">
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>Valor</th>
-                <th id="career1-name">
-                  {carrer1Data?.CARRERA}
-                </th>
-                <th id="career2-name">
-                  {carrer2Data?.CARRERA}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th colSpan={3} className="section-header">CUÁNTOS SON</th>
-              </tr>
-              <tr>
-                <td>Total de estudiantes</td>
-                <td id="total-students-1">
-                  {formatNumber(carrer1Data?.TOTAL)}
-                </td>
-                <td id="total-students-2">
-                  {formatNumber(carrer2Data?.TOTAL)}
-                </td>
-              </tr>
-              <tr>
-                <td>Porcentaje del total</td>
-                <td >{formatPercentage(carrer1Data?.PCT_TOTAL)}</td>
-                <td >{formatPercentage(carrer2Data?.PCT_TOTAL)}</td>
-              </tr>
-              <tr>
-                <td>Mujeres</td>
-                <td >{formatPercentage(carrer1Data?.PCT_MUJER)}</td>
-                <td >{formatPercentage(carrer2Data?.PCT_MUJER)}</td>
-              </tr>
-              <tr>
-                <td>Hombres</td>
-                <td >{formatPercentage(carrer1Data?.PCT_HOMBRE)}</td>
-                <td >{formatPercentage(carrer2Data?.PCT_HOMBRE)}</td>
-              </tr>
-              <tr>
-                <td>Menos de 30 años</td>
-                <td >{formatPercentage(carrer1Data?.PCT_30MENOS)}</td>
-                <td >{formatPercentage(carrer2Data?.PCT_30MENOS)}</td>
-              </tr>
-              <tr>
-                <td>30 o más años</td>
-                <td >{formatPercentage(carrer1Data?.PCT_30MAS)}</td>
-                <td >{formatPercentage(carrer2Data?.PCT_30MAS)}</td>
-              </tr>
-              <tr>
-                <td>Nuevos egresados</td>
-                <td >
-                  {formatNumber(
-                    parseInt(carrer1Data?.EGRESADOS_H || '-') +
-                    parseInt(carrer1Data?.EGRESADOS_M || '-')
-                  )}
-                </td>
-                <td >
-                  {formatNumber(
-                    parseInt(carrer2Data?.EGRESADOS_H || '-') +
-                    parseInt(carrer2Data?.EGRESADOS_M || '-')
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="section-header"
-                >
-                  Calidad de inversión
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="subsection-header"
-                >
-                  Universidad pública
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Calificación
-                </td>
-                <td >
-                  {carrer1Data?.CI_PUB || '-'}
-                </td>
-                <td >
-                  {carrer2Data?.CI_PUB || '-'}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Costo de educación
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PUBLICA)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PUBLICA)}`}
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="subsection-header"
-                >
-                  Universidad privada
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Calificación
-                </td>
-                <td >
-                  {carrer1Data?.CI_PRI || '-'}
-                </td>
-                <td >
-                  {carrer2Data?.CI_PRI || '-'}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Costo de educación
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PRIVADA)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PRIVADA)}`}
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="section-header"
-                >
-                  ¿En qué trabajan?
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Tasa de ocupación
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.TASA_OCUPACION)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.TASA_OCUPACION)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Tasa de desempleo
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.TASA_DESOCUPACION)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.TASA_DESOCUPACION)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Tasa de informalidad
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.TASA_INFORMALIDAD)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.TASA_INFORMALIDAD)}`}
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="section-header"
-                >
-                  Posición que ocupan
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Subordinado
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.POR_SUBORDINADO)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.POR_SUBORDINADO)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Empleador
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.POR_EMPLEADOR)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.POR_EMPLEADOR)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Cuenta propia
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.POR_CUENTAPROPIA)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.POR_CUENTAPROPIA)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Trabajo sin pago
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.POR_SIN_PAGO)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.POR_SIN_PAGO)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Probabilidad de obtener un empleo de calidad
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.PROB_EMPL_CAL)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.PROB_EMPL_CAL)}`}
-                </td>
-              </tr>
-              <tr>
-                <td
-                  colSpan={3}
-                  className="section-header"
-                >
-                  ¿Cuánto ganan?
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Salario promedio
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Ranking de ingreso
-                </td>
-                <td >
-                  {`${formatNumber(carrer1Data?.RANK_INGRESO)}°`}
-                </td>
-                <td >
-                  {`${formatNumber(carrer2Data?.RANK_INGRESO)}°`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Mujeres
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_M)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_M)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Hombres
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_H)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_H)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Menos de 30 años
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_30MENOS)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_30MENOS)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Más de 30 años
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_30MAS)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_30MAS)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Formales
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_FORMAL)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_FORMAL)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Informales
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_INFORMAL)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_INFORMAL)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  25% menos
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_Q25)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_Q25)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Mediana
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_Q50)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_Q50)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  25% más
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.INGRESO_Q75)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.INGRESO_Q75)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Porcentaje con posgrado
-                </td>
-                <td >
-                  {`${formatPercentage(carrer1Data?.POR_POSGRADO)}`}
-                </td>
-                <td >
-                  {`${formatPercentage(carrer2Data?.POR_POSGRADO)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Salario con posgrado
-                </td>
-                <td >
-                  {`$${formatNumber(carrer1Data?.ING_POSG)}`}
-                </td>
-                <td >
-                  {`$${formatNumber(carrer2Data?.ING_POSG)}`}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Incremento salarial con posgrado
-                </td>
-                <td >
-                  {`${formatNumber(carrer1Data?.INCREMENTO_POSGRADO)}%`}
-                </td>
-                <td >
-                  {`${formatNumber(carrer2Data?.INCREMENTO_POSGRADO)}%`}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="container">
+
+          <div className="comparison-results">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Valor</th>
+                  <th id="career1-name">
+                    {carrer1Data?.CARRERA}
+                  </th>
+                  <th id="career2-name">
+                    {carrer2Data?.CARRERA}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th colSpan={3} className="section-header">¿Cuántos son?</th>
+                </tr>
+                <tr>
+                  <td>Total de estudiantes</td>
+                  <td id="total-students-1">
+                    {formatNumber(carrer1Data?.TOTAL)}
+                  </td>
+                  <td id="total-students-2">
+                    {formatNumber(carrer2Data?.TOTAL)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Porcentaje del total</td>
+                  <td >{formatPercentage(carrer1Data?.PCT_TOTAL)}</td>
+                  <td >{formatPercentage(carrer2Data?.PCT_TOTAL)}</td>
+                </tr>
+                <tr>
+                  <td>Mujeres</td>
+                  <td >{formatPercentage(carrer1Data?.PCT_MUJER)}</td>
+                  <td >{formatPercentage(carrer2Data?.PCT_MUJER)}</td>
+                </tr>
+                <tr>
+                  <td>Hombres</td>
+                  <td >{formatPercentage(carrer1Data?.PCT_HOMBRE)}</td>
+                  <td >{formatPercentage(carrer2Data?.PCT_HOMBRE)}</td>
+                </tr>
+                <tr>
+                  <td>Menos de 30 años</td>
+                  <td >{formatPercentage(carrer1Data?.PCT_30MENOS)}</td>
+                  <td >{formatPercentage(carrer2Data?.PCT_30MENOS)}</td>
+                </tr>
+                <tr>
+                  <td>30 o más años</td>
+                  <td >{formatPercentage(carrer1Data?.PCT_30MAS)}</td>
+                  <td >{formatPercentage(carrer2Data?.PCT_30MAS)}</td>
+                </tr>
+                <tr>
+                  <td>Nuevos egresados</td>
+                  <td >
+                    {formatNumber(
+                      parseInt(carrer1Data?.EGRESADOS_H || '-') +
+                      parseInt(carrer1Data?.EGRESADOS_M || '-')
+                    )}
+                  </td>
+                  <td >
+                    {formatNumber(
+                      parseInt(carrer2Data?.EGRESADOS_H || '-') +
+                      parseInt(carrer2Data?.EGRESADOS_M || '-')
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="section-header"
+                  >
+                    Calidad de inversión
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="subsection-header"
+                  >
+                    Universidad pública
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Calificación
+                  </td>
+                  <td >
+                    {carrer1Data?.CI_PUB || '-'}
+                  </td>
+                  <td >
+                    {carrer2Data?.CI_PUB || '-'}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Costo de educación
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PUBLICA)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PUBLICA)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="subsection-header"
+                  >
+                    Universidad privada
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Calificación
+                  </td>
+                  <td >
+                    {carrer1Data?.CI_PRI || '-'}
+                  </td>
+                  <td >
+                    {carrer2Data?.CI_PRI || '-'}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Costo de educación
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PRIVADA)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PRIVADA)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="section-header"
+                  >
+                    ¿En qué trabajan?
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Tasa de ocupación
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.TASA_OCUPACION)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.TASA_OCUPACION)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Tasa de desempleo
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.TASA_DESOCUPACION)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.TASA_DESOCUPACION)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Tasa de informalidad
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.TASA_INFORMALIDAD)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.TASA_INFORMALIDAD)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="section-header"
+                  >
+                    Posición que ocupan
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Subordinado
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.POR_SUBORDINADO)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.POR_SUBORDINADO)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Empleador
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.POR_EMPLEADOR)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.POR_EMPLEADOR)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Cuenta propia
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.POR_CUENTAPROPIA)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.POR_CUENTAPROPIA)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Trabajo sin pago
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.POR_SIN_PAGO)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.POR_SIN_PAGO)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Probabilidad de obtener un empleo de calidad
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.PROB_EMPL_CAL)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.PROB_EMPL_CAL)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colSpan={3}
+                    className="section-header"
+                  >
+                    ¿Cuánto ganan?
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Salario promedio
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Ranking de ingreso
+                  </td>
+                  <td >
+                    {`${formatNumber(carrer1Data?.RANK_INGRESO)}°`}
+                  </td>
+                  <td >
+                    {`${formatNumber(carrer2Data?.RANK_INGRESO)}°`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mujeres
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_M)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_M)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Hombres
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_H)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_H)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Menos de 30 años
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_30MENOS)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_30MENOS)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Más de 30 años
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_30MAS)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_30MAS)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Formales
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_FORMAL)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_FORMAL)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Informales
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_INFORMAL)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_INFORMAL)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    25% menos
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_Q25)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_Q25)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mediana
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_Q50)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_Q50)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    25% más
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.INGRESO_Q75)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.INGRESO_Q75)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Porcentaje con posgrado
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.POR_POSGRADO)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.POR_POSGRADO)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Salario con posgrado
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer1Data?.ING_POSG)}`}
+                  </td>
+                  <td >
+                    {`$${formatNumber(carrer2Data?.ING_POSG)}`}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Incremento salarial con posgrado
+                  </td>
+                  <td >
+                    {`${formatNumber(carrer1Data?.INCREMENTO_POSGRADO)}%`}
+                  </td>
+                  <td >
+                    {`${formatNumber(carrer2Data?.INCREMENTO_POSGRADO)}%`}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       }
     </section>

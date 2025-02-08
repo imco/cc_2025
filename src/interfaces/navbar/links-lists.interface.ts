@@ -34,7 +34,7 @@ export const LinksList: LinkOptions[] =  [
     urlMiniatura: "https://comparacarreras.imco.org.mx/mini-metodologia.png",
   },
   {
-    sectionName: 'Preguntas Frecuentes',
+    sectionName: 'Preguntas frecuentes',
     url: "/faq",
     title: "FAQ",
     urlCanonical: "https://comparacarreras.imco.org.mx/faq",
