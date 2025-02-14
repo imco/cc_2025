@@ -5,6 +5,7 @@
   - [Instalación y configuración](#instalación-y-configuración)
   - [Desarrollo local](#desarrollo-local)
   - [Actualización del sistema](#actualización-del-sistema)
+  - [Conversión de CSV a JSON](#conversión-de-csv-a-json)
   - [Despliegue](#despliegue)
   - [Contribuciones](#contribuciones)
   - [Contacto](#contacto)
@@ -65,6 +66,12 @@ Para realizar actualizaciones al sistema, sigue estos pasos:
 
 4. **Crea un Pull Request (PR)** en GitHub desde la rama creada hacia `main` y espera la revisión.
 5. **Una vez aprobado el PR**, haz merge a `main`.
+
+## Conversión de CSV a JSON
+
+Si necesitas convertir archivos CSV a JSON para el proyecto, puedes utilizar la siguiente herramienta en línea:
+
+[https://csvjson.com/](https://csvjson.com/)
 
 ## Despliegue
 
