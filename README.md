@@ -1,38 +1,91 @@
 # Compara Carreras
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- [Compara Carreras](#compara-carreras)
+  - [Requisitos previos](#requisitos-previos)
+  - [Instalación y configuración](#instalación-y-configuración)
+  - [Desarrollo local](#desarrollo-local)
+  - [Actualización del sistema](#actualización-del-sistema)
+  - [Despliegue](#despliegue)
+  - [Contribuciones](#contribuciones)
+  - [Contacto](#contacto)
 
-## Getting Started
+Este es el repositorio del proyecto **Compara Carreras**, desarrollado por **IMCO**. Este proyecto está construido con **Next.js** y utiliza **GitHub Pages** para el despliegue, con soporte de **GitHub Actions** para la automatización del proceso.
 
-First, run the development server:
+## Requisitos previos
+
+Asegúrate de tener instalado:
+
+- [Node.js](https://nodejs.org/) (versión recomendada: 18.x o superior)
+- npm
+- Acceso al repositorio en GitHub
+
+## Instalación y configuración
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/IMCO/compara-carreras.git
+   cd compara-carreras
+   ```
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+## Desarrollo local
+
+Para correr el proyecto en un entorno local, ejecuta:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Esto levantará un servidor local en `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Actualización del sistema
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para realizar actualizaciones al sistema, sigue estos pasos:
 
-## Learn More
+1. **Crea una rama nueva** basada en `main`:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git checkout -b feature/nueva-funcionalidad
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Realiza los cambios necesarios** en el código y prueba el proyecto localmente.
+3. **Confirma y sube los cambios**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git add .
+   git commit -m "Añadida nueva funcionalidad"
+   git push origin feature/nueva-funcionalidad
+   ```
 
-## Deploy on Vercel
+4. **Crea un Pull Request (PR)** en GitHub desde la rama creada hacia `main` y espera la revisión.
+5. **Una vez aprobado el PR**, haz merge a `main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Despliegue
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El despliegue se realiza automáticamente mediante **GitHub Actions** cada vez que se hace un push a la rama `main`.
+
+Para forzar un despliegue manual:
+
+1. Ve a la pestaña **Actions** en GitHub.
+2. Selecciona el workflow de despliegue.
+3. Ejecuta manualmente el flujo de trabajo.
+
+El sitio estará disponible en la siguiente URL:
+
+```text
+https://comparacarreras.imco.org.mx/
+```
+
+## Contribuciones
+
+Si deseas contribuir, por favor abre un **Issue** o un **Pull Request** siguiendo las mejores prácticas de desarrollo.
+
+## Contacto
+
+Para más información, contacta con el equipo de IMCO a través de su página oficial: [https://imco.org.mx](https://imco.org.mx).
