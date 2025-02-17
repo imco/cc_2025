@@ -69,15 +69,14 @@ export default function RootLayout({
         <meta property="og:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta name="twitter:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta name="twitter:domain" content="comparacarreras.org" />
-
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7CL260VSJ"></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-          gtag('config', 'G-J7CL260VSJ');
+        gtag('config', 'G-J7CL260VSJ');
         </script>
       </head>
       <body>
