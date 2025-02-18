@@ -76,7 +76,7 @@ export default function RootLayout({
         <Footer />
         <BootstrapClient />
       </body>
-      <GoogleTagManager gtmId="G-J7CL260VSJ" />
+      <GoogleTagManager gtmId="GTM-TJM2GX3X" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html >
   );
