@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
 import { LinksList } from "@/interfaces/navbar/links-lists.interface";
@@ -75,7 +75,22 @@ export default function RootLayout({
         {children}
         <Footer />
         <BootstrapClient />
+        {/* <!-- Google Tag Manager (noscript) --> */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TJM2GX3X"
+            height="0"
+            width="0"
+            style={{
+              display: 'none',
+              visibility: 'hidden'
+            }}
+          >
+          </iframe>
+        </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
       </body>
+      <GoogleAnalytics gaId='G-J7CL260VSJ' />
       <GoogleTagManager gtmId="GTM-TJM2GX3X" />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html >
