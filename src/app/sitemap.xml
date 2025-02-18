@@ -1,88 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://www.comparacarreras.org.mx/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/</loc>
       <priority>1.0</priority>
       <changefreq>daily</changefreq>
    </url>
    <url>
-      <loc>https://www.comparacarreras.org.mx/compara/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/compara</loc>
       <priority>0.8</priority>
       <changefreq>weekly</changefreq>
    </url>
    <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/los-10-mas</loc>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/profesionistas/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/los-10-mas/profesionistas</loc>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/calidad-inversion/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/calidad-inversion-publicas/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/porcentaje-ingreso-mujeres/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/porcentaje-ingreso-hombres/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/demanda-publica/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/porcentaje-mujeres/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/desempleados/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/informalidad/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/porcentaje-jovenes/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/posgrado/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/los-10-mas/matricula/</loc>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-   </url>
-   <url>
-      <loc>https://www.comparacarreras.org.mx/metodologia/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/metodologia</loc>
       <priority>0.6</priority>
       <changefreq>monthly</changefreq>
    </url>
    <url>
-      <loc>https://www.comparacarreras.org.mx/faq/</loc>
+      <loc>https://www.comparacarreras.imco.org.mx/faq</loc>
       <priority>0.6</priority>
       <changefreq>monthly</changefreq>
    </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/dise%C3%B1o_curricular_y_pedagog%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/orientaci%C3%B3n_e_intervenci%C3%B3n_educativa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/ciencias_de_la_educaci%C3%B3n</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_formaci%C3%B3n_docente</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_preescolar</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_primaria</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_secundaria</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_la_ense%C3%B1anza_de_asignaturas_espec%C3%ADficas</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_otros_servicios_educativos</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/bellas_artes</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/m%C3%BAsica</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/dise%C3%B1o_y_comunicaci%C3%B3n_gr%C3%A1fica_y_editorial</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/dise%C3%B1o_industrial_de_moda_e_interiores</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/adquisici%C3%B3n_de_idiomas_extranjeros</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/literatura</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/historia_y_arqueolog%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_ciencias_sociales_y_estudios_del_comportamiento</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/psicolog%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/sociolog%C3%ADa_y_antropolog%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/ciencias_pol%C3%ADticas</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/econom%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/trabajo_y_atenci%C3%B3n_social</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/comunicaci%C3%B3n_y_periodismo</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/derecho</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/criminolog%C3%ADa_y_criminal%C3%ADstica</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/negocios_y_comercio</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/mercadotecnia_y_publicidad</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/finanzas_banca_y_seguros</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/contabilidad_y_fiscalizaci%C3%B3n</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/administraci%C3%B3n_de_empresas</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/administraci%C3%B3n_tur%C3%ADstica_y_de_restaurantes</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/administraci%C3%B3n_p%C3%BAblica</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/biolog%C3%ADa</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/qu%C3%ADmica</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/matem%C3%A1ticas</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/ciencias_computacionales</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/desarrollo_de_software</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/inform%C3%A1tica</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/arquitectura_y_urbanismo</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/construcci%C3%B3n_e_ingenier%C3%ADa_civil</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/medicina_general</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/enfermer%C3%ADa_general_y_obstetricia</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/nutrici%C3%B3n</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/gastronom%C3%ADa_y_servicios_de_alimentos</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/hospitalidad_y_turismo</loc>
+      <priority>0.5</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
 </urlset>
