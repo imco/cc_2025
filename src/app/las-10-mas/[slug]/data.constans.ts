@@ -16,13 +16,13 @@ export const TopsTypes: TopDescription[] = [
     name: "Las 10 carreras con mayor calidad de inversión en universidades privadas",
     jsonName: "top_10_calidad_inversion_privada.json",
     titleUrl: "calidad-inversion",
-    description: "Aquí conocerás la lista de las carreras públicas que obtuvieron la mayor calificación en el Índice de Calidad de la Inversión de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras privadas que obtuvieron la mayor calificación en el Índice de Calidad de la Inversión de Compara Carreras."
   },
   {
     name: "Las 10 carreras con mayor calidad de inversión en universidades públicas",
     jsonName: "top_10_calidad_inversion_publica.json",
     titleUrl: "calidad-inversion-publicas",
-    description: "Aquí conocerás la lista de las carreras privadas que obtuvieron la mayor calificación en el Índice de Calidad de la Inversión de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras públicas que obtuvieron la mayor calificación en el Índice de Calidad de la Inversión de Compara Carreras."
   },
   {
     name: "Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso",
