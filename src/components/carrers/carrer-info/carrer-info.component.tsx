@@ -267,7 +267,7 @@ export default function CarrerInfo(props: Props) {
             {formatNumber(parseInt(carrerData.EGRESADOS_H) + parseInt(carrerData.EGRESADOS_M))}
           </div>
         </div>
-        <div className="investment-quality">
+       {/*  <div className="investment-quality">
           <h3>CALIDAD DE INVERSIÓN</h3>
           <p>Calificación asociada a cada carrera tomando en cuenta el costo de educación y el riesgo.</p>
           <div className="university-types">
@@ -311,7 +311,7 @@ export default function CarrerInfo(props: Props) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="employment-info">
           <h3>¿EN QUÉ TRABAJAN?</h3>
           <p>Principales características laborales como participación laboral, desempleo, informalidad y sectores en los que se desempeñan.</p>

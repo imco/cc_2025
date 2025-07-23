@@ -203,7 +203,7 @@ export default function Compare() {
                     )}
                   </td>
                 </tr>
-                <tr>
+               {/*  <tr>
                   <td
                     colSpan={3}
                     className="section-header"
@@ -270,7 +270,7 @@ export default function Compare() {
                   <td >
                     {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PRIVADA)}`}
                   </td>
-                </tr>
+                </tr> */}
                 <tr>
                   <td
                     colSpan={3}

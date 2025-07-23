@@ -8,14 +8,14 @@ export const TopsLists: TopInfo[] = [
     topName: "Las 10 carreras con mayor número de profesionistas",
     titleUrl: "profesionistas"
   },
-  {
+ /*  {
     topName: "Las 10 carreras con mayor calidad de inversión en universidades privadas",
     titleUrl: "calidad-inversion"
   },
   {
     topName: "Las 10 carreras con mayor calidad de inversión en universidades públicas",
     titleUrl: "calidad-inversion-publicas"
-  },
+  }, */
   {
     topName: "Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso",
     titleUrl: "porcentaje-ingreso-mujeres"
@@ -52,7 +52,7 @@ export const TopsLists: TopInfo[] = [
     topName: "Las 10 carreras con mayor matrícula",
     titleUrl: "matricula"
   },
-  {
+  /* {
     topName: "Las 10 carreras con mayor tasa de retorno en universidades públicas",
     titleUrl: "mayor-tasa-retorno-publicas"
   },
@@ -67,7 +67,7 @@ export const TopsLists: TopInfo[] = [
   {
     topName: "Las 10 carreras con menor tasa de retorno en universidades privadas",
     titleUrl: "menor-tasa-retorno-privadas"
-  },
+  }, */
   {
     topName: "Las 10 carreras con mayor riesgo",
     titleUrl: "mayor-riesgo"
