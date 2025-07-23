@@ -30,6 +30,17 @@ type Props = {
   title: string
 }
 
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")                   // elimina acentos
+    .replace(/[\u0300-\u036f]/g, "")   // remueve tildes
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, "")        // elimina comas, signos, etc.
+    .trim()
+    .replace(/\s+/g, "_");             // reemplaza espacios con "_"
+}
+
+
 export default function CarrerInfo(props: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
