@@ -471,7 +471,7 @@
   },
   {
     "CVE_CARRERA": 121,
-    "CARRERA": "Formación docente en educación básica, nivel preescolar",
+    "CARRERA": "Formación docente en educación básica nivel preescolar",
     "TOTAL": 272519,
     "HOMBRE": 6502,
     "PCT_HOMBRE": 0.023858886903299,
@@ -565,7 +565,7 @@
   },
   {
     "CVE_CARRERA": 122,
-    "CARRERA": "Formación docente en educación básica, nivel primaria",
+    "CARRERA": "Formación docente en educación básica nivel primaria",
     "TOTAL": 614519,
     "HOMBRE": 186072,
     "PCT_HOMBRE": 0.302792916085589,
@@ -659,7 +659,7 @@
   },
   {
     "CVE_CARRERA": 123,
-    "CARRERA": "Formación docente en educación básica, nivel secundaria",
+    "CARRERA": "Formación docente en educación básica nivel secundaria",
     "TOTAL": 209960,
     "HOMBRE": 75065,
     "PCT_HOMBRE": 0.357520480091446,
@@ -1129,7 +1129,7 @@
   },
   {
     "CVE_CARRERA": 216,
-    "CARRERA": "Diseño industrial, de moda e interiores",
+    "CARRERA": "Diseño industrial de moda e interiores",
     "TOTAL": 96349,
     "HOMBRE": 29675,
     "PCT_HOMBRE": 0.307994893564022,
@@ -2539,7 +2539,7 @@
   },
   {
     "CVE_CARRERA": 413,
-    "CARRERA": "Finanzas, banca y seguros",
+    "CARRERA": "Finanzas banca y seguros",
     "TOTAL": 119073,
     "HOMBRE": 71014,
     "PCT_HOMBRE": 0.596390449556155,
@@ -4137,7 +4137,7 @@
   },
   {
     "CVE_CARRERA": 713,
-    "CARRERA": "Electrónica, automatización y aplicaciones de la mecánica-eléctrica",
+    "CARRERA": "Electrónica automatización y aplicaciones de la mecánica-eléctrica",
     "TOTAL": 427440,
     "HOMBRE": 388381,
     "PCT_HOMBRE": 0.908621093018903,
@@ -4325,7 +4325,7 @@
   },
   {
     "CVE_CARRERA": 715,
-    "CARRERA": "Vehículos, barcos y aeronaves motorizadas",
+    "CARRERA": "Vehículos barcos y aeronaves motorizadas",
     "TOTAL": 68719,
     "HOMBRE": 64590,
     "PCT_HOMBRE": 0.939914725185174,
@@ -4701,7 +4701,7 @@
   },
   {
     "CVE_CARRERA": 724,
-    "CARRERA": "Industria de la minería, extracción y metalurgia",
+    "CARRERA": "Industria de la minería extracción y metalurgia",
     "TOTAL": 48083,
     "HOMBRE": 35175,
     "PCT_HOMBRE": 0.731547532391906,
@@ -6111,7 +6111,7 @@
   },
   {
     "CVE_CARRERA": 9999,
-    "CARRERA": "",
+    "CARRERA": "nan",
     "TOTAL": 96023,
     "HOMBRE": 53157,
     "PCT_HOMBRE": 0.553586119992085,
@@ -6205,7 +6205,7 @@
   },
   {
     "CVE_CARRERA": 121,
-    "CARRERA": "TSU. Formación docente en educación básica, nivel preescolar",
+    "CARRERA": "TSU. Formación docente en educación básica nivel preescolar",
     "TOTAL": 66900,
     "HOMBRE": 239,
     "PCT_HOMBRE": 0.003572496263079,
@@ -7051,7 +7051,7 @@
   },
   {
     "CVE_CARRERA": 713,
-    "CARRERA": "TSU. Electrónica, automatización y aplicaciones de la mecánica-eléctrica",
+    "CARRERA": "TSU. Electrónica automatización y aplicaciones de la mecánica-eléctrica",
     "TOTAL": 95907,
     "HOMBRE": 91736,
     "PCT_HOMBRE": 0.956509952349672,
@@ -7145,7 +7145,7 @@
   },
   {
     "CVE_CARRERA": 715,
-    "CARRERA": "TSU. Vehículos, barcos y aeronaves motorizadas",
+    "CARRERA": "TSU. Vehículos barcos y aeronaves motorizadas",
     "TOTAL": 90644,
     "HOMBRE": 89912,
     "PCT_HOMBRE": 0.991924451701161,
