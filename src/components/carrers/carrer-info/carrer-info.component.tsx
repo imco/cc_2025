@@ -26,17 +26,6 @@ ChartJS.register(
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import { useEffect } from 'react';
 
-function slugify(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g, "")
-    .trim()
-    .replace(/\s+/g, "_");
-}
-
-
 type Props = {
   title: string
 }
@@ -48,13 +37,9 @@ export default function CarrerInfo(props: Props) {
     return props.title.toLocaleUpperCase().replaceAll("_", " ")
   }
 
-const carrerData: CarrersData | undefined = carrersData.find(
-  (carrer: CarrersData) => slugify(carrer.CARRERA) === props.title
+  const carrerData: CarrersData = carrersData.find(
+    (carrer: CarrersData) => carrer.CARRERA.toLowerCase().replaceAll(" ", "_") == props.title
   )
-
-if (!carrerData) {
-  return <div className="container">Carrera no encontrada</div>;
-}
 
   useEffect(() => {
     const updateQualityDots = (elementId: string, quality: string | number) => {
