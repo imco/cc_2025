@@ -26,20 +26,20 @@ ChartJS.register(
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import { useEffect } from 'react';
 
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9 ]/g, "")
+    .trim()
+    .replace(/\s+/g, "_");
+}
+
+
 type Props = {
   title: string
 }
-
-function slugify(text: string): string {
-  return text
-    .normalize("NFD")                   // elimina acentos
-    .replace(/[\u0300-\u036f]/g, "")   // remueve tildes
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g, "")        // elimina comas, signos, etc.
-    .trim()
-    .replace(/\s+/g, "_");             // reemplaza espacios con "_"
-}
-
 
 export default function CarrerInfo(props: Props) {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -48,9 +48,13 @@ export default function CarrerInfo(props: Props) {
     return props.title.toLocaleUpperCase().replaceAll("_", " ")
   }
 
-  const carrerData: CarrersData = carrersData.find(
-    (carrer: CarrersData) => carrer.CARRERA.toLowerCase().replaceAll(" ", "_") == props.title
+const carrerData: CarrersData | undefined = carrersData.find(
+  (carrer: CarrersData) => slugify(carrer.CARRERA) === props.title
   )
+
+if (!carrerData) {
+  return <div className="container">Carrera no encontrada</div>;
+}
 
   useEffect(() => {
     const updateQualityDots = (elementId: string, quality: string | number) => {
