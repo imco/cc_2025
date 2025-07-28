@@ -1,0 +1,270 @@
+{
+    "Terapia y rehabilitación": [
+        1,
+        0.586469196860553
+    ],
+    "Administración en el ámbito de la ingeniería y la construcción": [
+        2,
+        0.510994904800215
+    ],
+    "Gastronomía y servicios de alimentos": [
+        3,
+        0.468798282462879
+    ],
+    "Criminología y criminalística": [
+        4,
+        0.467443634514324
+    ],
+    "Nutrición": [
+        5,
+        0.447281358467254
+    ],
+    "Tecnología para la protección del medio ambiente": [
+        6,
+        0.383763449346276
+    ],
+    "Bioquímica y biofísica": [
+        7,
+        0.372874294587736
+    ],
+    "Deportes": [
+        8,
+        0.37081873208028
+    ],
+    "Negocios y comercio": [
+        9,
+        0.340077561991598
+    ],
+    "Industria de la minería extracción y metalurgia": [
+        10,
+        0.333797807957074
+    ],
+    "Desarrollo de software (Implementación)": [
+        11,
+        0.320254780530204
+    ],
+    "Vehículos barcos y aeronaves motorizadas": [
+        12,
+        0.317874241476157
+    ],
+    "Enfermería general y obstetricia": [
+        13,
+        0.298527864490492
+    ],
+    "Electrónica automatización y aplicaciones de la mecánica-eléctrica": [
+        14,
+        0.292988489612577
+    ],
+    "Ingeniería industrial": [
+        15,
+        0.287671320140528
+    ],
+    "Industria de la alimentación": [
+        16,
+        0.276605623862412
+    ],
+    "Química": [
+        17,
+        0.26833875002127
+    ],
+    "Orientación e intervención educativa": [
+        18,
+        0.267573497147872
+    ],
+    "Psicología": [
+        19,
+        0.266223136625081
+    ],
+    "Ingeniería de procesos químicos": [
+        20,
+        0.257854463296104
+    ],
+    "Mercadotecnia y publicidad": [
+        21,
+        0.257288459632532
+    ],
+    "Adquisición de idiomas extranjeros": [
+        22,
+        0.256766750480698
+    ],
+    "Ciencias políticas": [
+        23,
+        0.255857814857549
+    ],
+    "Diseño industrial de moda e interiores": [
+        24,
+        0.252571381124869
+    ],
+    "Hospitalidad y turismo": [
+        25,
+        0.251979549130378
+    ],
+    "Trabajo y atención social": [
+        26,
+        0.250826108692736
+    ],
+    "Diseño y comunicación gráfica y editorial": [
+        27,
+        0.249907568433593
+    ],
+    "Estomatología y odontología general": [
+        28,
+        0.243903501553772
+    ],
+    "Veterinaria": [
+        29,
+        0.237558650059357
+    ],
+    "Diseño curricular y pedagogía": [
+        30,
+        0.231492980492567
+    ],
+    "Música": [
+        31,
+        0.230327732490434
+    ],
+    "Desarrollo de software (Innovación)": [
+        32,
+        0.223783777825543
+    ],
+    "Comunicación y periodismo": [
+        33,
+        0.22036612178568
+    ],
+    "Mecánica y profesiones afines al trabajo metálico": [
+        34,
+        0.217650819725685
+    ],
+    "Finanzas banca y seguros": [
+        35,
+        0.214498668883794
+    ],
+    "Ciencias computacionales": [
+        36,
+        0.212580250259324
+    ],
+    "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
+        37,
+        0.210542229389236
+    ],
+    "Arquitectura y urbanismo": [
+        38,
+        0.208153033431446
+    ],
+    "Administración de empresas": [
+        39,
+        0.207982567769341
+    ],
+    "Construcción e ingeniería civil": [
+        40,
+        0.207622072250893
+    ],
+    "Medicina general": [
+        41,
+        0.20485096524622
+    ],
+    "Derecho": [
+        42,
+        0.204651967598703
+    ],
+    "Electricidad y generación de energía": [
+        43,
+        0.204490757114391
+    ],
+    "Administración turística y de restaurantes": [
+        44,
+        0.194558142655841
+    ],
+    "Planes multidisciplinarios o generales del campo de administración y gestión": [
+        45,
+        0.1790541836293
+    ],
+    "Formación docente en la enseñanza de asignaturas específicas": [
+        46,
+        0.178750540563218
+    ],
+    "Producción y explotación agrícola y ganadera": [
+        47,
+        0.178532097919108
+    ],
+    "Literatura": [
+        48,
+        0.178378538785685
+    ],
+    "Economía": [
+        49,
+        0.167809828055999
+    ],
+    "Formación docente en otros servicios educativos": [
+        50,
+        0.156340507694929
+    ],
+    "Sociología y antropología": [
+        51,
+        0.151984306624415
+    ],
+    "Biología": [
+        52,
+        0.148821602941472
+    ],
+    "Contabilidad y fiscalización": [
+        53,
+        0.143129540453412
+    ],
+    "NaN": [
+        54,
+        0.13859179571561
+    ],
+    "Formación docente en educación básica nivel preescolar": [
+        55,
+        0.134383290706336
+    ],
+    "Administración pública": [
+        56,
+        0.127540718804684
+    ],
+    "Ecología y ciencias ambientales": [
+        57,
+        0.12639375597324
+    ],
+    "Informática": [
+        58,
+        0.109338206007924
+    ],
+    "Planeación evaluación e investigación educativa": [
+        59,
+        0.105191442975882
+    ],
+    "Formación docente en educación básica nivel primaria": [
+        60,
+        0.101663252071946
+    ],
+    "Ciencias de la educación": [
+        61,
+        0.098030668432951
+    ],
+    "Historia y arqueología": [
+        62,
+        0.0967191120868399
+    ],
+    "Formación docente en educación básica nivel secundaria": [
+        63,
+        0.0951895599161745
+    ],
+    "Planes multidisciplinarios o generales del campo de ciencias sociales y estudios del comportamiento": [
+        64,
+        0.0587336939230035
+    ],
+    "Medicina de especialidad": [
+        65,
+        0.0512013266740515
+    ],
+    "Planes multidisciplinarios o generales del campo de formación docente": [
+        66,
+        0.0298055087966352
+    ],
+    "Servicios de apoyo y asistencia administrativa": [
+        67,
+        "NA"
+    ]
+}
