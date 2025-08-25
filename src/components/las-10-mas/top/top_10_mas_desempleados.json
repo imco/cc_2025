@@ -111,11 +111,11 @@
         28,
         0.0388
     ],
-    "Desarrollo de software (Innovación)": [
+    "Psicología": [
         29,
         0.0386
     ],
-    "Psicología": [
+    "Desarrollo de software (Innovación)": [
         30,
         0.0386
     ],
@@ -195,76 +195,64 @@
         49,
         0.0242
     ],
-    "NaN": [
-        50,
-        0.0236
-    ],
     "Vehículos barcos y aeronaves motorizadas": [
-        51,
+        50,
         0.0229
     ],
     "Formación docente en la enseñanza de asignaturas específicas": [
-        52,
+        51,
         0.0208
     ],
     "Medicina general": [
-        53,
+        52,
         0.0169
     ],
     "Contabilidad y fiscalización": [
-        54,
+        53,
         0.0162
     ],
     "Ciencias de la educación": [
-        55,
+        54,
         0.0157
     ],
     "Producción y explotación agrícola y ganadera": [
-        56,
+        55,
         0.0147
     ],
     "Orientación e intervención educativa": [
-        57,
+        56,
         0.0137
     ],
     "Formación docente en educación básica nivel secundaria": [
-        58,
+        57,
         0.0121
     ],
     "Veterinaria": [
-        59,
+        58,
         0.0108
     ],
     "Deportes": [
-        60,
+        59,
         0.0096
     ],
     "Formación docente en educación básica nivel preescolar": [
-        61,
+        60,
         0.0082
     ],
     "Formación docente en educación básica nivel primaria": [
-        62,
+        61,
         0.0079
     ],
     "Formación docente en otros servicios educativos": [
-        63,
+        62,
         0.0056
     ],
     "Planes multidisciplinarios o generales del campo de formación docente": [
-        64,
+        63,
         0.0052
     ],
-    "Medicina de especialidad": [
-        65,
-        0.0041
-    ],
     "Planeación evaluación e investigación educativa": [
-        66,
-        "NA"
-    ],
-    "Servicios de apoyo y asistencia administrativa": [
-        67,
+        64,
         "NA"
     ]
 }

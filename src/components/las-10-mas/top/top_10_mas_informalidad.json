@@ -227,44 +227,32 @@
         57,
         0.1637
     ],
-    "NaN": [
-        58,
-        0.1605
-    ],
     "Formación docente en otros servicios educativos": [
-        59,
+        58,
         0.1453
     ],
     "Ciencias de la educación": [
-        60,
+        59,
         0.1433
     ],
     "Finanzas banca y seguros": [
-        61,
+        60,
         0.134
     ],
     "Formación docente en educación básica nivel primaria": [
-        62,
+        61,
         0.1289
     ],
     "Formación docente en educación básica nivel secundaria": [
-        63,
+        62,
         0.1068
     ],
     "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
-        64,
+        63,
         0.102
     ],
     "Desarrollo de software (Implementación)": [
-        65,
+        64,
         0.0955
-    ],
-    "Medicina de especialidad": [
-        66,
-        0.0597
-    ],
-    "Servicios de apoyo y asistencia administrativa": [
-        67,
-        "NA"
     ]
 }

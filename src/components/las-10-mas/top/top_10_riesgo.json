@@ -211,60 +211,48 @@
         53,
         0.14926137747432247
     ],
-    "NaN": [
-        54,
-        0.14817283359195194
-    ],
     "Ecología y ciencias ambientales": [
-        55,
+        54,
         0.14383561643835616
     ],
     "Formación docente en educación básica nivel preescolar": [
-        56,
+        55,
         0.1401957294720735
     ],
     "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
-        57,
+        56,
         0.13542296579990593
     ],
     "Planes multidisciplinarios o generales del campo de ciencias sociales y estudios del comportamiento": [
-        58,
+        57,
         0.13372573973910276
     ],
     "Desarrollo de software (Implementación)": [
-        59,
+        58,
         0.13272761842677097
     ],
     "Ciencias de la educación": [
-        60,
+        59,
         0.1292331382117503
     ],
     "Formación docente en otros servicios educativos": [
-        61,
+        60,
         0.12435402351070475
     ],
     "Planes multidisciplinarios o generales del campo de formación docente": [
-        62,
+        61,
         0.10033246758091366
     ],
     "Formación docente en educación básica nivel primaria": [
-        63,
+        62,
         0.09329410482019271
     ],
     "Formación docente en educación básica nivel secundaria": [
-        64,
+        63,
         0.08713088207277576
     ],
-    "Medicina de especialidad": [
-        65,
-        0.058359406883417224
-    ],
     "Planeación evaluación e investigación educativa": [
-        66,
-        "NA"
-    ],
-    "Servicios de apoyo y asistencia administrativa": [
-        67,
+        64,
         "NA"
     ]
 }
