@@ -1,8 +1,6 @@
 import Image from "next/image"
 
 import sectoresPicture from "@/assets/images/metodology/picture-sectors.png"
-import formulaPicture from "@/assets/images/metodology/picture-formula.png"
-import returnRiskPicture from "@/assets/images/metodology/picture-return-risk.png"
 
 export default function Metodologia() {
   return (
