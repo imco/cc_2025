@@ -1,14 +1,16 @@
+// src/components/roi/roi-selector.component.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const carrersData = require("@/components/carrers/carrers-data/carrers.data.json");
+// Si tu proyecto NO tiene resolveJsonModule, deja el require tipado.
+// Si SÍ lo tiene, puedes cambiar por: import carrersData from ".../carrers.data.json";
+const carrersData: Career[] = require("@/components/carrers/carrers-data/carrers.data.json");
 
 type Career = {
   CARRERA: string;
-  INGRESO?: number; // ingreso mensual promedio
-  [k: string]: any;
+  INGRESO?: number; // ingreso mensual promedio (MXN)
+  [k: string]: unknown; // evitar 'any' para ESLint
 };
 
 const EDUCATION_LEVELS = ["Licenciatura", "Carrera_técnica"] as const;
@@ -134,7 +136,6 @@ export default function RoiSelector() {
 
   // ===== UI =====
   return (
-    // Mantengo tu esquema y separación global
     <main className="min-h-screen bg-[#024383] pt-28 pb-16">
       <div className="max-w-5xl mx-auto px-4">
         <h1 className="text-3xl font-semibold text-center text-white mb-8">
@@ -233,7 +234,7 @@ export default function RoiSelector() {
           </div>
         </section>
 
-        {/* Resultados (como en tu Excel) */}
+        {/* Resultados */}
         <section className="bg-transparent rounded-lg p-6 space-y-4">
           <div>
             <h3 className="text-white text-lg font-semibold mb-1">
