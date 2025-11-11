@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
+import Image from "next/image";
+import Link from "next/link";
 
 type Career = { CARRERA: string; INGRESO?: number; [k: string]: unknown };
 const EDUCATION_LEVELS = ["Licenciatura", "Carrera_técnica"] as const;
@@ -140,7 +142,12 @@ export default function RoiSelector() {
       <div className="roi-container">
         {/* Hero con imagen */}
         <div className="roi-hero">
-          <img src="/roi/encabezado.png" alt="Calculadora RSI" />
+          <Image
+            src="/roi/encabezado.png"
+            alt="Calculadora RSI"
+            width={500}
+            height={300}
+          />
         </div>
 
         {/* Intro */}
@@ -160,9 +167,9 @@ export default function RoiSelector() {
               licenciatura o carrera técnica. Podrás ajustar las condiciones según tu situación
               personal para conocer el retorno que tendría tu inversión en educación.
             </p>
-            <a href="/metodologia" className="roi-btn">
-              Metodología
-            </a>
+            <Link href="/metodologia">
+              <a className="roi-btn">Metodología</a>
+            </Link>
           </div>
         </div>
 
