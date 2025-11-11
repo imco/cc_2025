@@ -1,18 +1,11 @@
-// src/components/roi/roi-selector.component.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
 
-type Career = {
-  CARRERA: string;
-  INGRESO?: number; // ingreso mensual promedio (MXN)
-  [k: string]: unknown; // evitar 'any' para ESLint
-};
-
+type Career = { CARRERA: string; INGRESO?: number; [k: string]: unknown };
 const EDUCATION_LEVELS = ["Licenciatura", "Carrera_técnica"] as const;
 type EducationLevel = (typeof EDUCATION_LEVELS)[number];
-
 const PLAN_UNITS = ["Semestres", "Cuatrimestres", "Trimestres", "Años"] as const;
 type PlanUnit = (typeof PLAN_UNITS)[number];
 
@@ -23,17 +16,12 @@ const PERIODS_PER_YEAR: Record<PlanUnit, number> = {
   Años: 1,
 };
 
-// Supuestos fijos (como en tu hoja)
-const PREPA_MENSUAL = 12052; // MXN
+const PREPA_MENSUAL = 12052;
 const EDAD_INICIO = 18;
 const EDAD_RETIRO = 65;
 
-/** TSU: detecta carreras técnicas si el nombre empieza con "TSU" (con o sin punto/guion/espacio). */
-function esTSU(c: Career): boolean {
-  const name = (c.CARRERA ?? "").toString().trim().toUpperCase();
-  // ejemplos válidos: "TSU. Servicios...", "TSU Servicios...", "TSU-Servicios..."
-  return /^TSU[\s.\-]/.test(name);
-}
+const isTSU = (c: Career) =>
+  /^TSU[\s.\-]/.test(String(c.CARRERA ?? "").trim().toUpperCase());
 
 const toNumber = (v: string) => {
   const n = Number(String(v).replace(/[^\d.-]/g, ""));
@@ -44,115 +32,151 @@ const fmtMXN = (n: number) =>
 const fmtPct = (n: number) => `${(n * 100).toFixed(1).replace(".", ",")}%`;
 
 export default function RoiSelector() {
-  // ===== datos base (carreras) =====
   const careers = useMemo(
     () =>
-      (carrersData as Career[]).slice().sort((a, b) =>
-        a.CARRERA.localeCompare(b.CARRERA)
-      ),
+      (carrersData as Career[]).slice().sort((a, b) => a.CARRERA.localeCompare(b.CARRERA)),
     []
   );
 
-  // ===== estado de selección =====
   const [level, setLevel] = useState<EducationLevel>("Licenciatura");
-  const [selectedCareer, setSelectedCareer] = useState<string>("");
-  const [planUnit, setPlanUnit] = useState<PlanUnit>("Semestres");
-  const [periods, setPeriods] = useState<string>(""); // número de periodos
-  const [costPerPeriod, setCostPerPeriod] = useState<string>(""); // MXN
+  const [career, setCareer] = useState<string>("");
+  const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
+  const [periods, setPeriods] = useState<string>("");
+  const [costPerPeriod, setCostPerPeriod] = useState<string>("");
 
-  // ===== lista filtrada de carreras por nivel =====
-  const filteredCareers = useMemo(() => {
-    if (!careers.length) return [];
-    return careers.filter((c) => {
-      const tec = esTSU(c);
-      return level === "Carrera_técnica" ? tec : !tec;
-    });
-  }, [careers, level]);
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
-  // Si cambias el nivel y la carrera ya no aplica, limpia selección
+  const [result, setResult] = useState<{
+    totalCost: number | null;
+    mesesRec: number | null;
+    rsi: number | null;
+  }>({ totalCost: null, mesesRec: null, rsi: null });
+
+  const filteredCareers = useMemo(
+    () => careers.filter((c) => (level === "Carrera_técnica" ? isTSU(c) : !isTSU(c))),
+    [careers, level]
+  );
+
   useEffect(() => {
-    if (selectedCareer) {
-      const stillThere = filteredCareers.some((c) => c.CARRERA === selectedCareer);
-      if (!stillThere) setSelectedCareer("");
+    if (career && !filteredCareers.some((c) => c.CARRERA === career)) setCareer("");
+  }, [filteredCareers, career]);
+
+  const validateFields = (): boolean => {
+    const newErrors: Record<string, boolean> = {
+      level: !level,
+      career: !career,
+      planUnit: !planUnit,
+      periods: !periods || toNumber(periods) <= 0,
+      costPerPeriod: !costPerPeriod || toNumber(costPerPeriod) <= 0,
+    };
+
+    setErrors(newErrors);
+    const hasError = Object.values(newErrors).some(Boolean);
+    setErrorMsg(hasError ? "Por favor completa todos los campos correctamente." : "");
+    return !hasError;
+  };
+
+  const handleCalculate = () => {
+    if (!validateFields()) {
+      setResult({ totalCost: null, mesesRec: null, rsi: null });
+      return;
     }
-  }, [level, filteredCareers, selectedCareer]);
 
-  // ===== valores derivados de inputs =====
-  const periodsNum = toNumber(periods);
-  const costNum = toNumber(costPerPeriod);
-  const validPeriods = Number.isFinite(periodsNum) && periodsNum > 0;
-  const validCost = Number.isFinite(costNum) && costNum >= 0;
+    const p = toNumber(periods);
+    const cpp = toNumber(costPerPeriod);
+    const totalCost = Math.round(p * cpp);
+    const years = p / PERIODS_PER_YEAR[planUnit];
 
-  const totalCost =
-    validPeriods && validCost ? Math.round(periodsNum * costNum) : null;
+    const ingresoMensualCarrera =
+      (filteredCareers.find((c) => c.CARRERA === career)?.INGRESO as number) ?? null;
 
-  const years =
-    validPeriods && PERIODS_PER_YEAR[planUnit]
-      ? periodsNum / PERIODS_PER_YEAR[planUnit]
-      : null;
+    if (ingresoMensualCarrera === null) {
+      setErrorMsg("No se encontró información de ingreso para esta carrera.");
+      setResult({ totalCost, mesesRec: null, rsi: null });
+      return;
+    }
 
-  // ingreso mensual de la carrera seleccionada (del JSON)
-  const ingresoMensualCarrera =
-    (filteredCareers.find((c) => c.CARRERA === selectedCareer)?.INGRESO as number) ??
-    null;
+    const ingresoPrepaVida = PREPA_MENSUAL * 12 * (EDAD_RETIRO - EDAD_INICIO);
+    const ingresoLicVida =
+      ingresoMensualCarrera * 12 * (EDAD_RETIRO - (EDAD_INICIO + years));
+    const difIngresoVida = ingresoLicVida - ingresoPrepaVida;
+    const exponente = 1 / (EDAD_RETIRO - (EDAD_INICIO + years));
 
-  // ===== cálculos (1:1 con tu Excel) =====
-  // Ingreso bachillerato y licenciatura de por vida
-  const ingresoPrepaVida = PREPA_MENSUAL * 12 * (EDAD_RETIRO - EDAD_INICIO);
+    const rsi =
+      difIngresoVida > 0 && totalCost > 0
+        ? Math.pow(difIngresoVida / totalCost, exponente) - 1
+        : null;
 
-  const ingresoLicVida =
-    ingresoMensualCarrera !== null && years !== null
-      ? ingresoMensualCarrera * 12 * (EDAD_RETIRO - (EDAD_INICIO + years))
-      : null;
+    const mesesRec =
+      totalCost > 0 && ingresoMensualCarrera > 0
+        ? totalCost / ingresoMensualCarrera
+        : null;
 
-  const difIngresoVida =
-    ingresoLicVida !== null ? ingresoLicVida - ingresoPrepaVida : null;
+    setResult({ totalCost, mesesRec, rsi });
+    setErrorMsg("");
+    document.getElementById("roi-results")?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  // Exponente = 1 / (65 - (18 + duración))
-  const exponente =
-    years !== null ? 1 / (EDAD_RETIRO - (EDAD_INICIO + years)) : null;
+  const Step = ({ n, children }: { n: number; children: React.ReactNode }) => (
+    <div className="roi-step">
+      <div className="roi-badge">{n}</div>
+      <div className="flex-1">{children}</div>
+    </div>
+  );
 
-  // RSI = ((difIngresoVida / costoTotal) ^ exponente) - 1
-  const rsiAnualizado =
-    difIngresoVida !== null &&
-    totalCost !== null &&
-    totalCost > 0 &&
-    exponente !== null &&
-    isFinite(exponente) &&
-    exponente > 0
-      ? Math.pow(difIngresoVida / totalCost, exponente) - 1
-      : null;
+  const inputClass = (field: string) =>
+    errors[field]
+      ? "roi-input border-red-500 ring-2 ring-red-400"
+      : "roi-input";
 
-  // Recuperar inversión (meses) = costoTotal / ingreso mensual de carrera (como B17 en tu hoja)
-  const mesesRecuperacion =
-    totalCost !== null &&
-    ingresoMensualCarrera !== null &&
-    ingresoMensualCarrera > 0
-      ? totalCost / ingresoMensualCarrera
-      : null;
+  const selectClass = (field: string) =>
+    errors[field]
+      ? "roi-select border-red-500 ring-2 ring-red-400"
+      : "roi-select";
 
-  // ===== UI =====
   return (
-    <main className="min-h-screen bg-[#024383] pt-28 pb-16">
-      <div className="max-w-5xl mx-auto px-4">
-        <h1 className="text-3xl font-semibold text-center text-white mb-8">
-          Calculadora de ROI
-        </h1>
+    <main className="min-h-screen bg-[#024383] pt-24 pb-16">
+      <div className="roi-container">
+        {/* Hero con imagen */}
+        <div className="roi-hero">
+          <img src="/roi/encabezado.png" alt="Calculadora RSI" />
+        </div>
 
-        {/* Parámetros */}
-        <section className="bg-transparent rounded-lg p-6 mb-8">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Selecciona los parámetros
-          </h2>
+        {/* Intro */}
+        <div className="roi-card" style={{ marginBottom: "1.25rem" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              flexWrap: "wrap",
+              alignItems: "flex-start",
+              justifyContent: "space-between",
+            }}
+          >
+            <p style={{ color: "rgba(255,255,255,.92)", maxWidth: "54ch", lineHeight: 1.6 }}>
+              La <strong>calculadora de retorno sobre la inversión (RSI)</strong> te permite estimar,
+              con base en tus propios supuestos, el rendimiento que podrías obtener al estudiar una
+              licenciatura o carrera técnica. Podrás ajustar las condiciones según tu situación
+              personal para conocer el retorno que tendría tu inversión en educación.
+            </p>
+            <a href="/metodologia" className="roi-btn">
+              Metodología
+            </a>
+          </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Nivel educativo */}
-            <label className="flex flex-col">
-              <span className="text-white/90 mb-1">Elige el nivel educativo</span>
+        {/* Dos columnas */}
+        <div className="roi-grid">
+          {/* Izquierda */}
+          <section className="roi-card">
+            <Step n={1}>
+              <label className="roi-label">Elige el nivel educativo:</label>
               <select
                 value={level}
                 onChange={(e) => setLevel(e.target.value as EducationLevel)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-black"
+                className={selectClass("level")}
+                required
               >
                 {EDUCATION_LEVELS.map((lvl) => (
                   <option key={lvl} value={lvl}>
@@ -160,20 +184,22 @@ export default function RoiSelector() {
                   </option>
                 ))}
               </select>
-            </label>
+            </Step>
 
-            {/* Carrera (filtrada por nivel) */}
-            <label className="flex flex-col">
-              <span className="text-white/90 mb-1">Elige la carrera</span>
+            <Step n={2}>
+              <label className="roi-label">Elige la carrera:</label>
               <select
-                value={selectedCareer}
-                onChange={(e) => setSelectedCareer(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-black"
+                value={career}
+                onChange={(e) => setCareer(e.target.value)}
+                className={selectClass("career")}
+                required
               >
                 <option value="">
-                  -- {level === "Carrera_técnica"
+                  --{" "}
+                  {level === "Carrera_técnica"
                     ? "Elige una carrera técnica (TSU)"
-                    : "Elige una licenciatura"} --
+                    : "Elige una licenciatura"}{" "}
+                  --
                 </option>
                 {filteredCareers.map((c) => (
                   <option key={c.CARRERA} value={c.CARRERA}>
@@ -181,17 +207,17 @@ export default function RoiSelector() {
                   </option>
                 ))}
               </select>
-            </label>
+            </Step>
 
-            {/* Unidad del plan */}
-            <label className="flex flex-col">
-              <span className="text-white/90 mb-1">
-                ¿Cómo se divide el plan de estudios?
-              </span>
+            <Step n={3}>
+              <label className="roi-label">
+                ¿Cómo se divide el plan de estudios? (Semestre, cuatrimestre, año, etc)
+              </label>
               <select
                 value={planUnit}
                 onChange={(e) => setPlanUnit(e.target.value as PlanUnit)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-black"
+                className={selectClass("planUnit")}
+                required
               >
                 {PLAN_UNITS.map((u) => (
                   <option key={u} value={u}>
@@ -199,74 +225,125 @@ export default function RoiSelector() {
                   </option>
                 ))}
               </select>
-            </label>
+            </Step>
 
-            {/* Periodos */}
-            <label className="flex flex-col">
-              <span className="text-white/90 mb-1">
-                ¿Cuántos periodos dura la carrera?
-              </span>
+            <Step n={4}>
+              <label className="roi-label">¿Cuántos (periodos) dura la carrera?</label>
               <input
                 inputMode="numeric"
                 placeholder="Ej. 9"
                 value={periods}
                 onChange={(e) => setPeriods(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-black"
+                className={inputClass("periods")}
+                required
               />
-            </label>
+            </Step>
 
-            {/* Costo por periodo */}
-            <label className="flex flex-col md:col-span-2">
-              <span className="text-white/90 mb-1">
-                ¿Cuál es el costo por periodo? (MXN)
-              </span>
-              <input
-                inputMode="numeric"
-                placeholder="Ingresa tu número sin comas. Ej. 120000"
-                value={costPerPeriod}
-                onChange={(e) => setCostPerPeriod(e.target.value)}
-                className="border border-gray-300 rounded-md px-3 py-2 text-black"
-              />
-            </label>
-          </div>
-        </section>
+            <Step n={5}>
+  <label className="roi-label">¿Cuál es el costo por (periodo)?</label>
+  <input
+    type="text"
+    placeholder="Ingresa tu número sin comas"
+    value={costPerPeriod}
+    onChange={(e) => {
+      // Solo permitir dígitos y opcionalmente un punto decimal
+      const clean = e.target.value.replace(/[^\d.]/g, "");
+      setCostPerPeriod(clean);
+    }}
+    className={inputClass("costPerPeriod")}
+    required
+  />
+</Step>
 
-        {/* Resultados */}
-        <section className="bg-transparent rounded-lg p-6 space-y-4">
-          <div>
-            <h3 className="text-white text-lg font-semibold mb-1">
-              El costo total de la carrera sería:
-            </h3>
-            <p className="text-white text-2xl font-bold">
-              {totalCost !== null ? `$${fmtMXN(totalCost)}` : "—"}
+
+            {errorMsg && (
+              <p
+                style={{
+                  color: "#fca5a5",
+                  fontWeight: 500,
+                  marginTop: ".5rem",
+                }}
+              >
+                ⚠️ {errorMsg}
+              </p>
+            )}
+
+            <div style={{ paddingTop: ".75rem" }}>
+              <button type="button" className="roi-btn" onClick={handleCalculate}>
+                Calcular
+              </button>
+            </div>
+          </section>
+
+          {/* Derecha */}
+          <section id="roi-results" className="space-y-6">
+            <div className="roi-card" style={{ marginBottom: "1rem" }}>
+              <div className="roi-results-row" style={{ marginBottom: ".75rem" }}>
+                <p className="roi-label" style={{ marginBottom: 0 }}>
+                  Recuperar la inversión económica te tomaría:
+                </p>
+                <div className="roi-chip">
+                  {result.mesesRec !== null ? `${result.mesesRec.toFixed(1)} meses` : "—"}
+                </div>
+              </div>
+
+              <div className="roi-results-row" style={{ marginBottom: ".75rem" }}>
+                <p className="roi-label" style={{ marginBottom: 0 }}>
+                  El costo total de la carrera sería de:
+                </p>
+                <div className="roi-chip">
+                  {result.totalCost !== null ? `$${fmtMXN(result.totalCost)}` : "—"}
+                </div>
+              </div>
+
+              <div className="roi-results-row">
+                <p className="roi-label" style={{ marginBottom: 0 }}>
+                  Retorno sobre la inversión (RSI):
+                </p>
+                <div className="roi-chip">
+                  {result.rsi !== null ? fmtPct(result.rsi) : "—"}
+                </div>
+              </div>
+            </div>
+
+            <div className="roi-card">
+              <p className="roi-label" style={{ marginBottom: ".75rem" }}>
+                ¿Contra qué compararlo?{" "}
+                <span style={{ fontWeight: 400 }}>(Inversiones populares)</span>
+              </p>
+              <div className="roi-compare-grid">
+                <div className="roi-compare-card">
+                  <div className="roi-compare-icon">💱</div>
+                  <p style={{ fontWeight: 800 }}>Cetes</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
+                    7.3%
+                  </p>
+                </div>
+                <div className="roi-compare-card">
+                  <div className="roi-compare-icon">🪙</div>
+                  <p style={{ fontWeight: 800 }}>Oro*</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
+                    12.4%
+                  </p>
+                </div>
+                <div className="roi-compare-card">
+                  <div className="roi-compare-icon">📈</div>
+                  <p style={{ fontWeight: 800 }}>S&amp;P 500*</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
+                    14%
+                  </p>
+                </div>
+              </div>
+              <p className="roi-note" style={{ marginTop: ".75rem" }}>
+                *Promedio de la última década. Se considera rendimiento anual.
+              </p>
+            </div>
+
+            <p className="roi-note">
+              Fórmula RSI = ((Diferencial de ingreso de por vida / Costo total) ^ [1 / (65 − (18 + duración de la carrera))]) − 1.
             </p>
-          </div>
-
-          <div>
-            <h3 className="text-white text-lg font-semibold mb-1">
-              Recuperar la inversión económica tomaría:
-            </h3>
-            <p className="text-white text-xl">
-              {mesesRecuperacion !== null ? `${mesesRecuperacion.toFixed(1)} meses` : "—"}
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-white text-lg font-semibold mb-1">RSI</h3>
-            <p className="text-white text-xl">
-              {rsiAnualizado !== null ? fmtPct(rsiAnualizado) : "—"}
-            </p>
-          </div>
-        </section>
-
-        <p className="text-white/80 text-sm mt-6">
-          Nota: RSI anualizado ={" "}
-          <em>
-            ((Diferencial de ingreso de por vida / Costo total) ^
-            [1 / (65 − (18 + duración de la carrera))]) − 1
-          </em>. Los meses de recuperación usan el ingreso mensual promedio de la
-          carrera seleccionada.
-        </p>
+          </section>
+        </div>
       </div>
     </main>
   );

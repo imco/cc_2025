@@ -1756,3 +1756,189 @@ section.bg-gray-100 {
     color: #111827 !important;
     /* gris oscuro neutro */
 }
+
+/***********************
+ * ROI CALCULATOR UI
+ ***********************/
+.roi-container {
+    /* contenedor general con aire lateral */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 1024px) {
+    .roi-container {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+/* banda/hero con imagen de título */
+.roi-hero {
+    margin-bottom: 1.25rem;
+}
+
+.roi-hero img {
+    width: 100%;
+    max-width: 980px;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .15);
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+/* grid de dos columnas en desktop */
+.roi-grid {
+    display: grid;
+    gap: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+    .roi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* tarjetas tipo glass */
+.roi-card {
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 16px;
+    padding: 1.25rem;
+    backdrop-filter: blur(6px);
+}
+
+@media (min-width: 768px) {
+    .roi-card {
+        padding: 1.75rem;
+    }
+}
+
+/* fila de paso con badge numérico */
+.roi-step {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+}
+
+.roi-badge {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    background: #0a4fa1;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* grupo label + control */
+.roi-field {
+    margin-bottom: 1rem;
+}
+
+.roi-label {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: .35rem;
+    letter-spacing: -0.01em;
+}
+
+/* inputs/selects compactos y coherentes */
+.roi-input,
+.roi-select {
+    height: 40px;
+    padding: 0 .75rem;
+    width: 100%;
+    max-width: 440px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, .30);
+    background: #fff;
+    color: rgba(0, 0, 0, .85);
+    outline: none;
+}
+
+.roi-input:focus,
+.roi-select:focus {
+    border-color: #6aa6ff;
+    box-shadow: 0 0 0 2px rgba(106, 166, 255, .35);
+}
+
+/* resultados en chips compactos a la derecha */
+.roi-results-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.roi-chip {
+    height: 40px;
+    width: 180px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .9);
+    color: #0a4fa1;
+    font-weight: 800;
+}
+
+/* tarjeta comparativos */
+.roi-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .85rem;
+}
+
+@media (min-width: 768px) {
+    .roi-compare-grid {
+        gap: 1rem;
+    }
+}
+
+.roi-compare-card {
+    background: rgba(255, 255, 255, .9);
+    color: #0a4fa1;
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+}
+
+.roi-compare-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto .5rem auto;
+    border-radius: 9999px;
+    background: rgba(10, 79, 161, .08);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+}
+
+/* botón primario */
+.roi-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .6rem 1.25rem;
+    border-radius: 10px;
+    border: 0;
+    background: #0a4fa1;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+    cursor: pointer;
+}
+
+.roi-btn:hover {
+    background: #0a4490;
+}
+
+/* notas */
+.roi-note {
+    color: rgba(255, 255, 255, .75);
+    font-size: .75rem;
+}
