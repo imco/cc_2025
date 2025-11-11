@@ -117,7 +117,9 @@ export default function RoiSelector() {
 
     setResult({ totalCost, mesesRec, rsi });
     setErrorMsg("");
-    document.getElementById("roi-results")?.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      document.getElementById("roi-results")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const Step = ({ n, children }: { n: number; children: React.ReactNode }) => (
@@ -145,8 +147,8 @@ export default function RoiSelector() {
           <Image
             src="/roi/encabezado.png"
             alt="Calculadora RSI"
-            width={500}
-            height={300}
+            width={600}
+            height={120}
           />
         </div>
 
@@ -167,9 +169,7 @@ export default function RoiSelector() {
               licenciatura o carrera técnica. Podrás ajustar las condiciones según tu situación
               personal para conocer el retorno que tendría tu inversión en educación.
             </p>
-            <Link href="/metodologia">
-              <a className="roi-btn">Metodología</a>
-            </Link>
+            <Link href="/metodologia" className="roi-btn">Metodología</Link>
           </div>
         </div>
 
