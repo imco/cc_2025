@@ -2,10 +2,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-
-// Si tu proyecto NO tiene resolveJsonModule, deja el require tipado.
-// Si SÍ lo tiene, puedes cambiar por: import carrersData from ".../carrers.data.json";
-const carrersData: Career[] = require("@/components/carrers/carrers-data/carrers.data.json");
+import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
 
 type Career = {
   CARRERA: string;
