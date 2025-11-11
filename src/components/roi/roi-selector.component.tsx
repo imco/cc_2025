@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
 
 type Career = { CARRERA: string; INGRESO?: number; [k: string]: unknown };
 const EDUCATION_LEVELS = ["Licenciatura", "Carrera_técnica"] as const;
@@ -25,26 +25,38 @@ const EDAD_RETIRO = 65;
 const isTSU = (c: Career) =>
   /^TSU[\s.\-]/.test(String(c.CARRERA ?? "").trim().toUpperCase());
 
-const toNumber = (v: string) => {
-  const n = Number(String(v).replace(/[^\d.-]/g, ""));
-  return Number.isFinite(n) ? n : NaN;
-};
+/** Parser laxo: acepta "120,000.50", "120.000,50", "$ 120 000,50", etc. */
+function toNumberLoose(v: string): number {
+  if (!v) return NaN;
+  const raw = String(v).replace(/[^\d.,\-]/g, "");
+  if (!raw) return NaN;
+  const lastSepIndex = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
+  if (lastSepIndex === -1) return Number(raw.replace(/[^\d\-]/g, ""));
+  const intPart = raw.slice(0, lastSepIndex).replace(/[.,]/g, "").replace(/[^\d\-]/g, "");
+  const decPart = raw.slice(lastSepIndex + 1).replace(/[^\d]/g, "");
+  const sign = intPart.startsWith("-") ? "-" : "";
+  const intClean = intPart.replace("-", "") || "0";
+  return Number(`${sign}${intClean}.${decPart || "0"}`);
+}
+
 const fmtMXN = (n: number) =>
   new Intl.NumberFormat("es-MX", { maximumFractionDigits: 0 }).format(n);
 const fmtPct = (n: number) => `${(n * 100).toFixed(1).replace(".", ",")}%`;
 
 export default function RoiSelector() {
   const careers = useMemo(
-    () =>
-      (carrersData as Career[]).slice().sort((a, b) => a.CARRERA.localeCompare(b.CARRERA)),
+    () => (carrersData as Career[]).slice().sort((a, b) => a.CARRERA.localeCompare(b.CARRERA)),
     []
   );
 
+  // estado controlado sólo para selects (sin problemas al escribir)
   const [level, setLevel] = useState<EducationLevel>("Licenciatura");
   const [career, setCareer] = useState<string>("");
   const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
-  const [periods, setPeriods] = useState<string>("");
-  const [costPerPeriod, setCostPerPeriod] = useState<string>("");
+
+  // 🔑 migramos Step 4 y 5 a uncontrolled
+  const periodsRef = useRef<HTMLInputElement>(null);
+  const costRef = useRef<HTMLInputElement>(null);
 
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -64,13 +76,23 @@ export default function RoiSelector() {
     if (career && !filteredCareers.some((c) => c.CARRERA === career)) setCareer("");
   }, [filteredCareers, career]);
 
+  const readInputs = () => {
+    const periodsText = periodsRef.current?.value ?? "";
+    const costText = costRef.current?.value ?? "";
+    const p = toNumberLoose(periodsText);
+    const cpp = toNumberLoose(costText);
+    return { p, cpp, periodsText, costText };
+  };
+
   const validateFields = (): boolean => {
+    const { p, cpp } = readInputs();
+
     const newErrors: Record<string, boolean> = {
       level: !level,
       career: !career,
       planUnit: !planUnit,
-      periods: !periods || toNumber(periods) <= 0,
-      costPerPeriod: !costPerPeriod || toNumber(costPerPeriod) <= 0,
+      periods: !Number.isFinite(p) || p <= 0,
+      costPerPeriod: !Number.isFinite(cpp) || cpp <= 0,
     };
 
     setErrors(newErrors);
@@ -85,8 +107,7 @@ export default function RoiSelector() {
       return;
     }
 
-    const p = toNumber(periods);
-    const cpp = toNumber(costPerPeriod);
+    const { p, cpp } = readInputs(); // p y cpp pueden ser decimales
     const totalCost = Math.round(p * cpp);
     const years = p / PERIODS_PER_YEAR[planUnit];
 
@@ -130,25 +151,23 @@ export default function RoiSelector() {
   );
 
   const inputClass = (field: string) =>
-    errors[field]
-      ? "roi-input border-red-500 ring-2 ring-red-400"
-      : "roi-input";
-
+    errors[field] ? "roi-input border-red-500 ring-2 ring-red-400" : "roi-input";
   const selectClass = (field: string) =>
-    errors[field]
-      ? "roi-select border-red-500 ring-2 ring-red-400"
-      : "roi-select";
+    errors[field] ? "roi-select border-red-500 ring-2 ring-red-400" : "roi-select";
 
   return (
     <main className="min-h-screen bg-[#024383] pt-24 pb-16">
       <div className="roi-container">
-        {/* Hero con imagen */}
+        {/* Hero */}
         <div className="roi-hero">
           <Image
             src="/roi/encabezado.png"
             alt="Calculadora RSI"
-            width={600}
-            height={120}
+            width={980}
+            height={160}
+            priority
+            sizes="(max-width: 1024px) 100vw, 980px"
+            className="w-full max-w-[980px] rounded-xl"
           />
         </div>
 
@@ -169,21 +188,30 @@ export default function RoiSelector() {
               licenciatura o carrera técnica. Podrás ajustar las condiciones según tu situación
               personal para conocer el retorno que tendría tu inversión en educación.
             </p>
-            <Link href="/metodologia" className="roi-btn">Metodología</Link>
+            <Link href="/metodologia" className="roi-btn">
+              Metodología
+            </Link>
           </div>
         </div>
 
         {/* Dos columnas */}
         <div className="roi-grid">
-          {/* Izquierda */}
+          {/* Columna izquierda */}
           <section className="roi-card">
             <Step n={1}>
-              <label className="roi-label">Elige el nivel educativo:</label>
+              <label htmlFor="nivel" className="roi-label">
+                Elige el nivel educativo:
+              </label>
               <select
+                id="nivel"
                 value={level}
-                onChange={(e) => setLevel(e.target.value as EducationLevel)}
+                onChange={(e) => {
+                  setLevel(e.target.value as EducationLevel);
+                  setErrors((prev) => ({ ...prev, level: false }));
+                }}
                 className={selectClass("level")}
                 required
+                aria-invalid={!!errors.level}
               >
                 {EDUCATION_LEVELS.map((lvl) => (
                   <option key={lvl} value={lvl}>
@@ -194,19 +222,22 @@ export default function RoiSelector() {
             </Step>
 
             <Step n={2}>
-              <label className="roi-label">Elige la carrera:</label>
+              <label htmlFor="career" className="roi-label">
+                Elige la carrera:
+              </label>
               <select
+                id="career"
                 value={career}
-                onChange={(e) => setCareer(e.target.value)}
+                onChange={(e) => {
+                  setCareer(e.target.value);
+                  setErrors((prev) => ({ ...prev, career: false }));
+                }}
                 className={selectClass("career")}
                 required
+                aria-invalid={!!errors.career}
               >
                 <option value="">
-                  --{" "}
-                  {level === "Carrera_técnica"
-                    ? "Elige una carrera técnica (TSU)"
-                    : "Elige una licenciatura"}{" "}
-                  --
+                  -- {level === "Carrera_técnica" ? "Elige una carrera técnica (TSU)" : "Elige una licenciatura"} --
                 </option>
                 {filteredCareers.map((c) => (
                   <option key={c.CARRERA} value={c.CARRERA}>
@@ -217,14 +248,19 @@ export default function RoiSelector() {
             </Step>
 
             <Step n={3}>
-              <label className="roi-label">
+              <label htmlFor="plan" className="roi-label">
                 ¿Cómo se divide el plan de estudios? (Semestre, cuatrimestre, año, etc)
               </label>
               <select
+                id="plan"
                 value={planUnit}
-                onChange={(e) => setPlanUnit(e.target.value as PlanUnit)}
+                onChange={(e) => {
+                  setPlanUnit(e.target.value as PlanUnit);
+                  setErrors((prev) => ({ ...prev, planUnit: false }));
+                }}
                 className={selectClass("planUnit")}
                 required
+                aria-invalid={!!errors.planUnit}
               >
                 {PLAN_UNITS.map((u) => (
                   <option key={u} value={u}>
@@ -234,43 +270,54 @@ export default function RoiSelector() {
               </select>
             </Step>
 
+            {/* Step 4: UNCONTROLLED */}
             <Step n={4}>
-              <label className="roi-label">¿Cuántos (periodos) dura la carrera?</label>
+              <label htmlFor="periods" className="roi-label">
+                ¿Cuántos (periodos) dura la carrera?
+              </label>
               <input
+                id="periods"
+                ref={periodsRef}
+                type="text"
                 inputMode="numeric"
-                placeholder="Ej. 9"
-                value={periods}
-                onChange={(e) => setPeriods(e.target.value)}
+                autoComplete="off"
+                placeholder="Ej. 9 o 9.5"
                 className={inputClass("periods")}
                 required
+                aria-invalid={!!errors.periods}
               />
+              {errors.periods && (
+                <span className="mt-1 text-sm" style={{ color: "#fca5a5" }}>
+                  Ingresa un número mayor a 0 (puede llevar decimales).
+                </span>
+              )}
             </Step>
 
+            {/* Step 5: UNCONTROLLED */}
             <Step n={5}>
-  <label className="roi-label">¿Cuál es el costo por (periodo)?</label>
-  <input
-    type="text"
-    placeholder="Ingresa tu número sin comas"
-    value={costPerPeriod}
-    onChange={(e) => {
-      // Solo permitir dígitos y opcionalmente un punto decimal
-      const clean = e.target.value.replace(/[^\d.]/g, "");
-      setCostPerPeriod(clean);
-    }}
-    className={inputClass("costPerPeriod")}
-    required
-  />
-</Step>
-
+              <label htmlFor="cpp" className="roi-label">
+                ¿Cuál es el costo por (periodo)?
+              </label>
+              <input
+                id="cpp"
+                ref={costRef}
+                type="text"
+                inputMode="numeric"
+                autoComplete="off"
+                placeholder="Puedes pegar: 120000, $120,000.50, 120 000"
+                className={inputClass("costPerPeriod")}
+                required
+                aria-invalid={!!errors.costPerPeriod}
+              />
+              {errors.costPerPeriod && (
+                <span className="mt-1 text-sm" style={{ color: "#fca5a5" }}>
+                  Ingresa un monto numérico mayor a 0 (se aceptan decimales).
+                </span>
+              )}
+            </Step>
 
             {errorMsg && (
-              <p
-                style={{
-                  color: "#fca5a5",
-                  fontWeight: 500,
-                  marginTop: ".5rem",
-                }}
-              >
+              <p style={{ color: "#fca5a5", fontWeight: 500, marginTop: ".5rem" }}>
                 ⚠️ {errorMsg}
               </p>
             )}
@@ -282,31 +329,23 @@ export default function RoiSelector() {
             </div>
           </section>
 
-          {/* Derecha */}
+          {/* Columna derecha (resultados) */}
           <section id="roi-results" className="space-y-6">
             <div className="roi-card" style={{ marginBottom: "1rem" }}>
               <div className="roi-results-row" style={{ marginBottom: ".75rem" }}>
-                <p className="roi-label" style={{ marginBottom: 0 }}>
-                  Recuperar la inversión económica te tomaría:
-                </p>
+                <p className="roi-label">Recuperar la inversión económica te tomaría:</p>
                 <div className="roi-chip">
                   {result.mesesRec !== null ? `${result.mesesRec.toFixed(1)} meses` : "—"}
                 </div>
               </div>
-
               <div className="roi-results-row" style={{ marginBottom: ".75rem" }}>
-                <p className="roi-label" style={{ marginBottom: 0 }}>
-                  El costo total de la carrera sería de:
-                </p>
+                <p className="roi-label">El costo total de la carrera sería de:</p>
                 <div className="roi-chip">
                   {result.totalCost !== null ? `$${fmtMXN(result.totalCost)}` : "—"}
                 </div>
               </div>
-
               <div className="roi-results-row">
-                <p className="roi-label" style={{ marginBottom: 0 }}>
-                  Retorno sobre la inversión (RSI):
-                </p>
+                <p className="roi-label">Retorno sobre la inversión (RSI):</p>
                 <div className="roi-chip">
                   {result.rsi !== null ? fmtPct(result.rsi) : "—"}
                 </div>
@@ -314,31 +353,24 @@ export default function RoiSelector() {
             </div>
 
             <div className="roi-card">
-              <p className="roi-label" style={{ marginBottom: ".75rem" }}>
-                ¿Contra qué compararlo?{" "}
-                <span style={{ fontWeight: 400 }}>(Inversiones populares)</span>
+              <p className="roi-label">
+                ¿Contra qué compararlo? <span style={{ fontWeight: 400 }}>(Inversiones populares)</span>
               </p>
               <div className="roi-compare-grid">
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon">💱</div>
-                  <p style={{ fontWeight: 800 }}>Cetes</p>
-                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
-                    7.3%
-                  </p>
+                  <p>Cetes</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900 }}>7.3%</p>
                 </div>
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon">🪙</div>
-                  <p style={{ fontWeight: 800 }}>Oro*</p>
-                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
-                    12.4%
-                  </p>
+                  <p>Oro*</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900 }}>12.4%</p>
                 </div>
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon">📈</div>
-                  <p style={{ fontWeight: 800 }}>S&amp;P 500*</p>
-                  <p style={{ fontSize: "1.5rem", fontWeight: 900, marginTop: ".25rem" }}>
-                    14%
-                  </p>
+                  <p>S&amp;P 500*</p>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 900 }}>14%</p>
                 </div>
               </div>
               <p className="roi-note" style={{ marginTop: ".75rem" }}>
