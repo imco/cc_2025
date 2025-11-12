@@ -19,6 +19,20 @@ const PERIODS_PER_YEAR: Record<PlanUnit, number> = {
   Años: 1,
 };
 
+const UNIT_PLURAL: Record<PlanUnit, string> = {
+  Semestres: "semestres",
+  Cuatrimestres: "cuatrimestres",
+  Trimestres: "trimestres",
+  Años: "años",
+};
+
+const UNIT_SINGULAR: Record<PlanUnit, string> = {
+  Semestres: "semestre",
+  Cuatrimestres: "cuatrimestre",
+  Trimestres: "trimestre",
+  Años: "año",
+};
+
 const PREPA_MENSUAL = 12052;
 const EDAD_INICIO = 18;
 const EDAD_RETIRO = 65;
@@ -264,7 +278,7 @@ export default function RoiSelector() {
             {/* Step 4: periodos (solo enteros) */}
             <Step n={4}>
               <label htmlFor="periods" className="roi-label">
-                ¿Cuántos (periodos) dura la carrera?
+                ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
               </label>
               <input
                 id="periods"
@@ -272,7 +286,7 @@ export default function RoiSelector() {
                 type="text"
                 inputMode="numeric"
                 autoComplete="off"
-                pattern="^\d+$"
+                pattern="^\\d+$"
                 placeholder="Ej. 9"
                 className={inputClass("periods", liveErrPeriods)}
                 aria-invalid={errors.periods || liveErrPeriods}
@@ -293,7 +307,7 @@ export default function RoiSelector() {
             {/* Step 5: costo por periodo (sin comas, punto decimal opcional) */}
             <Step n={5}>
               <label htmlFor="cpp" className="roi-label">
-                ¿Cuál es el costo por (periodo)?
+                ¿Cuál es el costo por {UNIT_SINGULAR[planUnit]}?
               </label>
               <input
                 id="cpp"
@@ -301,8 +315,8 @@ export default function RoiSelector() {
                 type="text"
                 inputMode="decimal"
                 autoComplete="off"
-                pattern="^\$?\d+(\.\d+)?$"
-                placeholder="Ej. 120000.50"
+                pattern="^\\$?\\d+(\\.\\d+)?$"
+                placeholder="Ej. 120000.50 o $120000.50"
                 className={inputClass("costPerPeriod", liveErrCost)}
                 aria-invalid={errors.costPerPeriod || liveErrCost}
                 onInput={() => {
@@ -382,8 +396,10 @@ export default function RoiSelector() {
                   <p className="text-2xl font-bold">14%</p>
                 </div>
               </div>
-              <p className="roi-note mt-3">*Promedio de la última década. Se considera rendimiento anual.</p>
-              <p className="roi-note mt-3">Referencia a noviembre de 2025.</p>
+              <p className="roi-note mt-3">
+                *Promedio de la última década. Se considera rendimiento anual.
+              </p>
+              <p className="roi-note mt-3">*Referencia a noviembre 2025.</p>
             </div>
           </section>
         </div>
