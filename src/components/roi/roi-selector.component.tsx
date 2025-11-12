@@ -294,7 +294,7 @@ export default function RoiSelector() {
                   if (!inputEl) return;
 
                   // Solo dígitos
-                  let raw = inputEl.value.replace(/\D/g, "");
+                  const raw = inputEl.value.replace(/\D/g, "");
 
                   if (raw === "") {
                     inputEl.value = "";
