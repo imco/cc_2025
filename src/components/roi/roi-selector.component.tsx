@@ -316,7 +316,7 @@ export default function RoiSelector() {
                 inputMode="decimal"
                 autoComplete="off"
                 pattern="^\\$?\\d+(\\.\\d+)?$"
-                placeholder="Ej. 120000.50 o $120000.50"
+                placeholder="Ej. 120000.50"
                 className={inputClass("costPerPeriod", liveErrCost)}
                 aria-invalid={errors.costPerPeriod || liveErrCost}
                 onInput={() => {
