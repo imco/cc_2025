@@ -26,20 +26,23 @@ const EDAD_RETIRO = 65;
 const isTSU = (c: Career) =>
   /^TSU[\s.\-]/.test(String(c.CARRERA ?? "").trim().toUpperCase());
 
-function toNumberLoose(v: string): number {
-  if (!v) return NaN;
-  const raw = String(v).replace(/[^\d.,\-]/g, "");
-  if (!raw) return NaN;
-  const lastSepIndex = Math.max(raw.lastIndexOf(","), raw.lastIndexOf("."));
-  if (lastSepIndex === -1) return Number(raw.replace(/[^\d\-]/g, ""));
-  const intPart = raw
-    .slice(0, lastSepIndex)
-    .replace(/[.,]/g, "")
-    .replace(/[^\d\-]/g, "");
-  const decPart = raw.slice(lastSepIndex + 1).replace(/[^\d]/g, "");
-  const sign = intPart.startsWith("-") ? "-" : "";
-  const intClean = intPart.replace("-", "") || "0";
-  return Number(`${sign}${intClean}.${decPart || "0"}`);
+/** Solo enteros positivos (sin puntos ni comas). Devuelve null si no es válido. */
+function parsePositiveIntStrict(v: string): number | null {
+  if (!v) return null;
+  if (!/^\s*\d+\s*$/.test(v)) return null; // solo dígitos
+  const n = Number(v.trim());
+  if (!Number.isSafeInteger(n) || n <= 0) return null;
+  return n;
+}
+
+/** Monto con punto decimal opcional. Rechaza comas. Devuelve null si no es válido. */
+function parseMoneyNoComma(v: string): number | null {
+  if (!v) return null;
+  if (/,/.test(v)) return null; // NO comas
+  if (!/^\s*\$?\s*\d+(\.\d+)?\s*$/.test(v)) return null; // dígitos y punto decimal opcional
+  const num = Number(v.replace(/[^\d.]/g, ""));
+  if (!Number.isFinite(num) || num <= 0) return null;
+  return num;
 }
 
 const fmtMXN = (n: number) =>
@@ -49,7 +52,9 @@ const fmtPct = (n: number) => `${(n * 100).toFixed(1).replace(".", ",")}%`;
 export default function RoiSelector() {
   const careers = useMemo(
     () =>
-      (carrersData as Career[]).slice().sort((a, b) => a.CARRERA.localeCompare(b.CARRERA)),
+      (carrersData as Career[])
+        .slice()
+        .sort((a, b) => a.CARRERA.localeCompare(b.CARRERA)),
     []
   );
 
@@ -58,7 +63,7 @@ export default function RoiSelector() {
   const [career, setCareer] = useState<string>("");
   const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
 
-  // inputs libres (para pegar/tipear con separadores)
+  // inputs
   const periodsRef = useRef<HTMLInputElement>(null);
   const costRef = useRef<HTMLInputElement>(null);
 
@@ -74,7 +79,7 @@ export default function RoiSelector() {
     rsi: number | null;
   }>({ totalCost: null, mesesRec: null, rsi: null });
 
-  // resalte del card de resultados
+  // resalte
   const [highlightResults, setHighlightResults] = useState(false);
 
   const filteredCareers = useMemo(
@@ -90,9 +95,9 @@ export default function RoiSelector() {
   const readInputs = () => {
     const periodsText = periodsRef.current?.value ?? "";
     const costText = costRef.current?.value ?? "";
-    const p = toNumberLoose(periodsText);
-    const cpp = toNumberLoose(costText);
-    return { p, cpp };
+    const p = parsePositiveIntStrict(periodsText);
+    const cpp = parseMoneyNoComma(costText);
+    return { p: p ?? NaN, cpp: cpp ?? NaN };
   };
 
   const handleCalculate = () => {
@@ -102,7 +107,7 @@ export default function RoiSelector() {
       level: !level,
       career: !career,
       planUnit: !planUnit,
-      periods: !Number.isFinite(p) || p <= 0,
+      periods: !Number.isFinite(p) || p <= 0 || !Number.isInteger(p),
       costPerPeriod: !Number.isFinite(cpp) || cpp <= 0,
     };
 
@@ -256,7 +261,7 @@ export default function RoiSelector() {
               </select>
             </Step>
 
-            {/* Step 4 */}
+            {/* Step 4: periodos (solo enteros) */}
             <Step n={4}>
               <label htmlFor="periods" className="roi-label">
                 ¿Cuántos (periodos) dura la carrera?
@@ -265,26 +270,27 @@ export default function RoiSelector() {
                 id="periods"
                 ref={periodsRef}
                 type="text"
-                inputMode="decimal"
+                inputMode="numeric"
                 autoComplete="off"
-                placeholder="Ej. 9 o 9.5"
+                pattern="^\d+$"
+                placeholder="Ej. 9"
                 className={inputClass("periods", liveErrPeriods)}
                 aria-invalid={errors.periods || liveErrPeriods}
                 onInput={() => {
                   const val = periodsRef.current?.value ?? "";
-                  const n = toNumberLoose(val);
-                  setLiveErrPeriods(val.trim().length > 0 && !Number.isFinite(n));
+                  const ok = parsePositiveIntStrict(val) !== null;
+                  setLiveErrPeriods(val.trim().length > 0 && !ok);
                   setHighlightResults(false);
                 }}
               />
               {(errors.periods || liveErrPeriods) && (
                 <p className="text-sm text-red-400 mt-1">
-                  Ingresa un número válido (puede llevar decimales).
+                  Ingresa un número entero positivo (sin puntos ni comas).
                 </p>
               )}
             </Step>
 
-            {/* Step 5 */}
+            {/* Step 5: costo por periodo (sin comas, punto decimal opcional) */}
             <Step n={5}>
               <label htmlFor="cpp" className="roi-label">
                 ¿Cuál es el costo por (periodo)?
@@ -295,18 +301,21 @@ export default function RoiSelector() {
                 type="text"
                 inputMode="decimal"
                 autoComplete="off"
-                placeholder="Ej. 120000 o $120,000.50"
+                pattern="^\$?\d+(\.\d+)?$"
+                placeholder="Ej. 120000.50 o $120000.50"
                 className={inputClass("costPerPeriod", liveErrCost)}
                 aria-invalid={errors.costPerPeriod || liveErrCost}
                 onInput={() => {
                   const val = costRef.current?.value ?? "";
-                  const n = toNumberLoose(val);
-                  setLiveErrCost(val.trim().length > 0 && !Number.isFinite(n));
+                  const ok = parseMoneyNoComma(val) !== null;
+                  setLiveErrCost(val.trim().length > 0 && !ok);
                   setHighlightResults(false);
                 }}
               />
               {(errors.costPerPeriod || liveErrCost) && (
-                <p className="text-sm text-red-400 mt-1">Ingresa un monto numérico válido.</p>
+                <p className="text-sm text-red-400 mt-1">
+                  Ingresa un monto válido sin comas. Usa punto para decimales (ej. 120000.50).
+                </p>
               )}
             </Step>
 
