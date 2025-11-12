@@ -275,54 +275,58 @@ export default function RoiSelector() {
             </Step>
 
             {/* Step 4: periodos (solo enteros, máximo 15, autoclimita) */}
-            <Step n={4}>
-              <label htmlFor="periods" className="roi-label">
-                ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
-              </label>
-              <input
-                id="periods"
-                ref={periodsRef}
-                type="text"
-                inputMode="numeric"
-                autoComplete="off"
-                pattern="^\\d+$"
-                placeholder="Ej. 9"
-                className={inputClass("periods", liveErrPeriods)}
-                aria-invalid={errors.periods || liveErrPeriods}
-                onInput={() => {
-                  const inputEl = periodsRef.current;
-                  if (!inputEl) return;
+            {/* Step 4: periodos (solo enteros, máximo 15, autoclimita) */}
+<Step n={4}>
+  <label htmlFor="periods" className="roi-label">
+    ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
+  </label>
 
-                  // Solo dígitos
-                  const raw = inputEl.value.replace(/\D/g, "");
+  <input
+    id="periods"
+    ref={periodsRef}
+    type="text"
+    inputMode="numeric"
+    autoComplete="off"
+    pattern="^\\d+$"
+    placeholder="Ej. 9"
+    className={inputClass("periods", liveErrPeriods)}
+    aria-invalid={errors.periods || liveErrPeriods}
+    onInput={() => {
+      const inputEl = periodsRef.current;
+      if (!inputEl) return;
 
-                  if (raw === "") {
-                    inputEl.value = "";
-                    setLiveErrPeriods(false);
-                    setHighlightResults(false);
-                    return;
-                  }
+      // Solo dígitos
+      const raw = inputEl.value.replace(/\D/g, "");
 
-                  let num = Number(raw);
-                  if (!Number.isFinite(num) || num <= 0) {
-                    setLiveErrPeriods(true);
-                  } else {
-                    // límite máximo 15
-                    if (num > 15) num = 15;
-                    inputEl.value = String(num);
-                    const ok = parsePositiveIntStrict(inputEl.value) !== null;
-                    setLiveErrPeriods(!ok);
-                  }
+      if (raw === "") {
+        inputEl.value = "";
+        setLiveErrPeriods(false);
+        setHighlightResults(false);
+        return;
+      }
 
-                  setHighlightResults(false);
-                }}
-              />
-              {(errors.periods || liveErrPeriods) && (
-                <p className="text-sm text-red-400 mt-1">
-                  Ingresa un número entero positivo (máximo 15).
-                </p>
-              )}
-            </Step>
+      let num = Number(raw);
+
+      if (!Number.isFinite(num) || num <= 0) {
+        setLiveErrPeriods(true);
+      } else {
+        if (num > 15) num = 15; // límite automático
+        inputEl.value = String(num);
+        const ok = parsePositiveIntStrict(inputEl.value) !== null;
+        setLiveErrPeriods(!ok);
+      }
+
+      setHighlightResults(false);
+    }}
+  />
+
+  {(errors.periods || liveErrPeriods) && (
+    <p className="text-sm text-red-400 mt-1">
+      Ingresa un número entero positivo (máximo 15).
+    </p>
+  )}
+</Step>
+
 
             {/* Step 5: costo por periodo (sin comas, punto decimal opcional) */}
             <Step n={5}>
