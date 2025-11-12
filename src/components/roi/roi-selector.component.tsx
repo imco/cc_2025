@@ -40,12 +40,12 @@ const EDAD_RETIRO = 65;
 const isTSU = (c: Career) =>
   /^TSU[\s.\-]/.test(String(c.CARRERA ?? "").trim().toUpperCase());
 
-/** Solo enteros positivos (sin puntos ni comas). Devuelve null si no es válido. */
+/** Solo enteros positivos hasta un máximo de 15 */
 function parsePositiveIntStrict(v: string): number | null {
   if (!v) return null;
   if (!/^\s*\d+\s*$/.test(v)) return null; // solo dígitos
   const n = Number(v.trim());
-  if (!Number.isSafeInteger(n) || n <= 0) return null;
+  if (!Number.isSafeInteger(n) || n <= 0 || n > 15) return null;
   return n;
 }
 
@@ -209,7 +209,6 @@ export default function RoiSelector() {
               cada carrera.
             </p>
 
-            {/* Botón pequeño a la izquierda */}
             <div className="flex justify-start">
               <Link
                 href="/metodologia"
@@ -275,7 +274,7 @@ export default function RoiSelector() {
               </select>
             </Step>
 
-            {/* Step 4: periodos (solo enteros) */}
+            {/* Step 4: periodos (solo enteros, máximo 15, autoclimita) */}
             <Step n={4}>
               <label htmlFor="periods" className="roi-label">
                 ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
@@ -291,15 +290,36 @@ export default function RoiSelector() {
                 className={inputClass("periods", liveErrPeriods)}
                 aria-invalid={errors.periods || liveErrPeriods}
                 onInput={() => {
-                  const val = periodsRef.current?.value ?? "";
-                  const ok = parsePositiveIntStrict(val) !== null;
-                  setLiveErrPeriods(val.trim().length > 0 && !ok);
+                  const inputEl = periodsRef.current;
+                  if (!inputEl) return;
+
+                  // Solo dígitos
+                  let raw = inputEl.value.replace(/\D/g, "");
+
+                  if (raw === "") {
+                    inputEl.value = "";
+                    setLiveErrPeriods(false);
+                    setHighlightResults(false);
+                    return;
+                  }
+
+                  let num = Number(raw);
+                  if (!Number.isFinite(num) || num <= 0) {
+                    setLiveErrPeriods(true);
+                  } else {
+                    // límite máximo 15
+                    if (num > 15) num = 15;
+                    inputEl.value = String(num);
+                    const ok = parsePositiveIntStrict(inputEl.value) !== null;
+                    setLiveErrPeriods(!ok);
+                  }
+
                   setHighlightResults(false);
                 }}
               />
               {(errors.periods || liveErrPeriods) && (
                 <p className="text-sm text-red-400 mt-1">
-                  Ingresa un número entero positivo (sin puntos ni comas).
+                  Ingresa un número entero positivo (máximo 15).
                 </p>
               )}
             </Step>
@@ -371,7 +391,9 @@ export default function RoiSelector() {
 
               <div>
                 <p className="roi-label">Retorno sobre la inversión (RSI):</p>
-                <div className="roi-chip">{result.rsi !== null ? fmtPct(result.rsi) : "—"}</div>
+                <div className="roi-chip">
+                  {result.rsi !== null ? fmtPct(result.rsi) : "—"}
+                </div>
               </div>
             </div>
 
@@ -399,7 +421,7 @@ export default function RoiSelector() {
               <p className="roi-note mt-3">
                 *Promedio de la última década. Se considera rendimiento anual.
               </p>
-              <p className="roi-note mt-3">*Referencia a noviembre 2025.</p>
+              <p className="roi-note mt-3">*Referencia a noviembre de 2025.</p>
             </div>
           </section>
         </div>
