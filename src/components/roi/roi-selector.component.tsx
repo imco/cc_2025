@@ -302,7 +302,7 @@ export default function RoiSelector() {
                 inputMode="decimal"
                 autoComplete="off"
                 pattern="^\$?\d+(\.\d+)?$"
-                placeholder="Ej. 120000.50 o $120000.50"
+                placeholder="Ej. 120000.50"
                 className={inputClass("costPerPeriod", liveErrCost)}
                 aria-invalid={errors.costPerPeriod || liveErrCost}
                 onInput={() => {
@@ -383,7 +383,7 @@ export default function RoiSelector() {
                 </div>
               </div>
               <p className="roi-note mt-3">*Promedio de la última década. Se considera rendimiento anual.</p>
-              <p className="roi-note mt-3">*Referencia a noviembre 2025.</p>
+              <p className="roi-note mt-3">Referencia a noviembre de 2025.</p>
             </div>
           </section>
         </div>

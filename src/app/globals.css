@@ -1828,8 +1828,8 @@ section.bg-gray-100 {
     display: grid;
     place-items: center;
     border-radius: 9999px;
-    background: #0a4fa1;
-    color: #fff;
+    background: #fff;
+    color: #0a4fa1;
     font-weight: 700;
 }
 

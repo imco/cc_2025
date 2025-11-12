@@ -42,9 +42,9 @@ export const LinksList: LinkOptions[] =  [
     urlMiniatura: "https://comparacarreras.imco.org.mx/mini-faq.png",
   },
   {
-    sectionName: 'Calculadora de ROI',
+    sectionName: 'Calculadora de inversión',
     url: "/roi",
-    title: "Calculadora de ROI",
+    title: "Calculadora de inversión",
     urlCanonical: "https://comparacarreras.imco.org.mx/roi",
     content: "Calcula el retorno sobre la inversión (ROI) de estudiar una carrera universitaria en México.",
     urlMiniatura: "https://comparacarreras.imco.org.mx/mini-roi.png",
