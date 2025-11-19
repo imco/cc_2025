@@ -1,6 +1,7 @@
 import Image from "next/image"
 
 import sectoresPicture from "@/assets/images/metodology/picture-sectors.png"
+import formulaPicture from "@/assets/images/metodology/picture-formula.png"
 
 export default function Metodologia() {
   return (
@@ -91,6 +92,37 @@ export default function Metodologia() {
           <ul>
             <li><strong>Universidades que imparten la carrera:</strong> Número total de universidades que ofrecen cada carrera.</li>
             <li><strong>Actualmente la cursan:</strong> Número total de estudiantes matriculados en la carrera en el ciclo escolar 2023-2024.</li>
+          </ul>
+        </div>
+        <div className="metodologia-card">
+          <h3>III. Calculadora del Retorno sobre la inversión</h3>
+          <p>La calculadora de Retorno sobre la Inversión (ROI) estima la tasa de retorno anualizada a partir de la información proporcionada por el usuario. Con base en los datos ingresados —carrera, costos y duración— el sistema genera los valores correspondientes a los siguientes indicadores:</p>
+          <ul>
+            <li><strong>Universidades que imparten la carrera:</strong> Costo total de estudiar la carrera multiplicando el número de periodos que dura la carrera por el costo de cada periodo.</li>
+            <li><strong>Tiempo para recuperar la inversión:</strong> Número de meses que debe trabajar un profesionista –que recibe el salario promedio de la carrera– para recuperar el costo total de su educación superior. Equivale al costo total de la carrera dividido entre el salario promedio.</li>
+            <li><strong>Retorno sobre la inversión anualizado:</strong> Es una medida del rendimiento de la inversión en educación superior, expresada como una tasa de retorno anual. El retorno sobre la inversión anualizado permite comparar en términos financieros la decisión de estudiar una carrera contra otras alternativas de inversión como por ejemplo la bolsa, los bonos del Estado, pagarés, etc.</li>
+
+            Su cálculo se basa en la siguiente fórmula:
+
+
+        <Image
+            src={formulaPicture.src}
+            width={formulaPicture.width}
+            height={formulaPicture.height}
+            alt="Fórmula RSI anualizado"
+            className="metodologia-image mt-4"
+          />
+          <li>
+          Y supone que:
+            <p>- La edad en la que una persona termina la preparatoria y decide si continuar o no con su educación universitaria es a los 18 años; y
+            </p>
+            <p>- La vida laboral de una persona termina a los 65 años de edad.</p>
+            <p>Teniendo en cuenta las siguientes definiciones:</p>
+            <p>- Diferencial de ingreso vs. preparatoria: Ingresos extra que recibe un profesional respecto a los ingresos que obtiene una persona que solo terminó la preparatoria. Dado que la persona que decide estudiar una carrera sacrifica años de ingresos laborales, el diferencial de ingresos se calcula como los ingresos de la vida laboral de un profesional menos los ingresos que desde los 18 hasta los 65 años de edad recibe la persona con preparatoria.</p>
+            <p>- Duración de la carrera: Años que tarda una persona en terminar la carrera, este dato es calculado dependiendo el tipo de periodo que ingreso el usuario.</p>
+
+            <p>* Es importante anotar que esta tasa puede estar subestimada pues el cálculo del retorno sobre la inversión no la posibilidad de que haya un premium en el mercado laboral para los egresados de ciertas universidades, posiblemente las más costosas, que podrían tener remuneraciones más altas (lo que implicaría mayores retornos para algunas universidades).</p>
+          </li>
           </ul>
         </div>
       </div>

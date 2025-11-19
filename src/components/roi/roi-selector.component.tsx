@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
 
 type Career = { CARRERA: string; INGRESO?: number; [k: string]: unknown };
@@ -208,7 +209,6 @@ export default function RoiSelector() {
               rendimiento de estudiar una licenciatura o carrera técnica con base en los costos de
               cada carrera.
             </p>
-
             <div className="flex justify-start">
               <Link
                 href="/metodologia"
