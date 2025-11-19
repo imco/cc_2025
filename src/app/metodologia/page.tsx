@@ -69,12 +69,7 @@ export default function Metodologia() {
             <li>Existe una observación atípica si este estadístico es mayor de la media de todas las carreras más dos desviaciones estándar.</li>
             <li>En ese caso, el salario promedio se calcula sobre los valores menores al percentil que presenta observaciones atípicas de esa carrera.</li>
           </ol>
-<<<<<<< HEAD
-          <p><strong>Salario promedio mensual:</strong> Promedio aritmético sin datos atípicos del salario mensual de los profesionistas de la carrera, ajustado por el factor correspondiente a la estimación del <a href="/One-pager Subestimación de ingresos.pdf"> subreporte de ingresos</a> ENOE-ENIGH a partir de una proyección para 2023.</p>
-          <p>Para los valores de salario promedio por nivel educativo se utilizó el ingreso por persona de la Encuesta Nacional de Ingreso y Gasto de los Hogares (ENIGH) 2022. Este valor al reportar ingresos trimestrales se divide entre tres para calcular una aproximación del ingreso mensual. Posteriormente se proyectó el dato estimado para 2023 a partir de la masa salarial de Cuentas Nacionales del INEGI.</p>
-=======
           <p><strong>Salario promedio mensual:</strong> Promedio aritmético sin datos atípicos del salario mensual de los profesionistas de la carrera, ajustado por el factor correspondiente a la estimación del <a href="/One pager subestimación del ingreso 2025.pdf"> subreporte de ingresos</a> ENOE-ENIGH a partir de una proyección para 2023.</p>
->>>>>>> calc_roi
           <ul>
             <li><strong>25% de los profesionistas gana menos de esta cantidad (P25):</strong> Salario mensual por debajo del cual está 25% de los profesionistas que menos ganan. De manera equivalente, 75% de los profesionistas de esta carrera tienen un salario superior a éste. Es una medida de cuánto podría estar ganando un profesional en la parte baja de la escala salarial de esta carrera, o un profesional con un desempeño inferior a la mediana.</li>
             <li><strong>Ingreso mediano:</strong> Salario mensual que divide a los profesionistas de una carrera en dos grupos de igual proporción, dejando 50% por debajo de ese salario y el otro 50% por arriba. Es una medida de cuánto podría estar ganando un profesional que se encuentre a la mitad de la escala salarial de esta carrera.</li>
