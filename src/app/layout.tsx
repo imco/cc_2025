@@ -46,7 +46,7 @@ export default function RootLayout({
           content="carreras, universidades, ¿que estudiar?, carreras universitarias, las 10 más, cuanto ganan, en que trabajan" />
         <meta name="author" content="IMCO" />
 
-        <meta name="copyright" content="IMCO 2024" />
+        <meta name="copyright" content="IMCO 2025" />
         <meta property="article:modified_time" content="time" />
         <meta name="application-name" content="Compara Carreras" />
 
