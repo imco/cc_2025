@@ -33,6 +33,9 @@ const UNIT_SINGULAR: Record<PlanUnit, string> = {
   Años: "año",
 };
 
+const UNIVERSITY_TYPES = ["Pública", "Privada"] as const;
+type UniversityType = (typeof UNIVERSITY_TYPES)[number];
+
 const PREPA_MENSUAL = 12052;
 const EDAD_INICIO = 18;
 const EDAD_RETIRO = 65;
@@ -76,6 +79,7 @@ export default function RoiSelector() {
   const [level, setLevel] = useState<EducationLevel>("Licenciatura");
   const [career, setCareer] = useState<string>("");
   const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
+  const [universityType, setUniversityType] = useState<UniversityType | "">("");
 
   // inputs
   const periodsRef = useRef<HTMLInputElement>(null);
@@ -102,7 +106,9 @@ export default function RoiSelector() {
   );
 
   useEffect(() => {
-    if (career && !filteredCareers.some((c) => c.CARRERA === career)) setCareer("");
+    if (career && !filteredCareers.some((c) => c.CARRERA === career) && career !== "__OTHER__") {
+      setCareer("");
+    }
     setHighlightResults(false);
   }, [filteredCareers, career, level, planUnit]);
 
@@ -119,6 +125,7 @@ export default function RoiSelector() {
 
     const newErrors: Record<string, boolean> = {
       level: !level,
+      universityType: !universityType,
       career: !career,
       planUnit: !planUnit,
       periods: !Number.isFinite(p) || p <= 0 || !Number.isInteger(p),
@@ -137,8 +144,23 @@ export default function RoiSelector() {
     const totalCost = Math.round(p * cpp);
     const years = p / PERIODS_PER_YEAR[planUnit];
 
-    const ingresoMensualCarrera =
-      (filteredCareers.find((c) => c.CARRERA === career)?.INGRESO as number) ?? null;
+    // ingreso mensual: carrera específica o promedio si es "Otro"
+    let ingresoMensualCarrera: number | null;
+
+    if (career === "__OTHER__") {
+      const ingresos = filteredCareers
+        .map((c) => c.INGRESO)
+        .filter((v): v is number => typeof v === "number" && Number.isFinite(v));
+      if (ingresos.length === 0) {
+        ingresoMensualCarrera = null;
+      } else {
+        const suma = ingresos.reduce((acc, v) => acc + v, 0);
+        ingresoMensualCarrera = suma / ingresos.length;
+      }
+    } else {
+      ingresoMensualCarrera =
+        (filteredCareers.find((c) => c.CARRERA === career)?.INGRESO as number) ?? null;
+    }
 
     if (ingresoMensualCarrera === null) {
       setErrors((prev) => ({ ...prev, career: true }));
@@ -225,6 +247,7 @@ export default function RoiSelector() {
           <section className="roi-card">
             <p>Ingresa la información de tu carrera:</p>
 
+            {/* STEP 1: nivel educativo */}
             <Step n={1}>
               <label className="roi-label">Elige el nivel educativo:</label>
               <select
@@ -240,7 +263,25 @@ export default function RoiSelector() {
               </select>
             </Step>
 
+            {/* STEP 2: tipo de universidad */}
             <Step n={2}>
+              <label className="roi-label">Tu universidad es:</label>
+              <select
+                value={universityType}
+                onChange={(e) => setUniversityType(e.target.value as UniversityType | "")}
+                className={selectClass("universityType")}
+              >
+                <option value="">-- Pública o privada --</option>
+                {UNIVERSITY_TYPES.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+            </Step>
+
+            {/* STEP 3: carrera */}
+            <Step n={3}>
               <label className="roi-label">Elige la carrera:</label>
               <select
                 value={career}
@@ -255,10 +296,12 @@ export default function RoiSelector() {
                     {c.CARRERA}
                   </option>
                 ))}
+                <option value="__OTHER__">Otro (mi carrera no está en la lista)</option>
               </select>
             </Step>
 
-            <Step n={3}>
+            {/* STEP 4: plan de estudios */}
+            <Step n={4}>
               <label className="roi-label">¿Cómo se divide el plan de estudios?</label>
               <select
                 value={planUnit}
@@ -273,62 +316,60 @@ export default function RoiSelector() {
               </select>
             </Step>
 
-            {/* Step 4: periodos (solo enteros, máximo 15, autoclimita) */}
-            {/* Step 4: periodos (solo enteros, máximo 15, autoclimita) */}
-<Step n={4}>
-  <label htmlFor="periods" className="roi-label">
-    ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
-  </label>
-
-  <input
-    id="periods"
-    ref={periodsRef}
-    type="text"
-    inputMode="numeric"
-    autoComplete="off"
-    pattern="^\\d+$"
-    placeholder="Ej. 9"
-    className={inputClass("periods", liveErrPeriods)}
-    aria-invalid={errors.periods || liveErrPeriods}
-    onInput={() => {
-      const inputEl = periodsRef.current;
-      if (!inputEl) return;
-
-      // Solo dígitos
-      const raw = inputEl.value.replace(/\D/g, "");
-
-      if (raw === "") {
-        inputEl.value = "";
-        setLiveErrPeriods(false);
-        setHighlightResults(false);
-        return;
-      }
-
-      let num = Number(raw);
-
-      if (!Number.isFinite(num) || num <= 0) {
-        setLiveErrPeriods(true);
-      } else {
-        if (num > 15) num = 15; // límite automático
-        inputEl.value = String(num);
-        const ok = parsePositiveIntStrict(inputEl.value) !== null;
-        setLiveErrPeriods(!ok);
-      }
-
-      setHighlightResults(false);
-    }}
-  />
-
-  {(errors.periods || liveErrPeriods) && (
-    <p className="text-sm text-red-400 mt-1">
-      Ingresa un número entero positivo (máximo 15).
-    </p>
-  )}
-</Step>
-
-
-            {/* Step 5: costo por periodo (sin comas, punto decimal opcional) */}
+            {/* STEP 5: periodos (solo enteros, máximo 15, autoclimita) */}
             <Step n={5}>
+              <label htmlFor="periods" className="roi-label">
+                ¿Cuántos {UNIT_PLURAL[planUnit]} dura la carrera?
+              </label>
+
+              <input
+                id="periods"
+                ref={periodsRef}
+                type="text"
+                inputMode="numeric"
+                autoComplete="off"
+                pattern="^\\d+$"
+                placeholder="Ej. 9"
+                className={inputClass("periods", liveErrPeriods)}
+                aria-invalid={errors.periods || liveErrPeriods}
+                onInput={() => {
+                  const inputEl = periodsRef.current;
+                  if (!inputEl) return;
+
+                  // Solo dígitos
+                  const raw = inputEl.value.replace(/\D/g, "");
+
+                  if (raw === "") {
+                    inputEl.value = "";
+                    setLiveErrPeriods(false);
+                    setHighlightResults(false);
+                    return;
+                  }
+
+                  let num = Number(raw);
+
+                  if (!Number.isFinite(num) || num <= 0) {
+                    setLiveErrPeriods(true);
+                  } else {
+                    if (num > 15) num = 15; // límite automático
+                    inputEl.value = String(num);
+                    const ok = parsePositiveIntStrict(inputEl.value) !== null;
+                    setLiveErrPeriods(!ok);
+                  }
+
+                  setHighlightResults(false);
+                }}
+              />
+
+              {(errors.periods || liveErrPeriods) && (
+                <p className="text-sm text-red-400 mt-1">
+                  Ingresa un número entero positivo (máximo 15).
+                </p>
+              )}
+            </Step>
+
+            {/* STEP 6: costo por periodo (sin comas, punto decimal opcional) */}
+            <Step n={6}>
               <label htmlFor="cpp" className="roi-label">
                 ¿Cuál es el costo por {UNIT_SINGULAR[planUnit]}?
               </label>
@@ -394,9 +435,7 @@ export default function RoiSelector() {
 
               <div>
                 <p className="roi-label">Retorno sobre la inversión (RSI):</p>
-                <div className="roi-chip">
-                  {result.rsi !== null ? fmtPct(result.rsi) : "—"}
-                </div>
+                <div className="roi-chip">{result.rsi !== null ? fmtPct(result.rsi) : "—"}</div>
               </div>
             </div>
 
