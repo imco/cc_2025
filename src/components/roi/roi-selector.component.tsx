@@ -141,9 +141,6 @@ export default function RoiSelector() {
   const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
   const [universityType, setUniversityType] = useState<UniversityType | "">("");
 
-  // custom career name when "Otro" is selected
-  const [customCareerName, setCustomCareerName] = useState<string>("");
-
   // inputs
   const periodsRef = useRef<HTMLInputElement>(null);
   const costRef = useRef<HTMLInputElement>(null);
@@ -394,7 +391,6 @@ export default function RoiSelector() {
                     ref={customCareerRef}
                     type="text"
                     placeholder="Ej. Ingeniería en Robótica"
-                    defaultValue={customCareerName}
                     className="roi-input"
                     maxLength={100}
                   />
