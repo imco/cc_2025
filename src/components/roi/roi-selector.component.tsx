@@ -257,7 +257,7 @@ export default function RoiSelector() {
       level,
       universityType: universityType as UniversityType,
       career,
-      customCareerName: customCareerName.trim() || undefined,
+      customCareerName: customCareerRef.current?.value.trim() || undefined,
       planUnit,
       periods: p,
       costPerPeriod: cpp,
@@ -366,8 +366,8 @@ export default function RoiSelector() {
                 onChange={(e) => {
                   setCareer(e.target.value);
                   // Limpiar el nombre personalizado si cambia de "Otro" a otra opción
-                  if (e.target.value !== "__OTHER__") {
-                    setCustomCareerName("");
+                  if (e.target.value !== "__OTHER__" && customCareerRef.current) {
+                    customCareerRef.current.value = "";
                   }
                 }}
                 className={selectClass("career")}
@@ -394,8 +394,7 @@ export default function RoiSelector() {
                     ref={customCareerRef}
                     type="text"
                     placeholder="Ej. Ingeniería en Robótica"
-                    value={customCareerName}
-                    onChange={(e) => setCustomCareerName(e.target.value)}
+                    defaultValue={customCareerName}
                     className="roi-input"
                     maxLength={100}
                   />
