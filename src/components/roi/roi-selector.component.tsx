@@ -4,6 +4,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
 
+// TypeScript declarations for Google Analytics
+declare global {
+  interface Window {
+    gtag?: (
+      command: string,
+      eventName: string,
+      params?: Record<string, unknown>
+    ) => void;
+  }
+}
+
 type Career = { CARRERA: string; INGRESO?: number; [k: string]: unknown };
 
 const EDUCATION_LEVELS = ["Licenciatura", "Carrera_técnica"] as const;
@@ -66,6 +77,55 @@ const fmtMXN = (n: number) =>
   new Intl.NumberFormat("es-MX", { maximumFractionDigits: 0 }).format(n);
 const fmtPct = (n: number) => `${(n * 100).toFixed(1).replace(".", ",")}%`;
 
+/**
+ * Envía los datos del cálculo ROI a Google Analytics 4
+ * para análisis posterior del comportamiento de usuarios
+ */
+const trackRoiCalculation = (data: {
+  level: EducationLevel;
+  universityType: UniversityType;
+  career: string;
+  customCareerName?: string;
+  planUnit: PlanUnit;
+  periods: number;
+  costPerPeriod: number;
+  totalCost: number;
+  mesesRec: number | null;
+  rsi: number | null;
+}) => {
+  try {
+    if (typeof window !== "undefined" && window.gtag) {
+      // Determinar si es una carrera personalizada (Otro)
+      const isCustomCareer = data.career === "__OTHER__";
+
+      window.gtag("event", "roi_calculation", {
+        // Información del formulario
+        education_level: data.level,
+        university_type: data.universityType,
+        career_name: isCustomCareer ? "Otro (carrera no listada)" : data.career,
+        custom_career_name: isCustomCareer ? (data.customCareerName || "No especificado") : null,
+        is_custom_career: isCustomCareer,
+        plan_unit: data.planUnit,
+        periods: data.periods,
+
+        // Costos ingresados
+        cost_per_period: Math.round(data.costPerPeriod),
+        total_cost: data.totalCost,
+
+        // Resultados calculados
+        months_to_recover: data.mesesRec ? Math.round(data.mesesRec * 10) / 10 : null,
+        rsi_percentage: data.rsi ? Math.round(data.rsi * 1000) / 10 : null,
+
+        // Metadata
+        timestamp: new Date().toISOString(),
+      });
+    }
+  } catch (error) {
+    // Silently fail - no afectar la UX si falla el tracking
+    console.error("Error tracking ROI calculation:", error);
+  }
+};
+
 export default function RoiSelector() {
   const careers = useMemo(
     () =>
@@ -81,9 +141,13 @@ export default function RoiSelector() {
   const [planUnit, setPlanUnit] = useState<PlanUnit>("Cuatrimestres");
   const [universityType, setUniversityType] = useState<UniversityType | "">("");
 
+  // custom career name when "Otro" is selected
+  const [customCareerName, setCustomCareerName] = useState<string>("");
+
   // inputs
   const periodsRef = useRef<HTMLInputElement>(null);
   const costRef = useRef<HTMLInputElement>(null);
+  const customCareerRef = useRef<HTMLInputElement>(null);
 
   // errores
   const [errors, setErrors] = useState<Record<string, boolean>>({});
@@ -188,6 +252,20 @@ export default function RoiSelector() {
     setResult({ totalCost, mesesRec, rsi });
     setHighlightResults(true);
 
+    // Enviar datos a Google Analytics 4 para análisis
+    trackRoiCalculation({
+      level,
+      universityType: universityType as UniversityType,
+      career,
+      customCareerName: customCareerName.trim() || undefined,
+      planUnit,
+      periods: p,
+      costPerPeriod: cpp,
+      totalCost,
+      mesesRec,
+      rsi,
+    });
+
     if (typeof window !== "undefined") {
       const el = document.getElementById("results-card");
       el?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -211,7 +289,7 @@ export default function RoiSelector() {
 
   return (
     <main className="min-h-screen bg-[#024383] pt-32 pb-16">
-      <div>&bnsp;</div>
+      <div>&nbsp;</div>
       <div className="roi-container">
         {/* Hero / Encabezado */}
         <div className="roi-card mb-5">
@@ -285,7 +363,13 @@ export default function RoiSelector() {
               <label className="roi-label">Elige la carrera:</label>
               <select
                 value={career}
-                onChange={(e) => setCareer(e.target.value)}
+                onChange={(e) => {
+                  setCareer(e.target.value);
+                  // Limpiar el nombre personalizado si cambia de "Otro" a otra opción
+                  if (e.target.value !== "__OTHER__") {
+                    setCustomCareerName("");
+                  }
+                }}
                 className={selectClass("career")}
               >
                 <option value="">
@@ -298,6 +382,28 @@ export default function RoiSelector() {
                 ))}
                 <option value="__OTHER__">Otro (mi carrera no está en la lista)</option>
               </select>
+
+              {/* Campo condicional: aparece solo cuando se selecciona "Otro" */}
+              {career === "__OTHER__" && (
+                <div className="mt-3">
+                  <label htmlFor="custom-career" className="roi-label text-sm">
+                    ¿Cuál es el nombre de tu carrera?
+                  </label>
+                  <input
+                    id="custom-career"
+                    ref={customCareerRef}
+                    type="text"
+                    placeholder="Ej. Ingeniería en Robótica"
+                    value={customCareerName}
+                    onChange={(e) => setCustomCareerName(e.target.value)}
+                    className="roi-input"
+                    maxLength={100}
+                  />
+                  <p className="text-xs text-white/60 mt-1">
+                    Esto nos ayuda a mejorar nuestra lista de carreras
+                  </p>
+                </div>
+              )}
             </Step>
 
             {/* STEP 4: plan de estudios */}
@@ -384,9 +490,33 @@ export default function RoiSelector() {
                 className={inputClass("costPerPeriod", liveErrCost)}
                 aria-invalid={errors.costPerPeriod || liveErrCost}
                 onInput={() => {
-                  const val = costRef.current?.value ?? "";
-                  const ok = parseMoneyNoComma(val) !== null;
-                  setLiveErrCost(val.trim().length > 0 && !ok);
+                  const inputEl = costRef.current;
+                  if (!inputEl) return;
+
+                  const val = inputEl.value;
+
+                  // Permitir vacío
+                  if (val.trim() === "") {
+                    setLiveErrCost(false);
+                    setHighlightResults(false);
+                    return;
+                  }
+
+                  // Permitir estados intermedios válidos mientras se escribe:
+                  // - Solo dígitos: "120000"
+                  // - Con punto al final: "120000."
+                  // - Con decimales: "120000.50"
+                  // - Con signo de pesos opcional: "$120000.50"
+                  const isValidIntermediate = /^\s*\$?\s*\d+\.?\d*\s*$/.test(val);
+
+                  if (!isValidIntermediate) {
+                    // Si tiene caracteres inválidos (como comas), mostrar error
+                    setLiveErrCost(true);
+                  } else {
+                    // Estado intermedio válido, no mostrar error
+                    setLiveErrCost(false);
+                  }
+
                   setHighlightResults(false);
                 }}
               />
