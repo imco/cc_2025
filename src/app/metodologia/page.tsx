@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import sectoresPicture from "@/assets/images/metodology/picture-sectors.png"
-import formulaPicture from "@/assets/images/metodology/picture-formula.png"
+import formulaPicture from "@/assets/images/metodology/formula_calculo_roi.png"
 
 export default function Metodologia() {
   return (
