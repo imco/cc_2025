@@ -55,6 +55,7 @@ export default function RootLayout({
         <meta property="og:type" content="article" />
         <meta property="og:image" content={link?.urlMiniatura || `https://comparacarreras.imco.org.mx/mini-10mas.png`} />
         <meta property="og:description" content={link?.content || defaultDescription} />
+        <meta property="fb:app_id" content="141448832714787" />
 
         {/* <!-- for Twitter --> */}
         <meta name="twitter:card" content="summary_large_image" />
