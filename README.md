@@ -93,6 +93,37 @@ https://comparacarreras.imco.org.mx/
 
 Si deseas contribuir, por favor abre un **Issue** o un **Pull Request** siguiendo las mejores prácticas de desarrollo.
 
+## Sección de Investigaciones
+
+El proyecto incluye una sección automatizada de "Investigaciones" que muestra las últimas publicaciones de Compara Carreras.
+
+### Agregar nueva investigación
+
+El proceso de agregar nuevas ediciones está **completamente automatizado**. El sistema extrae el título, descripción e imagen directamente de la URL proporcionada.
+
+1.  Edita el archivo `src/app/investigaciones/data.constants.ts`.
+2.  Agrega la nueva configuración:
+
+    ```typescript
+    {
+      id: "cc-2026",
+      year: 2026,
+      url: "https://imco.org.mx/nueva-investigacion/"
+    }
+    ```
+
+Para más detalles, consulta la guía completa en [COMO_AGREGAR_INVESTIGACIONES.md](./COMO_AGREGAR_INVESTIGACIONES.md).
+
+## Analítica (GA4)
+
+El proyecto utiliza Google Analytics 4 para el seguimiento de usuarios.
+
+- **Eventos personalizados**: Se rastrean cálculos de ROI (`roi_calculation`).
+- **Dimensiones personalizadas**: Nivel educativo, carrera, tipo de universidad, etc.
+- **Métricas personalizadas**: Costo total, meses de recuperación, RSI, etc.
+
+Consulta `ANALYTICS_DATA_COLLECTION.md` para ver la especificación completa de eventos.
+
 ## Contacto
 
 Para más información, contacta con el equipo de IMCO a través de su página oficial: [https://imco.org.mx](https://imco.org.mx).
