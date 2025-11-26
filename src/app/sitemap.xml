@@ -307,4 +307,10 @@
       <changefreq>monthly</changefreq>
    </url>
 
+   <url>
+      <loc>https://comparacarreras.imco.org.mx/investigaciones</loc>
+      <priority>0.8</priority>
+      <changefreq>monthly</changefreq>
+   </url>
+
 </urlset>
