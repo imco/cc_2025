@@ -49,4 +49,12 @@ export const LinksList: LinkOptions[] =  [
     content: "Calcula el retorno sobre la inversión (ROI) de estudiar una carrera universitaria en México.",
     urlMiniatura: "https://comparacarreras.imco.org.mx/mini-roi.png",
   },
+  {
+    sectionName: 'Investigaciones',
+    url: "/investigaciones",
+    title: "Investigaciones",
+    urlCanonical: "https://comparacarreras.imco.org.mx/investigaciones",
+    content: "Conoce las ediciones anteriores de Compara Carreras y nuestras investigaciones sobre el mercado laboral y la educación superior en México.",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-investigaciones.png",
+  },
 ]
