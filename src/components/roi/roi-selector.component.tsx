@@ -263,6 +263,23 @@ export default function RoiSelector() {
       rsi,
     });
 
+    // Guardar datos localmente (JSON)
+    // No bloqueamos la UI esperando esto, es "fire and forget" desde la perspectiva del usuario
+    import("@/actions/roi-actions").then(({ guardarCalculoRoi }) => {
+      guardarCalculoRoi({
+        nivel_educativo: level,
+        tipo_universidad: universityType as string,
+        carrera: career,
+        carrera_personalizada: customCareerRef.current?.value.trim() || undefined,
+        unidad_plan: planUnit,
+        periodos: p,
+        costo_por_periodo: cpp,
+        costo_total: totalCost,
+        meses_recuperacion: mesesRec,
+        porcentaje_rsi: rsi,
+      }).catch((err) => console.error("Error guardando datos locales:", err));
+    });
+
     if (typeof window !== "undefined") {
       const el = document.getElementById("results-card");
       el?.scrollIntoView({ behavior: "smooth", block: "center" });
