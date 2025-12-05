@@ -73,8 +73,15 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
+      # IMPORTANT: Remove API routes before building for Static Export
+      - name: Remove API Routes for Static Export
+        run: rm -rf src/app/api
+
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        # Set BUILD_MODE to 'export' to trigger output: 'export' in next.config.ts
+        run: BUILD_MODE=export ${{ steps.detect-package-manager.outputs.runner }} next build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

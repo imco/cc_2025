@@ -1,6 +1,19 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-import { DatosEnvioRoi } from '@/actions/roi-actions';
+
+export type DatosEnvioRoi = {
+  nivel_educativo: string;
+  tipo_universidad: string;
+  carrera: string;
+  carrera_personalizada?: string;
+  unidad_plan: string;
+  periodos: number;
+  costo_por_periodo: number;
+  costo_total: number;
+  meses_recuperacion: number | null;
+  porcentaje_rsi: number | null;
+};
+
 
 // Definir las variables de entorno
 const SHEET_ID = process.env.GOOGLE_SHEET_ID;

@@ -269,8 +269,16 @@ export default function RoiSelector() {
 
     // Guardar datos localmente (JSON/Sheets)
     // No bloqueamos la UI esperando esto, es "fire and forget" desde la perspectiva del usuario
-    import("@/actions/roi-actions").then(({ guardarCalculoRoi }) => {
-      guardarCalculoRoi({
+    // Guardar datos localmente (JSON/Sheets) via API Route
+    // No bloqueamos la UI esperando esto, es "fire and forget" desde la perspectiva del usuario
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
+
+    fetch(`${apiUrl}/api/roi`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
         nivel_educativo: level,
         tipo_universidad: universityType as string,
         carrera: careerToSend,
@@ -281,8 +289,13 @@ export default function RoiSelector() {
         costo_total: totalCost,
         meses_recuperacion: mesesRec,
         porcentaje_rsi: rsi,
-      }).catch((err) => console.error("Error guardando datos locales:", err));
-    });
+      }),
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .catch((err) => console.error("Error guardando datos (API):", err));
 
     if (typeof window !== "undefined") {
       const el = document.getElementById("results-card");
