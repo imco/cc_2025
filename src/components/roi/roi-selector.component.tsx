@@ -263,14 +263,18 @@ export default function RoiSelector() {
       rsi,
     });
 
-    // Guardar datos localmente (JSON)
+    // Capturar valores antes de la llamada asíncrona para asegurar consistencia
+    const customCareerValue = customCareerRef.current?.value.trim() || undefined;
+    const careerToSend = career === "__OTHER__" ? "Otro" : career;
+
+    // Guardar datos localmente (JSON/Sheets)
     // No bloqueamos la UI esperando esto, es "fire and forget" desde la perspectiva del usuario
     import("@/actions/roi-actions").then(({ guardarCalculoRoi }) => {
       guardarCalculoRoi({
         nivel_educativo: level,
         tipo_universidad: universityType as string,
-        carrera: career,
-        carrera_personalizada: customCareerRef.current?.value.trim() || undefined,
+        carrera: careerToSend,
+        carrera_personalizada: customCareerValue,
         unidad_plan: planUnit,
         periodos: p,
         costo_por_periodo: cpp,
