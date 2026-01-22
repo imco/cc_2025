@@ -45,6 +45,17 @@ npm run dev
 
 Esto levantará un servidor local en `http://localhost:3000`.
 
+### Variables de Entorno (.env.local)
+
+Para que la integración con Google Sheets funcione localmente, crea un archivo `.env.local` en la raíz con:
+
+```env
+GOOGLE_SHEET_ID=tu_id_de_hoja
+GOOGLE_SERVICE_ACCOUNT_EMAIL=tu_email_de_servicio
+GOOGLE_PRIVATE_KEY="tu_clave_privada"
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
 ## Actualización del sistema
 
 Para realizar actualizaciones al sistema, sigue estos pasos:
@@ -73,18 +84,34 @@ Si necesitas convertir archivos CSV a JSON para el proyecto, puedes utilizar la 
 
 [https://csvjson.com/](https://csvjson.com/)
 
-## Despliegue
+## Despliegue (Arquitectura Híbrida)
 
-El despliegue se realiza automáticamente mediante **GitHub Actions** cada vez que se hace un push a la rama `main`.
+El proyecto utiliza una **arquitectura híbrida** para soportar funcionalidades de servidor (como la integración con Google Sheets) manteniendo el frontend estático en GitHub Pages.
 
-Para forzar un despliegue manual:
+### Componentes
+1.  **Frontend (GitHub Pages)**: Alojamiento estático. Se construye con `output: 'export'`.
+2.  **Backend (Vercel)**: Alojamiento de servidor (Node.js). Provee la API (`/api/roi`) para manejar peticiones seguras.
 
-1. Ve a la pestaña **Actions** en GitHub.
-2. Selecciona el workflow de despliegue.
-3. Ejecuta manualmente el flujo de trabajo.
+### Configuración de Entornos
 
-El sitio estará disponible en la siguiente URL:
+#### 1. Vercel (Backend)
+El proyecto debe desplegarse en Vercel para habilitar la API.
+*   **Variables de Entorno requeridas en Vercel**:
+    *   `GOOGLE_SHEET_ID`: ID de la hoja de cálculo.
+    *   `GOOGLE_SERVICE_ACCOUNT_EMAIL`: Email de la cuenta de servicio.
+    *   `GOOGLE_PRIVATE_KEY`: Llave privada de la cuenta de servicio.
+#### 2. GitHub Pages (Frontend)
+El flujo de trabajo de GitHub Actions (`.github/workflows/nextjs.yml`) se encarga de construir y desplegar el sitio estático.
+*   **Secretos de Repositorio requeridos en GitHub**:
+    *   `NEXT_PUBLIC_API_URL`: URL del proyecto desplegado en Vercel (ej. `https://tu-proyecto.vercel.app`). **Nota**: Sin la barra `/` al final.
 
+### Flujo de Despliegue Automático
+1.  Al hacer push a `main`, GitHub Actions inicia el proceso.
+2.  Elimina la carpeta `src/app/api` para evitar conflictos con la exportación estática.
+3.  Construye el proyecto inyectando `NEXT_PUBLIC_API_URL`.
+4.  Despliega los archivos estáticos a GitHub Pages.
+
+El sitio estará disponible en:
 ```text
 https://comparacarreras.imco.org.mx/
 ```

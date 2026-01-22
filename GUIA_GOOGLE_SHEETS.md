@@ -44,7 +44,10 @@ Para que la calculadora guarde los datos en tu Google Sheet, necesitamos configu
 6. Dale "Enviar".
 
 ## Paso 4: Configurar Variables de Entorno
-En tu proyecto (o en Vercel), agrega estas variables de entorno con los datos del archivo JSON:
+
+**Importante**: En la arquitectura híbrida, estas variables **SOLO** se configuran en **Vercel** (Backend) y en tu archivo local `.env.local`. **NO** las agregues a GitHub.
+
+Agrega estas variables:
 
 ```env
 GOOGLE_SHEET_ID=el_id_que_copiaste_en_paso_1
