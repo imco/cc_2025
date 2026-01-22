@@ -14,9 +14,7 @@ export default function SaberesBanner() {
           Certificaciones para seguir aprendiendo
         </h3>
         <p className="saberes-banner-description">
-          Las <strong>microcredenciales</strong> te permiten actualizar tus conocimientos y desarrollar
-          habilidades clave de forma flexible. En <strong>SaberesMx</strong> puedes obtener certificaciones
-          gratuitas para profundizar en tu área de interés y fortalecer tu desarrollo profesional.
+          Las <strong>microcredenciales</strong> te permiten actualizar tus conocimientos y desarrollar habilidades clave de forma flexible. En <strong>SaberesMx</strong> la plataforma de la Secretaría de Educación Pública puedes obtener certificaciones gratuitas para profundizar en tu área de interés y fortalecer tu desarrollo profesional.
         </p>
       </div>
       <div className="saberes-banner-logo-container">
