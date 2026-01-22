@@ -1,5 +1,7 @@
 "use client"
 import Link from 'next/link';
+import SaberesBanner from '@/components/saberes/saberes-banner.component';
+
 
 import {
   Chart as ChartJS,
@@ -595,10 +597,12 @@ export default function CarrerInfo(props: Props) {
             <Link href="/" id="return-link">Buscar otra carrera</Link>
           </button>
         </div>
+        <SaberesBanner />
       </section >
     </div>
   )
 }
+
 
 function formatNumber(value: number | string | undefined) {
   if (value === undefined || value === null || value === '') return '-';

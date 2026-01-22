@@ -2,6 +2,8 @@
 import { ChangeEvent, useEffect, useState } from "react"
 import { redirect, useSearchParams } from 'next/navigation'
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
+import SaberesBanner from '@/components/saberes/saberes-banner.component'
+
 
 export default function Compare() {
   const [isComparing, setIsComparing] = useState(false)
@@ -540,11 +542,13 @@ export default function Compare() {
               </tbody>
             </table>
           </div>
+          <SaberesBanner />
         </div>
       }
     </section>
   )
 }
+
 
 function formatNumber(value: number | string | undefined) {
   if (value === undefined || value === null || value === '') return '-';

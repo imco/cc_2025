@@ -2234,3 +2234,120 @@ section.bg-gray-100 {
         font-size: 0.9rem;
     }
 }
+
+/* ==========================================
+   SABERES BANNER STYLES - Diseño Barra Horizontal
+   ========================================== */
+
+.saberes-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #024383;
+    /* Mismo azul del sitio */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px 30px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+    gap: 30px;
+}
+
+.saberes-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background-color: #034b91;
+}
+
+.saberes-banner-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.saberes-banner-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.saberes-banner-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.saberes-banner-description strong {
+    color: #4FC3F7;
+    /* Azul cielo */
+    font-weight: 600;
+}
+
+.saberes-banner-logo-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.saberes-banner-logo {
+    height: 150px;
+    /* Logo más grande (doble) */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 992px) {
+    .saberes-banner {
+        padding: 16px 24px;
+        gap: 20px;
+    }
+
+    .saberes-banner-title {
+        font-size: 1.1rem;
+    }
+
+    .saberes-banner-description {
+        font-size: 0.9rem;
+    }
+
+    .saberes-banner-logo {
+        height: 100px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .saberes-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .saberes-banner-content {
+        order: 1;
+    }
+
+    .saberes-banner-logo-container {
+        order: 2;
+    }
+
+    .saberes-banner-title {
+        font-size: 1rem;
+    }
+
+    .saberes-banner-description {
+        font-size: 0.85rem;
+    }
+
+    .saberes-banner-logo {
+        height: 80px;
+    }
+}
