@@ -118,6 +118,41 @@ header {
       */
 }
 
+.home-main-section {
+    min-height: calc(100vh - 220px);
+    padding-bottom: 1rem;
+}
+
+.home-saberes-banner .saberes-banner {
+    margin-top: 12px;
+}
+
+.home-saberes-banner {
+    width: 75%;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .home-main-section {
+        min-height: calc(100vh - 160px);
+    }
+}
+
+@media (max-width: 768px) {
+    .home-main-section {
+        min-height: auto;
+        padding-top: 6rem;
+    }
+
+    .home-saberes-banner .saberes-banner {
+        margin-top: 20px;
+    }
+
+    .home-saberes-banner {
+        width: 100%;
+    }
+}
+
 .description {
     font-size: 1.2rem;
     margin-bottom: 40px;
