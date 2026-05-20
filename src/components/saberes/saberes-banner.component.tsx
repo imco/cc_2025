@@ -33,7 +33,7 @@ export default function SaberesBanner() {
           alt="SaberesMX - Universidad para toda la vida"
           width={450}
           height={150}
-          className="saberes-banner-logo"
+          className="saberes-banner-logo saberes-home-logo"
         />
       </div>
     </a>

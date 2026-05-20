@@ -119,22 +119,121 @@ header {
 }
 
 .home-main-section {
-    min-height: calc(100vh - 220px);
-    padding-bottom: 1rem;
-}
-
-.home-saberes-banner .saberes-banner {
-    margin-top: 25px;
+    min-height: calc(100vh - 300px);
+    padding-top: 6rem;
+    padding-bottom: 0.25rem;
 }
 
 .home-saberes-banner {
-    width: 75%;
-    margin: 0 auto;
+    width: min(740px, calc(100% - 2rem));
+    margin: 8px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.home-saberes-banner .saberes-banner {
+    margin: 0;
+    min-height: 220px;
+    padding: 20px 18px 18px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 12px;
+    border-radius: 26px;
+}
+
+.home-saberes-banner .saberes-banner-content {
+    width: 100%;
+    order: 2;
+    min-height: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.home-saberes-banner .saberes-banner-title {
+    margin-bottom: 8px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.98rem;
+    line-height: 1.2;
+}
+
+.home-saberes-banner .saberes-banner-logo-container {
+    width: 100%;
+    justify-content: center;
+    order: 1;
+    min-height: 62px;
+    overflow: visible;
+}
+
+.home-saberes-banner .saberes-banner-logo {
+    height: 60px;
+}
+
+.home-saberes-banner .saberes-home-logo {
+    transform: scale(1.7);
+    transform-origin: center center;
+}
+
+.home-saberes-banner .imco-banner-logo {
+    height: 46px;
+}
+
+.home-saberes-banner .saberes-banner-description {
+    font-size: 0.74rem;
+    line-height: 1.35;
 }
 
 @media (max-width: 992px) {
     .home-main-section {
-        min-height: calc(100vh - 160px);
+        min-height: calc(100vh - 240px);
+    }
+
+    .home-saberes-banner {
+        width: min(680px, calc(100% - 2rem));
+        gap: 16px;
+    }
+
+    .home-saberes-banner .saberes-banner {
+        min-height: 205px;
+        padding: 18px 16px 16px;
+        border-radius: 24px;
+    }
+
+    .home-saberes-banner .saberes-banner-content {
+        min-height: 104px;
+    }
+
+    .home-saberes-banner .saberes-banner-title {
+        min-height: 44px;
+        font-size: 0.92rem;
+    }
+
+    .home-saberes-banner .saberes-banner-logo-container {
+        min-height: 56px;
+    }
+
+    .home-saberes-banner .saberes-banner-logo {
+        height: 52px;
+    }
+
+    .home-saberes-banner .imco-banner-logo {
+        height: 40px;
+    }
+
+    .home-saberes-banner .saberes-home-logo {
+        transform: scale(1.55);
+    }
+
+    .home-saberes-banner .saberes-banner-description {
+        font-size: 0.7rem;
+        line-height: 1.3;
     }
 }
 
@@ -144,19 +243,25 @@ header {
         padding-top: 6rem;
     }
 
+    .home-saberes-banner {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
     .home-saberes-banner .saberes-banner {
-        margin-top: 18px;
         padding: 8px 10px;
         gap: 2px;
         margin-bottom: 2px;
-    }
-
-    .home-saberes-banner {
-        width: 100%;
+        min-height: auto;
+        border-radius: 8px;
     }
 
     .home-saberes-banner .saberes-banner-content {
         margin: 0;
+        min-height: auto;
+        display: block;
     }
 
     .home-saberes-banner .saberes-banner-description {
@@ -165,22 +270,26 @@ header {
 
     .home-saberes-banner .saberes-banner-title {
         margin: 0;
+        min-height: auto;
+        display: block;
     }
 
     .home-saberes-banner .saberes-banner-logo-container {
         margin: 0;
         line-height: 0;
+        min-height: auto;
     }
 
     .home-saberes-banner .saberes-banner-logo {
         display: block;
         margin: 0;
+        height: auto;
     }
 }
 
 .description {
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     max-width: 600px;
     text-align: center;
 }
@@ -204,7 +313,7 @@ header {
     width: 100%;
     max-width: 700px;
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto 4px;
 }
 
 #search-input {
@@ -2366,6 +2475,10 @@ section.bg-gray-100 {
     object-fit: contain;
 }
 
+.imco-banner-logo {
+    height: 72px;
+}
+
 @media (min-width: 769px) {
     .saberes-banner-title {
         font-size: 0.96rem;
@@ -2393,6 +2506,10 @@ section.bg-gray-100 {
 
     .saberes-banner-logo {
         height: 100px;
+    }
+
+    .imco-banner-logo {
+        height: 56px;
     }
 }
 
@@ -2440,5 +2557,9 @@ section.bg-gray-100 {
 
     .saberes-banner-logo {
         height: 104px;
+    }
+
+    .imco-banner-logo {
+        height: 44px;
     }
 }

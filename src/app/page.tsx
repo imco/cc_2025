@@ -9,6 +9,7 @@ import {
 import { redirect } from "next/navigation"
 
 import homeImage from "@/assets/images/CC_LogoHome_Editado.png"
+import ImcoBanner from "@/components/imco/imco-banner.component"
 import SaberesBanner from "@/components/saberes/saberes-banner.component"
 import CarrersData from "@/interfaces/carrers/carrers-data.interface";
 
@@ -113,6 +114,7 @@ export default function Home() {
         </div>
       </section>
       <div className="home-saberes-banner">
+        <ImcoBanner />
         <SaberesBanner />
       </div>
     </>
