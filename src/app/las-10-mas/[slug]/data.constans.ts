@@ -49,6 +49,12 @@ export const TopsTypes: TopDescription[] = [
     description: "Aquí conocerás la lista de las carreras cuya matrícula está principalmente compuesta por mujeres, de acuerdo con el ranking de Compara Carreras."
   },
   {
+    name: "Las 10 carreras con mayor porcentaje de hombres",
+    jsonName: "top_10_mas_hombres.json",
+    titleUrl: "porcentaje-hombres",
+    description: "Aquí conocerás la lista de las carreras cuya matrícula está principalmente compuesta por hombres, de acuerdo con el ranking de Compara Carreras."
+  },
+  {
     name: "Las 10 carreras con mayor porcentaje de desempleados",
     jsonName: "top_10_mas_desempleados.json",
     titleUrl: "desempleados",

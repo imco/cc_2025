@@ -33,6 +33,10 @@ export const TopsLists: TopInfo[] = [
     titleUrl: "porcentaje-mujeres"
   },
   {
+    topName: "Las 10 carreras con mayor porcentaje de hombres",
+    titleUrl: "porcentaje-hombres"
+  },
+  {
     topName: "Las 10 carreras con mayor porcentaje de desempleados",
     titleUrl: "desempleados"
   },
