@@ -120,6 +120,20 @@ https://comparacarreras.imco.org.mx/
 
 Si deseas contribuir, por favor abre un **Issue** o un **Pull Request** siguiendo las mejores prácticas de desarrollo.
 
+## Sección de Top 10s
+
+El proyecto incluye una sección de rankings "Las 10 más" con distintos indicadores por carrera.
+
+### Agregar un nuevo top
+
+1. Crea el archivo JSON con los datos en `src/components/las-10-mas/top/`.
+2. Agrega la tarjeta en `src/app/las-10-mas/data.constans.ts`.
+3. Registra la metadata en `src/app/las-10-mas/[slug]/data.constans.ts`.
+
+Para más detalles, consulta la guía completa en [COMO_AGREGAR_TOPS.md](./COMO_AGREGAR_TOPS.md).
+
+---
+
 ## Sección de Investigaciones
 
 El proyecto incluye una sección automatizada de "Investigaciones" que muestra las últimas publicaciones de Compara Carreras.
