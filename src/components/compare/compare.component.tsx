@@ -1,6 +1,6 @@
 "use client"
 import { ChangeEvent, useEffect, useState } from "react"
-import { redirect, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import SaberesBanner from '@/components/saberes/saberes-banner.component'
 
@@ -11,6 +11,7 @@ export default function Compare() {
   const [career1ToCompare, setCareer1ToCompare] = useState('')
   const [career2ToCompare, setCareer2ToCompare] = useState('')
 
+  const router = useRouter()
   const searchParams = useSearchParams()
   const carrer1 = decodeURI(searchParams.get('carrer1') || '')
   const carrer2 = decodeURI(searchParams.get('carrer2') || '')
@@ -34,8 +35,8 @@ export default function Compare() {
 
   const handleOnClickCompare = () => {
     if (careerNames.find(career => career == career1ToCompare) && careerNames.find(career => career == career2ToCompare)) {
-      console.log(`/compara?carrer1=${career1ToCompare}&carrer2=${career2ToCompare}`);
-      redirect(`/compara?carrer1=${career1ToCompare}&carrer2=${career2ToCompare}`)
+      // redirect() de next/navigation no funciona en event handlers de cliente (lanza NEXT_REDIRECT sin manejar en el export estático)
+      router.push(`/compara?carrer1=${encodeURIComponent(career1ToCompare)}&carrer2=${encodeURIComponent(career2ToCompare)}`)
     } else {
       alert('Carreras ingresadas incorrectamente')
     }
@@ -45,8 +46,11 @@ export default function Compare() {
     const newValue = event.target.value
     setCareer1ToCompare(newValue)
     let filteredCareers = careersData.filter((career: CarrersData) =>
-      career.CARRERA.toLowerCase().includes(career1ToCompare)
+      career.CARRERA.toLowerCase().includes(newValue.toLowerCase())
     );
+    if (filteredCareers.length === 1 && filteredCareers[0].CARRERA === newValue) {
+      filteredCareers = []
+    }
     const resultsContainer = document.getElementById(`compare-results-1`);
     if (resultsContainer) {
       resultsContainer.innerHTML = ''
@@ -71,8 +75,11 @@ export default function Compare() {
     const newValue = event.target.value
     setCareer2ToCompare(newValue)
     let filteredCareers = careersData.filter((career: CarrersData) =>
-      career.CARRERA.toLowerCase().includes(career2ToCompare)
+      career.CARRERA.toLowerCase().includes(newValue.toLowerCase())
     );
+    if (filteredCareers.length === 1 && filteredCareers[0].CARRERA === newValue) {
+      filteredCareers = []
+    }
     const resultsContainer = document.getElementById(`compare-results-2`);
     if (resultsContainer) {
       resultsContainer.innerHTML = ''
