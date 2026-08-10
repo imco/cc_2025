@@ -18,6 +18,10 @@ export default async function Page({ params }: {
     (top: TopDescription) => top.titleUrl === title
   )
 
+  const topInfo: TopInfo | undefined = TopsLists.find(
+    (top: TopInfo) => top.titleUrl === title
+  )
+
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const topData = require(`@/components/las-10-mas/top/${actualTop?.jsonName}`)
 
@@ -30,7 +34,14 @@ export default async function Page({ params }: {
               &larr; Volver a las 10 más
             </Link>
           </div>
-          <h3 id="modal-title">{actualTop?.name}</h3>
+          <h3 id="modal-title">
+            {topInfo && (
+              <span className="top10-detail-icon">
+                <topInfo.icon size={30} />
+              </span>
+            )}
+            {actualTop?.name}
+          </h3>
           <div id="modal-data">
             <div className="mt-3 text-justify">
               <p className="card-text text-lg font-light">

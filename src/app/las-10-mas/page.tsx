@@ -12,6 +12,9 @@ export default function Las10Mas() {
             TopsLists.map((top: TopInfo) => (
               <div className="top10-card" key={top.titleUrl}>
                 <Link href={"/las-10-mas/" + top.titleUrl}>
+                  <div className="top10-card-icon">
+                    <top.icon size={26} />
+                  </div>
                   <h3>
                     {top.topName}
                   </h3>
