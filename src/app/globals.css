@@ -440,6 +440,25 @@ footer {
     opacity: 0.7;
 }
 
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.social-media-link {
+    display: inline-flex;
+    color: inherit;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-media-link:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+
 .graphs-section {
     transform: translateY(50px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -1439,6 +1458,30 @@ footer {
     font-size: 1.2em;
     line-height: 1.3;
     font-weight: 600;
+}
+
+.top10-card-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 12px auto;
+    border-radius: 50%;
+    background-color: rgba(79, 195, 247, 0.15);
+    color: var(--color-accent);
+    display: grid;
+    place-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.top10-card:hover .top10-card-icon {
+    background-color: rgba(79, 195, 247, 0.3);
+    transform: scale(1.08);
+}
+
+.top10-detail-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 12px;
+    color: var(--color-accent);
 }
 
 .top10-card a {

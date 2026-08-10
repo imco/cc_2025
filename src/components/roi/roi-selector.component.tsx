@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
+import { CurrencyExchangeIcon, CoinIcon, TrendingUpIcon } from "@/components/icons";
 
 // TypeScript declarations for Google Analytics
 declare global {
@@ -604,17 +605,17 @@ export default function RoiSelector() {
               </p>
               <div className="roi-compare-grid">
                 <div className="roi-compare-card">
-                  <div className="roi-compare-icon">💱</div>
+                  <div className="roi-compare-icon"><CurrencyExchangeIcon size={32} /></div>
                   <p>Cetes</p>
                   <p className="text-2xl font-bold">7.3%</p>
                 </div>
                 <div className="roi-compare-card">
-                  <div className="roi-compare-icon">🪙</div>
+                  <div className="roi-compare-icon"><CoinIcon size={32} /></div>
                   <p>Oro*</p>
                   <p className="text-2xl font-bold">12.4%</p>
                 </div>
                 <div className="roi-compare-card">
-                  <div className="roi-compare-icon">📈</div>
+                  <div className="roi-compare-icon"><TrendingUpIcon size={32} /></div>
                   <p>S&amp;P 500*</p>
                   <p className="text-2xl font-bold">14%</p>
                 </div>

@@ -1,9 +1,5 @@
 "use client"
-import Image from "next/image"
-
-import logoFacebook from "@/assets/images/social-media/logoFB.png"
-import logoInstragram from "@/assets/images/social-media/logoIG.png"
-import logoX from "@/assets/images/social-media/logoX.png"
+import { FacebookIcon, XIcon, InstagramIcon } from "@/components/icons"
 
 export default function Footer() {
   return (
@@ -18,45 +14,14 @@ export default function Footer() {
           Escríbenos a <a href="mailto:comparacarreras@imco.org.mx" style={{ color: "inherit" }} target="_blank">comparacarreras@imco.org.mx</a>
         </p>
         <div className="social-media">
-          <a href="https://www.facebook.com/imcomx/" className="social-media-link" target="_blank">
-            <Image
-              src={logoFacebook.src}
-              alt="Facebook"
-              width={40}
-              height={40}
-              style={{
-                width: 40 + "px",
-                height: 40 + "px",
-                paddingRight: 5 + "px"
-              }}
-            />
+          <a href="https://www.facebook.com/imcomx/" className="social-media-link" target="_blank" aria-label="Facebook">
+            <FacebookIcon size={30} />
           </a>
-          <a href="https://x.com/imcomx" className="social-media-link" target="_blank">
-            <Image
-              src={logoX}
-              alt="Twitter"
-              width={40}
-              height={40}
-              style={{
-                width: 40 + "px",
-                height: 40 + "px",
-                paddingRight: 5 + "px",
-                paddingLeft: 5 + "px"
-              }}
-            />
+          <a href="https://x.com/imcomx" className="social-media-link" target="_blank" aria-label="X (Twitter)">
+            <XIcon size={26} />
           </a>
-          <a href="https://www.instagram.com/imco_mx/?hl=en" className="social-media-link" target="_blank">
-            <Image
-              src={logoInstragram.src}
-              alt="Instagram"
-              width={40}
-              height={40}
-              style={{
-                width: 40 + "px",
-                height: 40 + "px",
-                paddingRight: 5 + "px"
-              }}
-            />
+          <a href="https://www.instagram.com/imco_mx/?hl=en" className="social-media-link" target="_blank" aria-label="Instagram">
+            <InstagramIcon size={30} />
           </a>
         </div>
       </div>

@@ -5,6 +5,8 @@ import LinkOptions from "@/interfaces/navbar/navbar-options.interface"
 import Image from "next/image"
 import Link from "next/link"
 
+import { MenuIcon } from "@/components/icons"
+
 import logo from "@/assets/images/logo_imco_blanco_transparente.png"
 
 interface NavbarProps {
@@ -52,7 +54,7 @@ export default function Navbar(props: NavbarProps) {
           />
         </a>
         <div className="hamburger-menu">
-          <i className="fas fa-bars"></i>
+          <MenuIcon size={28} />
         </div>
         <div className="header-links">
           {props.linksOptions.map((link: LinkOptions) => (
