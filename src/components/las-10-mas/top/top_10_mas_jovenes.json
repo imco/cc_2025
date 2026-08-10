@@ -1,258 +1,262 @@
 {
     "Terapia y rehabilitación": [
         1,
-        0.586469196860553
+        60.607129293038895
     ],
     "Administración en el ámbito de la ingeniería y la construcción": [
         2,
-        0.510994904800215
+        44.28152251637667
     ],
-    "Gastronomía y servicios de alimentos": [
+    "Nutrición": [
         3,
-        0.468798282462879
+        43.54751299812014
     ],
     "Criminología y criminalística": [
         4,
-        0.467443634514324
+        42.98378966571186
     ],
-    "Nutrición": [
+    "Gastronomía y servicios de alimentos": [
         5,
-        0.447281358467254
+        41.30955122060926
     ],
     "Tecnología para la protección del medio ambiente": [
         6,
-        0.383763449346276
-    ],
-    "Bioquímica y biofísica": [
-        7,
-        0.372874294587736
-    ],
-    "Deportes": [
-        8,
-        0.37081873208028
-    ],
-    "Negocios y comercio": [
-        9,
-        0.340077561991598
-    ],
-    "Industria de la minería extracción y metalurgia": [
-        10,
-        0.333797807957074
-    ],
-    "Desarrollo de software (Implementación)": [
-        11,
-        0.320254780530204
+        40.72299121804072
     ],
     "Vehículos barcos y aeronaves motorizadas": [
-        12,
-        0.317874241476157
+        7,
+        39.58372729221033
+    ],
+    "Negocios y comercio": [
+        8,
+        35.88857729688113
+    ],
+    "Bioquímica y biofísica": [
+        9,
+        33.05613131152081
+    ],
+    "Deportes": [
+        10,
+        30.542273788211833
+    ],
+    "Industria de la minería extracción y metalurgia": [
+        11,
+        30.171078696200254
     ],
     "Enfermería general y obstetricia": [
+        12,
+        30.112736479470104
+    ],
+    "Ingeniería de procesos químicos": [
         13,
-        0.298527864490492
+        28.701363449157867
     ],
     "Electrónica automatización y aplicaciones de la mecánica-eléctrica": [
         14,
-        0.292988489612577
-    ],
-    "Ingeniería industrial": [
-        15,
-        0.287671320140528
-    ],
-    "Industria de la alimentación": [
-        16,
-        0.276605623862412
-    ],
-    "Química": [
-        17,
-        0.26833875002127
-    ],
-    "Orientación e intervención educativa": [
-        18,
-        0.267573497147872
-    ],
-    "Psicología": [
-        19,
-        0.266223136625081
-    ],
-    "Ingeniería de procesos químicos": [
-        20,
-        0.257854463296104
-    ],
-    "Mercadotecnia y publicidad": [
-        21,
-        0.257288459632532
-    ],
-    "Adquisición de idiomas extranjeros": [
-        22,
-        0.256766750480698
-    ],
-    "Ciencias políticas": [
-        23,
-        0.255857814857549
+        28.284822411559496
     ],
     "Diseño industrial de moda e interiores": [
+        15,
+        27.754574811625403
+    ],
+    "Ingeniería industrial": [
+        16,
+        26.19803176722626
+    ],
+    "Diseño curricular y pedagogía": [
+        17,
+        25.775430951396004
+    ],
+    "Adquisición de idiomas extranjeros": [
+        18,
+        25.685346251238578
+    ],
+    "Industria de la alimentación": [
+        19,
+        23.993882455757046
+    ],
+    "Psicología": [
+        20,
+        23.98665674370634
+    ],
+    "Ciencias políticas": [
+        21,
+        23.884114023778828
+    ],
+    "Administración turística y de restaurantes": [
+        22,
+        23.763333724065173
+    ],
+    "Diseño y comunicación gráfica y editorial": [
+        23,
+        23.73942851207119
+    ],
+    "Finanzas banca y seguros": [
         24,
-        0.252571381124869
+        23.675798704667546
     ],
     "Hospitalidad y turismo": [
         25,
-        0.251979549130378
+        23.28374698114177
     ],
-    "Trabajo y atención social": [
+    "Mercadotecnia y publicidad": [
         26,
-        0.250826108692736
-    ],
-    "Diseño y comunicación gráfica y editorial": [
-        27,
-        0.249907568433593
-    ],
-    "Estomatología y odontología general": [
-        28,
-        0.243903501553772
+        23.175440854678854
     ],
     "Veterinaria": [
-        29,
-        0.237558650059357
-    ],
-    "Diseño curricular y pedagogía": [
-        30,
-        0.231492980492567
-    ],
-    "Música": [
-        31,
-        0.230327732490434
-    ],
-    "Desarrollo de software (Innovación)": [
-        32,
-        0.223783777825543
-    ],
-    "Comunicación y periodismo": [
-        33,
-        0.22036612178568
+        27,
+        22.605452873800257
     ],
     "Mecánica y profesiones afines al trabajo metálico": [
-        34,
-        0.217650819725685
+        28,
+        22.151546473721872
     ],
-    "Finanzas banca y seguros": [
-        35,
-        0.214498668883794
+    "Desarrollo de software (Innovación)": [
+        29,
+        21.332093914170223
     ],
-    "Ciencias computacionales": [
-        36,
-        0.212580250259324
-    ],
-    "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
-        37,
-        0.210542229389236
-    ],
-    "Arquitectura y urbanismo": [
-        38,
-        0.208153033431446
-    ],
-    "Administración de empresas": [
-        39,
-        0.207982567769341
-    ],
-    "Construcción e ingeniería civil": [
-        40,
-        0.207622072250893
-    ],
-    "Medicina general": [
-        41,
-        0.20485096524622
-    ],
-    "Derecho": [
-        42,
-        0.204651967598703
-    ],
-    "Electricidad y generación de energía": [
-        43,
-        0.204490757114391
-    ],
-    "Administración turística y de restaurantes": [
-        44,
-        0.194558142655841
-    ],
-    "Planes multidisciplinarios o generales del campo de administración y gestión": [
-        45,
-        0.1790541836293
+    "Comunicación y periodismo": [
+        30,
+        21.01892339815916
     ],
     "Formación docente en la enseñanza de asignaturas específicas": [
-        46,
-        0.178750540563218
+        31,
+        20.96903140241824
+    ],
+    "Medicina general": [
+        32,
+        20.91674195235605
+    ],
+    "Arquitectura y urbanismo": [
+        33,
+        20.857250091205195
+    ],
+    "Estomatología y odontología general": [
+        34,
+        20.771194127449533
+    ],
+    "Construcción e ingeniería civil": [
+        35,
+        20.142326346894755
     ],
     "Producción y explotación agrícola y ganadera": [
-        47,
-        0.178532097919108
+        36,
+        19.792593668840013
     ],
-    "Literatura": [
-        48,
-        0.178378538785685
-    ],
-    "Economía": [
-        49,
-        0.167809828055999
-    ],
-    "Formación docente en otros servicios educativos": [
-        50,
-        0.156340507694929
-    ],
-    "Sociología y antropología": [
-        51,
-        0.151984306624415
+    "Administración de empresas": [
+        37,
+        19.747382215946278
     ],
     "Biología": [
-        52,
-        0.148821602941472
+        38,
+        19.449918420104677
+    ],
+    "Trabajo y atención social": [
+        39,
+        19.139012322334626
+    ],
+    "Orientación e intervención educativa": [
+        40,
+        18.749421713947335
+    ],
+    "Derecho": [
+        41,
+        18.707157180533454
+    ],
+    "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
+        42,
+        18.437858195513346
+    ],
+    "Ciencias computacionales": [
+        43,
+        17.54382055852644
+    ],
+    "Química": [
+        44,
+        17.3670019389239
+    ],
+    "Formación docente en otros servicios educativos": [
+        45,
+        17.271132935811995
+    ],
+    "Sociología y antropología": [
+        46,
+        16.964178746855158
+    ],
+    "Ecología y ciencias ambientales": [
+        47,
+        16.76080299421572
+    ],
+    "Electricidad y generación de energía": [
+        48,
+        15.648259482664386
+    ],
+    "Desarrollo de software (Implementación)": [
+        49,
+        15.110329389190918
+    ],
+    "Planes multidisciplinarios o generales del campo de administración y gestión": [
+        50,
+        14.781776077607296
+    ],
+    "Historia y arqueología": [
+        51,
+        14.530223899891412
     ],
     "Contabilidad y fiscalización": [
+        52,
+        13.930459137867809
+    ],
+    "Literatura": [
         53,
-        0.143129540453412
+        13.279979593788859
     ],
     "Formación docente en educación básica nivel preescolar": [
         54,
-        0.134383290706336
+        12.219919550953612
     ],
-    "Administración pública": [
+    "Formación docente en educación básica nivel secundaria": [
         55,
-        0.127540718804684
+        11.95905164894863
     ],
-    "Ecología y ciencias ambientales": [
+    "Economía": [
         56,
-        0.12639375597324
+        11.347166554029188
+    ],
+    "Ciencias de la educación": [
+        57,
+        11.161487706881934
     ],
     "Informática": [
-        57,
-        0.109338206007924
-    ],
-    "Planeación evaluación e investigación educativa": [
         58,
-        0.105191442975882
+        10.1157830591103
     ],
     "Formación docente en educación básica nivel primaria": [
         59,
-        0.101663252071946
+        8.876460365890635
     ],
-    "Ciencias de la educación": [
+    "Administración pública": [
         60,
-        0.098030668432951
+        7.7532277385864505
     ],
-    "Historia y arqueología": [
+    "Planeación evaluación e investigación educativa": [
         61,
-        0.0967191120868399
-    ],
-    "Formación docente en educación básica nivel secundaria": [
-        62,
-        0.0951895599161745
+        7.3707683913363224
     ],
     "Planes multidisciplinarios o generales del campo de ciencias sociales y estudios del comportamiento": [
+        62,
+        7.166447558277487
+    ],
+    "Formación docente en educación superior": [
         63,
-        0.0587336939230035
+        7.036334056399133
+    ],
+    "Matemáticas": [
+        64,
+        6.624943483330557
     ],
     "Planes multidisciplinarios o generales del campo de formación docente": [
-        64,
-        0.0298055087966352
+        65,
+        3.0544771026102913
     ]
 }
