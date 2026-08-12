@@ -75,6 +75,10 @@ CAMPOS_NUEVOS = ["EGRESADOS", "NUEVO_INGRESO", "EJERCE", "NO_EJERCE", "TASA_RIES
 # CVE -> sufijo perdido en el CSV crudo
 SUFIJOS_CVE = {613: " (Innovación)", 621: " (Implementación)"}
 
+# alias para nombres en tops (sin CVE disponible); el TSU de software es el
+# de Innovación (CVE 613), igual que en el maestro
+ALIAS_TOPS = {"TSU. Desarrollo de software": "TSU. Desarrollo de software (Innovación)"}
+
 
 def num(v):
     """'NA'/vacío -> 'NA'; entero -> int; resto -> float."""
@@ -98,6 +102,9 @@ def div(a, b):
 
 def normalizar_nombre(nombre, cve):
     n = nombre.replace(",", "").replace("  ", " ").strip()
+    # convención del sitio: prefijo "TSU. " (algunas entregas traen "TSU " sin punto)
+    if n.startswith("TSU ") and not n.startswith("TSU. "):
+        n = "TSU. " + n[4:]
     sufijo = SUFIJOS_CVE.get(cve)
     if sufijo and not n.endswith(sufijo.strip()):
         n += sufijo
@@ -218,12 +225,18 @@ def main():
         nas = sum(1 for c in salida if c[campo] == "NA")
         print(f"NA en {campo}: {nas}/{len(salida)}")
 
-    # integridad de tops: todo nombre de top debe existir en el maestro
-    tops = sorted(f for f in os.listdir(args.base) if f.startswith("top_10") and f.endswith(".json"))
+    # integridad de tops: se normalizan los nombres (comas, prefijo TSU.) y
+    # todo nombre debe existir en el maestro
+    tops = {}
     rotos = []
-    for t in tops:
-        for nombre in json.load(open(os.path.join(args.base, t), encoding="utf-8")):
-            if nombre not in nombres_nuevos and f"TSU. {nombre}" not in nombres_nuevos:
+    for t in sorted(f for f in os.listdir(args.base) if f.startswith("top_10") and f.endswith(".json")):
+        crudo = json.load(open(os.path.join(args.base, t), encoding="utf-8"))
+        tops[t] = {}
+        for nombre, valor in crudo.items():
+            limpio = normalizar_nombre(nombre, None)
+            tops[t][ALIAS_TOPS.get(limpio, limpio)] = valor
+        for nombre in tops[t]:
+            if nombre not in nombres_nuevos:
                 rotos.append(f"{t}: {nombre}")
     print(f"Tops: {len(tops)} archivos; nombres sin carrera en el maestro: {len(rotos)}")
     for r in rotos[:10]:
@@ -236,10 +249,9 @@ def main():
     # --- 6. escribir
     with open(MASTER_PATH, "w", encoding="utf-8") as f:
         json.dump(salida, f, ensure_ascii=False, indent=2)
-    for t in tops:
-        destino = os.path.join(TOPS_DIR, t)
-        with open(os.path.join(args.base, t), encoding="utf-8") as origen, open(destino, "w", encoding="utf-8") as out:
-            out.write(origen.read())
+    for t, datos in tops.items():
+        with open(os.path.join(TOPS_DIR, t), "w", encoding="utf-8") as out:
+            json.dump(datos, out, ensure_ascii=False, indent=4)
     print(f"\nEscrito: {MASTER_PATH} y {len(tops)} tops en {TOPS_DIR}/")
 
 
