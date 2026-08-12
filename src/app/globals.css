@@ -678,24 +678,42 @@ footer {
         flex-direction: column;
     }
 
-    .breakdown-item {
+    /* especificidad extra: la regla base .breakdown-item (width 48%) está
+       declarada más abajo en el archivo y ganaría a un selector simple */
+    .salary-breakdowns .breakdown-item {
         width: 100%;
         margin-bottom: 15px;
+        text-align: center;
     }
 }
 
 .new-graduates {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 16px;
     margin-top: 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .new-graduates h3 {
     font-size: 1.5rem;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.new-graduates h3 .stat-icon {
+    margin-right: 14px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 650px) {
+    #new-graduates-number {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 #new-graduates-number {
@@ -877,6 +895,46 @@ footer {
     text-align: center;
 }
 
+/* los wrappers .reveal son ahora los hijos flex de estos contenedores: deben
+   comportarse como los elementos que envuelven (encoger y centrar) */
+.circular-stats > .reveal,
+.salary-main-info > .reveal,
+.postgrad-info > .reveal {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+}
+
+/* el wrapper .reveal es el hijo del flex: él toma el 30% y la stat lo llena */
+.employment-stats > .reveal {
+    width: 30%;
+}
+
+.employment-stats > .reveal .employment-stat {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .employment-stats .employment-stat h4 {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 650px) {
+    .employment-stats {
+        flex-direction: column;
+    }
+
+    .employment-stats > .reveal {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .employment-stats > .reveal .employment-stat {
+        margin-bottom: 0;
+    }
+}
+
 .employment-stat h4 {
     font-size: 1.2em;
     margin-bottom: 10px;
@@ -1033,8 +1091,10 @@ footer {
 }
 
 .salary-circle {
-    width: 220px;
-    height: 220px;
+    width: 260px;
+    height: 260px;
+    padding: 18px;
+    box-sizing: border-box;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
     display: flex;
@@ -1128,6 +1188,7 @@ footer {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .breakdown-item h5 {
@@ -1149,8 +1210,10 @@ footer {
 }
 
 .postgrad-circle {
-    width: 180px;
-    height: 180px;
+    width: 210px;
+    height: 210px;
+    padding: 16px;
+    box-sizing: border-box;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.05);
     display: flex;
@@ -1482,6 +1545,182 @@ footer {
     vertical-align: middle;
     margin-right: 12px;
     color: var(--color-accent);
+}
+
+/* carreras clickeables dentro de las tablas de tops */
+.top-career-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.top-career-link:hover {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* --- Íconos y animaciones de la página de carrera --- */
+
+.section-title-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 10px;
+    color: var(--color-accent);
+}
+
+.stat-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    background-color: rgba(79, 195, 247, 0.15);
+    color: var(--color-accent);
+}
+
+.stat-icon-inline {
+    display: inline-flex;
+    vertical-align: text-bottom;
+    margin-right: 6px;
+    color: var(--color-accent);
+}
+
+/* dentro de los círculos el chip se compacta para no desplazar el texto */
+.salary-circle .stat-icon,
+.postgrad-circle .stat-icon,
+.stat-circle .stat-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.salary-circle .stat-icon svg,
+.postgrad-circle .stat-icon svg,
+.stat-circle .stat-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* en desktop los 4 elementos de "¿Cuántos son?" (2 círculos + 2 pays) se
+   vuelven hijos directos del flex para que la separación horizontal sea
+   idéntica entre todos; en pantallas menores se conserva el apilado actual */
+@media (min-width: 1201px) {
+    .graphs-section .circular-stats,
+    .graphs-section .pie-charts {
+        display: contents;
+    }
+
+    .graphs-section .stats-container {
+        justify-content: space-between;
+    }
+}
+
+/* títulos de sección de la página de carrera: todos alineados a la izquierda
+   (con ámbito .graphs-section para no afectar otras páginas que comparten clases) */
+.graphs-section .section-title,
+.graphs-section .section-subtitle,
+.graphs-section .new-graduates,
+.graphs-section .sectors h4,
+.graphs-section .position-info h3 {
+    text-align: left;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.sector-segment {
+    transition: width 0.8s cubic-bezier(0.25, 0.8, 0.35, 1),
+        filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* la cifra va pegada a su leyenda (sin el flex:1 que la empujaba al borde) */
+.sector-legend .sector-name {
+    flex: 0 1 auto;
+}
+
+/* hover discreto sincronizado entre leyenda y segmento de la barra */
+.sector-legend .legend-item {
+    padding: 4px 8px;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: default;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+/* la dona y su leyenda como conjunto centrado (el canvas a todo lo ancho
+   dejaba la dona al centro-izquierda y la leyenda pegada al borde derecho) */
+.doughnut-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* en móvil la barra apilada se sustituye por un pay */
+.sectors-pie {
+    display: none;
+}
+
+@media (max-width: 650px) {
+    .stacked-bar {
+        display: none;
+    }
+
+    .sectors-pie {
+        display: block;
+        height: 260px;
+        max-width: 260px;
+        margin: 0 auto 16px auto;
+    }
+}
+
+.sector-legend .legend-item.sector-hl {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.sector-legend .legend-item.sector-hl .sector-name {
+    color: #ffffff;
+}
+
+.sector-segment.sector-hl {
+    filter: brightness(1.3) saturate(1.15);
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.75);
+}
+
+/* leyenda HTML de la gráfica de barras de salario: mismo hover que sectores */
+.salary-legend .legend-item {
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    cursor: default;
+}
+
+.salary-legend .legend-item:hover,
+.salary-legend .legend-item.sector-hl {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .sector-segment {
+        transition: none;
+    }
 }
 
 .top10-card a {

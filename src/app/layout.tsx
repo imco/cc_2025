@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 
 import { usePathname } from "next/navigation";
-import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
@@ -87,7 +86,6 @@ export default function RootLayout({
       </body>
       <GoogleAnalytics gaId='G-J7CL260VSJ' />
       <GoogleTagManager gtmId="GTM-TJM2GX3X" />
-      <Script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" />
     </html >
   );
 }

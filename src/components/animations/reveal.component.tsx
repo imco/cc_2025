@@ -1,0 +1,116 @@
+"use client"
+import { ReactNode, useEffect, useRef, useState } from "react"
+
+export function useInView<T extends HTMLElement>(threshold = 0.25) {
+  const ref = useRef<T>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true)
+      return
+    }
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, visible }
+}
+
+type RevealProps = {
+  children: ReactNode
+  className?: string
+  delay?: number
+}
+
+// Aparece con fade-in + deslizamiento cuando entra al viewport
+export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
+  const { ref, visible } = useInView<HTMLDivElement>()
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
+    >
+      {children}
+    </div>
+  )
+}
+
+type MountOnVisibleProps = {
+  children: ReactNode
+  minHeight?: number
+}
+
+// Monta a sus hijos hasta que el contenedor es visible; útil para que las
+// animaciones de entrada de Chart.js corran cuando el usuario las ve
+export function MountOnVisible({ children, minHeight }: MountOnVisibleProps) {
+  const { ref, visible } = useInView<HTMLDivElement>(0.15)
+  // el wrapper debe llenar a su contenedor: Chart.js (responsive) toma el
+  // tamaño del padre directo y un div sin altura encoge las gráficas
+  return (
+    <div
+      ref={ref}
+      style={{
+        width: "100%",
+        height: "100%",
+        ...(minHeight && !visible ? { minHeight } : {}),
+      }}
+    >
+      {visible ? children : null}
+    </div>
+  )
+}
+
+type CountUpProps = {
+  value: number | string | undefined
+  format: (value: number | string | undefined) => string
+  prefix?: string
+  suffix?: string
+  duration?: number
+}
+
+// Cuenta de 0 al valor cuando entra al viewport, usando el formateador del sitio
+export function CountUp({ value, format, prefix = "", suffix = "", duration = 1200 }: CountUpProps) {
+  const { ref, visible } = useInView<HTMLSpanElement>(0.5)
+  const [display, setDisplay] = useState(`${prefix}${format(0)}${suffix}`)
+  const target = parseFloat(String(value))
+
+  useEffect(() => {
+    if (!visible) return
+    if (isNaN(target)) {
+      setDisplay(`${prefix}${format(value)}${suffix}`)
+      return
+    }
+    const reduced = typeof matchMedia !== "undefined" && matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (reduced) {
+      setDisplay(`${prefix}${format(value)}${suffix}`)
+      return
+    }
+    let frame: number
+    const start = performance.now()
+    const tick = (now: number) => {
+      const t = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - t, 3)
+      setDisplay(`${prefix}${format(target * eased)}${suffix}`)
+      if (t < 1) frame = requestAnimationFrame(tick)
+      else setDisplay(`${prefix}${format(value)}${suffix}`)
+    }
+    frame = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(frame)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible, target, duration])
+
+  return <span ref={ref} style={{ display: "inline-block" }}>{display}</span>
+}
