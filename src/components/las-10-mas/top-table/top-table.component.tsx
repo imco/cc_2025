@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { TopDescription } from "@/app/las-10-mas/[slug]/data.constans";
 
 type Props = {
@@ -9,15 +10,17 @@ type Props = {
 
 export default function TopTable(props: Props) {
   const processTopValue = (value: string) => {
-    const isPagadas = props.actualTop?.jsonName.includes('pagadas');
-    const containsRetorno = props.actualTop?.jsonName.includes('rsi_');
-    return formatValue(value, isPagadas, containsRetorno)
+    const jsonName = props.actualTop?.jsonName ?? '';
+    const isPagadas = jsonName.includes('pagadas');
+    // tops de conteo (personas): sin signo de porcentaje
+    const isConteo = jsonName.includes('matricula') || jsonName.includes('numero');
+    return formatValue(value, isPagadas, isConteo)
   }
 
   const formatValue = (
     value: string,
     isPagadas: boolean = false,
-    containsRetorno: boolean = false
+    isConteo: boolean = false
   ) => {
     if (value === null || value === undefined) return '-';
 
@@ -27,27 +30,16 @@ export default function TopTable(props: Props) {
 
     if (isNaN(numValue)) return '-';
 
-    if (numValue < 1 && numValue > -1) {
-      // Convert to percentage
-      return (numValue * 100).toFixed(1) + '%';
-    } else if (numValue >= 1) {
-      // Fixed to 2 decimal places
-      if (isPagadas) {
-        return '$' + Math.round(numValue).toLocaleString();
-      }
-
-      else if (containsRetorno) {
-        return numValue.toFixed(1) + '%';
-      }
-
-      else {
-        return numValue.toLocaleString();
-      }
-
-    } else {
-      // For numbers less than -1, just return the fixed value
-      return numValue.toFixed(1);
+    if (isPagadas) {
+      return '$' + Math.round(numValue).toLocaleString();
     }
+
+    if (isConteo) {
+      return Math.round(numValue).toLocaleString();
+    }
+
+    // el resto de los tops son porcentajes; la base los entrega en escala 0-100
+    return numValue.toFixed(1) + '%';
   }
 
 
@@ -78,7 +70,14 @@ export default function TopTable(props: Props) {
             return (
               <tr key={key}>
                 <td>{props.topData[key][0]}</td>
-                <td>{key}</td>
+                <td>
+                  <Link
+                    href={'/' + key.toLowerCase().replaceAll(' ', '_')}
+                    className="top-career-link"
+                  >
+                    {key}
+                  </Link>
+                </td>
                 <td>
                   {thirdColumnValue}
                 </td>
