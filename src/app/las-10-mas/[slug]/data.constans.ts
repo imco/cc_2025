@@ -37,6 +37,18 @@ export const TopsTypes: TopDescription[] = [
     description: "Aquí conocerás la lista de las carreras cuya matrícula de nuevo ingreso está principalmente compuesta por hombres, de acuerdo con el ranking de Compara Carreras."
   },
   {
+    name: "Las 10 carreras con más aplicantes",
+    jsonName: "top_10_mas_aplicacion.json",
+    titleUrl: "mas-aplicantes",
+    description: "Aquí conocerás la lista de las carreras que concentran el mayor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras."
+  },
+  {
+    name: "Las 10 carreras con menos aplicantes",
+    jsonName: "top_10_menos_aplicacion.json",
+    titleUrl: "menos-aplicantes",
+    description: "Aquí conocerás la lista de las carreras que concentran el menor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras."
+  },
+  {
     name: "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
     jsonName: "top_10_mas_demandadas.json",
     titleUrl: "demanda-publica",

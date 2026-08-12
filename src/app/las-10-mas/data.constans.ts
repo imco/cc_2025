@@ -2,6 +2,8 @@ import { ComponentType } from "react"
 import {
   IconProps,
   UsersIcon,
+  UserPlusIcon,
+  UserMinusIcon,
   FemaleIcon,
   MaleIcon,
   StarIcon,
@@ -50,6 +52,16 @@ export const TopsLists: TopInfo[] = [
     topName: "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
     titleUrl: "demanda-publica",
     icon: StarIcon
+  },
+  {
+    topName: "Las 10 carreras con más aplicantes",
+    titleUrl: "mas-aplicantes",
+    icon: UserPlusIcon
+  },
+  {
+    topName: "Las 10 carreras con menos aplicantes",
+    titleUrl: "menos-aplicantes",
+    icon: UserMinusIcon
   },
   {
     topName: "Las 10 carreras con mayor porcentaje de mujeres",
