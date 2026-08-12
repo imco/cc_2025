@@ -417,6 +417,301 @@ header {
     background-color: rgba(79, 195, 247, 0.2);
 }
 
+/* --- autocomplete del buscador --- */
+
+.autocomplete {
+    position: relative;
+}
+
+.autocomplete-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+}
+
+.search-result.is-active {
+    background-color: rgba(79, 195, 247, 0.25);
+}
+
+.search-result mark {
+    background: none;
+    color: #024383;
+    font-weight: 600;
+}
+
+.search-result-alias {
+    display: block;
+    font-size: 0.8em;
+    color: #667;
+    margin-top: 2px;
+}
+
+/* columnas de resultados del comparador: cifras centradas y cada carrera
+   diferenciada con su propio tinte (azul / ámbar) */
+.comparison-table th:nth-child(2),
+.comparison-table td:nth-child(2),
+.comparison-table th:nth-child(3),
+.comparison-table td:nth-child(3) {
+    text-align: center;
+}
+
+.comparison-table thead th:nth-child(2) {
+    border-top: 3px solid var(--color-accent);
+}
+
+.comparison-table thead th:nth-child(3) {
+    border-top: 3px solid #FFA94D;
+}
+
+.comparison-table tbody td:nth-child(2) {
+    background-color: rgba(79, 195, 247, 0.08);
+}
+
+.comparison-table tbody td:nth-child(3) {
+    background-color: rgba(255, 169, 77, 0.08);
+}
+
+/* ===== impresión / descarga en PDF ===== */
+
+.print-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(79, 195, 247, 0.15);
+    color: var(--color-accent);
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* fila de acciones al pie de la página de carrera (la especificidad doble
+   gana a .compare-container, que fuerza columna y está declarada después) */
+.compare-container.carrer-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.print-button:hover {
+    background-color: rgba(79, 195, 247, 0.3);
+    transform: translateY(-1px);
+}
+
+.print-button-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.print-only {
+    display: none;
+}
+
+@media print {
+
+    /* documento simple: fondo blanco y texto oscuro */
+    html,
+    body {
+        background-color: #ffffff !important;
+        color: #222222;
+    }
+
+    /* se oculta el cromo interactivo y los banners */
+    #header,
+    footer,
+    .no-print,
+    .saberes-banner,
+    .home-saberes-banner,
+    .compare-container,
+    .back-option,
+    .download-btn {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    /* página de carrera: solo se imprime la hoja de datos */
+    .graphs-section > :not(.print-sheet) {
+        display: none !important;
+    }
+
+    /* comparador: se oculta el título de pantalla; queda encabezado + tabla */
+    .compare-section {
+        background-color: #ffffff !important;
+        padding: 0;
+        min-height: 0;
+    }
+
+    .compare-section > .section-title {
+        display: none !important;
+    }
+
+    /* banda de encabezado: logo del home (blanco) sobre azul institucional */
+    .print-sheet-band {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        background-color: #024383 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border-radius: 8px;
+        padding: 14px 18px;
+        margin-bottom: 14px;
+    }
+
+    .print-sheet-logo {
+        width: auto;
+        height: 44px;
+    }
+
+    .print-sheet-meta {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        color: #ffffff;
+        font-size: 0.8rem;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    .print-sheet-meta span {
+        overflow-wrap: anywhere;
+    }
+
+    .print-sheet-title {
+        color: #024383;
+        font-size: 1.5rem;
+        margin: 6px 0 10px 0;
+        text-align: left;
+    }
+
+    /* tabla simple de datos */
+    .print-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .print-table th,
+    .print-table td {
+        border: 1px solid #d6dbe1;
+        padding: 5px 10px;
+        font-size: 0.85rem;
+        text-align: left;
+        color: #222222;
+        background-color: #ffffff !important;
+    }
+
+    .print-table thead th {
+        background-color: #024383 !important;
+        color: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-table .print-section-row th {
+        background-color: #eef2f7 !important;
+        color: #024383;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .print-table tr {
+        break-inside: avoid;
+    }
+
+    /* la tabla del comparador se imprime en estilo simple; los !important
+       anulan los estilos de pantalla declarados después en el archivo */
+    .comparison-results,
+    .comparison-table,
+    .comparison-table th,
+    .comparison-table td {
+        background-color: #ffffff !important;
+        color: #222222 !important;
+        box-shadow: none !important;
+    }
+
+    .comparison-results {
+        display: block !important;
+        margin-top: 0 !important;
+    }
+
+    .comparison-table {
+        border-collapse: collapse !important;
+        border-spacing: 0 !important;
+        width: 100% !important;
+        table-layout: fixed;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        border: 1px solid #d6dbe1 !important;
+        padding: 5px 10px !important;
+        font-size: 0.85rem !important;
+        overflow-wrap: anywhere;
+    }
+
+    .comparison-table thead th {
+        background-color: #024383 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .comparison-table .section-header {
+        background-color: #eef2f7 !important;
+        color: #024383 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .comparison-table .section-header .section-title-icon {
+        color: #024383;
+    }
+
+    /* diferenciación de columnas también en el PDF */
+    .comparison-table tbody td:nth-child(2) {
+        background-color: #eef7fd !important;
+    }
+
+    .comparison-table tbody td:nth-child(3) {
+        background-color: #fdf3e8 !important;
+    }
+
+    .comparison-table thead th:nth-child(2) {
+        border-top: 3px solid #4FC3F7 !important;
+    }
+
+    .comparison-table thead th:nth-child(3) {
+        border-top: 3px solid #FFA94D !important;
+    }
+
+    .comparison-table tr {
+        break-inside: avoid;
+    }
+
+    @page {
+        margin: 12mm;
+    }
+}
+
 .career-details {
     margin-top: 60px;
     background-color: rgba(255, 255, 255, 0.1);

@@ -22,7 +22,16 @@ export function useInView<T extends HTMLElement>(threshold = 0.25) {
       { threshold }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+
+    // al imprimir, todo lo diferido debe estar presente aunque no se haya scrolleado
+    const mostrar = () => setVisible(true)
+    window.addEventListener("preparar-impresion", mostrar)
+    window.addEventListener("beforeprint", mostrar)
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("preparar-impresion", mostrar)
+      window.removeEventListener("beforeprint", mostrar)
+    }
   }, [threshold])
 
   return { ref, visible }
@@ -87,9 +96,26 @@ export function CountUp({ value, format, prefix = "", suffix = "", duration = 12
   const [display, setDisplay] = useState(`${prefix}${format(0)}${suffix}`)
   const target = parseFloat(String(value))
 
+  // al imprimir, el contador salta directo a su valor final (y la bandera
+  // evita que la animación normal lo vuelva a pisar)
+  const imprimiendo = useRef(false)
+  useEffect(() => {
+    const finalizar = () => {
+      imprimiendo.current = true
+      setDisplay(`${prefix}${format(value)}${suffix}`)
+    }
+    window.addEventListener("preparar-impresion", finalizar)
+    window.addEventListener("beforeprint", finalizar)
+    return () => {
+      window.removeEventListener("preparar-impresion", finalizar)
+      window.removeEventListener("beforeprint", finalizar)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, prefix, suffix])
+
   useEffect(() => {
     if (!visible) return
-    if (isNaN(target)) {
+    if (isNaN(target) || imprimiendo.current) {
       setDisplay(`${prefix}${format(value)}${suffix}`)
       return
     }

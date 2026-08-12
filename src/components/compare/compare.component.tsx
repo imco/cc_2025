@@ -1,8 +1,13 @@
 "use client"
-import { ChangeEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter, useSearchParams } from 'next/navigation'
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import SaberesBanner from '@/components/saberes/saberes-banner.component'
+import PrintButton from '@/components/print/print-button.component'
+import PrintSheetHeader from '@/components/print/print-sheet-header.component'
+import CareerAutocomplete from '@/components/search/career-autocomplete.component'
+import { CarrerAlias } from '@/components/search/carrer-alias.data'
+import { UsersIcon, BriefcaseIcon, SitemapIcon, BanknoteIcon } from '@/components/icons'
 
 
 export default function Compare() {
@@ -42,99 +47,35 @@ export default function Compare() {
     }
   }
 
-  const handleOnChangeCareer1 = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value
-    setCareer1ToCompare(newValue)
-    let filteredCareers = careersData.filter((career: CarrersData) =>
-      career.CARRERA.toLowerCase().includes(newValue.toLowerCase())
-    );
-    if (filteredCareers.length === 1 && filteredCareers[0].CARRERA === newValue) {
-      filteredCareers = []
-    }
-    const resultsContainer = document.getElementById(`compare-results-1`);
-    if (resultsContainer) {
-      resultsContainer.innerHTML = ''
-      filteredCareers.forEach((element: CarrersData) => {
-        const div = document.createElement('div');
-        div.classList.add('search-result');
-        div.textContent = element.CARRERA;
-        div.addEventListener(
-          'click',
-          () => {
-            setCareer1ToCompare(element.CARRERA)
-            filteredCareers = []
-            resultsContainer.style.display = filteredCareers.length > 0 ? 'block' : 'none'
-          });
-        resultsContainer.appendChild(div);
-      });
-      resultsContainer.style.display = filteredCareers.length > 0 ? 'block' : 'none';
-    }
-  }
-
-  const handleOnChangeCareer2 = (event: ChangeEvent<HTMLInputElement>) => {
-    const newValue = event.target.value
-    setCareer2ToCompare(newValue)
-    let filteredCareers = careersData.filter((career: CarrersData) =>
-      career.CARRERA.toLowerCase().includes(newValue.toLowerCase())
-    );
-    if (filteredCareers.length === 1 && filteredCareers[0].CARRERA === newValue) {
-      filteredCareers = []
-    }
-    const resultsContainer = document.getElementById(`compare-results-2`);
-    if (resultsContainer) {
-      resultsContainer.innerHTML = ''
-      filteredCareers.forEach((element: CarrersData) => {
-        const div = document.createElement('div');
-        div.classList.add('search-result');
-        div.textContent = element.CARRERA;
-        div.addEventListener(
-          'click',
-          () => {
-            setCareer2ToCompare(element.CARRERA)
-            filteredCareers = []
-            resultsContainer.style.display = filteredCareers.length > 0 ? 'block' : 'none';
-          });
-        resultsContainer.appendChild(div);
-      });
-      resultsContainer.style.display = filteredCareers.length > 0 ? 'block' : 'none';
-    }
-  }
-
   return (
     <section className="compare-section mt-4">
       <h2 className="section-title">Comparar Carreras</h2>
       <div className="compare-container">
         <div className="search-box">
           <label htmlFor="compare-search-1">Carrera 1</label>
-          <input
-            type="text"
-            className="compare-search-input"
-            id="compare-search-1"
-            placeholder="Buscar carrera"
+          <CareerAutocomplete
+            opciones={careerNames}
+            alias={CarrerAlias}
             value={career1ToCompare}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => handleOnChangeCareer1(event)}
+            onChange={setCareer1ToCompare}
+            onSelect={setCareer1ToCompare}
+            inputId="compare-search-1"
+            inputClassName="compare-search-input"
+            placeholder="Buscar carrera"
           />
-          <div
-            id="compare-results-1"
-            className="compare-search-results"
-          >
-          </div>
         </div>
         <div className="search-box">
           <label htmlFor="compare-search-2">Carrera 2</label>
-          <input
-            type="text"
-            className="compare-search-input"
-            id="compare-search-2"
-            placeholder="Buscar carrera"
+          <CareerAutocomplete
+            opciones={careerNames}
+            alias={CarrerAlias}
             value={career2ToCompare}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => handleOnChangeCareer2(event)}
+            onChange={setCareer2ToCompare}
+            onSelect={setCareer2ToCompare}
+            inputId="compare-search-2"
+            inputClassName="compare-search-input"
+            placeholder="Buscar carrera"
           />
-          <div
-            className="compare-search-results"
-            id="compare-results-2"
-          >
-          </div>
         </div>
         <button
           id="compare-button"
@@ -145,7 +86,10 @@ export default function Compare() {
       </div>
       {isComparing &&
         <div className="container">
-
+          <PrintSheetHeader />
+          <div className="print-button-row">
+            <PrintButton etiqueta="Descargar comparación en PDF" />
+          </div>
           <div className="comparison-results">
             <table className="comparison-table">
               <thead>
@@ -161,7 +105,10 @@ export default function Compare() {
               </thead>
               <tbody>
                 <tr>
-                  <th colSpan={3} className="section-header">¿Cuántos son?</th>
+                  <th colSpan={3} className="section-header">
+                    <span className="section-title-icon"><UsersIcon size={20} /></span>
+                    ¿Cuántos son?
+                  </th>
                 </tr>
                 <tr>
                   <td>Total de estudiantes</td>
@@ -244,10 +191,10 @@ export default function Compare() {
                     Costo de educación
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PUBLICA)}`}
+                    {conSigno(carrer1Data?.COSTO_TOTAL_PUBLICA, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PUBLICA)}`}
+                    {conSigno(carrer2Data?.COSTO_TOTAL_PUBLICA, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -274,10 +221,10 @@ export default function Compare() {
                     Costo de educación
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.COSTO_TOTAL_PRIVADA)}`}
+                    {conSigno(carrer1Data?.COSTO_TOTAL_PRIVADA, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.COSTO_TOTAL_PRIVADA)}`}
+                    {conSigno(carrer2Data?.COSTO_TOTAL_PRIVADA, '$')}
                   </td>
                 </tr> */}
                 <tr>
@@ -285,6 +232,7 @@ export default function Compare() {
                     colSpan={3}
                     className="section-header"
                   >
+                    <span className="section-title-icon"><BriefcaseIcon size={20} /></span>
                     ¿En qué trabajan?
                   </td>
                 </tr>
@@ -326,6 +274,7 @@ export default function Compare() {
                     colSpan={3}
                     className="section-header"
                   >
+                    <span className="section-title-icon"><SitemapIcon size={20} /></span>
                     Posición que ocupan
                   </td>
                 </tr>
@@ -389,6 +338,7 @@ export default function Compare() {
                     colSpan={3}
                     className="section-header"
                   >
+                    <span className="section-title-icon"><BanknoteIcon size={20} /></span>
                     ¿Cuánto ganan?
                   </td>
                 </tr>
@@ -397,10 +347,10 @@ export default function Compare() {
                     Salario promedio
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO)}`}
+                    {conSigno(carrer1Data?.INGRESO, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO)}`}
+                    {conSigno(carrer2Data?.INGRESO, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -408,10 +358,10 @@ export default function Compare() {
                     Ranking de ingreso
                   </td>
                   <td >
-                    {`${formatNumber(carrer1Data?.RANK_INGRESO)}°`}
+                    {conSigno(carrer1Data?.RANK_INGRESO, '', '°')}
                   </td>
                   <td >
-                    {`${formatNumber(carrer2Data?.RANK_INGRESO)}°`}
+                    {conSigno(carrer2Data?.RANK_INGRESO, '', '°')}
                   </td>
                 </tr>
                 <tr>
@@ -419,10 +369,10 @@ export default function Compare() {
                     Mujeres
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_M)}`}
+                    {conSigno(carrer1Data?.INGRESO_M, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_M)}`}
+                    {conSigno(carrer2Data?.INGRESO_M, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -430,10 +380,10 @@ export default function Compare() {
                     Hombres
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_H)}`}
+                    {conSigno(carrer1Data?.INGRESO_H, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_H)}`}
+                    {conSigno(carrer2Data?.INGRESO_H, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -441,10 +391,10 @@ export default function Compare() {
                     Menos de 30 años
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_30MENOS)}`}
+                    {conSigno(carrer1Data?.INGRESO_30MENOS, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_30MENOS)}`}
+                    {conSigno(carrer2Data?.INGRESO_30MENOS, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -452,10 +402,10 @@ export default function Compare() {
                     Más de 30 años
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_30MAS)}`}
+                    {conSigno(carrer1Data?.INGRESO_30MAS, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_30MAS)}`}
+                    {conSigno(carrer2Data?.INGRESO_30MAS, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -463,10 +413,10 @@ export default function Compare() {
                     Formales
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_FORMAL)}`}
+                    {conSigno(carrer1Data?.INGRESO_FORMAL, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_FORMAL)}`}
+                    {conSigno(carrer2Data?.INGRESO_FORMAL, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -474,10 +424,10 @@ export default function Compare() {
                     Informales
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_INFORMAL)}`}
+                    {conSigno(carrer1Data?.INGRESO_INFORMAL, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_INFORMAL)}`}
+                    {conSigno(carrer2Data?.INGRESO_INFORMAL, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -485,10 +435,10 @@ export default function Compare() {
                     25% menos
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_Q25)}`}
+                    {conSigno(carrer1Data?.INGRESO_Q25, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_Q25)}`}
+                    {conSigno(carrer2Data?.INGRESO_Q25, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -496,10 +446,10 @@ export default function Compare() {
                     Mediana
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_Q50)}`}
+                    {conSigno(carrer1Data?.INGRESO_Q50, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_Q50)}`}
+                    {conSigno(carrer2Data?.INGRESO_Q50, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -507,10 +457,10 @@ export default function Compare() {
                     25% más
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.INGRESO_Q75)}`}
+                    {conSigno(carrer1Data?.INGRESO_Q75, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.INGRESO_Q75)}`}
+                    {conSigno(carrer2Data?.INGRESO_Q75, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -529,10 +479,10 @@ export default function Compare() {
                     Salario con posgrado
                   </td>
                   <td >
-                    {`$${formatNumber(carrer1Data?.ING_POSG)}`}
+                    {conSigno(carrer1Data?.ING_POSG, '$')}
                   </td>
                   <td >
-                    {`$${formatNumber(carrer2Data?.ING_POSG)}`}
+                    {conSigno(carrer2Data?.ING_POSG, '$')}
                   </td>
                 </tr>
                 <tr>
@@ -540,10 +490,10 @@ export default function Compare() {
                     Incremento salarial con posgrado
                   </td>
                   <td >
-                    {`${formatNumber(carrer1Data?.INCREMENTO_POSGRADO)}%`}
+                    {conSigno(carrer1Data?.INCREMENTO_POSGRADO, '', '%')}
                   </td>
                   <td >
-                    {`${formatNumber(carrer2Data?.INCREMENTO_POSGRADO)}%`}
+                    {conSigno(carrer2Data?.INCREMENTO_POSGRADO, '', '%')}
                   </td>
                 </tr>
               </tbody>
@@ -556,6 +506,12 @@ export default function Compare() {
   )
 }
 
+
+// evita "$-" o "-%" cuando no hay dato
+function conSigno(value: number | string | undefined, prefijo = '', sufijo = '') {
+  const n = formatNumber(value);
+  return n === '-' ? '-' : `${prefijo}${n}${sufijo}`;
+}
 
 function formatNumber(value: number | string | undefined) {
   if (value === undefined || value === null || value === '') return '-';

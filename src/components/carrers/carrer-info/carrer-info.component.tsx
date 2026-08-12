@@ -44,6 +44,9 @@ ChartJS.register(
 import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/components/animations/reveal.component';
+import PrintButton from '@/components/print/print-button.component';
+import CareerPrintSheet from '@/components/print/career-print-sheet.component';
+import { SearchIcon } from '@/components/icons';
 import { legendSliceSync, sliceHoverRefresh, sliceHoverStyle, barLegendHover, activarBarra } from './chart-hover-sync';
 
 const SECTOR_COLORS = [
@@ -68,6 +71,17 @@ export default function CarrerInfo(props: Props) {
     actualizar()
     mq.addEventListener('change', actualizar)
     return () => mq.removeEventListener('change', actualizar)
+  }, [])
+
+  // al imprimir, las gráficas que se monten deben pintarse completas de inmediato
+  useEffect(() => {
+    const desactivarAnimaciones = () => { ChartJS.defaults.animation = false }
+    window.addEventListener('preparar-impresion', desactivarAnimaciones)
+    window.addEventListener('beforeprint', desactivarAnimaciones)
+    return () => {
+      window.removeEventListener('preparar-impresion', desactivarAnimaciones)
+      window.removeEventListener('beforeprint', desactivarAnimaciones)
+    }
   }, [])
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const carrersData = require("@/components/carrers/carrers-data/carrers.data.json")
@@ -129,6 +143,7 @@ export default function CarrerInfo(props: Props) {
     <div className="container">
 
       <section className="graphs-section" id="graphs-section">
+        <CareerPrintSheet carrerData={carrerData} sectores={sectores} />
         <h1 className="career-title">{cleanTitle()}</h1>
         <h2 className="section-title">
           <span className="section-title-icon"><UsersIcon size={28} /></span>
@@ -738,10 +753,12 @@ export default function CarrerInfo(props: Props) {
           </div>
 
         </div>
-        <div className="compare-container">
-          <button id="compare-button">
-            <Link href="/" id="return-link">Buscar otra carrera</Link>
-          </button>
+        <div className="compare-container carrer-actions">
+          <PrintButton />
+          <Link href="/" className="print-button">
+            <SearchIcon size={18} />
+            Buscar otra carrera
+          </Link>
         </div>
         <SaberesBanner />
       </section >
