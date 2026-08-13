@@ -131,6 +131,48 @@ for (const c of carreras) {
 }
 console.log(`\ncarreras: ${carreras.length}`)
 
+// --- tops de "Las 10 más": card con el top 3 real de cada ranking ---
+const sinComentarios = t => t.replace(/\/\*[\s\S]*?\*\//g, "")
+const activos = new Set(
+  [...sinComentarios(readFileSync(path.join(raiz, "src/app/las-10-mas/data.constans.ts"), "utf-8"))
+    .matchAll(/titleUrl:\s*"([^"]+)"/g)].map(m => m[1])
+)
+const registroTops = [...sinComentarios(readFileSync(path.join(raiz, "src/app/las-10-mas/[slug]/data.constans.ts"), "utf-8"))
+  .matchAll(/name:\s*"([^"]+)",\s*jsonName:\s*"([^"]+)",\s*titleUrl:\s*"([^"]+)",\s*description:\s*"([^"]+)"/g)]
+  .map(m => ({ name: m[1], jsonName: m[2], titleUrl: m[3], description: m[4] }))
+  .filter(t => activos.has(t.titleUrl))
+
+// mismo formato que la tabla de tops del sitio
+const fmtTop = (jsonName, v) => {
+  const n = parseFloat(v)
+  if (isNaN(n)) return "—"
+  if (jsonName.includes("pagadas")) return fmtDinero(n)
+  if (jsonName.includes("matricula") || jsonName.includes("numero")) return Math.round(n).toLocaleString("en-US")
+  return n.toFixed(1) + "%"
+}
+const recortar = (s, max) => (s.length > max ? s.slice(0, max - 1).trimEnd() + "…" : s)
+
+for (const top of registroTops) {
+  const datos = JSON.parse(readFileSync(path.join(raiz, "src/components/las-10-mas/top", top.jsonName), "utf-8"))
+  const top3 = Object.entries(datos).sort((a, b) => a[1][0] - b[1][0]).slice(0, 3)
+  const archivo = "top-" + top.titleUrl
+  await capturar(plantilla({
+    superior: "Las 10 más",
+    titulo: top.name,
+    chips: top3.map(([carrera, [pos, valor]]) => [`${pos}° ${recortar(carrera, 30)}`, fmtTop(top.jsonName, valor)]),
+    pie: "Conoce el ranking completo",
+  }), archivo)
+
+  lookup["/las-10-mas/" + top.titleUrl] = {
+    title: top.name,
+    content: top.description,
+    urlMiniatura: `${SITIO}/og/${archivo}.jpg`,
+    urlCanonical: `${SITIO}/las-10-mas/${top.titleUrl}`,
+  }
+  process.stdout.write("+")
+}
+console.log(`\ntops: ${registroTops.length}`)
+
 await navegador.close()
 
 const ts = `// GENERADO por scripts/generar_og.mjs — no editar a mano.

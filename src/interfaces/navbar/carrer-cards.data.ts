@@ -482,5 +482,107 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "content": "TSU. Servicios de apoyo y asistencia administrativa: salario promedio mensual de $13,847, tasa de ocupación de 98.5%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-tsu_servicios_de_apoyo_y_asistencia_administrativa.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/tsu._servicios_de_apoyo_y_asistencia_administrativa"
+  },
+  "/las-10-mas/profesionistas": {
+    "title": "Las 10 carreras con mayor número de profesionistas",
+    "content": "Aquí conocerás la lista de las carreras con más egresados en el país, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-profesionistas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/profesionistas"
+  },
+  "/las-10-mas/porcentaje-ingreso-mujeres": {
+    "title": "Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso",
+    "content": "Aquí conocerás la lista de las carreras cuya matrícula de nuevo ingreso está principalmente compuesta por mujeres, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-ingreso-mujeres.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-ingreso-mujeres"
+  },
+  "/las-10-mas/porcentaje-ingreso-hombres": {
+    "title": "Las 10 carreras con el mayor porcentaje de hombres en nuevo ingreso",
+    "content": "Aquí conocerás la lista de las carreras cuya matrícula de nuevo ingreso está principalmente compuesta por hombres, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-ingreso-hombres.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-ingreso-hombres"
+  },
+  "/las-10-mas/mas-aplicantes": {
+    "title": "Las 10 carreras con más aplicantes",
+    "content": "Aquí conocerás la lista de las carreras que concentran el mayor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mas-aplicantes.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mas-aplicantes"
+  },
+  "/las-10-mas/menos-aplicantes": {
+    "title": "Las 10 carreras con menos aplicantes",
+    "content": "Aquí conocerás la lista de las carreras que concentran el menor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-aplicantes.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-aplicantes"
+  },
+  "/las-10-mas/demanda-publica": {
+    "title": "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
+    "content": "Aquí conocerás la lista de las carreras que reciben una mayor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-demanda-publica.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/demanda-publica"
+  },
+  "/las-10-mas/porcentaje-mujeres": {
+    "title": "Las 10 carreras con mayor porcentaje de mujeres",
+    "content": "Aquí conocerás la lista de las carreras cuya matrícula está principalmente compuesta por mujeres, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-mujeres.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-mujeres"
+  },
+  "/las-10-mas/porcentaje-hombres": {
+    "title": "Las 10 carreras con mayor porcentaje de hombres",
+    "content": "Aquí conocerás la lista de las carreras cuya matrícula está principalmente compuesta por hombres, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-hombres.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-hombres"
+  },
+  "/las-10-mas/desempleados": {
+    "title": "Las 10 carreras con mayor porcentaje de desempleados",
+    "content": "Aquí conocerás la lista de las carreras con la mayor proporción de desempleados, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-desempleados.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/desempleados"
+  },
+  "/las-10-mas/informalidad": {
+    "title": "Las 10 carreras con mayor porcentaje de informalidad",
+    "content": "Aquí conocerás la lista de las carreras con la mayor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-informalidad.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/informalidad"
+  },
+  "/las-10-mas/porcentaje-jovenes": {
+    "title": "Las 10 carreras con mayor porcentaje de jóvenes",
+    "content": "Aquí conocerás la lista de las carreras con la mayor proporción de egresados menores de 30 años, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-jovenes.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-jovenes"
+  },
+  "/las-10-mas/posgrado": {
+    "title": "Las 10 carreras con más profesionistas con posgrado",
+    "content": "Aquí conocerás la lista de las carreras cuyos egresados más acceden a un posgrado, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-posgrado.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/posgrado"
+  },
+  "/las-10-mas/matricula": {
+    "title": "Las 10 carreras con mayor matrícula",
+    "content": "Aquí conocerás la lista de las carreras con más estudiantes, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-matricula.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/matricula"
+  },
+  "/las-10-mas/mayor-riesgo": {
+    "title": "Las 10 carreras con mayor riesgo",
+    "content": "Aquí conocerás la lista de las carreras con mayor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mayor-riesgo.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mayor-riesgo"
+  },
+  "/las-10-mas/menor-riesgo": {
+    "title": "Las 10 carreras con menor riesgo",
+    "content": "Aquí conocerás la lista de las carreras con menor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menor-riesgo.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menor-riesgo"
+  },
+  "/las-10-mas/mejor-pagadas": {
+    "title": "Las 10 carreras mejor pagadas",
+    "content": "Aquí conocerás la lista de las carreras con el mayor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mejor-pagadas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mejor-pagadas"
+  },
+  "/las-10-mas/peor-pagadas": {
+    "title": "Las 10 carreras peor pagadas",
+    "content": "Aquí conocerás la lista de las carreras con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-peor-pagadas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/peor-pagadas"
   }
 }
