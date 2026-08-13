@@ -46,6 +46,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/components/animations/reveal.component';
 import PrintButton from '@/components/print/print-button.component';
 import CareerPrintSheet from '@/components/print/career-print-sheet.component';
+import ShareButtons from '@/components/share/share-buttons.component';
 import { SearchIcon } from '@/components/icons';
 import { legendSliceSync, sliceHoverRefresh, sliceHoverStyle, barLegendHover, activarBarra } from './chart-hover-sync';
 
@@ -759,6 +760,11 @@ export default function CarrerInfo(props: Props) {
             <SearchIcon size={18} />
             Buscar otra carrera
           </Link>
+        </div>
+        <div className="carrer-share no-print">
+          <ShareButtons
+            texto={`${carrerData?.CARRERA} en Compara Carreras del IMCO: salario promedio mensual de $${formatNumber(carrerData?.INGRESO)} y tasa de ocupación de ${formatPercentage(carrerData?.TASA_OCUPACION)}.`}
+          />
         </div>
         <SaberesBanner />
       </section >

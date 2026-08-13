@@ -478,6 +478,57 @@ header {
     background-color: rgba(255, 169, 77, 0.08);
 }
 
+/* ===== botones para compartir en redes ===== */
+
+.share-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin-right: 2px;
+}
+
+.share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(79, 195, 247, 0.15);
+    color: var(--color-accent);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.share-btn:hover {
+    background-color: rgba(79, 195, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.share-copiada {
+    color: #69DB7C;
+    font-size: 0.85rem;
+}
+
+.carrer-share {
+    margin-top: 18px;
+}
+
+/* en el comparador: compartir a la izquierda, PDF a la derecha */
+.print-button-row.con-compartir {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 /* ===== impresión / descarga en PDF ===== */
 
 .print-button {

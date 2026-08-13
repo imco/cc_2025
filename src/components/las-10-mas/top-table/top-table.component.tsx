@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { TopDescription } from "@/app/las-10-mas/[slug]/data.constans";
+import ShareButtons from "@/components/share/share-buttons.component";
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -87,18 +88,17 @@ export default function TopTable(props: Props) {
           )}
         </tbody>
       </table>
-      <div className="row mt-4">
-        <div className="col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-          <div className="flex justify-center md:justify-end">
-            <a
-              className="download-btn"
-              href={encodedUri}
-              download={props.actualTop?.jsonName.replace('.json', '.csv')}
-            >
-              Descarga CSV
-            </a>
-          </div>
-        </div>
+      <div className="print-button-row con-compartir mt-4">
+        <ShareButtons
+          texto={`${props.actualTop?.name ?? 'Las 10 más'} en Compara Carreras del IMCO.`}
+        />
+        <a
+          className="download-btn"
+          href={encodedUri}
+          download={props.actualTop?.jsonName.replace('.json', '.csv')}
+        >
+          Descarga CSV
+        </a>
       </div>
     </>
   )

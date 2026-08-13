@@ -5,6 +5,7 @@ import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import SaberesBanner from '@/components/saberes/saberes-banner.component'
 import PrintButton from '@/components/print/print-button.component'
 import PrintSheetHeader from '@/components/print/print-sheet-header.component'
+import ShareButtons from '@/components/share/share-buttons.component'
 import CareerAutocomplete from '@/components/search/career-autocomplete.component'
 import { CarrerAlias } from '@/components/search/carrer-alias.data'
 import { UsersIcon, BriefcaseIcon, SitemapIcon, BanknoteIcon } from '@/components/icons'
@@ -87,7 +88,10 @@ export default function Compare() {
       {isComparing &&
         <div className="container">
           <PrintSheetHeader />
-          <div className="print-button-row">
+          <div className="print-button-row con-compartir">
+            <ShareButtons
+              texto={`${carrer1} vs ${carrer2}: compara salarios y empleo en Compara Carreras del IMCO.`}
+            />
             <PrintButton etiqueta="Descargar comparación en PDF" />
           </div>
           <div className="comparison-results">
