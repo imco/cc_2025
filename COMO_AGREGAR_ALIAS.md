@@ -1,6 +1,16 @@
 # Cómo agregar nombres comunes (alias) al buscador
 
-El buscador del inicio encuentra carreras tanto por su **nombre oficial** como por los **nombres comunes** con los que la gente las conoce ("abogado" → Derecho). Los alias viven en un solo archivo:
+El buscador (inicio y comparador) encuentra carreras tanto por su **nombre oficial** como por los **nombres comunes** con los que la gente las conoce ("abogado" → Derecho). Los alias vienen de dos fuentes que se combinan automáticamente:
+
+1. **Diccionario oficial de INEGI** (`carrer-alias-inegi.data.ts`, ~2,700 nombres auxiliares) — archivo **generado**, no editar a mano. Para regenerarlo (p. ej. con una nueva versión del archivo de INEGI):
+
+   ```bash
+   python3 scripts/generar_alias.py --fuente "<ruta al xlsx o csv de Nombres auxiliares CMPE>"
+   ```
+
+   El empate es por clave de carrera (`CVE_CARRERA`), así que sobrevive a cambios de nomenclatura, y una misma clave alimenta a la licenciatura y a su versión TSU.
+
+2. **Alias manuales** (términos coloquiales que INEGI no contempla, como "doctor" o "abogado"):
 
 ```
 src/components/search/carrer-alias.data.ts
