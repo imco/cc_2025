@@ -1,0 +1,14 @@
+{
+    "anio": {
+        "valor": 2026,
+        "descripcion": "Año de la edición vigente de Compara Carreras. Se actualiza en cada publicación anual.",
+        "donde_se_muestra": "Pie de página: '© {anio} ComparaCarreras. Todos los derechos reservados.'",
+        "formato": "Número entero de 4 dígitos"
+    },
+    "salario_promedio_poblacion_ocupada": {
+        "valor": 14170.16452,
+        "descripcion": "Salario mensual promedio de la población ocupada en México (todos los niveles de escolaridad). Sirve como punto de comparación contra el salario promedio de cada carrera.",
+        "donde_se_muestra": "Sección '¿Cuánto ganan?': 'Salario promedio mensual de la población ocupada en México es ${valor}'",
+        "formato": "Número decimal. Se despliega redondeado a pesos, con separador de miles y sin decimales (14170.16452 se muestra como $14,170)"
+    }
+}

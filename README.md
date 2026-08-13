@@ -78,6 +78,17 @@ Para realizar actualizaciones al sistema, sigue estos pasos:
 4. **Crea un Pull Request (PR)** en GitHub desde la rama creada hacia `main` y espera la revisión.
 5. **Una vez aprobado el PR**, haz merge a `main`.
 
+### Parámetros generales de la edición
+
+El archivo [`src/parametros_generales.json`](src/parametros_generales.json) concentra las cifras que **deben actualizarse en cada edición anual** (cada llave documenta dónde se muestra y su formato):
+
+| Parámetro | Qué es | Dónde se muestra |
+|---|---|---|
+| `anio` | Año de la edición vigente | Pie de página: "© {anio} ComparaCarreras…" y meta de copyright |
+| `salario_promedio_poblacion_ocupada` | Salario mensual promedio de la población ocupada en México | Sección "¿Cuánto ganan?" de cada carrera: "Salario promedio mensual de la población ocupada en México es $…" |
+
+Basta editar el valor en el JSON: los componentes lo leen directamente (se muestra redondeado a pesos con separador de miles).
+
 ## Conversión de CSV a JSON
 
 Si necesitas convertir archivos CSV a JSON para el proyecto, puedes utilizar la siguiente herramienta en línea:

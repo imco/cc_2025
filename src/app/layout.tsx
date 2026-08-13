@@ -8,6 +8,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import BootstrapClient from "@/components/bootstrap/bootstrap-loader.component";
 import { LinksList } from "@/interfaces/navbar/links-lists.interface";
 import { CarrerCards } from "@/interfaces/navbar/carrer-cards.data";
+import ParametrosGenerales from "@/parametros_generales.json";
 import LinkOptions from "@/interfaces/navbar/navbar-options.interface";
 import Navbar from "@/components/navbar/navbar.component";
 import Footer from "@/components/footer/footer.component";
@@ -42,7 +43,7 @@ export default function RootLayout({
           content="carreras, universidades, ¿que estudiar?, carreras universitarias, las 10 más, cuanto ganan, en que trabajan" />
         <meta name="author" content="IMCO" />
 
-        <meta name="copyright" content="IMCO 2025" />
+        <meta name="copyright" content={`IMCO ${ParametrosGenerales.anio.valor}`} />
         <meta property="article:modified_time" content="time" />
         <meta name="application-name" content="Compara Carreras" />
 

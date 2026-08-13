@@ -1,11 +1,12 @@
 "use client"
 import { FacebookIcon, XIcon, InstagramIcon } from "@/components/icons"
+import ParametrosGenerales from "@/parametros_generales.json"
 
 export default function Footer() {
   return (
     <footer style={{ margin: 20 + "px" }}>
       <div className="footer-content">
-        <p>© 2025 ComparaCarreras. Todos los derechos reservados.</p>
+        <p>© {ParametrosGenerales.anio.valor} ComparaCarreras. Todos los derechos reservados.</p>
         <p>
           Compara Carreras es una herramienta desarrollada por el Instituto Mexicano para la Competitividad, A.C. (IMCO). El IMCO es un centro de investigación apartidista y sin fines de lucro que investiga y actúa con base en evidencia para resolver los desafíos más importantes de México. Nuestra misión es proponer políticas públicas y acciones viables e influir en su ejecución para lograr un México próspero e incluyente.
         </p>

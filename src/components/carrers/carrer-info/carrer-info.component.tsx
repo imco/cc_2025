@@ -45,6 +45,7 @@ import CarrersData from "@/interfaces/carrers/carrers-data.interface"
 import { useEffect, useRef, useState } from 'react';
 import { useInView } from '@/components/animations/reveal.component';
 import PrintButton from '@/components/print/print-button.component';
+import ParametrosGenerales from '@/parametros_generales.json';
 import CareerPrintSheet from '@/components/print/career-print-sheet.component';
 import ShareButtons from '@/components/share/share-buttons.component';
 import { SearchIcon } from '@/components/icons';
@@ -542,7 +543,7 @@ export default function CarrerInfo(props: Props) {
                 </h4>
                 <p>salario mensual promedio</p>
                 <small id="national-average">
-                  {`Salario promedio mensual de la población ocupada en México es $10,920`}
+                  {`Salario promedio mensual de la población ocupada en México es $${formatNumber(ParametrosGenerales.salario_promedio_poblacion_ocupada.valor)}`}
                 </small>
               </div>
             </Reveal>
