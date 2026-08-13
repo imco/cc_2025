@@ -42,7 +42,7 @@ const fmtPct = v => {
   return isNaN(n) ? "—" : (n * 100).toFixed(1) + "%"
 }
 
-const plantilla = ({ superior, titulo, chips, pie }) => `<!DOCTYPE html>
+const plantilla = ({ superior, titulo, descripcion = '', chips, pie }) => `<!DOCTYPE html>
 <html><head><meta charset="utf-8">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -55,8 +55,11 @@ const plantilla = ({ superior, titulo, chips, pie }) => `<!DOCTYPE html>
   .logo { height: 74px; width: auto; align-self: flex-start; }
   .superior { margin-top: 26px; font-size: 26px; font-weight: 600; letter-spacing: 2px;
     color: #4FC3F7; text-transform: uppercase; }
-  .titulo { flex: 1; display: flex; align-items: center; font-weight: 700;
+  .centro { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+  .titulo { font-weight: 700;
     font-size: ${titulo.length > 60 ? 52 : titulo.length > 34 ? 62 : 76}px; line-height: 1.12; }
+  .descripcion { font-size: 28px; font-weight: 300; line-height: 1.45;
+    color: rgba(255,255,255,0.92); max-width: 980px; }
   .chips { display: flex; gap: 18px; margin-bottom: 30px; }
   .chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(79,195,247,0.45);
     border-radius: 18px; padding: 18px 26px; min-width: 210px; }
@@ -70,13 +73,16 @@ const plantilla = ({ superior, titulo, chips, pie }) => `<!DOCTYPE html>
 <body>
   <img class="logo" src="data:image/png;base64,${logoB64}">
   <div class="superior">${superior}</div>
-  <div class="titulo">${titulo}</div>
+  <div class="centro">
+    <div class="titulo">${titulo}</div>
+    ${descripcion ? `<div class="descripcion">${descripcion}</div>` : ""}
+  </div>
   ${chips.length ? `<div class="chips">${chips.map(c => `<div class="chip"><b>${c[1]}</b><span>${c[0]}</span></div>`).join("")}</div>` : ""}
   <div class="pie"><span>${pie}</span><b>comparacarreras.imco.org.mx</b></div>
 </body></html>`
 
 const secciones = [
-  { url: "/", archivo: "seccion-inicio", superior: "Herramienta gratuita del IMCO", titulo: "¿Qué carrera estudiar?", pie: "Datos de salario, empleo y más para decidir mejor" },
+  { url: "/", archivo: "seccion-inicio", superior: "Herramienta gratuita del IMCO", titulo: "Encuentra tu carrera", descripcion: "Descubre información relevante sobre más de 60 carreras universitarias. Compara salarios, oportunidades laborales y más para tomar la mejor decisión.", pie: "Datos de salario, empleo y más para decidir mejor" },
   { url: "/compara", archivo: "seccion-compara", superior: "Comparador", titulo: "Compara dos carreras frente a frente", pie: "Salarios, empleo, informalidad y más" },
   { url: "/las-10-mas", archivo: "seccion-las-10-mas", superior: "Rankings", titulo: "Las 10 carreras más…", pie: "Mejor pagadas, más demandadas, con más aplicantes" },
   { url: "/metodologia", archivo: "seccion-metodologia", superior: "Metodología", titulo: "Cómo medimos cada carrera", pie: "Con datos de la ENOE (INEGI)" },
@@ -94,7 +100,7 @@ const capturar = async (html, archivo) => {
 }
 
 for (const s of secciones) {
-  await capturar(plantilla({ superior: s.superior, titulo: s.titulo, chips: [], pie: s.pie }), s.archivo)
+  await capturar(plantilla({ superior: s.superior, titulo: s.titulo, descripcion: s.descripcion, chips: [], pie: s.pie }), s.archivo)
 }
 console.log(`secciones: ${secciones.length}`)
 
