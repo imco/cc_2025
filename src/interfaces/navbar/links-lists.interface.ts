@@ -7,7 +7,7 @@ export const LinksList: LinkOptions[] =  [
     title: "inicio",
     urlCanonical: "https://comparacarreras.imco.org.mx",
     content: "Te presentamos Compara Carreras, una herramienta gratuita diseñada para ayudarte a contrastar tus opciones de carrera y tomar decisiones informadas.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-inicio.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-inicio.jpg",
   },
   {
     sectionName: 'Compara',
@@ -15,7 +15,7 @@ export const LinksList: LinkOptions[] =  [
     title: "Compara",
     urlCanonical: "https://comparacarreras.imco.org.mx/compara",
     content: "Compara salarios, oportunidades laborales y más para tomar la mejor decisión.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-compara.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-compara.jpg",
   },
   {
     sectionName: 'Las 10 más',
@@ -23,7 +23,7 @@ export const LinksList: LinkOptions[] =  [
     title: "Las 10 más",
     urlCanonical: "https://comparacarreras.imco.org.mx/las-10-mas",
     content: "Cuántos profesionistas tiene cada carrera, cuáles tienen más mujeres y hombres, cuáles ofrecen mejor salario, cuáles carreras tienen una mayor tasa de desempleo, entre otras.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-10mas.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-las-10-mas.jpg",
   },
   {
     sectionName: 'Metodología',
@@ -31,7 +31,7 @@ export const LinksList: LinkOptions[] =  [
     title: "Metodología",
     urlCanonical: "https://comparacarreras.imco.org.mx/metodologia/",
     content: "Compara carreras breve análisis: Consecuencias económicas de escoger una carrera.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-metodologia.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-metodologia.jpg",
   },
   {
     sectionName: 'Preguntas frecuentes',
@@ -39,7 +39,7 @@ export const LinksList: LinkOptions[] =  [
     title: "FAQ",
     urlCanonical: "https://comparacarreras.imco.org.mx/faq",
     content: "Preguntas frecuentes",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-faq.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-faq.jpg",
   },
   {
     sectionName: 'Calculadora de inversión',
@@ -47,7 +47,7 @@ export const LinksList: LinkOptions[] =  [
     title: "Calculadora de inversión",
     urlCanonical: "https://comparacarreras.imco.org.mx/roi",
     content: "Calcula el retorno sobre la inversión (ROI) de estudiar una carrera universitaria en México.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-roi.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-roi.jpg",
   },
   {
     sectionName: 'Investigaciones',
@@ -55,6 +55,6 @@ export const LinksList: LinkOptions[] =  [
     title: "Investigaciones",
     urlCanonical: "https://comparacarreras.imco.org.mx/investigaciones",
     content: "Conoce las ediciones anteriores de Compara Carreras y nuestras investigaciones sobre el mercado laboral y la educación superior en México.",
-    urlMiniatura: "https://comparacarreras.imco.org.mx/mini-investigaciones.png",
+    urlMiniatura: "https://comparacarreras.imco.org.mx/og/seccion-investigaciones.jpg",
   },
 ]
