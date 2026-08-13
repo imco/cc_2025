@@ -172,8 +172,10 @@ def main():
             ]:
                 c[campo] = div(c[base_col], c["OCUPADO"])
             c["POR_POSGRADO"] = div(c.get("POSGRADO", "NA"), c["TOTAL"])
+            # incremento real: (posgrado/licenciatura - 1) * 100; la base cruda
+            # y ediciones previas traían la razón (posgrado/licenciatura * 100)
             ing_posg, ing_lic = c.get("ING_POSG", "NA"), c.get("INGRESO_LIC", "NA")
-            c["INCREMENTO_POSGRADO"] = "NA" if "NA" in (ing_posg, ing_lic) or ing_lic == 0 else ing_posg / ing_lic * 100
+            c["INCREMENTO_POSGRADO"] = "NA" if "NA" in (ing_posg, ing_lic) or ing_lic == 0 else (ing_posg / ing_lic - 1) * 100
 
         # rankings 1..N dentro de cada universo
         con_ingreso = sorted([c for c in grupo if c["INGRESO"] != "NA"], key=lambda c: -c["INGRESO"])
