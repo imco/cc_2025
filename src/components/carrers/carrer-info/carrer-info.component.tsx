@@ -13,6 +13,7 @@ import {
   BanknoteIcon,
   TrophyIcon,
   GraduationCapIcon,
+  ClipboardListIcon,
   TrendingUpIcon,
   FemaleIcon,
   MaleIcon,
@@ -288,8 +289,19 @@ export default function CarrerInfo(props: Props) {
         <Reveal>
           <div className="new-graduates">
             <h3>
+              <span className="stat-icon"><ClipboardListIcon size={22} /></span>
+              Matrícula actual (estudiantes inscritos):
+            </h3>
+            <div className="new-graduates-number">
+              <CountUp value={carrerData.MATRICULA} format={formatNumber} />
+            </div>
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="new-graduates">
+            <h3>
               <span className="stat-icon"><GraduationCapIcon size={22} /></span>
-              Nuevos egresados al mercado laboral:
+              Nuevos egresados al mercado laboral (último ciclo escolar):
             </h3>
             <div id="new-graduates-number">
               <CountUp
@@ -349,7 +361,7 @@ export default function CarrerInfo(props: Props) {
             <span className="section-title-icon"><BriefcaseIcon size={26} /></span>
             ¿EN QUÉ TRABAJAN?
           </h3>
-          <p>Principales características laborales como participación laboral, desempleo, informalidad y sectores en los que se desempeñan.</p>
+          <p>Principales características laborales.</p>
           <div className="employment-stats">
             <Reveal>
               <div className="employment-stat">
@@ -541,7 +553,7 @@ export default function CarrerInfo(props: Props) {
                 <h4 id="average-salary">
                   <CountUp value={carrerData.INGRESO} format={formatNumber} prefix="$" />
                 </h4>
-                <p>salario mensual promedio</p>
+                <p>salario promedio mensual</p>
                 <small id="national-average">
                   {`Salario promedio mensual de la población ocupada en México es $${formatNumber(ParametrosGenerales.salario_promedio_poblacion_ocupada.valor)}`}
                 </small>
@@ -560,6 +572,7 @@ export default function CarrerInfo(props: Props) {
 
           <div className="salary-distribution">
             <h4>Distribución del salario mensual</h4>
+            <div className="salary-chart-box">
             <MountOnVisible minHeight={320}>
             <Bar
               ref={salaryBarRef}
@@ -604,7 +617,7 @@ export default function CarrerInfo(props: Props) {
               }}
               options={{
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 onHover: barLegendHover,
                 plugins: {
                   legend: {
@@ -659,6 +672,7 @@ export default function CarrerInfo(props: Props) {
               }}
             />
             </MountOnVisible>
+            </div>
             <div className="salary-legend">
               {[
                 '25% de los profesionistas gana menos de esta cantidad',
@@ -731,7 +745,7 @@ export default function CarrerInfo(props: Props) {
                 <h4 id="postgrad-percentage">
                   <CountUp value={carrerData.POR_POSGRADO} format={formatPercentage} />
                 </h4>
-                <p>del total de personas que estudian esta carrera tienen un posgrado</p>
+                <p>del total de personas que estudian esta carrera tiene un posgrado</p>
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -747,9 +761,9 @@ export default function CarrerInfo(props: Props) {
               <div className="postgrad-circle">
                 <span className="stat-icon"><TrendingUpIcon size={22} /></span>
                 <h4 id="salary-increase">
-                  <CountUp value={carrerData.INCREMENTO_POSGRADO} format={formatNumber} suffix="%" />
+                  <CountUp value={carrerData.INCREMENTO_POSGRADO} format={formatUnDecimal} suffix="%" />
                 </h4>
-                <p>incremento salarial con posgrado</p>
+                <p>incremento salarial con posgrado vs. licenciatura</p>
               </div>
             </Reveal>
           </div>
@@ -786,6 +800,12 @@ function formatNumber(value: number | string | undefined) {
 
   }
   return num.toLocaleString(undefined, { maximumFractionDigits: 2 });
+}
+
+function formatUnDecimal(value: number | string | undefined) {
+  if (value === undefined || value === null || value === '') return '-';
+  const num = parseFloat(value.toString());
+  return isNaN(num) ? '-' : num.toFixed(1);
 }
 
 function formatPercentage(value: number | string | undefined) {

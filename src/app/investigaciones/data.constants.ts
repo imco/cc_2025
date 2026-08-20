@@ -6,6 +6,11 @@ export interface ResearchConfig {
 
 export const RESEARCH_CONFIG: ResearchConfig[] = [
   {
+    id: "tendencias-2026",
+    year: 2026,
+    url: "https://imco.org.mx/tendencias-educativas-y-del-empleo/",
+  },
+  {
     id: "cc-2025",
     year: 2025,
     url: "https://imco.org.mx/compara-carreras-2025/",

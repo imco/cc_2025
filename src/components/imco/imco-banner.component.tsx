@@ -16,9 +16,9 @@ export default function ImcoBanner() {
           <span className="saberes-banner-title-mobile">Conoce el IMCO</span>
         </h3>
         <p className="saberes-banner-description">
-          Somos un centro de investigacion en politica publica que propone
-          soluciones efectivas a los desafios mas importantes de Mexico.
-          Apartidistas y sin fines de lucro, proponemos politica publica para
+          Somos un centro de investigación en política pública que propone
+          soluciones efectivas a los desafíos más importantes de México.
+          Apartidistas y sin fines de lucro, proponemos política pública para
           transformar la vida de las personas y promover el libre ejercicio de
           sus derechos.
         </p>

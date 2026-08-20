@@ -1099,8 +1099,44 @@ footer {
     margin-bottom: 0;
 }
 
+/* gráfica de distribución salarial: altura contenida y redimensionado
+   correcto en ambas direcciones (requiere contenedor relativo dedicado) */
+.salary-chart-box {
+    position: relative;
+    height: 340px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.salary-legend {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.salary-legend .legend-item {
+    align-items: flex-start;
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.salary-legend .color-box {
+    flex-shrink: 0;
+    margin-top: 2px;
+    width: 14px;
+    height: 14px;
+}
+
+/* misma tipografía del número de egresados para otras líneas de estadística */
+.new-graduates-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
 @media (max-width: 650px) {
-    #new-graduates-number {
+    #new-graduates-number,
+    .new-graduates-number {
         width: 100%;
         text-align: center;
     }

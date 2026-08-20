@@ -55,7 +55,7 @@ export default function CareerPrintSheet({ carrerData, sectores }: Props) {
       ["Probabilidad de obtener un empleo de calidad", pct(c.PROB_EMPL_CAL)],
     ]],
     ["¿Cuánto ganan?", [
-      ["Salario mensual promedio", dinero(c.INGRESO)],
+      ["Salario promedio mensual", dinero(c.INGRESO)],
       ["Ranking de ingreso", c.RANK_INGRESO && c.RANK_INGRESO !== "NA" ? `${c.RANK_INGRESO}°` : "-"],
       ["25% de los profesionistas gana menos de", dinero(c.INGRESO_Q25)],
       ["Mediana salarial", dinero(c.INGRESO_Q50)],
@@ -68,7 +68,7 @@ export default function CareerPrintSheet({ carrerData, sectores }: Props) {
       ["Salario en empleo informal", dinero(c.INGRESO_INFORMAL)],
       ["Con posgrado", pct(c.POR_POSGRADO)],
       ["Salario promedio con posgrado", dinero(c.ING_POSG)],
-      ["Incremento salarial con posgrado", c.INCREMENTO_POSGRADO && c.INCREMENTO_POSGRADO !== "NA" ? `${num(c.INCREMENTO_POSGRADO)}%` : "-"],
+      ["Incremento salarial con posgrado vs. licenciatura", c.INCREMENTO_POSGRADO && c.INCREMENTO_POSGRADO !== "NA" ? `${parseFloat(String(c.INCREMENTO_POSGRADO)).toFixed(1)}%` : "-"],
     ]],
   ]
 

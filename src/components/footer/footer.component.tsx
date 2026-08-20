@@ -35,7 +35,7 @@ export default function Footer() {
           Sitio web del IMCO
         </a>
         <a
-          href="Aviso de privacidad_  Compara Carreras 2024.pdf"
+          href="https://imco.org.mx/aviso-de-privacidad/"
           style={{ color: "inherit" }}
           target="_blank">
           Aviso de privacidad

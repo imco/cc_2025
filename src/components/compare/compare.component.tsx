@@ -115,7 +115,7 @@ export default function Compare() {
                   </th>
                 </tr>
                 <tr>
-                  <td>Total de estudiantes</td>
+                  <td>Total de personas que estudiaron esta carrera</td>
                   <td id="total-students-1">
                     {formatNumber(carrer1Data?.TOTAL)}
                   </td>
@@ -124,7 +124,7 @@ export default function Compare() {
                   </td>
                 </tr>
                 <tr>
-                  <td>Porcentaje del total</td>
+                  <td>Porcentaje de las personas que estudiaron esta carrera</td>
                   <td >{formatPercentage(carrer1Data?.PCT_TOTAL)}</td>
                   <td >{formatPercentage(carrer2Data?.PCT_TOTAL)}</td>
                 </tr>
@@ -392,28 +392,6 @@ export default function Compare() {
                 </tr>
                 <tr>
                   <td>
-                    Menos de 30 años
-                  </td>
-                  <td >
-                    {conSigno(carrer1Data?.INGRESO_30MENOS, '$')}
-                  </td>
-                  <td >
-                    {conSigno(carrer2Data?.INGRESO_30MENOS, '$')}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Más de 30 años
-                  </td>
-                  <td >
-                    {conSigno(carrer1Data?.INGRESO_30MAS, '$')}
-                  </td>
-                  <td >
-                    {conSigno(carrer2Data?.INGRESO_30MAS, '$')}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
                     Formales
                   </td>
                   <td >
@@ -436,50 +414,6 @@ export default function Compare() {
                 </tr>
                 <tr>
                   <td>
-                    25% menos
-                  </td>
-                  <td >
-                    {conSigno(carrer1Data?.INGRESO_Q25, '$')}
-                  </td>
-                  <td >
-                    {conSigno(carrer2Data?.INGRESO_Q25, '$')}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Mediana
-                  </td>
-                  <td >
-                    {conSigno(carrer1Data?.INGRESO_Q50, '$')}
-                  </td>
-                  <td >
-                    {conSigno(carrer2Data?.INGRESO_Q50, '$')}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    25% más
-                  </td>
-                  <td >
-                    {conSigno(carrer1Data?.INGRESO_Q75, '$')}
-                  </td>
-                  <td >
-                    {conSigno(carrer2Data?.INGRESO_Q75, '$')}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Porcentaje con posgrado
-                  </td>
-                  <td >
-                    {`${formatPercentage(carrer1Data?.POR_POSGRADO)}`}
-                  </td>
-                  <td >
-                    {`${formatPercentage(carrer2Data?.POR_POSGRADO)}`}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
                     Salario con posgrado
                   </td>
                   <td >
@@ -491,13 +425,13 @@ export default function Compare() {
                 </tr>
                 <tr>
                   <td>
-                    Incremento salarial con posgrado
+                    Incremento salarial con posgrado vs. licenciatura
                   </td>
                   <td >
-                    {conSigno(carrer1Data?.INCREMENTO_POSGRADO, '', '%')}
+                    {unDecimalPct(carrer1Data?.INCREMENTO_POSGRADO)}
                   </td>
                   <td >
-                    {conSigno(carrer2Data?.INCREMENTO_POSGRADO, '', '%')}
+                    {unDecimalPct(carrer2Data?.INCREMENTO_POSGRADO)}
                   </td>
                 </tr>
               </tbody>
@@ -515,6 +449,13 @@ export default function Compare() {
 function conSigno(value: number | string | undefined, prefijo = '', sufijo = '') {
   const n = formatNumber(value);
   return n === '-' ? '-' : `${prefijo}${n}${sufijo}`;
+}
+
+// incremento con un decimal, como el resto de los porcentajes
+function unDecimalPct(value: number | string | undefined) {
+  if (value === undefined || value === null || value === '') return '-';
+  const num = parseFloat(value.toString());
+  return isNaN(num) ? '-' : `${num.toFixed(1)}%`;
 }
 
 function formatNumber(value: number | string | undefined) {

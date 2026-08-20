@@ -61,7 +61,8 @@ export default function Home() {
           />
         </div>
         <p className="description">
-          Descubre información relevante sobre más de 60 carreras universitarias.
+          Descubre información relevante sobre más de 60 carreras universitarias,
+          incluyendo licenciaturas y carreras técnicas (TSU).
           Compara salarios, oportunidades laborales y más para tomar la mejor decisión.
         </p>
         <div className="search-container">

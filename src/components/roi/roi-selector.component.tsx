@@ -336,7 +336,7 @@ export default function RoiSelector() {
           {/* Texto + botón pequeño alineado a la izquierda */}
           <div className="flex flex-col gap-3">
             <p className="text-white/90 max-w-[54ch] leading-relaxed">
-              La <strong>calculadora de retorno sobre la inversión (RSI)</strong> permite estimar el
+              La <strong>calculadora de retorno sobre la inversión (ROI)</strong> permite estimar el
               rendimiento de estudiar una licenciatura o carrera técnica con base en los costos de
               cada carrera.
             </p>
@@ -594,7 +594,7 @@ export default function RoiSelector() {
               </div>
 
               <div>
-                <p className="roi-label">Retorno sobre la inversión (RSI):</p>
+                <p className="roi-label">Retorno sobre la inversión (ROI):</p>
                 <div className="roi-chip">{result.rsi !== null ? fmtPct(result.rsi) : "—"}</div>
               </div>
             </div>
