@@ -536,7 +536,7 @@ header {
     .home-saberes-banner {
         grid-template-columns: 1fr;
         gap: 12px;
-        margin-top: 30px;
+        margin-top: 120px;
     }
 
     .home-saberes-banner .saberes-banner {
