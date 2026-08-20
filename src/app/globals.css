@@ -1108,6 +1108,13 @@ footer {
     margin: 0 auto;
 }
 
+/* el wrapper del canvas va absoluto: si el canvas participara en el layout,
+   su ancho en px fijo impediría que el contenedor encoja con la ventana */
+.salary-chart-box > div {
+    position: absolute;
+    inset: 0;
+}
+
 .salary-legend {
     max-width: 900px;
     margin-left: auto;

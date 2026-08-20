@@ -76,6 +76,21 @@ export default function CarrerInfo(props: Props) {
     return () => mq.removeEventListener('change', actualizar)
   }, [])
 
+  // respaldo por si el ResizeObserver de Chart.js no reacciona al cambiar
+  // el tamaño de la ventana (p. ej. con zoom del navegador)
+  useEffect(() => {
+    let temporizador: ReturnType<typeof setTimeout>
+    const alRedimensionar = () => {
+      clearTimeout(temporizador)
+      temporizador = setTimeout(() => salaryBarRef.current?.resize(), 150)
+    }
+    window.addEventListener('resize', alRedimensionar)
+    return () => {
+      clearTimeout(temporizador)
+      window.removeEventListener('resize', alRedimensionar)
+    }
+  }, [])
+
   // al imprimir, las gráficas que se monten deben pintarse completas de inmediato
   useEffect(() => {
     const desactivarAnimaciones = () => { ChartJS.defaults.animation = false }
