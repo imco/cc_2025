@@ -530,6 +530,10 @@ header {
     margin-top: 18px;
 }
 
+.home-share {
+    margin-top: 34px;
+}
+
 /* en el comparador: compartir a la izquierda, PDF a la derecha */
 .print-button-row.con-compartir {
     justify-content: space-between;
