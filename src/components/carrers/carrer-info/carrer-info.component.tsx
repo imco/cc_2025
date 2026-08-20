@@ -286,31 +286,33 @@ export default function CarrerInfo(props: Props) {
             </div>
           </div>
         </div>
-        <Reveal>
-          <div className="new-graduates">
-            <h3>
-              <span className="stat-icon"><ClipboardListIcon size={22} /></span>
-              Matrícula actual (estudiantes inscritos):
-            </h3>
-            <div className="new-graduates-number">
-              <CountUp value={carrerData.MATRICULA} format={formatNumber} />
+        <div className="stat-cards-row">
+          <Reveal>
+            <div className="stat-line-card">
+              <h3>
+                <span className="stat-icon"><ClipboardListIcon size={22} /></span>
+                Matrícula actual (estudiantes inscritos)
+              </h3>
+              <div className="new-graduates-number">
+                <CountUp value={carrerData.MATRICULA} format={formatNumber} />
+              </div>
             </div>
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="new-graduates">
-            <h3>
-              <span className="stat-icon"><GraduationCapIcon size={22} /></span>
-              Nuevos egresados al mercado laboral (último ciclo escolar):
-            </h3>
-            <div id="new-graduates-number">
-              <CountUp
-                value={parseInt(carrerData.EGRESADOS_H) + parseInt(carrerData.EGRESADOS_M)}
-                format={formatNumber}
-              />
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="stat-line-card">
+              <h3>
+                <span className="stat-icon"><GraduationCapIcon size={22} /></span>
+                Nuevos egresados al mercado laboral (último ciclo escolar)
+              </h3>
+              <div className="new-graduates-number" id="new-graduates-number">
+                <CountUp
+                  value={parseInt(carrerData.EGRESADOS_H) + parseInt(carrerData.EGRESADOS_M)}
+                  format={formatNumber}
+                />
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
        {/*  <div className="investment-quality">
           <h3>CALIDAD DE INVERSIÓN</h3>
           <p>Calificación asociada a cada carrera tomando en cuenta el costo de educación y el riesgo.</p>
