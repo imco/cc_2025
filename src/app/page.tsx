@@ -8,7 +8,6 @@ import ImcoBanner from "@/components/imco/imco-banner.component"
 import SaberesBanner from "@/components/saberes/saberes-banner.component"
 import CareerAutocomplete from "@/components/search/career-autocomplete.component"
 import { CarrerAlias } from "@/components/search/carrer-alias.data"
-import ShareButtons from "@/components/share/share-buttons.component"
 import CarrersData from "@/interfaces/carrers/carrers-data.interface";
 
 export default function Home() {
@@ -75,9 +74,6 @@ export default function Home() {
             inputId="search-input"
           />
           <div id="search-placeholder" style={carrer ? { display: 'none' } : undefined}></div>
-        </div>
-        <div className="home-share">
-          <ShareButtons texto="Encuentra tu carrera en Compara Carreras del IMCO: salarios, empleo y más de 60 carreras universitarias." />
         </div>
       </section>
       <div className="home-saberes-banner">

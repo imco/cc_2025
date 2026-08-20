@@ -530,10 +530,6 @@ header {
     margin-top: 18px;
 }
 
-.home-share {
-    margin-top: 34px;
-}
-
 /* home en móvil: protagonismo al título y al buscador; las cards de IMCO y
    Saberes se convierten en botones apilados solo con su logo */
 @media (max-width: 650px) {
