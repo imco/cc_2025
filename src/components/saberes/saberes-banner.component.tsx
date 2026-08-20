@@ -29,10 +29,10 @@ export default function SaberesBanner() {
       </div>
       <div className="saberes-banner-logo-container">
         <Image
-          src="/saberes/saberesmx-logo.png"
+          src="/saberes/saberesmx-logo-limpio.png"
           alt="SaberesMX - Universidad para toda la vida"
-          width={450}
-          height={150}
+          width={921}
+          height={271}
           className="saberes-banner-logo saberes-home-logo"
         />
       </div>
