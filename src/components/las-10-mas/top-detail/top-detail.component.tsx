@@ -46,6 +46,8 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
     // la URL sigue al lado visible para que se pueda compartir/recargar
     const destino = nuevo === "menos" ? menos.titleUrl : mas.titleUrl
     window.history.replaceState(null, "", "/las-10-mas/" + destino)
+    // GA4: uso del switch entre "Los 10 más" y "Los 10 menos"
+    window.gtag?.("event", "top_toggle", { top: destino, lado: nuevo })
   }
 
   const IconoMas = TopsLists.find(t => t.titleUrl === mas.titleUrl)?.icon

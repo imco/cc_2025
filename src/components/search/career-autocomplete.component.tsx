@@ -81,11 +81,18 @@ export default function CareerAutocomplete({
 
   const visible = abierto && sugerencias.length > 0
 
-  const seleccionar = (nombre: string) => {
-    onChange(nombre)
+  const seleccionar = (sugerencia: Sugerencia) => {
+    // GA4: qué se teclea, qué carrera se elige y si el match vino del
+    // diccionario de nombres comunes
+    window.gtag?.("event", "search", {
+      search_term: value.trim(),
+      carrera: sugerencia.nombre,
+      via_alias: sugerencia.alias ?? null,
+    })
+    onChange(sugerencia.nombre)
     setAbierto(false)
     setActiva(-1)
-    onSelect(nombre)
+    onSelect(sugerencia.nombre)
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -110,7 +117,7 @@ export default function CareerAutocomplete({
         break
       case "Enter":
         event.preventDefault()
-        seleccionar(sugerencias[Math.max(activa, 0)].nombre)
+        seleccionar(sugerencias[Math.max(activa, 0)])
         break
       case "Escape":
         setAbierto(false)
@@ -150,7 +157,7 @@ export default function CareerAutocomplete({
               // mousedown (no click) para ganarle al blur del input
               onMouseDown={event => {
                 event.preventDefault()
-                seleccionar(s.nombre)
+                seleccionar(s)
               }}
               onMouseEnter={() => setActiva(i)}
             >

@@ -1,0 +1,131 @@
+# Compara Carreras (IMCO)
+
+> Herramienta gratuita del Instituto Mexicano para la Competitividad (IMCO) para comparar carreras universitarias y de Técnico Superior Universitario (TSU) en México. Edición 2026, con datos de la Encuesta Nacional de Ocupación y Empleo (ENOE) del INEGI. Cubre 79 carreras con información de salarios, empleo, informalidad, matrícula y retorno de inversión.
+
+Cada ficha de carrera responde: ¿cuántos son? (total de profesionistas, género, edad), ¿en qué trabajan? (tasas de ocupación, desempleo e informalidad, cuántos trabajan en algo relacionado a lo que estudiaron, sectores), posición que ocupan (subordinados, empleadores, cuenta propia) y ¿cuánto ganan? (salario promedio y su distribución, brecha por género, edad, formalidad y posgrado). El salario promedio mensual de la población ocupada en México usado como referencia es $14,170.
+
+## Secciones principales
+
+- [Inicio](https://comparacarreras.imco.org.mx/): buscador de carreras por nombre oficial o nombres comunes
+- [Comparador](https://comparacarreras.imco.org.mx/compara): compara dos carreras frente a frente, indicador por indicador
+- [Las 10 más](https://comparacarreras.imco.org.mx/las-10-mas): rankings de carreras; cada top con contraparte incluye el lado "Los 10 menos"
+- [Calculadora de inversión](https://comparacarreras.imco.org.mx/roi): retorno sobre la inversión de estudiar una carrera
+- [Metodología](https://comparacarreras.imco.org.mx/metodologia): cómo se calculan los indicadores con la ENOE (INEGI)
+- [Preguntas frecuentes](https://comparacarreras.imco.org.mx/faq)
+- [Investigaciones](https://comparacarreras.imco.org.mx/investigaciones): ediciones y estudios del IMCO
+
+## Rankings
+
+- [Las 10 carreras con mayor número de profesionistas](https://comparacarreras.imco.org.mx/las-10-mas/profesionistas)
+- [Las 10 carreras con menor número de profesionistas](https://comparacarreras.imco.org.mx/las-10-mas/menos-profesionistas)
+- [Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso](https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-ingreso-mujeres)
+- [Las 10 carreras con el mayor porcentaje de hombres en nuevo ingreso](https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-ingreso-hombres)
+- [Las 10 carreras con mayor vinculación laboral](https://comparacarreras.imco.org.mx/las-10-mas/mayor-vinculacion-laboral)
+- [Las 10 carreras con menor vinculación laboral](https://comparacarreras.imco.org.mx/las-10-mas/menor-vinculacion-laboral)
+- [Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)](https://comparacarreras.imco.org.mx/las-10-mas/demanda-publica)
+- [Las 10 carreras menos demandadas (porcentaje de aceptación en universidades públicas)](https://comparacarreras.imco.org.mx/las-10-mas/menos-demandadas)
+- [Las 10 carreras con mayor porcentaje de mujeres](https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-mujeres)
+- [Las 10 carreras con mayor porcentaje de hombres](https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-hombres)
+- [Las 10 carreras con mayor porcentaje de desempleados](https://comparacarreras.imco.org.mx/las-10-mas/desempleados)
+- [Las 10 carreras con menor porcentaje de desempleados](https://comparacarreras.imco.org.mx/las-10-mas/menos-desempleados)
+- [Las 10 carreras con mayor porcentaje de informalidad](https://comparacarreras.imco.org.mx/las-10-mas/informalidad)
+- [Las 10 carreras con menor porcentaje de informalidad](https://comparacarreras.imco.org.mx/las-10-mas/menos-informalidad)
+- [Las 10 carreras con mayor porcentaje de jóvenes](https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-jovenes)
+- [Las 10 carreras con más profesionistas con posgrado](https://comparacarreras.imco.org.mx/las-10-mas/posgrado)
+- [Las 10 carreras con mayor matrícula](https://comparacarreras.imco.org.mx/las-10-mas/matricula)
+- [Las 10 carreras con menor matrícula](https://comparacarreras.imco.org.mx/las-10-mas/menos-matricula)
+- [Las 10 carreras con más estudiantes de nuevo ingreso](https://comparacarreras.imco.org.mx/las-10-mas/mas-nuevo-ingreso)
+- [Las 10 carreras con menos estudiantes de nuevo ingreso](https://comparacarreras.imco.org.mx/las-10-mas/menos-nuevo-ingreso)
+- [Las 10 carreras con mayor riesgo](https://comparacarreras.imco.org.mx/las-10-mas/mayor-riesgo)
+- [Las 10 carreras con menor riesgo](https://comparacarreras.imco.org.mx/las-10-mas/menor-riesgo)
+- [Las 10 carreras mejor pagadas](https://comparacarreras.imco.org.mx/las-10-mas/mejor-pagadas)
+- [Las 10 carreras peor pagadas](https://comparacarreras.imco.org.mx/las-10-mas/peor-pagadas)
+- [Las 10 carreras de TSU mejor pagadas](https://comparacarreras.imco.org.mx/las-10-mas/tsu-mejor-pagadas)
+- [Las 10 carreras de TSU peor pagadas](https://comparacarreras.imco.org.mx/las-10-mas/tsu-peor-pagadas)
+
+## Carreras
+
+- [Administración de empresas](https://comparacarreras.imco.org.mx/administraci%C3%B3n_de_empresas): salario promedio mensual de $23,576
+- [Administración en el ámbito de la ingeniería y la construcción](https://comparacarreras.imco.org.mx/administraci%C3%B3n_en_el_%C3%A1mbito_de_la_ingenier%C3%ADa_y_la_construcci%C3%B3n): salario promedio mensual de $20,001
+- [Administración pública](https://comparacarreras.imco.org.mx/administraci%C3%B3n_p%C3%BAblica): salario promedio mensual de $18,338
+- [Administración turística y de restaurantes](https://comparacarreras.imco.org.mx/administraci%C3%B3n_tur%C3%ADstica_y_de_restaurantes): salario promedio mensual de $20,552
+- [Adquisición de idiomas extranjeros](https://comparacarreras.imco.org.mx/adquisici%C3%B3n_de_idiomas_extranjeros): salario promedio mensual de $19,240
+- [Arquitectura y urbanismo](https://comparacarreras.imco.org.mx/arquitectura_y_urbanismo): salario promedio mensual de $26,822
+- [Biología](https://comparacarreras.imco.org.mx/biolog%C3%ADa): salario promedio mensual de $20,150
+- [Bioquímica y biofísica](https://comparacarreras.imco.org.mx/bioqu%C3%ADmica_y_biof%C3%ADsica): salario promedio mensual de $22,756
+- [Ciencias computacionales](https://comparacarreras.imco.org.mx/ciencias_computacionales): salario promedio mensual de $24,983
+- [Ciencias de la educación](https://comparacarreras.imco.org.mx/ciencias_de_la_educaci%C3%B3n): salario promedio mensual de $21,013
+- [Ciencias políticas](https://comparacarreras.imco.org.mx/ciencias_pol%C3%ADticas): salario promedio mensual de $26,095
+- [Comunicación y periodismo](https://comparacarreras.imco.org.mx/comunicaci%C3%B3n_y_periodismo): salario promedio mensual de $24,898
+- [Construcción e ingeniería civil](https://comparacarreras.imco.org.mx/construcci%C3%B3n_e_ingenier%C3%ADa_civil): salario promedio mensual de $25,603
+- [Contabilidad y fiscalización](https://comparacarreras.imco.org.mx/contabilidad_y_fiscalizaci%C3%B3n): salario promedio mensual de $22,192
+- [Criminología y criminalística](https://comparacarreras.imco.org.mx/criminolog%C3%ADa_y_criminal%C3%ADstica): salario promedio mensual de $18,993
+- [Deportes](https://comparacarreras.imco.org.mx/deportes): salario promedio mensual de $19,139
+- [Derecho](https://comparacarreras.imco.org.mx/derecho): salario promedio mensual de $24,178
+- [Desarrollo de software (Implementación)](https://comparacarreras.imco.org.mx/desarrollo_de_software_(implementaci%C3%B3n)): salario promedio mensual de $NaN
+- [Desarrollo de software (Innovación)](https://comparacarreras.imco.org.mx/desarrollo_de_software_(innovaci%C3%B3n)): salario promedio mensual de $24,927
+- [Diseño curricular y pedagogía](https://comparacarreras.imco.org.mx/dise%C3%B1o_curricular_y_pedagog%C3%ADa): salario promedio mensual de $15,934
+- [Diseño industrial de moda e interiores](https://comparacarreras.imco.org.mx/dise%C3%B1o_industrial_de_moda_e_interiores): salario promedio mensual de $25,503
+- [Diseño y comunicación gráfica y editorial](https://comparacarreras.imco.org.mx/dise%C3%B1o_y_comunicaci%C3%B3n_gr%C3%A1fica_y_editorial): salario promedio mensual de $23,897
+- [Ecología y ciencias ambientales](https://comparacarreras.imco.org.mx/ecolog%C3%ADa_y_ciencias_ambientales): salario promedio mensual de $NaN
+- [Economía](https://comparacarreras.imco.org.mx/econom%C3%ADa): salario promedio mensual de $24,434
+- [Electricidad y generación de energía](https://comparacarreras.imco.org.mx/electricidad_y_generaci%C3%B3n_de_energ%C3%ADa): salario promedio mensual de $23,837
+- [Electrónica automatización y aplicaciones de la mecánica-eléctrica](https://comparacarreras.imco.org.mx/electr%C3%B3nica_automatizaci%C3%B3n_y_aplicaciones_de_la_mec%C3%A1nica-el%C3%A9ctrica): salario promedio mensual de $25,953
+- [Enfermería general y obstetricia](https://comparacarreras.imco.org.mx/enfermer%C3%ADa_general_y_obstetricia): salario promedio mensual de $19,970
+- [Estomatología y odontología general](https://comparacarreras.imco.org.mx/estomatolog%C3%ADa_y_odontolog%C3%ADa_general): salario promedio mensual de $22,241
+- [Finanzas banca y seguros](https://comparacarreras.imco.org.mx/finanzas_banca_y_seguros): salario promedio mensual de $27,290
+- [Formación docente en educación básica nivel preescolar](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_preescolar): salario promedio mensual de $17,620
+- [Formación docente en educación básica nivel primaria](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_primaria): salario promedio mensual de $18,193
+- [Formación docente en educación básica nivel secundaria](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_secundaria): salario promedio mensual de $19,479
+- [Formación docente en educación superior](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_educaci%C3%B3n_superior): salario promedio mensual de $20,197
+- [Formación docente en la enseñanza de asignaturas específicas](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_la_ense%C3%B1anza_de_asignaturas_espec%C3%ADficas): salario promedio mensual de $18,513
+- [Formación docente en otros servicios educativos](https://comparacarreras.imco.org.mx/formaci%C3%B3n_docente_en_otros_servicios_educativos): salario promedio mensual de $18,067
+- [Gastronomía y servicios de alimentos](https://comparacarreras.imco.org.mx/gastronom%C3%ADa_y_servicios_de_alimentos): salario promedio mensual de $17,532
+- [Historia y arqueología](https://comparacarreras.imco.org.mx/historia_y_arqueolog%C3%ADa): salario promedio mensual de $19,621
+- [Hospitalidad y turismo](https://comparacarreras.imco.org.mx/hospitalidad_y_turismo): salario promedio mensual de $19,413
+- [Industria de la alimentación](https://comparacarreras.imco.org.mx/industria_de_la_alimentaci%C3%B3n): salario promedio mensual de $19,894
+- [Industria de la minería extracción y metalurgia](https://comparacarreras.imco.org.mx/industria_de_la_miner%C3%ADa_extracci%C3%B3n_y_metalurgia): salario promedio mensual de $24,111
+- [Informática](https://comparacarreras.imco.org.mx/inform%C3%A1tica): salario promedio mensual de $23,590
+- [Ingeniería de procesos químicos](https://comparacarreras.imco.org.mx/ingenier%C3%ADa_de_procesos_qu%C3%ADmicos): salario promedio mensual de $22,633
+- [Ingeniería industrial](https://comparacarreras.imco.org.mx/ingenier%C3%ADa_industrial): salario promedio mensual de $24,869
+- [Literatura](https://comparacarreras.imco.org.mx/literatura): salario promedio mensual de $17,973
+- [Matemáticas](https://comparacarreras.imco.org.mx/matem%C3%A1ticas): salario promedio mensual de $29,887
+- [Mecánica y profesiones afines al trabajo metálico](https://comparacarreras.imco.org.mx/mec%C3%A1nica_y_profesiones_afines_al_trabajo_met%C3%A1lico): salario promedio mensual de $24,449
+- [Medicina general](https://comparacarreras.imco.org.mx/medicina_general): salario promedio mensual de $27,823
+- [Mercadotecnia y publicidad](https://comparacarreras.imco.org.mx/mercadotecnia_y_publicidad): salario promedio mensual de $24,668
+- [Negocios y comercio](https://comparacarreras.imco.org.mx/negocios_y_comercio): salario promedio mensual de $22,628
+- [Nutrición](https://comparacarreras.imco.org.mx/nutrici%C3%B3n): salario promedio mensual de $17,773
+- [Orientación e intervención educativa](https://comparacarreras.imco.org.mx/orientaci%C3%B3n_e_intervenci%C3%B3n_educativa): salario promedio mensual de $16,240
+- [Planeación evaluación e investigación educativa](https://comparacarreras.imco.org.mx/planeaci%C3%B3n_evaluaci%C3%B3n_e_investigaci%C3%B3n_educativa): salario promedio mensual de $25,490
+- [Planes multidisciplinarios o generales del campo de administración y gestión](https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_administraci%C3%B3n_y_gesti%C3%B3n): salario promedio mensual de $23,772
+- [Planes multidisciplinarios o generales del campo de ciencias sociales y estudios del comportamiento](https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_ciencias_sociales_y_estudios_del_comportamiento): salario promedio mensual de $17,056
+- [Planes multidisciplinarios o generales del campo de formación docente](https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_formaci%C3%B3n_docente): salario promedio mensual de $19,444
+- [Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación](https://comparacarreras.imco.org.mx/planes_multidisciplinarios_o_generales_del_campo_de_innovaci%C3%B3n_en_tecnolog%C3%ADas_de_la_informaci%C3%B3n_y_la_comunicaci%C3%B3n): salario promedio mensual de $NaN
+- [Producción y explotación agrícola y ganadera](https://comparacarreras.imco.org.mx/producci%C3%B3n_y_explotaci%C3%B3n_agr%C3%ADcola_y_ganadera): salario promedio mensual de $19,129
+- [Psicología](https://comparacarreras.imco.org.mx/psicolog%C3%ADa): salario promedio mensual de $18,813
+- [Química](https://comparacarreras.imco.org.mx/qu%C3%ADmica): salario promedio mensual de $24,940
+- [Sociología y antropología](https://comparacarreras.imco.org.mx/sociolog%C3%ADa_y_antropolog%C3%ADa): salario promedio mensual de $17,137
+- [Tecnología para la protección del medio ambiente](https://comparacarreras.imco.org.mx/tecnolog%C3%ADa_para_la_protecci%C3%B3n_del_medio_ambiente): salario promedio mensual de $19,496
+- [Terapia y rehabilitación](https://comparacarreras.imco.org.mx/terapia_y_rehabilitaci%C3%B3n): salario promedio mensual de $17,141
+- [Trabajo y atención social](https://comparacarreras.imco.org.mx/trabajo_y_atenci%C3%B3n_social): salario promedio mensual de $16,266
+- [TSU. Contabilidad y fiscalización](https://comparacarreras.imco.org.mx/tsu._contabilidad_y_fiscalizaci%C3%B3n): salario promedio mensual de $14,155
+- [TSU. Desarrollo de software (Innovación)](https://comparacarreras.imco.org.mx/tsu._desarrollo_de_software_(innovaci%C3%B3n)): salario promedio mensual de $15,604
+- [TSU. Electricidad y generación de energía](https://comparacarreras.imco.org.mx/tsu._electricidad_y_generaci%C3%B3n_de_energ%C3%ADa): salario promedio mensual de $18,308
+- [TSU. Electrónica automatización y aplicaciones de la mecánica-eléctrica](https://comparacarreras.imco.org.mx/tsu._electr%C3%B3nica_automatizaci%C3%B3n_y_aplicaciones_de_la_mec%C3%A1nica-el%C3%A9ctrica): salario promedio mensual de $19,317
+- [TSU. Enfermería general y obstetricia](https://comparacarreras.imco.org.mx/tsu._enfermer%C3%ADa_general_y_obstetricia): salario promedio mensual de $16,849
+- [TSU. Formación docente en educación básica nivel preescolar](https://comparacarreras.imco.org.mx/tsu._formaci%C3%B3n_docente_en_educaci%C3%B3n_b%C3%A1sica_nivel_preescolar): salario promedio mensual de $12,610
+- [TSU. Informática](https://comparacarreras.imco.org.mx/tsu._inform%C3%A1tica): salario promedio mensual de $16,786
+- [TSU. Mecánica y profesiones afines al trabajo metálico](https://comparacarreras.imco.org.mx/tsu._mec%C3%A1nica_y_profesiones_afines_al_trabajo_met%C3%A1lico): salario promedio mensual de $19,071
+- [TSU. Planes multidisciplinarios o generales del campo de administración y gestión](https://comparacarreras.imco.org.mx/tsu._planes_multidisciplinarios_o_generales_del_campo_de_administraci%C3%B3n_y_gesti%C3%B3n): salario promedio mensual de $NaN
+- [TSU. Planes multidisciplinarios o generales del campo de implementación de las tecnologías de la información y la comunicación](https://comparacarreras.imco.org.mx/tsu._planes_multidisciplinarios_o_generales_del_campo_de_implementaci%C3%B3n_de_las_tecnolog%C3%ADas_de_la_informaci%C3%B3n_y_la_comunicaci%C3%B3n): salario promedio mensual de $14,284
+- [TSU. Servicios de apoyo y asistencia administrativa](https://comparacarreras.imco.org.mx/tsu._servicios_de_apoyo_y_asistencia_administrativa): salario promedio mensual de $13,847
+- [TSU. Servicios de cuidado personal y belleza](https://comparacarreras.imco.org.mx/tsu._servicios_de_cuidado_personal_y_belleza): salario promedio mensual de $12,204
+- [TSU. Trabajo y atención social](https://comparacarreras.imco.org.mx/tsu._trabajo_y_atenci%C3%B3n_social): salario promedio mensual de $13,590
+- [TSU. Vehículos barcos y aeronaves motorizadas](https://comparacarreras.imco.org.mx/tsu._veh%C3%ADculos_barcos_y_aeronaves_motorizadas): salario promedio mensual de $16,042
+- [Vehículos barcos y aeronaves motorizadas](https://comparacarreras.imco.org.mx/veh%C3%ADculos_barcos_y_aeronaves_motorizadas): salario promedio mensual de $20,700
+- [Veterinaria](https://comparacarreras.imco.org.mx/veterinaria): salario promedio mensual de $19,585
+
+## Optional
+
+- [Sitio del IMCO](https://imco.org.mx): centro de investigación apartidista y sin fines de lucro
+- [Contacto](mailto:comparacarreras@imco.org.mx)

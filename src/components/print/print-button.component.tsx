@@ -12,6 +12,8 @@ type Props = {
 
 export default function PrintButton({ etiqueta = "Descargar PDF" }: Props) {
   const imprimir = () => {
+    // GA4: descargas del formato PDF y desde qué página
+    window.gtag?.("event", "print_pdf", { page_path: window.location.pathname })
     window.dispatchEvent(new Event(EVENTO_PREPARAR_IMPRESION))
     // margen para que React monte las gráficas y pinte los valores finales
     setTimeout(() => window.print(), 600)

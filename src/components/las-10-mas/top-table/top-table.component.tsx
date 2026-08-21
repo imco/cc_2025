@@ -100,6 +100,11 @@ export default function TopTable(props: Props) {
           className="download-btn"
           href={encodedUri}
           download={props.actualTop?.jsonName.replace('.json', '.csv')}
+          onClick={() => window.gtag?.("event", "file_download", {
+            file_name: props.actualTop?.jsonName.replace('.json', '.csv'),
+            file_extension: "csv",
+            top: props.actualTop?.name,
+          })}
         >
           Descarga CSV
         </a>

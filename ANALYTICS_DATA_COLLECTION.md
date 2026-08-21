@@ -461,6 +461,27 @@ Visualización en Reportes
 
 ---
 
-**Última actualización:** 2025-11-24
-**Versión:** 1.0
+## 📌 Otros Eventos del Sitio
+
+Además de `roi_calculation`, el sitio envía estos eventos a GA4:
+
+| Evento | Cuándo se dispara | Parámetros |
+|---|---|---|
+| `search` | El usuario elige una carrera en cualquier autocompletado (inicio o comparador) | `search_term` (lo que tecleó), `carrera` (la elegida), `via_alias` (nombre común usado, o null) |
+| `compare_careers` | Se muestra una comparación de dos carreras | `carrera_1`, `carrera_2` |
+| `top_toggle` | El usuario usa el switch "Los 10 más / Los 10 menos" en un top | `top` (slug del top destino), `lado` ("mas" o "menos") |
+| `file_download` | Descarga del CSV de un top | `file_name`, `file_extension`, `top` (nombre del top) |
+| `print_pdf` | Clic en "Descargar PDF" (carrera o comparador) | `page_path` (página desde la que se descargó) |
+| `share` | Clic en un botón de compartir (WhatsApp, Facebook, X, copiar liga o compartir nativo) | `method`, `content_type`, `item_id` (liga compartida) |
+
+Con `search` se puede detectar qué buscan y no encuentran (términos sin selección
+no se registran, pero `via_alias` revela qué nombres comunes conviene reforzar
+en el diccionario). `compare_careers` alimenta el análisis de pares más
+consultados y `top_toggle` mide el interés por los lados negativos de los
+rankings.
+
+---
+
+**Última actualización:** 2026-08-21
+**Versión:** 1.1
 **Autor:** Equipo IMCO - Compara Carreras

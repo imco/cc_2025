@@ -105,6 +105,47 @@ Agrega un objeto al array `TopsTypes`:
 - `titleUrl`: debe coincidir exactamente con el del Paso 2.
 - `jsonName`: debe coincidir exactamente con el nombre del archivo creado en el Paso 1.
 
+### Tops con contraparte "Los 10 más / Los 10 menos"
+
+Si el top tiene su lado opuesto (p. ej. mejor pagadas / peor pagadas), registra
+**ambos** en `TopsTypes` y enlázalos con los campos `lado` y `pareja`:
+
+```typescript
+{
+  name: "Las 10 carreras con mayor X",
+  jsonName: "top_10_mas_x.json",
+  titleUrl: "mayor-x",
+  description: "…",
+  lado: "mas",
+  pareja: "menor-x"
+},
+{
+  name: "Las 10 carreras con menor X",
+  jsonName: "top_10_menos_x.json",
+  titleUrl: "menor-x",
+  description: "…",
+  lado: "menos",
+  pareja: "mayor-x"
+}
+```
+
+En la lista principal (`TopsLists`, Paso 2) solo va el lado **"más"**: el lado
+"menos" se alcanza con el switch deslizante dentro de la página del top y
+recibe su propia URL y miniatura automáticamente.
+
+**Importante:** conserva el orden de los campos (`name`, `jsonName`, `titleUrl`,
+`description`, `lado`, `pareja`) porque los scripts de generación los leen con
+ese patrón.
+
+---
+
+## Paso 4 — Regenerar miniaturas y sitemap
+
+```bash
+node scripts/generar_og.mjs       # miniaturas para compartir en redes
+node scripts/generar_sitemap.mjs  # sitemap.xml y llms.txt
+```
+
 ---
 
 ## Ejemplo completo

@@ -36,6 +36,11 @@ export default function Compare() {
   useEffect(() => {
     if (carrer1 && carrer2) {
       setIsComparing(true)
+      // GA4: qué pares de carreras se comparan
+      window.gtag?.("event", "compare_careers", {
+        carrera_1: carrer1,
+        carrera_2: carrer2,
+      })
     }
   }, [carrer1, carrer2])
 
