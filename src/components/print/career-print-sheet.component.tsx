@@ -45,6 +45,7 @@ export default function CareerPrintSheet({ carrerData, sectores }: Props) {
       ["Tasa de ocupación", pct(c.TASA_OCUPACION)],
       ["Tasa de desempleo", pct(c.TASA_DESOCUPACION)],
       ["Tasa de informalidad", pct(c.TASA_INFORMALIDAD)],
+      ["Trabajan en algo relacionado con lo que estudiaron", pct(c.TASA_APLICACION)],
       ...sectores.map(s => [`Sector: ${s.name}`, `${s.value.toFixed(1)}%`] as [string, string]),
     ]],
     ["Posición que ocupan", [

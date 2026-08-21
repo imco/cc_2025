@@ -13,8 +13,12 @@ export default function TopTable(props: Props) {
   const processTopValue = (value: string) => {
     const jsonName = props.actualTop?.jsonName ?? '';
     const isPagadas = jsonName.includes('pagadas');
-    // tops de conteo (personas): sin signo de porcentaje
-    const isConteo = jsonName.includes('matricula') || jsonName.includes('numero');
+    // tops de conteo (personas): sin signo de porcentaje; ojo: los de
+    // mujeres/hombres en nuevo ingreso sí son porcentajes
+    const isConteo = jsonName.includes('matricula')
+      || jsonName.includes('numero')
+      || jsonName.includes('mas_nuevo_ingresos')
+      || jsonName.includes('menos_nuevo_ingresos');
     return formatValue(value, isPagadas, isConteo)
   }
 

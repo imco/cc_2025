@@ -1141,6 +1141,55 @@ footer {
     color: #FFFFFF;
 }
 
+/* switch "Los 10 más / Los 10 menos" en la página de cada top */
+.top-toggle-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.top-toggle {
+    position: relative;
+    display: inline-flex;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 4px;
+}
+
+.top-toggle button {
+    position: relative;
+    z-index: 1;
+    border: none;
+    background: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 9px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.top-toggle button.activo {
+    color: #024383;
+}
+
+.top-toggle-thumb {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    background-color: #45B7CE;
+    border-radius: 999px;
+    transition: transform 0.3s ease;
+}
+
+.top-toggle-thumb.en-menos {
+    transform: translateX(100%);
+}
+
 /* matrícula y nuevos egresados como cards lado a lado (apiladas en móvil) */
 .stat-cards-row {
     display: grid;
@@ -1379,7 +1428,7 @@ footer {
 }
 
 .employment-stat {
-    width: 30%;
+    width: 23%;
     text-align: center;
 }
 
@@ -1393,9 +1442,9 @@ footer {
     min-width: 0;
 }
 
-/* el wrapper .reveal es el hijo del flex: él toma el 30% y la stat lo llena */
+/* el wrapper .reveal es el hijo del flex: él toma el 23% y la stat lo llena */
 .employment-stats > .reveal {
-    width: 30%;
+    width: 23%;
 }
 
 .employment-stats > .reveal .employment-stat {

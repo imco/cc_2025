@@ -40,3 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 Bases_para_TI*.zip
+Positivos-*.zip
+Negativos-*.zip

@@ -7,6 +7,7 @@ import {
   BriefcaseIcon,
   BriefcaseCheckIcon,
   UserXIcon,
+  UserCheckIcon,
   FileXIcon,
   SitemapIcon,
   ShieldCheckIcon,
@@ -404,6 +405,15 @@ export default function CarrerInfo(props: Props) {
                 <h4>Tasa de informalidad</h4>
                 <div id="informality-rate" className="employment-stat-value">
                   <CountUp value={carrerData.TASA_INFORMALIDAD} format={formatPercentage} />
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={360}>
+              <div className="employment-stat">
+                <span className="stat-icon"><UserCheckIcon size={22} /></span>
+                <h4>¿Cuántos trabajan en lo que estudiaron?</h4>
+                <div id="application-rate" className="employment-stat-value">
+                  <CountUp value={carrerData.TASA_APLICACION} format={formatPercentage} />
                 </div>
               </div>
             </Reveal>

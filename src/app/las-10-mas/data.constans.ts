@@ -3,7 +3,6 @@ import {
   IconProps,
   UsersIcon,
   UserPlusIcon,
-  UserMinusIcon,
   FemaleIcon,
   MaleIcon,
   StarIcon,
@@ -13,9 +12,9 @@ import {
   GraduationCapIcon,
   ClipboardListIcon,
   AlertTriangleIcon,
-  ShieldCheckIcon,
   BanknoteIcon,
-  TrendingDownIcon,
+  BriefcaseCheckIcon,
+  CoinIcon,
 } from "@/components/icons"
 
 export type TopInfo = {
@@ -24,20 +23,15 @@ export type TopInfo = {
   icon: ComponentType<IconProps>,
 }
 
+// Un card por indicador; los tops con contraparte "Los 10 menos" se
+// alcanzan con el switch dentro de la página del top (ver pareja en
+// [slug]/data.constans.ts).
 export const TopsLists: TopInfo[] = [
   {
     topName: "Las 10 carreras con mayor número de profesionistas",
     titleUrl: "profesionistas",
     icon: UsersIcon
   },
- /*  {
-    topName: "Las 10 carreras con mayor calidad de inversión en universidades privadas",
-    titleUrl: "calidad-inversion"
-  },
-  {
-    topName: "Las 10 carreras con mayor calidad de inversión en universidades públicas",
-    titleUrl: "calidad-inversion-publicas"
-  }, */
   {
     topName: "Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso",
     titleUrl: "porcentaje-ingreso-mujeres",
@@ -54,14 +48,14 @@ export const TopsLists: TopInfo[] = [
     icon: StarIcon
   },
   {
-    topName: "Las 10 carreras con más aplicantes",
-    titleUrl: "mas-aplicantes",
-    icon: UserPlusIcon
+    topName: "Las 10 carreras con mayor vinculación laboral",
+    titleUrl: "mayor-vinculacion-laboral",
+    icon: BriefcaseCheckIcon
   },
   {
-    topName: "Las 10 carreras con menos aplicantes",
-    titleUrl: "menos-aplicantes",
-    icon: UserMinusIcon
+    topName: "Las 10 carreras con más estudiantes de nuevo ingreso",
+    titleUrl: "mas-nuevo-ingreso",
+    icon: UserPlusIcon
   },
   {
     topName: "Las 10 carreras con mayor porcentaje de mujeres",
@@ -98,31 +92,10 @@ export const TopsLists: TopInfo[] = [
     titleUrl: "matricula",
     icon: ClipboardListIcon
   },
-  /* {
-    topName: "Las 10 carreras con mayor tasa de retorno en universidades públicas",
-    titleUrl: "mayor-tasa-retorno-publicas"
-  },
-  {
-    topName: "Las 10 carreras con mayor tasa de retorno en universidades privadas",
-    titleUrl: "mayor-tasa-retorno-privadas"
-  },
-  {
-    topName: "Las 10 carreras con menor tasa de retorno en universidades públicas",
-    titleUrl: "menor-tasa-retorno-publicas"
-  },
-  {
-    topName: "Las 10 carreras con menor tasa de retorno en universidades privadas",
-    titleUrl: "menor-tasa-retorno-privadas"
-  }, */
   {
     topName: "Las 10 carreras con mayor riesgo",
     titleUrl: "mayor-riesgo",
     icon: AlertTriangleIcon
-  },
-  {
-    topName: "Las 10 carreras con menor riesgo",
-    titleUrl: "menor-riesgo",
-    icon: ShieldCheckIcon
   },
   {
     topName: "Las 10 carreras mejor pagadas",
@@ -130,8 +103,8 @@ export const TopsLists: TopInfo[] = [
     icon: BanknoteIcon
   },
   {
-    topName: "Las 10 carreras peor pagadas",
-    titleUrl: "peor-pagadas",
-    icon: TrendingDownIcon
+    topName: "Las 10 carreras de TSU mejor pagadas",
+    titleUrl: "tsu-mejor-pagadas",
+    icon: CoinIcon
   }
 ]

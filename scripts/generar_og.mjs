@@ -84,7 +84,7 @@ const plantilla = ({ superior, titulo, descripcion = '', chips, pie }) => `<!DOC
 const secciones = [
   { url: "/", archivo: "seccion-inicio", superior: "Herramienta gratuita del IMCO", titulo: "Encuentra tu carrera", descripcion: "Descubre información relevante sobre más de 60 carreras universitarias. Compara salarios, oportunidades laborales y más para tomar la mejor decisión.", pie: "Datos de salario, empleo y más para decidir mejor" },
   { url: "/compara", archivo: "seccion-compara", superior: "Comparador", titulo: "Compara dos carreras frente a frente", pie: "Salarios, empleo, informalidad y más" },
-  { url: "/las-10-mas", archivo: "seccion-las-10-mas", superior: "Rankings", titulo: "Las 10 carreras más…", pie: "Mejor pagadas, más demandadas, con más aplicantes" },
+  { url: "/las-10-mas", archivo: "seccion-las-10-mas", superior: "Rankings", titulo: "Las 10 carreras más…", pie: "Mejor pagadas, más demandadas, con mayor vinculación laboral" },
   { url: "/metodologia", archivo: "seccion-metodologia", superior: "Metodología", titulo: "Cómo medimos cada carrera", pie: "Con datos de la ENOE (INEGI)" },
   { url: "/faq", archivo: "seccion-faq", superior: "Preguntas frecuentes", titulo: "Resolvemos tus dudas", pie: "Todo sobre Compara Carreras" },
   { url: "/roi", archivo: "seccion-roi", superior: "Calculadora de inversión", titulo: "¿Cuánto retorna estudiar una carrera?", pie: "Calcula el ROI de tu educación" },
@@ -137,17 +137,20 @@ const activos = new Set(
   [...sinComentarios(readFileSync(path.join(raiz, "src/app/las-10-mas/data.constans.ts"), "utf-8"))
     .matchAll(/titleUrl:\s*"([^"]+)"/g)].map(m => m[1])
 )
-const registroTops = [...sinComentarios(readFileSync(path.join(raiz, "src/app/las-10-mas/[slug]/data.constans.ts"), "utf-8"))
-  .matchAll(/name:\s*"([^"]+)",\s*jsonName:\s*"([^"]+)",\s*titleUrl:\s*"([^"]+)",\s*description:\s*"([^"]+)"/g)]
-  .map(m => ({ name: m[1], jsonName: m[2], titleUrl: m[3], description: m[4] }))
-  .filter(t => activos.has(t.titleUrl))
+const todosLosTops = [...sinComentarios(readFileSync(path.join(raiz, "src/app/las-10-mas/[slug]/data.constans.ts"), "utf-8"))
+  .matchAll(/name:\s*"([^"]+)",\s*jsonName:\s*"([^"]+)",\s*titleUrl:\s*"([^"]+)",\s*description:\s*"([^"]+)"(?:,\s*lado:\s*"[^"]+",\s*pareja:\s*"([^"]+)")?/g)]
+  .map(m => ({ name: m[1], jsonName: m[2], titleUrl: m[3], description: m[4], pareja: m[5] }))
+// las contrapartes "Los 10 menos" también tienen página aunque no salgan en el grid
+todosLosTops.forEach(t => { if (activos.has(t.titleUrl) && t.pareja) activos.add(t.pareja) })
+const registroTops = todosLosTops.filter(t => activos.has(t.titleUrl))
 
 // mismo formato que la tabla de tops del sitio
 const fmtTop = (jsonName, v) => {
   const n = parseFloat(v)
   if (isNaN(n)) return "—"
   if (jsonName.includes("pagadas")) return fmtDinero(n)
-  if (jsonName.includes("matricula") || jsonName.includes("numero")) return Math.round(n).toLocaleString("en-US")
+  if (jsonName.includes("matricula") || jsonName.includes("numero")
+    || jsonName.includes("mas_nuevo_ingresos") || jsonName.includes("menos_nuevo_ingresos")) return Math.round(n).toLocaleString("en-US")
   return n.toFixed(1) + "%"
 }
 const recortar = (s, max) => (s.length > max ? s.slice(0, max - 1).trimEnd() + "…" : s)

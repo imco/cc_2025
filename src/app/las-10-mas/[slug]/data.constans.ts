@@ -3,6 +3,9 @@ export type TopDescription = {
   titleUrl: string,
   jsonName: string,
   description: string,
+  // tops con contraparte "Los 10 más / Los 10 menos": lado propio y titleUrl de la pareja
+  lado?: "mas" | "menos",
+  pareja?: string,
 }
 
 export const TopsTypes: TopDescription[] = [
@@ -10,7 +13,17 @@ export const TopsTypes: TopDescription[] = [
     name: "Las 10 carreras con mayor número de profesionistas",
     jsonName: "top_10_numero.json",
     titleUrl: "profesionistas",
-    description: "Aquí conocerás la lista de las carreras con más egresados en el país, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con más egresados en el país, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-profesionistas"
+  },
+  {
+    name: "Las 10 carreras con menor número de profesionistas",
+    jsonName: "top_10_menos_numero.json",
+    titleUrl: "menos-profesionistas",
+    description: "Aquí conocerás la lista de las carreras con menos egresados en el país, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "profesionistas"
   },
   {
     name: "Las 10 carreras con mayor calidad de inversión en universidades privadas",
@@ -37,22 +50,36 @@ export const TopsTypes: TopDescription[] = [
     description: "Aquí conocerás la lista de las carreras cuya matrícula de nuevo ingreso está principalmente compuesta por hombres, de acuerdo con el ranking de Compara Carreras."
   },
   {
-    name: "Las 10 carreras con más aplicantes",
+    name: "Las 10 carreras con mayor vinculación laboral",
     jsonName: "top_10_mas_aplicacion.json",
-    titleUrl: "mas-aplicantes",
-    description: "Aquí conocerás la lista de las carreras que concentran el mayor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras."
+    titleUrl: "mayor-vinculacion-laboral",
+    description: "Aquí conocerás la lista de carreras en el que mayor porcentaje de sus egresados trabajan en algo relacionado a lo que estudiaron, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menor-vinculacion-laboral"
   },
   {
-    name: "Las 10 carreras con menos aplicantes",
+    name: "Las 10 carreras con menor vinculación laboral",
     jsonName: "top_10_menos_aplicacion.json",
-    titleUrl: "menos-aplicantes",
-    description: "Aquí conocerás la lista de las carreras que concentran el menor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras."
+    titleUrl: "menor-vinculacion-laboral",
+    description: "Aquí conocerás la lista de carreras en el que menor porcentaje de sus egresados trabajan en algo relacionado a lo que estudiaron, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "mayor-vinculacion-laboral"
   },
   {
     name: "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
     jsonName: "top_10_mas_demandadas.json",
     titleUrl: "demanda-publica",
-    description: "Aquí conocerás la lista de las carreras que reciben una mayor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras que reciben una mayor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-demandadas"
+  },
+  {
+    name: "Las 10 carreras menos demandadas (porcentaje de aceptación en universidades públicas)",
+    jsonName: "top_10_menos_demandadas_publicas.json",
+    titleUrl: "menos-demandadas",
+    description: "Aquí conocerás la lista de las carreras que reciben una menor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "demanda-publica"
   },
   {
     name: "Las 10 carreras con mayor porcentaje de mujeres",
@@ -70,13 +97,33 @@ export const TopsTypes: TopDescription[] = [
     name: "Las 10 carreras con mayor porcentaje de desempleados",
     jsonName: "top_10_mas_desempleados.json",
     titleUrl: "desempleados",
-    description: "Aquí conocerás la lista de las carreras con la mayor proporción de desempleados, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con la mayor proporción de desempleados, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-desempleados"
+  },
+  {
+    name: "Las 10 carreras con menor porcentaje de desempleados",
+    jsonName: "top_10_menos_desempleados.json",
+    titleUrl: "menos-desempleados",
+    description: "Aquí conocerás la lista de las carreras con la menor proporción de desempleados, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "desempleados"
   },
   {
     name: "Las 10 carreras con mayor porcentaje de informalidad",
     jsonName: "top_10_mas_informalidad.json",
     titleUrl: "informalidad",
-    description: "Aquí conocerás la lista de las carreras con la mayor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con la mayor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-informalidad"
+  },
+  {
+    name: "Las 10 carreras con menor porcentaje de informalidad",
+    jsonName: "top_10_menos_informalidad.json",
+    titleUrl: "menos-informalidad",
+    description: "Aquí conocerás la lista de las carreras con la menor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "informalidad"
   },
   {
     name: "Las 10 carreras con mayor porcentaje de jóvenes",
@@ -94,7 +141,33 @@ export const TopsTypes: TopDescription[] = [
     name: "Las 10 carreras con mayor matrícula",
     jsonName: "top_10_matricula.json",
     titleUrl: "matricula",
-    description: "Aquí conocerás la lista de las carreras con más estudiantes, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con más estudiantes, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-matricula"
+  },
+  {
+    name: "Las 10 carreras con menor matrícula",
+    jsonName: "top_10_menos_matricula.json",
+    titleUrl: "menos-matricula",
+    description: "Aquí conocerás la lista de las carreras con menos estudiantes, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "matricula"
+  },
+  {
+    name: "Las 10 carreras con más estudiantes de nuevo ingreso",
+    jsonName: "top_10_mas_nuevo_ingresos.json",
+    titleUrl: "mas-nuevo-ingreso",
+    description: "Aquí conocerás la lista de las carreras que registraron más estudiantes de nuevo ingreso en el último ciclo escolar, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menos-nuevo-ingreso"
+  },
+  {
+    name: "Las 10 carreras con menos estudiantes de nuevo ingreso",
+    jsonName: "top_10_menos_nuevo_ingresos.json",
+    titleUrl: "menos-nuevo-ingreso",
+    description: "Aquí conocerás la lista de las carreras que registraron menos estudiantes de nuevo ingreso en el último ciclo escolar, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "mas-nuevo-ingreso"
   },
   {
     name: "Las 10 carreras con mayor tasa de retorno en universidades públicas",
@@ -124,24 +197,48 @@ export const TopsTypes: TopDescription[] = [
     name: "Las 10 carreras con mayor riesgo",
     jsonName: "top_10_riesgo.json",
     titleUrl: "mayor-riesgo",
-    description: "Aquí conocerás la lista de las carreras con mayor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con mayor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "menor-riesgo"
   },
   {
     name: "Las 10 carreras con menor riesgo",
     jsonName: "top_10_menos_riesgo.json",
     titleUrl: "menor-riesgo",
-    description: "Aquí conocerás la lista de las carreras con menor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con menor riesgo (mayor probabilidad de acceder a empleos informales o desempleo), de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "mayor-riesgo"
   },
   {
     name: "Las 10 carreras mejor pagadas",
     jsonName: "top_10_mejor_pagadas.json",
     titleUrl: "mejor-pagadas",
-    description: "Aquí conocerás la lista de las carreras con el mayor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con el mayor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "peor-pagadas"
   },
   {
     name: "Las 10 carreras peor pagadas",
     jsonName: "top_10_peor_pagadas.json",
     titleUrl: "peor-pagadas",
-    description: "Aquí conocerás la lista de las carreras con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras."
+    description: "Aquí conocerás la lista de las carreras con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "mejor-pagadas"
+  },
+  {
+    name: "Las 10 carreras de TSU mejor pagadas",
+    jsonName: "top_10_tsu_mejor_pagadas.json",
+    titleUrl: "tsu-mejor-pagadas",
+    description: "Aquí conocerás la lista de las carreras de Técnico Superior Universitario (TSU) con el mayor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    lado: "mas",
+    pareja: "tsu-peor-pagadas"
+  },
+  {
+    name: "Las 10 carreras de TSU peor pagadas",
+    jsonName: "top_10_tsu_peor_pagadas.json",
+    titleUrl: "tsu-peor-pagadas",
+    description: "Aquí conocerás la lista de las carreras de Técnico Superior Universitario (TSU) con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    lado: "menos",
+    pareja: "tsu-mejor-pagadas"
   }
 ]

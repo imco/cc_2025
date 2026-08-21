@@ -489,6 +489,12 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-profesionistas.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/profesionistas"
   },
+  "/las-10-mas/menos-profesionistas": {
+    "title": "Las 10 carreras con menor número de profesionistas",
+    "content": "Aquí conocerás la lista de las carreras con menos egresados en el país, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-profesionistas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-profesionistas"
+  },
   "/las-10-mas/porcentaje-ingreso-mujeres": {
     "title": "Las 10 carreras con el mayor porcentaje de mujeres en nuevo ingreso",
     "content": "Aquí conocerás la lista de las carreras cuya matrícula de nuevo ingreso está principalmente compuesta por mujeres, de acuerdo con el ranking de Compara Carreras.",
@@ -501,23 +507,29 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-porcentaje-ingreso-hombres.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/porcentaje-ingreso-hombres"
   },
-  "/las-10-mas/mas-aplicantes": {
-    "title": "Las 10 carreras con más aplicantes",
-    "content": "Aquí conocerás la lista de las carreras que concentran el mayor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras.",
-    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mas-aplicantes.jpg",
-    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mas-aplicantes"
+  "/las-10-mas/mayor-vinculacion-laboral": {
+    "title": "Las 10 carreras con mayor vinculación laboral",
+    "content": "Aquí conocerás la lista de carreras en el que mayor porcentaje de sus egresados trabajan en algo relacionado a lo que estudiaron, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mayor-vinculacion-laboral.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mayor-vinculacion-laboral"
   },
-  "/las-10-mas/menos-aplicantes": {
-    "title": "Las 10 carreras con menos aplicantes",
-    "content": "Aquí conocerás la lista de las carreras que concentran el menor porcentaje de aplicantes, de acuerdo con el ranking de Compara Carreras.",
-    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-aplicantes.jpg",
-    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-aplicantes"
+  "/las-10-mas/menor-vinculacion-laboral": {
+    "title": "Las 10 carreras con menor vinculación laboral",
+    "content": "Aquí conocerás la lista de carreras en el que menor porcentaje de sus egresados trabajan en algo relacionado a lo que estudiaron, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menor-vinculacion-laboral.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menor-vinculacion-laboral"
   },
   "/las-10-mas/demanda-publica": {
     "title": "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
     "content": "Aquí conocerás la lista de las carreras que reciben una mayor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-demanda-publica.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/demanda-publica"
+  },
+  "/las-10-mas/menos-demandadas": {
+    "title": "Las 10 carreras menos demandadas (porcentaje de aceptación en universidades públicas)",
+    "content": "Aquí conocerás la lista de las carreras que reciben una menor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-demandadas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-demandadas"
   },
   "/las-10-mas/porcentaje-mujeres": {
     "title": "Las 10 carreras con mayor porcentaje de mujeres",
@@ -537,11 +549,23 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-desempleados.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/desempleados"
   },
+  "/las-10-mas/menos-desempleados": {
+    "title": "Las 10 carreras con menor porcentaje de desempleados",
+    "content": "Aquí conocerás la lista de las carreras con la menor proporción de desempleados, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-desempleados.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-desempleados"
+  },
   "/las-10-mas/informalidad": {
     "title": "Las 10 carreras con mayor porcentaje de informalidad",
     "content": "Aquí conocerás la lista de las carreras con la mayor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras.",
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-informalidad.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/informalidad"
+  },
+  "/las-10-mas/menos-informalidad": {
+    "title": "Las 10 carreras con menor porcentaje de informalidad",
+    "content": "Aquí conocerás la lista de las carreras con la menor proporción de informalidad laboral, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-informalidad.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-informalidad"
   },
   "/las-10-mas/porcentaje-jovenes": {
     "title": "Las 10 carreras con mayor porcentaje de jóvenes",
@@ -560,6 +584,24 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "content": "Aquí conocerás la lista de las carreras con más estudiantes, de acuerdo con el ranking de Compara Carreras.",
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-matricula.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/matricula"
+  },
+  "/las-10-mas/menos-matricula": {
+    "title": "Las 10 carreras con menor matrícula",
+    "content": "Aquí conocerás la lista de las carreras con menos estudiantes, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-matricula.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-matricula"
+  },
+  "/las-10-mas/mas-nuevo-ingreso": {
+    "title": "Las 10 carreras con más estudiantes de nuevo ingreso",
+    "content": "Aquí conocerás la lista de las carreras que registraron más estudiantes de nuevo ingreso en el último ciclo escolar, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-mas-nuevo-ingreso.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/mas-nuevo-ingreso"
+  },
+  "/las-10-mas/menos-nuevo-ingreso": {
+    "title": "Las 10 carreras con menos estudiantes de nuevo ingreso",
+    "content": "Aquí conocerás la lista de las carreras que registraron menos estudiantes de nuevo ingreso en el último ciclo escolar, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-menos-nuevo-ingreso.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/menos-nuevo-ingreso"
   },
   "/las-10-mas/mayor-riesgo": {
     "title": "Las 10 carreras con mayor riesgo",
@@ -584,5 +626,17 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "content": "Aquí conocerás la lista de las carreras con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-peor-pagadas.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/peor-pagadas"
+  },
+  "/las-10-mas/tsu-mejor-pagadas": {
+    "title": "Las 10 carreras de TSU mejor pagadas",
+    "content": "Aquí conocerás la lista de las carreras de Técnico Superior Universitario (TSU) con el mayor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-tsu-mejor-pagadas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/tsu-mejor-pagadas"
+  },
+  "/las-10-mas/tsu-peor-pagadas": {
+    "title": "Las 10 carreras de TSU peor pagadas",
+    "content": "Aquí conocerás la lista de las carreras de Técnico Superior Universitario (TSU) con el menor ingreso promedio mensual, de acuerdo con el ranking de Compara Carreras.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/top-tsu-peor-pagadas.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/las-10-mas/tsu-peor-pagadas"
   }
 }

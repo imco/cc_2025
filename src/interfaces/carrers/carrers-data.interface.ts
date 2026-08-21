@@ -32,6 +32,7 @@ export default interface CarrersData {
   FORMAL: number | string;
   INFORMAL: number | string;
   TASA_INFORMALIDAD: number | string;
+  TASA_APLICACION: number | string;
   DESANIMADO: number | string;
   INGRESO_CERO: number | string;
   CUENTAPROPIA: number | string;

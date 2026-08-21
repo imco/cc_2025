@@ -1,13 +1,26 @@
-import TopTable from "@/components/las-10-mas/top-table/top-table.component"
+import TopDetail, { TopPlano } from "@/components/las-10-mas/top-detail/top-detail.component"
 import { TopInfo, TopsLists } from "../data.constans"
 import { TopDescription, TopsTypes } from "./data.constans"
-import Link from "next/link"
 
+// páginas: los tops del grid más sus contrapartes "Los 10 menos"
 export async function generateStaticParams() {
-  return TopsLists.map((top: TopInfo) => ({
-    slug: top.titleUrl,
-  }))
+  const slugs = new Set<string>()
+  TopsLists.forEach((top: TopInfo) => {
+    slugs.add(top.titleUrl)
+    const pareja = TopsTypes.find(t => t.titleUrl === top.titleUrl)?.pareja
+    if (pareja) slugs.add(pareja)
+  })
+  return [...slugs].map(slug => ({ slug }))
 }
+
+const aPlano = (top: TopDescription): TopPlano => ({
+  name: top.name,
+  titleUrl: top.titleUrl,
+  jsonName: top.jsonName,
+  description: top.description,
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  data: require(`@/components/las-10-mas/top/${top.jsonName}`),
+})
 
 export default async function Page({ params }: {
   params: Promise<{ slug: string }>
@@ -17,41 +30,21 @@ export default async function Page({ params }: {
   const actualTop: TopDescription | undefined = TopsTypes.find(
     (top: TopDescription) => top.titleUrl === title
   )
+  if (!actualTop) return null
 
-  const topInfo: TopInfo | undefined = TopsLists.find(
-    (top: TopInfo) => top.titleUrl === title
-  )
+  const pareja: TopDescription | undefined = actualTop.pareja
+    ? TopsTypes.find((top: TopDescription) => top.titleUrl === actualTop.pareja)
+    : undefined
 
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const topData = require(`@/components/las-10-mas/top/${actualTop?.jsonName}`)
+  // el componente recibe siempre el lado "más" como base y el "menos" como contraparte
+  const topMas = actualTop.lado === "menos" && pareja ? pareja : actualTop
+  const topMenos = actualTop.lado === "menos" ? actualTop : pareja
 
   return (
-    <>
-      <div id="top10-modal" className="">
-        <div className="modal-conten">
-          <div className="back-option mb-4">
-            <Link href={"/las-10-mas"} className="text-white text-sm mb-5">
-              &larr; Volver a las 10 más
-            </Link>
-          </div>
-          <h3 id="modal-title">
-            {topInfo && (
-              <span className="top10-detail-icon">
-                <topInfo.icon size={30} />
-              </span>
-            )}
-            {actualTop?.name}
-          </h3>
-          <div id="modal-data">
-            <div className="mt-3 text-justify">
-              <p className="card-text text-lg font-light">
-                {actualTop?.description}
-              </p>
-            </div>
-            <TopTable topData={topData} actualTop={actualTop} />
-          </div>
-        </div>
-      </div>
-    </>
+    <TopDetail
+      mas={aPlano(topMas)}
+      menos={topMenos ? aPlano(topMenos) : null}
+      inicial={actualTop.lado === "menos" ? "menos" : "mas"}
+    />
   )
 }
