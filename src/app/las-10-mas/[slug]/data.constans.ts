@@ -67,7 +67,7 @@ export const TopsTypes: TopDescription[] = [
   },
   {
     name: "Las 10 carreras más demandadas (porcentaje de aceptación en universidades públicas)",
-    jsonName: "top_10_mas_demandadas.json",
+    jsonName: "top_10_mas_demandadas_publicas.json",
     titleUrl: "demanda-publica",
     description: "Aquí conocerás la lista de las carreras que reciben una mayor cantidad de solicitudes de ingreso dada su oferta disponible de espacios, de acuerdo con el ranking de Compara Carreras.",
     lado: "mas",

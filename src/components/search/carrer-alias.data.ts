@@ -24,8 +24,8 @@ const CarrerAliasManual: Record<string, string[]> = {
   // un mismo alias puede repetirse en varias carreras cuando el término es
   // ambiguo: el buscador sugerirá todas las que lo tengan
   "Ciencias computacionales": ["Programación", "Programador", "Computación", "Informática", "Sistemas"],
-  "Desarrollo de software (Innovación)": ["Programación", "Programador", "Software", "Ingeniero de software", "Ingeniería de software", "Desarrollo web"],
-  "Desarrollo de software (Implementación)": ["Programación", "Programador", "Software", "Ingeniero de software", "Ingeniería de software", "Desarrollo web"],
+  "Desarrollo de software": ["Programación", "Programador", "Software", "Ingeniero de software", "Ingeniería de software", "Desarrollo web"],
+  "Telecomunicaciones": ["Redes", "Telecom", "Redes y telecomunicaciones", "Conectividad"],
   "Contabilidad y fiscalización": ["Contador", "Contadora", "Contaduría"],
   "Formación docente en educación básica nivel primaria": ["Maestro de primaria", "Profesor", "Normalista"],
   "Enfermería general y obstetricia": ["Enfermero", "Enfermera", "Enfermería"],

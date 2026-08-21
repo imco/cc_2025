@@ -31,157 +31,157 @@
         8,
         177407
     ],
-    "Desarrollo de software (Innovación)": [
+    "Desarrollo de software": [
         9,
         175126
     ],
-    "Desarrollo de software (Implementación)": [
-        10,
-        175126
-    ],
     "Electrónica automatización y aplicaciones de la mecánica-eléctrica": [
-        11,
+        10,
         162734
     ],
     "Diseño curricular y pedagogía": [
-        12,
+        11,
         151419
     ],
     "Arquitectura y urbanismo": [
-        13,
+        12,
         151201
     ],
     "Planes multidisciplinarios o generales del campo de administración y gestión": [
-        14,
+        13,
         150377
     ],
     "Mercadotecnia y publicidad": [
-        15,
+        14,
         98811
     ],
     "Estomatología y odontología general": [
-        16,
+        15,
         96795
     ],
     "Construcción e ingeniería civil": [
-        17,
+        16,
         85862
     ],
     "Criminología y criminalística": [
-        18,
+        17,
         80439
     ],
     "Nutrición": [
-        19,
+        18,
         80173
     ],
     "Diseño y comunicación gráfica y editorial": [
-        20,
+        19,
         77568
     ],
     "Gastronomía y servicios de alimentos": [
-        21,
+        20,
         72341
     ],
     "Producción y explotación agrícola y ganadera": [
-        22,
+        21,
         67173
     ],
     "Ingeniería de procesos químicos": [
-        23,
+        22,
         64016
     ],
     "Ciencias de la educación": [
-        24,
+        23,
         59115
     ],
     "Formación docente en educación básica nivel primaria": [
-        25,
+        24,
         58128
     ],
     "Comunicación y periodismo": [
-        26,
+        25,
         56354
     ],
     "Informática": [
-        27,
+        26,
         56130
     ],
     "Terapia y rehabilitación": [
-        28,
+        27,
         54390
     ],
     "Veterinaria": [
-        29,
+        28,
         52562
     ],
     "Formación docente en la enseñanza de asignaturas específicas": [
-        30,
+        29,
         48112
     ],
     "Mecánica y profesiones afines al trabajo metálico": [
-        31,
+        30,
         47609
     ],
     "Ciencias políticas": [
-        32,
+        31,
         44357
     ],
     "Vehículos barcos y aeronaves motorizadas": [
-        33,
+        32,
         39490
     ],
     "Bioquímica y biofísica": [
-        34,
+        33,
         39451
     ],
     "Economía": [
-        35,
+        34,
         37690
     ],
     "Diseño industrial de moda e interiores": [
-        36,
+        35,
         34585
     ],
     "Administración turística y de restaurantes": [
-        37,
+        36,
         32947
     ],
     "Formación docente en educación básica nivel preescolar": [
-        38,
+        37,
         32498
     ],
     "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
-        39,
+        38,
         31784
     ],
     "Finanzas banca y seguros": [
-        40,
+        39,
         29949
     ],
     "Orientación e intervención educativa": [
-        41,
+        40,
         29640
     ],
     "Trabajo y atención social": [
-        42,
+        41,
         29258
     ],
     "Electricidad y generación de energía": [
-        43,
+        42,
         28630
     ],
     "Biología": [
-        44,
+        43,
         28450
     ],
     "Adquisición de idiomas extranjeros": [
-        45,
+        44,
         23816
     ],
     "Hospitalidad y turismo": [
-        46,
+        45,
         23403
+    ],
+    "Telecomunicaciones": [
+        46,
+        23246
     ],
     "Industria de la alimentación": [
         47,
@@ -257,6 +257,6 @@
     ],
     "Formación docente en educación superior": [
         65,
-        598.0
+        598
     ]
 }

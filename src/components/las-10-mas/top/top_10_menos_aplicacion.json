@@ -11,308 +11,252 @@
         3,
         9.49
     ],
-    "TSU. Contabilidad y fiscalización": [
-        4,
-        9.61
-    ],
-    "TSU. Planes multidisciplinarios o generales del campo de implementación de las tecnologías de la información y la comunicación": [
-        5,
-        11.53
-    ],
-    "TSU. Desarrollo de software (Innovación)": [
-        6,
-        11.96
-    ],
-    "TSU. Informática": [
-        7,
-        12.67
-    ],
     "Industria de la alimentación": [
-        8,
+        4,
         14.0
     ],
     "Administración en el ámbito de la ingeniería y la construcción": [
-        9,
+        5,
         15.96
     ],
     "Administración turística y de restaurantes": [
-        10,
+        6,
         18.8
     ],
-    "TSU. Trabajo y atención social": [
-        11,
-        18.91
-    ],
     "Criminología y criminalística": [
-        12,
+        7,
         19.39
     ],
     "Comunicación y periodismo": [
-        13,
+        8,
         20.93
     ],
-    "TSU. Servicios de apoyo y asistencia administrativa": [
-        14,
-        21.55
-    ],
     "Sociología y antropología": [
-        15,
+        9,
         22.38
     ],
     "Ciencias políticas": [
-        16,
+        10,
         23.79
     ],
     "Hospitalidad y turismo": [
-        17,
+        11,
         24.11
     ],
-    "Desarrollo de software (Implementación)": [
-        18,
+    "Telecomunicaciones": [
+        12,
         24.17
     ],
     "Tecnología para la protección del medio ambiente": [
-        19,
+        13,
         24.85
     ],
-    "TSU. Formación docente en educación básica nivel preescolar": [
-        20,
-        25.14
-    ],
     "Diseño industrial de moda e interiores": [
-        21,
+        14,
         25.96
     ],
     "Historia y arqueología": [
-        22,
+        15,
         26.01
     ],
     "Planeación evaluación e investigación educativa": [
-        23,
+        16,
         26.51
     ],
     "Biología": [
-        24,
+        17,
         26.56
     ],
     "Ecología y ciencias ambientales": [
-        25,
+        18,
         27.87
     ],
     "Industria de la minería extracción y metalurgia": [
-        26,
+        19,
         28.01
     ],
     "Trabajo y atención social": [
-        27,
+        20,
         28.74
     ],
     "Ingeniería industrial": [
-        28,
+        21,
         28.81
     ],
     "Economía": [
-        29,
+        22,
         29.14
     ],
     "Mercadotecnia y publicidad": [
-        30,
+        23,
         32.0
     ],
     "Ingeniería de procesos químicos": [
-        31,
+        24,
         32.12
     ],
-    "TSU. Planes multidisciplinarios o generales del campo de administración y gestión": [
-        32,
-        32.23
-    ],
     "Administración pública": [
-        33,
+        25,
         33.99
     ],
-    "TSU. Electrónica automatización y aplicaciones de la mecánica-eléctrica": [
-        34,
-        36.61
-    ],
     "Formación docente en la enseñanza de asignaturas específicas": [
-        35,
+        26,
         36.92
     ],
     "Administración de empresas": [
-        36,
+        27,
         38.22
     ],
     "Informática": [
-        37,
+        28,
         39.56
     ],
     "Planes multidisciplinarios o generales del campo de administración y gestión": [
-        38,
+        29,
         40.19
     ],
-    "TSU. Mecánica y profesiones afines al trabajo metálico": [
-        39,
-        40.38
-    ],
     "Producción y explotación agrícola y ganadera": [
-        40,
+        30,
         40.8
     ],
-    "TSU. Vehículos barcos y aeronaves motorizadas": [
-        41,
-        42.16
-    ],
     "Formación docente en educación básica nivel secundaria": [
-        42,
+        31,
         42.59
     ],
     "Formación docente en educación superior": [
-        43,
+        32,
         42.87
     ],
     "Mecánica y profesiones afines al trabajo metálico": [
-        44,
+        33,
         43.49
     ],
     "Vehículos barcos y aeronaves motorizadas": [
-        45,
+        34,
         44.21
     ],
     "Finanzas banca y seguros": [
-        46,
+        35,
         44.37
     ],
     "Nutrición": [
-        47,
+        36,
         44.41
     ],
     "Deportes": [
-        48,
+        37,
         44.53
     ],
-    "Desarrollo de software (Innovación)": [
-        49,
+    "Desarrollo de software": [
+        38,
         44.67
     ],
     "Literatura": [
-        50,
+        39,
         45.33
     ],
     "Negocios y comercio": [
-        51,
+        40,
         45.81
     ],
     "Diseño y comunicación gráfica y editorial": [
-        52,
+        41,
         46.29
     ],
     "Orientación e intervención educativa": [
-        53,
+        42,
         46.85
     ],
     "Química": [
-        54,
+        43,
         47.09
     ],
     "Bioquímica y biofísica": [
-        55,
+        44,
         47.58
     ],
     "Formación docente en otros servicios educativos": [
-        56,
+        45,
         48.6
     ],
     "Veterinaria": [
-        57,
+        46,
         48.7
     ],
     "Gastronomía y servicios de alimentos": [
-        58,
+        47,
         49.03
     ],
     "Adquisición de idiomas extranjeros": [
-        59,
+        48,
         49.2
     ],
     "Construcción e ingeniería civil": [
-        60,
+        49,
         49.75
     ],
     "Psicología": [
-        61,
+        50,
         50.01
     ],
     "Electrónica automatización y aplicaciones de la mecánica-eléctrica": [
-        62,
+        51,
         50.69
     ],
-    "TSU. Servicios de cuidado personal y belleza": [
-        63,
-        51.45
-    ],
     "Planes multidisciplinarios o generales del campo de innovación en tecnologías de la información y la comunicación": [
-        64,
+        52,
         51.52
     ],
     "Contabilidad y fiscalización": [
-        65,
+        53,
         51.86
     ],
-    "TSU. Enfermería general y obstetricia": [
-        66,
-        52.67
-    ],
-    "TSU. Electricidad y generación de energía": [
-        67,
-        52.7
-    ],
     "Derecho": [
-        68,
+        54,
         52.87
     ],
     "Planes multidisciplinarios o generales del campo de formación docente": [
-        69,
+        55,
         55.59
     ],
     "Arquitectura y urbanismo": [
-        70,
+        56,
         59.81
     ],
     "Electricidad y generación de energía": [
-        71,
+        57,
         60.02
     ],
     "Terapia y rehabilitación": [
-        72,
+        58,
         68.08
     ],
     "Formación docente en educación básica nivel preescolar": [
-        73,
+        59,
         68.53
     ],
     "Matemáticas": [
-        74,
+        60,
         69.57
     ],
     "Estomatología y odontología general": [
-        75,
+        61,
         73.23
     ],
     "Ciencias de la educación": [
-        76,
+        62,
         74.65
     ],
     "Enfermería general y obstetricia": [
-        77,
+        63,
         74.7
     ],
     "Formación docente en educación básica nivel primaria": [
-        78,
+        64,
         77.22
     ],
     "Medicina general": [
-        79,
+        65,
         80.66
     ]
 }

@@ -72,12 +72,22 @@ CAMPOS_ROI = [
 # indicadores nuevos de la edición 2026 (aún sin sección en el sitio)
 CAMPOS_NUEVOS = ["EGRESADOS", "NUEVO_INGRESO", "EJERCE", "NO_EJERCE", "TASA_RIESGO", "TASA_APLICACION"]
 
-# CVE -> sufijo perdido en el CSV crudo
-SUFIJOS_CVE = {613: " (Innovación)", 621: " (Implementación)"}
+# CVE -> sufijo perdido en el CSV crudo. La base corregida de agosto 2026
+# aclaró que la CVE 621 es Telecomunicaciones y la 613 es Desarrollo de
+# software (sin sufijos), así que el parche quedó vacío.
+SUFIJOS_CVE = {}
 
-# alias para nombres en tops (sin CVE disponible); el TSU de software es el
-# de Innovación (CVE 613), igual que en el maestro
-ALIAS_TOPS = {"TSU. Desarrollo de software": "TSU. Desarrollo de software (Innovación)"}
+# alias para nombres en tops (sin CVE disponible); vacío desde la base
+# corregida de agosto 2026
+ALIAS_TOPS = {}
+
+# renombres de la corrección de agosto 2026 (nuevo -> nombre en la edición
+# anterior); permiten arrastrar los campos de ROI pese al cambio de nombre
+NOMBRES_PREVIOS = {
+    "Telecomunicaciones": "Desarrollo de software (Implementación)",
+    "Desarrollo de software": "Desarrollo de software (Innovación)",
+    "TSU. Desarrollo de software": "TSU. Desarrollo de software (Innovación)",
+}
 
 
 def num(v):
@@ -157,6 +167,9 @@ def main():
             c["PCT_30MAS"] = div(c["X30_O_MAS"], c["TOTAL"])
             c["PCT_30MENOS"] = div(c["MENOR_DE_30"], c["TOTAL"])
             c["TASA_OCUPACION"] = div(c["OCUPADO"], c["ACTIVA"])
+            # se deriva siempre: la columna cruda llega en formatos mixtos
+            # ("9%" en licenciaturas, decimal en TSU); validado contra ambos
+            c["TASA_APLICACION"] = div(c["EJERCE"], c["OCUPADO"])
             for campo, base_col in [
                 ("POR_CUENTAPROPIA", "CUENTAPROPIA"), ("POR_EMPLEADOR", "EMPLEADOR"),
                 ("POR_SIN_PAGO", "SIN_PAGO"), ("POR_SUBORDINADO", "SUBORDINADO"),
@@ -190,7 +203,8 @@ def main():
     # --- 3. arrastre de ROI/costos de la edición anterior
     arrastradas = 0
     for c in carreras:
-        previa = por_nombre_anterior.get(c["CARRERA"])
+        previa = por_nombre_anterior.get(c["CARRERA"]) \
+            or por_nombre_anterior.get(NOMBRES_PREVIOS.get(c["CARRERA"], ""))
         for campo in CAMPOS_ROI:
             c[campo] = previa[campo] if previa else "NA"
         arrastradas += 1 if previa else 0

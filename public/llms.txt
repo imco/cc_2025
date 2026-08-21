@@ -62,8 +62,7 @@ Cada ficha de carrera responde: ¿cuántos son? (total de profesionistas, géner
 - [Criminología y criminalística](https://comparacarreras.imco.org.mx/criminolog%C3%ADa_y_criminal%C3%ADstica): salario promedio mensual de $18,993
 - [Deportes](https://comparacarreras.imco.org.mx/deportes): salario promedio mensual de $19,139
 - [Derecho](https://comparacarreras.imco.org.mx/derecho): salario promedio mensual de $24,178
-- [Desarrollo de software (Implementación)](https://comparacarreras.imco.org.mx/desarrollo_de_software_(implementaci%C3%B3n)): salario promedio mensual de $NaN
-- [Desarrollo de software (Innovación)](https://comparacarreras.imco.org.mx/desarrollo_de_software_(innovaci%C3%B3n)): salario promedio mensual de $24,927
+- [Desarrollo de software](https://comparacarreras.imco.org.mx/desarrollo_de_software): salario promedio mensual de $24,927
 - [Diseño curricular y pedagogía](https://comparacarreras.imco.org.mx/dise%C3%B1o_curricular_y_pedagog%C3%ADa): salario promedio mensual de $15,934
 - [Diseño industrial de moda e interiores](https://comparacarreras.imco.org.mx/dise%C3%B1o_industrial_de_moda_e_interiores): salario promedio mensual de $25,503
 - [Diseño y comunicación gráfica y editorial](https://comparacarreras.imco.org.mx/dise%C3%B1o_y_comunicaci%C3%B3n_gr%C3%A1fica_y_editorial): salario promedio mensual de $23,897
@@ -106,10 +105,11 @@ Cada ficha de carrera responde: ¿cuántos son? (total de profesionistas, géner
 - [Química](https://comparacarreras.imco.org.mx/qu%C3%ADmica): salario promedio mensual de $24,940
 - [Sociología y antropología](https://comparacarreras.imco.org.mx/sociolog%C3%ADa_y_antropolog%C3%ADa): salario promedio mensual de $17,137
 - [Tecnología para la protección del medio ambiente](https://comparacarreras.imco.org.mx/tecnolog%C3%ADa_para_la_protecci%C3%B3n_del_medio_ambiente): salario promedio mensual de $19,496
+- [Telecomunicaciones](https://comparacarreras.imco.org.mx/telecomunicaciones): salario promedio mensual de $NaN
 - [Terapia y rehabilitación](https://comparacarreras.imco.org.mx/terapia_y_rehabilitaci%C3%B3n): salario promedio mensual de $17,141
 - [Trabajo y atención social](https://comparacarreras.imco.org.mx/trabajo_y_atenci%C3%B3n_social): salario promedio mensual de $16,266
 - [TSU. Contabilidad y fiscalización](https://comparacarreras.imco.org.mx/tsu._contabilidad_y_fiscalizaci%C3%B3n): salario promedio mensual de $14,155
-- [TSU. Desarrollo de software (Innovación)](https://comparacarreras.imco.org.mx/tsu._desarrollo_de_software_(innovaci%C3%B3n)): salario promedio mensual de $15,604
+- [TSU. Desarrollo de software](https://comparacarreras.imco.org.mx/tsu._desarrollo_de_software): salario promedio mensual de $15,604
 - [TSU. Electricidad y generación de energía](https://comparacarreras.imco.org.mx/tsu._electricidad_y_generaci%C3%B3n_de_energ%C3%ADa): salario promedio mensual de $18,308
 - [TSU. Electrónica automatización y aplicaciones de la mecánica-eléctrica](https://comparacarreras.imco.org.mx/tsu._electr%C3%B3nica_automatizaci%C3%B3n_y_aplicaciones_de_la_mec%C3%A1nica-el%C3%A9ctrica): salario promedio mensual de $19,317
 - [TSU. Enfermería general y obstetricia](https://comparacarreras.imco.org.mx/tsu._enfermer%C3%ADa_general_y_obstetricia): salario promedio mensual de $16,849

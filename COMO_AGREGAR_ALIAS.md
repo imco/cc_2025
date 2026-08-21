@@ -40,8 +40,8 @@ Un mismo alias **puede repetirse en varias carreras**. Cuando el término es amb
 
 ```ts
 "Ciencias computacionales":              ["Programación", ...],
-"Desarrollo de software (Innovación)":   ["Programación", ...],
-"Desarrollo de software (Implementación)": ["Programación", ...],
+"Ciencias computacionales":  ["Programación", ...],
+"Desarrollo de software":    ["Programación", ...],
 ```
 
 Buscar "programación" mostrará las tres opciones, cada una con la nota de por qué apareció.

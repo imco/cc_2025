@@ -1573,7 +1573,7 @@ export const CarrerAliasInegi: Record<string, string[]> = {
     "Computación inteligente",
     "Computación óptica"
   ],
-  "Desarrollo de software (Innovación)": [
+  "Desarrollo de software": [
     "Administración de sistemas computacionales",
     "Analista programador",
     "Analista programador bilingüe",
@@ -1661,7 +1661,7 @@ export const CarrerAliasInegi: Record<string, string[]> = {
     "Tecnologías web y dispositivos móviles",
     "Videojuegos"
   ],
-  "TSU. Desarrollo de software (Innovación)": [
+  "TSU. Desarrollo de software": [
     "Administración de sistemas computacionales",
     "Analista programador",
     "Analista programador bilingüe",
@@ -1757,7 +1757,7 @@ export const CarrerAliasInegi: Record<string, string[]> = {
     "Tecnología computacional",
     "Tecnología de cómputo"
   ],
-  "Desarrollo de software (Implementación)": [
+  "Telecomunicaciones": [
     "Administración de recursos telemáticos",
     "Ciencias (telecomunicaciones)",
     "Ciencias computacionales con acentuación en redes informáticas",

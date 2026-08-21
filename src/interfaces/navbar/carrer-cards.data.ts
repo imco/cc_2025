@@ -255,17 +255,17 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-ciencias_computacionales.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/ciencias_computacionales"
   },
-  "/desarrollo_de_software_(innovación)": {
-    "title": "Desarrollo de software (Innovación)",
-    "content": "Desarrollo de software (Innovación): salario promedio mensual de $24,927, tasa de ocupación de 96.8%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
-    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-desarrollo_de_software_innovacion.jpg",
-    "urlCanonical": "https://comparacarreras.imco.org.mx/desarrollo_de_software_(innovación)"
+  "/desarrollo_de_software": {
+    "title": "Desarrollo de software",
+    "content": "Desarrollo de software: salario promedio mensual de $24,927, tasa de ocupación de 96.8%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-desarrollo_de_software.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/desarrollo_de_software"
   },
-  "/desarrollo_de_software_(implementación)": {
-    "title": "Desarrollo de software (Implementación)",
-    "content": "Desarrollo de software (Implementación): salario promedio mensual de —, tasa de ocupación de 95.3%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
-    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-desarrollo_de_software_implementacion.jpg",
-    "urlCanonical": "https://comparacarreras.imco.org.mx/desarrollo_de_software_(implementación)"
+  "/telecomunicaciones": {
+    "title": "Telecomunicaciones",
+    "content": "Telecomunicaciones: salario promedio mensual de —, tasa de ocupación de 95.3%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-telecomunicaciones.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/telecomunicaciones"
   },
   "/informática": {
     "title": "Informática",
@@ -423,11 +423,11 @@ export const CarrerCards: Record<string, CarrerCard> = {
     "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-tsu_planes_multidisciplinarios_o_generales_del_campo_de_administracion_y_gestion.jpg",
     "urlCanonical": "https://comparacarreras.imco.org.mx/tsu._planes_multidisciplinarios_o_generales_del_campo_de_administración_y_gestión"
   },
-  "/tsu._desarrollo_de_software_(innovación)": {
-    "title": "TSU. Desarrollo de software (Innovación)",
-    "content": "TSU. Desarrollo de software (Innovación): salario promedio mensual de $15,604, tasa de ocupación de 97.6%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
-    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-tsu_desarrollo_de_software_innovacion.jpg",
-    "urlCanonical": "https://comparacarreras.imco.org.mx/tsu._desarrollo_de_software_(innovación)"
+  "/tsu._desarrollo_de_software": {
+    "title": "TSU. Desarrollo de software",
+    "content": "TSU. Desarrollo de software: salario promedio mensual de $15,604, tasa de ocupación de 97.6%. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.",
+    "urlMiniatura": "https://comparacarreras.imco.org.mx/og/carrera-tsu_desarrollo_de_software.jpg",
+    "urlCanonical": "https://comparacarreras.imco.org.mx/tsu._desarrollo_de_software"
   },
   "/tsu._planes_multidisciplinarios_o_generales_del_campo_de_implementación_de_las_tecnologías_de_la_información_y_la_comunicación": {
     "title": "TSU. Planes multidisciplinarios o generales del campo de implementación de las tecnologías de la información y la comunicación",
