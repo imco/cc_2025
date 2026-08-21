@@ -274,6 +274,17 @@ export default function Compare() {
                   </td>
                 </tr>
                 <tr>
+                  <td>
+                    ¿Cuántos trabajan en lo que estudiaron?
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer1Data?.TASA_APLICACION)}`}
+                  </td>
+                  <td >
+                    {`${formatPercentage(carrer2Data?.TASA_APLICACION)}`}
+                  </td>
+                </tr>
+                <tr>
                   <td
                     colSpan={3}
                     className="section-header"
