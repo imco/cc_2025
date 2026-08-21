@@ -176,8 +176,9 @@ header {
     height: 60px;
 }
 
+/* sin escala extra: a la par del logo del IMCO */
 .home-saberes-banner .saberes-home-logo {
-    transform: scale(1.7);
+    transform: scale(1.1);
     transform-origin: center center;
 }
 
