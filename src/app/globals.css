@@ -2411,9 +2411,75 @@ footer {
     margin-top: 20px;
 }
 
+/* fórmulas tipografiadas de la metodología */
+.metodologia-formula {
+    display: flex;
+    align-items: center;
+    justify-content: safe center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 2px;
+    margin: 18px 0;
+    padding: 14px 10px;
+    background-color: #f5f8fb;
+    border-radius: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    color: #333;
+    text-align: center;
+    overflow-x: auto;
+}
+
+.formula-potencia {
+    display: inline-flex;
+    align-items: center;
+}
+
+.formula-fraccion {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+
+.formula-numerador {
+    padding: 0 6px 2px;
+    border-bottom: 1.5px solid #333;
+}
+
+.formula-denominador {
+    padding: 2px 6px 0;
+}
+
+.formula-fraccion-chica {
+    font-size: 0.72em;
+}
+
+.formula-corchete,
+.formula-parentesis {
+    font-size: 1.6em;
+    font-weight: 300;
+    align-self: center;
+}
+
+.formula-exponente {
+    align-self: flex-start;
+    margin-left: 2px;
+    font-size: 0.68em;
+}
+
+.metodologia-formula.formula-roi {
+    font-size: 0.82rem;
+}
+
 @media (max-width: 768px) {
     .metodologia-card {
         width: 100%;
+    }
+
+    .metodologia-formula.formula-roi {
+        font-size: 0.85rem;
     }
 }
 
