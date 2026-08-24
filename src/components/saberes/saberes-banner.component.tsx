@@ -12,19 +12,14 @@ export default function SaberesBanner() {
       <div className="saberes-banner-content">
         <h3 className="saberes-banner-title">
           <span className="saberes-banner-title-desktop">
-            Certificaciones para seguir aprendiendo
+            Un espacio para la democratización del conocimiento
           </span>
           <span className="saberes-banner-title-mobile">
-            Aquí encontrarás certificaciones para seguir aprendiendo
+            Un espacio para la democratización del conocimiento
           </span>
         </h3>
         <p className="saberes-banner-description">
-          <span className="saberes-banner-description-intro">
-            Las <strong>microcredenciales</strong> te permiten actualizar tus conocimientos y desarrollar habilidades clave de forma flexible.
-          </span>{" "}
-          <span>
-            En <strong>SaberesMx</strong> la plataforma de la Secretaría de Educación Pública puedes obtener certificaciones gratuitas para profundizar en tu área de interés y fortalecer tu desarrollo profesional.
-          </span>
+          En <strong>SaberesMX</strong>, la plataforma de la Secretaría de Educación Pública, puedes seguir trayectorias formativas a través de cursos gratuitos que te permiten actualizar tus conocimientos de manera flexible, profundizar en áreas que sean de tu interés y fortalecer tu desarrollo académico y profesional.
         </p>
       </div>
       <div className="saberes-banner-logo-container">
