@@ -57,7 +57,8 @@ export async function agregarFilaSheet(datos: DatosEnvioRoi) {
       'Costo Periodo': datos.costo_por_periodo,
       'Costo Total': datos.costo_total,
       'Meses Recuperacion': datos.meses_recuperacion ?? '',
-      'RSI Porcentaje': datos.porcentaje_rsi ?? '',
+      // ojo: debe coincidir con el encabezado de la primera fila de la hoja
+      'ROI Porcentaje': datos.porcentaje_rsi ?? '',
     };
 
     // Intentar cargar encabezados, si falla o están vacíos, crearlos

@@ -36,7 +36,7 @@ Cada vez que un usuario completa un cálculo en la calculadora ROI, se envía un
 | Campo | Descripción | Formato | Ejemplo |
 |-------|-------------|---------|---------|
 | `months_to_recover` | Meses para recuperar inversión | Decimal (1 decimal) | 12.5 |
-| `rsi_percentage` | RSI en porcentaje | Decimal (1 decimal) | 8.5 |
+| `rsi_percentage` | ROI en porcentaje | Decimal (1 decimal) | 8.5 |
 
 ### 4️⃣ Metadata (1 campo)
 
@@ -124,7 +124,7 @@ Google Analytics 4
 - Costos promedio por tipo de universidad
 - Distribución de períodos de estudio
 - Top de carreras personalizadas
-- RSI promedio por carrera
+- ROI promedio por carrera
 
 **Cuándo usarlo:**
 - Análisis profundo de datos
@@ -209,7 +209,7 @@ Para poder ver los parámetros en reportes, debes crear Custom Dimensions:
    - Event parameter: `months_to_recover`
    - Unit: Standard
 
-5. **RSI Percentage**
+5. **ROI Percentage**
    - Event parameter: `rsi_percentage`
    - Unit: Standard
 
@@ -258,13 +258,13 @@ Para poder ver los parámetros en reportes, debes crear Custom Dimensions:
 
 ---
 
-### Reporte 4: RSI Promedio por Carrera
+### Reporte 4: ROI Promedio por Carrera
 
 **Configuración:**
 - Dimensión: Career Name
-- Métrica: RSI Percentage (average)
+- Métrica: ROI Percentage (average)
 - Filtro: is_custom_career = false AND rsi_percentage is not null
-- Ordenar: RSI Percentage DESC
+- Ordenar: ROI Percentage DESC
 
 **Pregunta que responde:** ¿Qué carreras tienen mejor retorno de inversión?
 

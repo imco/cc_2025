@@ -17,7 +17,7 @@ Para que la calculadora guarde los datos en tu Google Sheet, necesitamos configu
    - `Costo Periodo`
    - `Costo Total`
    - `Meses Recuperacion`
-   - `RSI Porcentaje`
+   - `ROI Porcentaje`
 
 4. Copia el **ID de la hoja** de la URL.
    - URL: `https://docs.google.com/spreadsheets/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ/edit`
