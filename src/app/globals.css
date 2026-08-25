@@ -3465,8 +3465,7 @@ section.bg-gray-100 {
 }
 
 .saberes-banner-logo {
-    height: 150px;
-    /* Logo más grande (doble) */
+    height: 75px;
     width: auto;
     object-fit: contain;
 }
@@ -3501,7 +3500,7 @@ section.bg-gray-100 {
     }
 
     .saberes-banner-logo {
-        height: 100px;
+        height: 56px;
     }
 
     .imco-banner-logo {
@@ -3552,7 +3551,7 @@ section.bg-gray-100 {
     }
 
     .saberes-banner-logo {
-        height: 104px;
+        height: 52px;
     }
 
     .imco-banner-logo {
