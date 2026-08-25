@@ -10,7 +10,7 @@ export default function Footer() {
         <p>
           Compara Carreras es una herramienta desarrollada por el Instituto Mexicano para la Competitividad, A.C. (IMCO). El IMCO es un centro de investigación apartidista y sin fines de lucro que investiga y actúa con base en evidencia para resolver los desafíos más importantes de México. Nuestra misión es proponer políticas públicas y acciones viables e influir en su ejecución para lograr un México próspero e incluyente.
         </p>
-        <h4>Contacto</h4>
+        <h2 className="footer-contacto">Contacto</h2>
         <p>
           Escríbenos a <a href="mailto:comparacarreras@imco.org.mx" style={{ color: "inherit" }} target="_blank">comparacarreras@imco.org.mx</a>
         </p>

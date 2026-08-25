@@ -69,8 +69,11 @@ export default function RootLayout({
         <meta name="twitter:domain" content="comparacarreras.org" />
       </head>
       <body>
+        <a href="#contenido" className="skip-link">Saltar al contenido</a>
         <Navbar linksOptions={LinksList} />
-        {children}
+        <main id="contenido">
+          {children}
+        </main>
         <Footer />
         <BootstrapClient />
         {/* <!-- Google Tag Manager (noscript) --> */}

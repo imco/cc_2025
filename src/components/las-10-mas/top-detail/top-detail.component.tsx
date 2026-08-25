@@ -93,14 +93,14 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
           <Link href={"/las-10-mas"} className="top-back-link text-white text-sm">
             &larr; Volver a las 10 más
           </Link>
-          <h3 id="modal-title" key={activo.titleUrl}>
+          <h1 id="modal-title" key={activo.titleUrl}>
             {Icono && (
               <span className="top10-detail-icon">
                 <Icono size={30} />
               </span>
             )}
             {activo.name}
-          </h3>
+          </h1>
           {(topAnterior || topSiguiente) && (
             <div className="top-nav-arrows">
               {topAnterior && (

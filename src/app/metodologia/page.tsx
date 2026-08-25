@@ -5,7 +5,7 @@ import sectoresPicture from "@/assets/images/metodology/picture-sectors.png"
 export default function Metodologia() {
   return (
     <section id="metodologia" className="metodologia-section">
-      <h2 className="section-title-metodologia mt-5">Metodología</h2>
+      <h1 className="section-title-metodologia mt-5">Metodología</h1>
       <div className="metodologia-content">
         <div className="metodologia-card">
           <p>Compara Carreras es una herramienta del Instituto Mexicano para la Competitividad (IMCO). Reúne información sobre las condiciones laborales, los ingresos y la oferta educativa de las carreras que se estudian en México. Su propósito es que las personas jóvenes decidan con evidencia. La edición 2026 cubre 65 campos de estudio de licenciatura y 14 de Técnico Superior Universitario (TSU).</p>

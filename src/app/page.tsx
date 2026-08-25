@@ -60,6 +60,7 @@ export default function Home() {
             alt="ComparaCarreras"
           />
         </div>
+        <h1 className="sr-only">Compara Carreras: encuentra tu carrera</h1>
         <p className="description">
           Descubre información relevante sobre más de 60 carreras universitarias,
           incluyendo licenciaturas y carreras técnicas (TSU).
@@ -73,6 +74,7 @@ export default function Home() {
             onChange={setCarrer}
             onSelect={nombre => router.push(`/${nombre.toLowerCase().replaceAll(" ", "_")}`)}
             inputId="search-input"
+            ariaLabel="Buscar carrera"
           />
           <div id="search-placeholder" style={carrer ? { display: 'none' } : undefined}></div>
         </div>

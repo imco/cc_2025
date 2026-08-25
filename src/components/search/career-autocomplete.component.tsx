@@ -27,6 +27,8 @@ type Props = {
   inputClassName?: string
   placeholder?: string
   maxResultados?: number
+  // nombre accesible cuando no hay un <label> visible asociado
+  ariaLabel?: string
 }
 
 export default function CareerAutocomplete({
@@ -39,6 +41,7 @@ export default function CareerAutocomplete({
   inputClassName,
   placeholder,
   maxResultados = 8,
+  ariaLabel,
 }: Props) {
   const [abierto, setAbierto] = useState(false)
   const [activa, setActiva] = useState(-1)
@@ -135,6 +138,7 @@ export default function CareerAutocomplete({
         placeholder={placeholder}
         value={value}
         autoComplete="off"
+        aria-label={ariaLabel}
         role="combobox"
         aria-expanded={visible}
         aria-controls={listId}

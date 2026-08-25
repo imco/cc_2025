@@ -359,8 +359,9 @@ export default function RoiSelector() {
 
             {/* STEP 1: nivel educativo */}
             <Step n={1}>
-              <label className="roi-label">Elige el nivel educativo:</label>
+              <label className="roi-label" htmlFor="roi-nivel">Elige el nivel educativo:</label>
               <select
+                id="roi-nivel"
                 value={level}
                 onChange={(e) => setLevel(e.target.value as EducationLevel)}
                 className={selectClass("level")}
@@ -375,8 +376,9 @@ export default function RoiSelector() {
 
             {/* STEP 2: tipo de universidad */}
             <Step n={2}>
-              <label className="roi-label">Tu universidad es:</label>
+              <label className="roi-label" htmlFor="roi-universidad">Tu universidad es:</label>
               <select
+                id="roi-universidad"
                 value={universityType}
                 onChange={(e) => setUniversityType(e.target.value as UniversityType | "")}
                 className={selectClass("universityType")}
@@ -392,8 +394,9 @@ export default function RoiSelector() {
 
             {/* STEP 3: carrera */}
             <Step n={3}>
-              <label className="roi-label">Elige la carrera:</label>
+              <label className="roi-label" htmlFor="roi-carrera">Elige la carrera:</label>
               <select
+                id="roi-carrera"
                 value={career}
                 onChange={(e) => {
                   setCareer(e.target.value);
@@ -438,8 +441,9 @@ export default function RoiSelector() {
 
             {/* STEP 4: plan de estudios */}
             <Step n={4}>
-              <label className="roi-label">¿Cómo se divide el plan de estudios?</label>
+              <label className="roi-label" htmlFor="roi-plan">¿Cómo se divide el plan de estudios?</label>
               <select
+                id="roi-plan"
                 value={planUnit}
                 onChange={(e) => setPlanUnit(e.target.value as PlanUnit)}
                 className={selectClass("planUnit")}

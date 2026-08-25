@@ -5,7 +5,7 @@ import { TopInfo, TopsLists } from "./data.constans";
 export default function Las10Mas() {
   return (
     <section id="top10s-section" className="top10s-section mt-5">
-      <h2 className="section-title">Las 10 más</h2>
+      <h1 className="section-title">Las 10 más</h1>
       <div className="top10s-grid-container">
         <div className="top10s-grid">
           {

@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 
 import LinkOptions from "@/interfaces/navbar/navbar-options.interface"
 import Image from "next/image"
@@ -14,31 +14,17 @@ interface NavbarProps {
 }
 
 export default function Navbar(props: NavbarProps) {
-  const hamburgerMenu = useRef(Object());
-  const headerLinks = useRef(Object());
+  const [abierto, setAbierto] = useState(false)
 
+  // cerrar el menú al hacer clic fuera del navbar
   useEffect(() => {
-    hamburgerMenu.current = document.querySelector('.hamburger-menu');
-    headerLinks.current = document.querySelector('.header-links');
-
-    hamburgerMenu.current.addEventListener('click', () => {
-      headerLinks.current.classList.toggle('show');
-    });
-
-    // Close menu when a link is clicked
-    headerLinks.current.querySelectorAll('a').forEach(
-      (link: HTMLAnchorElement) => {
-        link.addEventListener('click', () => {
-          headerLinks.current.classList.remove('show');
-        });
-      });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!(((event.target as Element).closest('.navbar')))) {
-        headerLinks.current.classList.remove('show');
+    const alClickFuera = (event: MouseEvent) => {
+      if (!(event.target as Element).closest('.navbar')) {
+        setAbierto(false)
       }
-    });
+    }
+    document.addEventListener('click', alClickFuera)
+    return () => document.removeEventListener('click', alClickFuera)
   }, [])
 
   return (
@@ -53,14 +39,22 @@ export default function Navbar(props: NavbarProps) {
             className="logo"
           />
         </a>
-        <div className="hamburger-menu">
+        <button
+          type="button"
+          className="hamburger-menu"
+          aria-label={abierto ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={abierto}
+          aria-controls="menu-principal"
+          onClick={() => setAbierto(a => !a)}
+        >
           <MenuIcon size={28} />
-        </div>
-        <div className="header-links">
+        </button>
+        <div id="menu-principal" className={`header-links${abierto ? ' show' : ''}`}>
           {props.linksOptions.map((link: LinkOptions) => (
             <Link
               href={link.url}
               key={link.title}
+              onClick={() => setAbierto(false)}
             >
               {link.sectionName}
             </Link>

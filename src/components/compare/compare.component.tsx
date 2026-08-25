@@ -55,7 +55,7 @@ export default function Compare() {
 
   return (
     <section className={`compare-section mt-4${isComparing ? '' : ' compare-centrada'}`}>
-      <h2 className="section-title">Comparar Carreras</h2>
+      <h1 className="section-title">Comparar Carreras</h1>
       <div className="compare-container">
         <div className="search-box">
           <label htmlFor="compare-search-1">Carrera 1</label>

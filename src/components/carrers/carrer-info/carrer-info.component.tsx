@@ -194,6 +194,8 @@ export default function CarrerInfo(props: Props) {
             >
               <MountOnVisible minHeight={300}>
               <Pie
+                role="img"
+                aria-label={`Distribución por género: ${formatPercentage(carrerData.PCT_MUJER)} mujeres y ${formatPercentage(carrerData.PCT_HOMBRE)} hombres`}
                 data={{
                   labels: ['Hombres', 'Mujeres'],
                   datasets: [
@@ -252,6 +254,8 @@ export default function CarrerInfo(props: Props) {
             >
               <MountOnVisible minHeight={300}>
               <Pie
+                role="img"
+                aria-label={`Distribución por edad: ${formatPercentage(carrerData.PCT_30MENOS)} menores de 30 años y ${formatPercentage(carrerData.PCT_30MAS)} de 30 años y más`}
                 data={{
                   labels: ['Menores de 30', 'Mayores de 30'],
                   datasets: [
@@ -439,6 +443,8 @@ export default function CarrerInfo(props: Props) {
               <MountOnVisible minHeight={260}>
                 <Pie
                   ref={sectorsPieRef}
+                  role="img"
+                  aria-label={`Principales sectores en los que trabajan: ${sectores.slice(0, 3).map(s => `${s.name} ${s.value.toFixed(1)}%`).join(', ')}`}
                   data={{
                     labels: sectores.map(s => s.name),
                     datasets: [
@@ -510,6 +516,8 @@ export default function CarrerInfo(props: Props) {
                 <div className="doughnut-wrapper" style={{ height: (esMovil ? 400 : 300) + 'px' }}>
                   <MountOnVisible minHeight={esMovil ? 400 : 300}>
                   <Doughnut
+                    role="img"
+                    aria-label={`Posición que ocupan: ${formatPercentage(carrerData.POR_SUBORDINADO)} subordinados, ${formatPercentage(carrerData.POR_EMPLEADOR)} empleadores, ${formatPercentage(carrerData.POR_CUENTAPROPIA)} por cuenta propia y ${formatPercentage(carrerData.POR_SIN_PAGO)} sin pago`}
                     data={{
                       labels: ['Subordinado', 'Empleador', 'Cuenta propia', 'Trabajo sin pago'],
                       datasets: [
@@ -603,6 +611,8 @@ export default function CarrerInfo(props: Props) {
             <MountOnVisible minHeight={320}>
             <Bar
               ref={salaryBarRef}
+              role="img"
+              aria-label={`Distribución del salario mensual: 25% gana menos de $${formatNumber(carrerData.INGRESO_Q25)}, mediana de $${formatNumber(carrerData.INGRESO_Q50)}, 25% gana más de $${formatNumber(carrerData.INGRESO_Q75)} y promedio de $${formatNumber(carrerData.INGRESO)}`}
               data={{
                 labels: ['25% menos', 'Mediana', '25% más', 'Promedio'],
                 datasets: [
