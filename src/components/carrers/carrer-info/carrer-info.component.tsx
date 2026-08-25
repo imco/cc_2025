@@ -92,9 +92,11 @@ export default function CarrerInfo(props: Props) {
     }
   }, [])
 
-  // al imprimir, las gráficas que se monten deben pintarse completas de inmediato
+  // al imprimir, las gráficas que se monten deben pintarse completas de inmediato;
+  // igual si la persona prefiere movimiento reducido
   useEffect(() => {
     const desactivarAnimaciones = () => { ChartJS.defaults.animation = false }
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) desactivarAnimaciones()
     window.addEventListener('preparar-impresion', desactivarAnimaciones)
     window.addEventListener('beforeprint', desactivarAnimaciones)
     return () => {
@@ -479,11 +481,20 @@ export default function CarrerInfo(props: Props) {
                 <div
                   key={sector.name}
                   className={`legend-item${sectorActivo === i ? ' sector-hl' : ''}`}
+                  tabIndex={0}
                   onMouseEnter={() => {
                     setSectorActivo(i)
                     activarBarra(sectorsPieRef.current, i, true)
                   }}
                   onMouseLeave={() => {
+                    setSectorActivo(null)
+                    activarBarra(sectorsPieRef.current, i, false)
+                  }}
+                  onFocus={() => {
+                    setSectorActivo(i)
+                    activarBarra(sectorsPieRef.current, i, true)
+                  }}
+                  onBlur={() => {
                     setSectorActivo(null)
                     activarBarra(sectorsPieRef.current, i, false)
                   }}
@@ -720,8 +731,11 @@ export default function CarrerInfo(props: Props) {
                 <div
                   className="legend-item"
                   key={texto}
+                  tabIndex={0}
                   onMouseEnter={() => activarBarra(salaryBarRef.current, i, true)}
                   onMouseLeave={() => activarBarra(salaryBarRef.current, i, false)}
+                  onFocus={() => activarBarra(salaryBarRef.current, i, true)}
+                  onBlur={() => activarBarra(salaryBarRef.current, i, false)}
                 >
                   <span className="color-box"></span>
                   {texto}

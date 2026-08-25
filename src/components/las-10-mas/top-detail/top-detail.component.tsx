@@ -64,6 +64,8 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
   return (
     <div id="top10-modal" className="">
       <div className="modal-conten">
+        {/* anuncio para lectores de pantalla al alternar el switch */}
+        <div role="status" className="sr-only">{`Mostrando: ${activo.name}`}</div>
         {menos && (
           <div className="top-toggle-row">
             <div className="top-toggle" role="tablist" aria-label="Los 10 más o los 10 menos">

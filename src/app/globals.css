@@ -1147,6 +1147,26 @@ footer {
     font-size: 1.5rem;
 }
 
+/* accesibilidad: indicador de foco visible para navegación con teclado
+   (!important para ganar a los outline:none puntuales de algunos inputs) */
+*:focus-visible {
+    outline: 3px solid #FFC300 !important;
+    outline-offset: 2px;
+}
+
+/* accesibilidad: respetar la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* accesibilidad: texto solo para lectores de pantalla */
 .sr-only {
     position: absolute;
@@ -1232,6 +1252,12 @@ footer {
         position: static;
         transform: none;
         order: 2;
+    }
+
+    /* objetivo táctil mínimo de 44px en pantallas táctiles */
+    .top-nav-btn {
+        width: 44px;
+        height: 44px;
     }
 
     .top-title-row #modal-title {
