@@ -578,6 +578,7 @@ header {
 
 .print-button {
     display: inline-flex;
+    text-decoration: none;
     align-items: center;
     gap: 8px;
     padding: 8px 18px;
@@ -2501,24 +2502,6 @@ footer {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}
-
-.download-btn {
-    background-color: var(--color-accent);
-    color: #024383;
-    font-weight: 600;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.download-btn:hover {
-    background-color: var(--color-accent-light);
-    color: #024383;
 }
 
 .modal-conten .back-option {

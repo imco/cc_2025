@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { TopDescription } from "@/app/las-10-mas/[slug]/data.constans";
 import ShareButtons from "@/components/share/share-buttons.component";
+import { DownloadIcon } from "@/components/icons";
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -48,15 +49,16 @@ export default function TopTable(props: Props) {
   }
 
 
-  const csvContent = "data:text/csv;charset=utf-8,"
-    + "Rank,Career,Value\n"
+  const csvContent = "Rango,Carrera,Valor\n"
     + Object.keys(props.topData).slice(0, 10).map((key: string) => {
       const thirdColumnValue: string = processTopValue(props.topData[key][1])
       return `${props.topData[key][0]},"${key}","${thirdColumnValue}"`
     }
     ).join("\n")
 
-  const encodedUri = encodeURI(csvContent);
+  // BOM para que Excel interprete el archivo como UTF-8 y no
+  // rompa los acentos; encodeURIComponent preserva todos los símbolos
+  const encodedUri = "data:text/csv;charset=utf-8," + encodeURIComponent("\uFEFF" + csvContent);
 
   return (
     <>
@@ -97,7 +99,7 @@ export default function TopTable(props: Props) {
           texto={`${props.actualTop?.name ?? 'Las 10 más'} en Compara Carreras del IMCO.`}
         />
         <a
-          className="download-btn"
+          className="print-button"
           href={encodedUri}
           download={props.actualTop?.jsonName.replace('.json', '.csv')}
           onClick={() => window.gtag?.("event", "file_download", {
@@ -106,7 +108,8 @@ export default function TopTable(props: Props) {
             top: props.actualTop?.name,
           })}
         >
-          Descarga CSV
+          <DownloadIcon size={18} />
+          Descargar CSV
         </a>
       </div>
     </>
