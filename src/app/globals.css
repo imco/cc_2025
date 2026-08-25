@@ -2531,6 +2531,7 @@ footer {
     transform: translateY(-5px);
 }
 
+.metodologia-card h2,
 .metodologia-card h3 {
     font-size: 1.5rem;
     color: #024383;

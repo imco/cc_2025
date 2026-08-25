@@ -40,6 +40,11 @@ export default function Footer() {
           target="_blank">
           Aviso de privacidad
         </a>
+        <a
+          href="/accesibilidad"
+          style={{ color: "inherit" }}>
+          Accesibilidad
+        </a>
       </div>
     </footer>
   )

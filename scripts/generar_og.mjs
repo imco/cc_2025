@@ -89,6 +89,7 @@ const secciones = [
   { url: "/faq", archivo: "seccion-faq", superior: "Preguntas frecuentes", titulo: "Resolvemos tus dudas", pie: "Todo sobre Compara Carreras" },
   { url: "/roi", archivo: "seccion-roi", superior: "Calculadora de inversión", titulo: "¿Cuánto retorna estudiar una carrera?", pie: "Calcula el ROI de tu educación" },
   { url: "/investigaciones", archivo: "seccion-investigaciones", superior: "Investigaciones", titulo: "Ediciones y estudios del IMCO", pie: "Mercado laboral y educación superior en México" },
+  { url: "/accesibilidad", archivo: "seccion-accesibilidad", superior: "Accesibilidad", titulo: "Declaración de accesibilidad", pie: "Compara Carreras para todas las personas" },
 ]
 
 const navegador = await chromium.launch({ executablePath: "/usr/bin/google-chrome" })

@@ -46,6 +46,7 @@ const secciones = [
   ["/metodologia", "0.5", "yearly"],
   ["/faq", "0.5", "yearly"],
   ["/investigaciones", "0.5", "yearly"],
+  ["/accesibilidad", "0.3", "yearly"],
 ]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
