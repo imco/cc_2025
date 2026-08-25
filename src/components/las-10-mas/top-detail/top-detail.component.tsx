@@ -54,13 +54,42 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
   const IconoMenos = ICONOS_MENOS[menos?.titleUrl ?? ""] ?? IconoMas
   const Icono = lado === "menos" ? IconoMenos : IconoMas
 
+  // navegación entre tops siguiendo el orden del grid de la sección
+  const indice = TopsLists.findIndex(t => t.titleUrl === mas.titleUrl)
+  const topAnterior = indice > 0 ? TopsLists[indice - 1] : null
+  const topSiguiente = indice >= 0 && indice < TopsLists.length - 1 ? TopsLists[indice + 1] : null
+
   return (
     <div id="top10-modal" className="">
       <div className="modal-conten">
-        <div className="back-option mb-4">
+        <div className="back-option top-nav-row mb-4">
           <Link href={"/las-10-mas"} className="text-white text-sm mb-5">
             &larr; Volver a las 10 más
           </Link>
+          {(topAnterior || topSiguiente) && (
+            <div className="top-nav-arrows">
+              {topAnterior && (
+                <Link
+                  href={"/las-10-mas/" + topAnterior.titleUrl}
+                  className="top-nav-btn"
+                  title={topAnterior.topName}
+                  aria-label={`Top anterior: ${topAnterior.topName}`}
+                >
+                  &larr; Anterior
+                </Link>
+              )}
+              {topSiguiente && (
+                <Link
+                  href={"/las-10-mas/" + topSiguiente.titleUrl}
+                  className="top-nav-btn"
+                  title={topSiguiente.topName}
+                  aria-label={`Siguiente top: ${topSiguiente.topName}`}
+                >
+                  Siguiente &rarr;
+                </Link>
+              )}
+            </div>
+          )}
         </div>
         {menos && (
           <div className="top-toggle-row">

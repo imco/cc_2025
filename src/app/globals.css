@@ -1142,6 +1142,39 @@ footer {
     color: #FFFFFF;
 }
 
+/* navegación entre tops (anterior / siguiente) en la página de cada top */
+.top-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.top-nav-arrows {
+    display: flex;
+    gap: 10px;
+}
+
+.top-nav-btn {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.top-nav-btn:hover {
+    background-color: #45B7CE;
+    color: #024383;
+    transform: translateY(-2px);
+}
+
 /* switch "Los 10 más / Los 10 menos" en la página de cada top */
 .top-toggle-row {
     display: flex;
@@ -2277,13 +2310,20 @@ footer {
 .modal-conten {
     text-align: center;
     background-color: var(--color-background);
-    margin: 5% auto;
-    /* Reduce top margin to show more content */
+    /* el margen superior debe librar el header fijo (~140px en escritorio) */
+    margin: 160px auto 5%;
     padding: 20px;
     border-radius: 10px;
     width: 90%;
     /* Increase width for better readability */
     height: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-conten {
+        /* header más bajo en móvil */
+        margin-top: 96px;
+    }
 }
 
 .close {
