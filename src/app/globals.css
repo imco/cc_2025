@@ -1142,20 +1142,20 @@ footer {
     color: #FFFFFF;
 }
 
-/* navegación entre tops: flechas a los costados del título */
-.top-title-row {
-    position: relative;
-    padding: 0 52px;
+/* navegación entre tops: volver a la izquierda, flechas a la derecha */
+.top-nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
-.top-title-row #modal-title {
-    margin: 0;
+.top-nav-arrows {
+    display: flex;
+    gap: 10px;
 }
 
 .top-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1164,23 +1164,14 @@ footer {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.12);
     color: #ffffff;
-    font-size: 1rem;
-    line-height: 1;
     text-decoration: none;
-    transition: background-color 0.25s ease;
-}
-
-.top-nav-prev {
-    left: 0;
-}
-
-.top-nav-next {
-    right: 0;
+    transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .top-nav-btn:hover {
     background-color: #45B7CE;
     color: #024383;
+    transform: translateY(-2px);
 }
 
 /* switch "Los 10 más / Los 10 menos" en la página de cada top */
