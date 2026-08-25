@@ -1172,25 +1172,33 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* en pantallas angostas: fila superior con volver a la izquierda y
+       flechas a la derecha; el título abajo a lo ancho */
     .top-title-row {
         padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 12px;
     }
 
-    /* en pantallas angostas el volver regresa arriba y las flechas van
-       debajo del título, centradas */
     .top-back-link {
         position: static;
         transform: none;
-        display: block;
-        text-align: left;
-        margin-bottom: 22px;
+        order: 1;
     }
 
     .top-nav-arrows {
         position: static;
         transform: none;
-        justify-content: center;
-        margin-top: 14px;
+        order: 2;
+    }
+
+    .top-title-row #modal-title {
+        order: 3;
+        width: 100%;
+        margin-top: 20px;
     }
 }
 
