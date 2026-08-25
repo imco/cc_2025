@@ -1142,17 +1142,38 @@ footer {
     color: #FFFFFF;
 }
 
-/* navegación entre tops: volver a la izquierda, flechas a la derecha */
-.top-nav-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+/* navegación entre tops: flechas a la derecha, a la altura del título */
+.top-title-row {
+    position: relative;
+    /* simétrico para que el título se mantenga centrado */
+    padding: 0 96px;
+}
+
+.top-title-row #modal-title {
+    margin: 0;
 }
 
 .top-nav-arrows {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .top-title-row {
+        padding: 0;
+    }
+
+    /* en pantallas angostas las flechas van debajo del título, centradas */
+    .top-nav-arrows {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: 14px;
+    }
 }
 
 .top-nav-btn {
