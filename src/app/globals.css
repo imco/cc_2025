@@ -831,6 +831,50 @@ footer {
     opacity: 0.7;
 }
 
+/* footer en tres columnas: enlaces | texto institucional | contacto y redes */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.footer-col.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-texto p {
+    margin-bottom: 10px;
+}
+
+.footer-texto p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    /* en una columna el texto va primero y los enlaces al final */
+    .footer-texto {
+        order: 1;
+    }
+
+    .footer-social {
+        order: 2;
+    }
+
+    .footer-col.footer-links {
+        order: 3;
+    }
+}
+
 .social-media {
     display: flex;
     justify-content: center;
