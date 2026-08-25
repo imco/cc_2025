@@ -62,34 +62,10 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
   return (
     <div id="top10-modal" className="">
       <div className="modal-conten">
-        <div className="back-option top-nav-row mb-4">
+        <div className="back-option mb-4">
           <Link href={"/las-10-mas"} className="text-white text-sm mb-5">
             &larr; Volver a las 10 más
           </Link>
-          {(topAnterior || topSiguiente) && (
-            <div className="top-nav-arrows">
-              {topAnterior && (
-                <Link
-                  href={"/las-10-mas/" + topAnterior.titleUrl}
-                  className="top-nav-btn"
-                  title={topAnterior.topName}
-                  aria-label={`Top anterior: ${topAnterior.topName}`}
-                >
-                  &larr; Anterior
-                </Link>
-              )}
-              {topSiguiente && (
-                <Link
-                  href={"/las-10-mas/" + topSiguiente.titleUrl}
-                  className="top-nav-btn"
-                  title={topSiguiente.topName}
-                  aria-label={`Siguiente top: ${topSiguiente.topName}`}
-                >
-                  Siguiente &rarr;
-                </Link>
-              )}
-            </div>
-          )}
         </div>
         {menos && (
           <div className="top-toggle-row">
@@ -116,14 +92,36 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
             </div>
           </div>
         )}
-        <h3 id="modal-title" key={activo.titleUrl}>
-          {Icono && (
-            <span className="top10-detail-icon">
-              <Icono size={30} />
-            </span>
+        <div className="top-title-row">
+          {topAnterior && (
+            <Link
+              href={"/las-10-mas/" + topAnterior.titleUrl}
+              className="top-nav-btn top-nav-prev"
+              title={topAnterior.topName}
+              aria-label={`Top anterior: ${topAnterior.topName}`}
+            >
+              &larr;
+            </Link>
           )}
-          {activo.name}
-        </h3>
+          <h3 id="modal-title" key={activo.titleUrl}>
+            {Icono && (
+              <span className="top10-detail-icon">
+                <Icono size={30} />
+              </span>
+            )}
+            {activo.name}
+          </h3>
+          {topSiguiente && (
+            <Link
+              href={"/las-10-mas/" + topSiguiente.titleUrl}
+              className="top-nav-btn top-nav-next"
+              title={topSiguiente.topName}
+              aria-label={`Siguiente top: ${topSiguiente.topName}`}
+            >
+              &rarr;
+            </Link>
+          )}
+        </div>
         <div id="modal-data">
           <div className="mt-3 text-justify">
             <p className="card-text text-lg font-light">
