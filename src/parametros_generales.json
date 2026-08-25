@@ -10,5 +10,35 @@
         "descripcion": "Salario mensual promedio de la población ocupada en México (todos los niveles de escolaridad). Sirve como punto de comparación contra el salario promedio de cada carrera.",
         "donde_se_muestra": "Sección '¿Cuánto ganan?': 'Salario promedio mensual de la población ocupada en México es ${valor}'",
         "formato": "Número decimal. Se despliega redondeado a pesos, con separador de miles y sin decimales (14170.16452 se muestra como $14,170)"
+    },
+    "roi_salario_mensual_preparatoria": {
+        "valor": 12052,
+        "descripcion": "Ingreso mensual promedio de una persona que solo terminó la preparatoria. Se usa en la calculadora ROI para el diferencial de ingreso de un profesionista contra la preparatoria.",
+        "donde_se_muestra": "Calculadora de inversión (/roi): interviene en el cálculo del retorno, no se despliega directamente.",
+        "formato": "Número entero en pesos mensuales"
+    },
+    "roi_rendimiento_cetes": {
+        "valor": 7.3,
+        "descripcion": "Rendimiento anual de referencia de los Cetes contra el que se compara el ROI de estudiar una carrera.",
+        "donde_se_muestra": "Calculadora de inversión (/roi): tarjeta 'Cetes' en '¿Contra qué compararlo?'",
+        "formato": "Porcentaje anual con un decimal (7.3 se muestra como 7.3%)"
+    },
+    "roi_rendimiento_oro": {
+        "valor": 12.4,
+        "descripcion": "Rendimiento anual promedio del oro en la última década, referencia de comparación del ROI.",
+        "donde_se_muestra": "Calculadora de inversión (/roi): tarjeta 'Oro' en '¿Contra qué compararlo?'",
+        "formato": "Porcentaje anual con un decimal (12.4 se muestra como 12.4%)"
+    },
+    "roi_rendimiento_sp500": {
+        "valor": 14,
+        "descripcion": "Rendimiento anual promedio del S&P 500 en la última década, referencia de comparación del ROI.",
+        "donde_se_muestra": "Calculadora de inversión (/roi): tarjeta 'S&P 500' en '¿Contra qué compararlo?'",
+        "formato": "Porcentaje anual (14 se muestra como 14%)"
+    },
+    "roi_fecha_referencia": {
+        "valor": "noviembre de 2025",
+        "descripcion": "Fecha de corte de los rendimientos de referencia (Cetes, oro y S&P 500) de la calculadora ROI.",
+        "donde_se_muestra": "Calculadora de inversión (/roi): nota '*Referencia a {valor}.'",
+        "formato": "Texto en minúsculas: mes de año"
     }
 }

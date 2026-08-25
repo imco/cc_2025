@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import carrersData from "@/components/carrers/carrers-data/carrers.data.json";
+import ParametrosGenerales from "@/parametros_generales.json";
 import { CurrencyExchangeIcon, CoinIcon, TrendingUpIcon } from "@/components/icons";
 
 // TypeScript declarations for Google Analytics
@@ -48,7 +49,8 @@ const UNIT_SINGULAR: Record<PlanUnit, string> = {
 const UNIVERSITY_TYPES = ["Pública", "Privada"] as const;
 type UniversityType = (typeof UNIVERSITY_TYPES)[number];
 
-const PREPA_MENSUAL = 12052;
+// parámetros de la edición: se actualizan en src/parametros_generales.json
+const PREPA_MENSUAL = ParametrosGenerales.roi_salario_mensual_preparatoria.valor;
 const EDAD_INICIO = 18;
 const EDAD_RETIRO = 65;
 
@@ -605,29 +607,29 @@ export default function RoiSelector() {
 
             <div className="roi-card">
               <p className="roi-label">
-                ¿Contra qué compararlo? <span className="font-normal">(Inversiones populares)</span>
+                ¿Contra qué compararlo? <span className="font-normal">(Inversiones comunes)</span>
               </p>
               <div className="roi-compare-grid">
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon"><CurrencyExchangeIcon size={32} /></div>
                   <p>Cetes</p>
-                  <p className="text-2xl font-bold">7.3%</p>
+                  <p className="text-2xl font-bold">{ParametrosGenerales.roi_rendimiento_cetes.valor}%</p>
                 </div>
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon"><CoinIcon size={32} /></div>
                   <p>Oro*</p>
-                  <p className="text-2xl font-bold">12.4%</p>
+                  <p className="text-2xl font-bold">{ParametrosGenerales.roi_rendimiento_oro.valor}%</p>
                 </div>
                 <div className="roi-compare-card">
                   <div className="roi-compare-icon"><TrendingUpIcon size={32} /></div>
                   <p>S&amp;P 500*</p>
-                  <p className="text-2xl font-bold">14%</p>
+                  <p className="text-2xl font-bold">{ParametrosGenerales.roi_rendimiento_sp500.valor}%</p>
                 </div>
               </div>
               <p className="roi-note mt-3">
                 *Promedio de la última década. Se considera rendimiento anual.
               </p>
-              <p className="roi-note mt-3">*Referencia a noviembre de 2025.</p>
+              <p className="roi-note mt-3">{`*Referencia a ${ParametrosGenerales.roi_fecha_referencia.valor}.`}</p>
             </div>
           </section>
         </div>

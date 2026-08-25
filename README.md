@@ -86,6 +86,11 @@ El archivo [`src/parametros_generales.json`](src/parametros_generales.json) conc
 |---|---|---|
 | `anio` | Año de la edición vigente | Pie de página: "© {anio} ComparaCarreras…" y meta de copyright |
 | `salario_promedio_poblacion_ocupada` | Salario mensual promedio de la población ocupada en México | Sección "¿Cuánto ganan?" de cada carrera: "Salario promedio mensual de la población ocupada en México es $…" |
+| `roi_salario_mensual_preparatoria` | Ingreso mensual de quien solo terminó la preparatoria | Calculadora ROI: interviene en el cálculo (no se despliega) |
+| `roi_rendimiento_cetes` | Rendimiento anual de referencia de los Cetes | Calculadora ROI: tarjeta "Cetes" |
+| `roi_rendimiento_oro` | Rendimiento anual promedio del oro (última década) | Calculadora ROI: tarjeta "Oro" |
+| `roi_rendimiento_sp500` | Rendimiento anual promedio del S&P 500 (última década) | Calculadora ROI: tarjeta "S&P 500" |
+| `roi_fecha_referencia` | Fecha de corte de los rendimientos de referencia | Calculadora ROI: nota "*Referencia a …" |
 
 Basta editar el valor en el JSON: los componentes lo leen directamente (se muestra redondeado a pesos con separador de miles).
 
