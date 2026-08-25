@@ -1142,15 +1142,24 @@ footer {
     color: #FFFFFF;
 }
 
-/* navegación entre tops: flechas a la derecha, a la altura del título */
+/* navegación entre tops: volver a la izquierda y flechas a la derecha,
+   ambos a la altura del título */
 .top-title-row {
     position: relative;
     /* simétrico para que el título se mantenga centrado */
-    padding: 0 96px;
+    padding: 0 200px;
 }
 
 .top-title-row #modal-title {
     margin: 0;
+}
+
+.top-back-link {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
 }
 
 .top-nav-arrows {
@@ -1167,7 +1176,16 @@ footer {
         padding: 0;
     }
 
-    /* en pantallas angostas las flechas van debajo del título, centradas */
+    /* en pantallas angostas el volver regresa arriba y las flechas van
+       debajo del título, centradas */
+    .top-back-link {
+        position: static;
+        transform: none;
+        display: block;
+        text-align: left;
+        margin-bottom: 22px;
+    }
+
     .top-nav-arrows {
         position: static;
         transform: none;

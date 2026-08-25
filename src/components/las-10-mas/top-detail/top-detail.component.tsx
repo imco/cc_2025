@@ -64,11 +64,6 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
   return (
     <div id="top10-modal" className="">
       <div className="modal-conten">
-        <div className="back-option mb-4">
-          <Link href={"/las-10-mas"} className="text-white text-sm mb-5">
-            &larr; Volver a las 10 más
-          </Link>
-        </div>
         {menos && (
           <div className="top-toggle-row">
             <div className="top-toggle" role="tablist" aria-label="Los 10 más o los 10 menos">
@@ -95,6 +90,9 @@ export default function TopDetail({ mas, menos, inicial }: Props) {
           </div>
         )}
         <div className="top-title-row">
+          <Link href={"/las-10-mas"} className="top-back-link text-white text-sm">
+            &larr; Volver a las 10 más
+          </Link>
           <h3 id="modal-title" key={activo.titleUrl}>
             {Icono && (
               <span className="top10-detail-icon">
