@@ -617,18 +617,18 @@ export default function CarrerInfo(props: Props) {
           </div>
 
           <div className="salary-distribution">
-            <h4>Distribución del salario mensual</h4>
+            <h4>Distribución salarial</h4>
             <div className="salary-chart-box">
             <MountOnVisible minHeight={320}>
             <Bar
               ref={salaryBarRef}
               role="img"
-              aria-label={`Distribución del salario mensual: 25% gana menos de $${formatNumber(carrerData.INGRESO_Q25)}, mediana de $${formatNumber(carrerData.INGRESO_Q50)}, 25% gana más de $${formatNumber(carrerData.INGRESO_Q75)} y promedio de $${formatNumber(carrerData.INGRESO)}`}
+              aria-label={`Distribución salarial: 25% gana menos de $${formatNumber(carrerData.INGRESO_Q25)}, mediana de $${formatNumber(carrerData.INGRESO_Q50)}, 25% gana más de $${formatNumber(carrerData.INGRESO_Q75)} y promedio de $${formatNumber(carrerData.INGRESO)}`}
               data={{
                 labels: ['25% menos', 'Mediana', '25% más', 'Promedio'],
                 datasets: [
                   {
-                    label: 'Distribución del salario mensual',
+                    label: 'Distribución salarial',
                     data: [
                       carrerData.INGRESO_Q25,
                       carrerData.INGRESO_Q50,
@@ -673,7 +673,7 @@ export default function CarrerInfo(props: Props) {
                   },
                   title: {
                     display: true,
-                    text: 'Distribución del salario mensual',
+                    text: 'Distribución salarial',
                     font: {
                       size: 18,
                     },
