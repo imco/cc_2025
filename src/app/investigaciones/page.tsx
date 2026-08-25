@@ -21,7 +21,7 @@ export default async function InvestigacionesPage() {
   );
 
   return (
-    <main className="investigaciones-section">
+    <section className="investigaciones-section">
       <div className="container">
         <h1 className="section-title">Investigaciones</h1>
         <p className="section-subtitle">
@@ -34,6 +34,6 @@ export default async function InvestigacionesPage() {
           ))}
         </div>
       </div>
-    </main>
+    </section>
   );
 }

@@ -320,7 +320,7 @@ export default function RoiSelector() {
     errors[field] ? "roi-select border-red-500 ring-2 ring-red-400" : "roi-select";
 
   return (
-    <main className="min-h-screen bg-[#024383] pt-32 pb-16">
+    <div className="min-h-screen bg-[#024383] pt-32 pb-16">
       <div>&nbsp;</div>
       <div className="roi-container">
         {/* Hero / Encabezado */}
@@ -632,6 +632,6 @@ export default function RoiSelector() {
           </section>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

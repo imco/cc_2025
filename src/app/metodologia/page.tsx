@@ -13,11 +13,11 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>I. Indicadores del mercado laboral</h3>
+          <h2>I. Indicadores del mercado laboral</h2>
           <p>Esta sección se elabora con los microdatos de la Encuesta Nacional de Ocupación y Empleo (ENOE) del INEGI. Se utilizan los cuatro trimestres más recientes disponibles al cierre de la edición. Para 2026 estos son el segundo, tercero y cuarto trimestre de 2025 y el primer trimestre de 2026.</p>
           <p>Cada trimestre se procesa por separado y después se promedian los resultados. Las tasas se recalculan sobre esos promedios. Todos los cálculos incorporan el diseño muestral complejo de la ENOE, es decir, sus unidades primarias de muestreo, sus estratos y su factor de expansión trimestral.</p>
           <p>Las carreras que se presentan provienen de la Clasificación Mexicana de Programas de Estudio por Campos de Formación Académica 2016 (CMPE 2016). La CMPE organiza los programas de estudio de lo general a lo específico en cuatro niveles: campo amplio, campo específico, campo detallado y campo unitario. Compara Carreras publica la información al nivel de campo detallado.</p>
-          <h4>Universo de análisis y criterios de confiabilidad</h4>
+          <h3>Universo de análisis y criterios de confiabilidad</h3>
           <p>El universo está formado por personas de 15 a 98 años, residentes habituales del hogar y con entrevista completa. Para los indicadores de licenciatura se considera a quienes concluyeron una carrera profesional o un posgrado. Para los indicadores de TSU se considera a quienes concluyeron una carrera técnica.</p>
           <p>Un campo detallado se publica solo si sus estimaciones cumplen criterios básicos de confiabilidad estadística en los cuatro trimestres considerados. El criterio es un coeficiente de variación menor o igual a 15%. Se aplica por separado a dos estimaciones:</p>
           <ul>
@@ -28,7 +28,7 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>¿Cuántos son?</h3>
+          <h2>¿Cuántos son?</h2>
           <p>Total nacional de personas que estudiaron la carrera, con su distribución por género y por grupo de edad.</p>
           <ul>
             <li><strong>Total:</strong> Personas que concluyeron la carrera, a nivel nacional.</li>
@@ -39,7 +39,7 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>¿En qué trabajan?</h3>
+          <h2>¿En qué trabajan?</h2>
           <p>Principales características laborales de quienes estudiaron la carrera.</p>
           <ul>
             <li><strong>Tasa de ocupación:</strong> Personas ocupadas como proporción de la población económicamente activa (ocupados / PEA).</li>
@@ -49,19 +49,19 @@ export default function Metodologia() {
             <li><strong>Probabilidad de obtener un empleo de calidad:</strong> Complemento de la tasa de riesgo laboral. Es la probabilidad de que una persona de esa carrera tenga empleo, trabaje en la formalidad y siga participando en el mercado laboral.</li>
           </ul>
 
-          <h4>Ejercicio profesional: ¿cuántos trabajan en lo que estudiaron?</h4>
+          <h3>Ejercicio profesional: ¿cuántos trabajan en lo que estudiaron?</h3>
           <p>Este indicador se incorpora por primera vez en la edición 2026. Mide la proporción de personas ocupadas cuya ocupación está directamente vinculada con la carrera que cursaron.</p>
           <p>El IMCO construyó una correspondencia entre los campos detallados de la CMPE 2016 y las ocupaciones del Sistema Nacional de Clasificación de Ocupaciones (SINCO) 2019. Cada combinación de carrera y ocupación se revisó de manera individual para determinar si existe una relación directa entre la formación recibida y el trabajo desempeñado. El catálogo resultante contiene 1,538 pares de carrera y ocupación, cada uno con su justificación. Cuando la ocupación que declara la persona aparece en el catálogo de su carrera, se considera que ejerce.</p>
           <p>El cálculo utiliza la variable de ocupación del cuestionario de ocupación y empleo de la ENOE. El universo incluye a las personas ocupadas que reportaron tanto su carrera como su ocupación. Se excluye a las personas desocupadas y a los casos en los que falta alguna de esas dos variables. El indicador se calcula para licenciatura, posgrado y TSU.</p>
 
-          <h4>Probabilidad de obtener un empleo de calidad</h4>
+          <h3>Probabilidad de obtener un empleo de calidad</h3>
           <p>Sustituye a la presentación directa de la tasa de riesgo laboral en la ficha de carrera. La tasa de riesgo laboral es la probabilidad de que una persona de la carrera esté desempleada, trabaje en la informalidad o haya dejado de buscar empleo por desánimo.</p>
           <p className="metodologia-formula">
             <em>Probabilidad de obtener un empleo de calidad</em>&nbsp;=&nbsp;1&nbsp;−&nbsp;<em>Tasa de riesgo laboral</em>
           </p>
           <p>La tasa de riesgo laboral se sigue publicando en el listado de las 10 carreras con mayor riesgo.</p>
 
-          <h4>Principales sectores en los que trabajan</h4>
+          <h3>Principales sectores en los que trabajan</h3>
           <p>Distribución de las personas ocupadas de la carrera entre los sectores de actividad económica, ordenada de mayor a menor. Se utiliza la clasificación de la población ocupada por sector de actividad de la ENOE, que agrupa la actividad en once categorías. La ficha de carrera presenta las once. Algunos nombres se acortan para facilitar su lectura y conservan el contenido de la categoría original.</p>
           <Image
             src={sectoresPicture.src}
@@ -71,7 +71,7 @@ export default function Metodologia() {
             className="metodologia-image"
           />
 
-          <h4>Posición que ocupan</h4>
+          <h3>Posición que ocupan</h3>
           <p>Distribución de las personas ocupadas de la carrera según su posición en la ocupación.</p>
           <ul>
             <li><strong>Subordinado:</strong> Persona que trabaja a cambio de un pago y depende laboralmente de un jefe o superior.</li>
@@ -82,18 +82,18 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>¿Cuánto ganan?</h3>
+          <h2>¿Cuánto ganan?</h2>
           <p>Para los indicadores de ingreso se considera solo a las personas ocupadas que trabajan 30 horas o más a la semana y reportan un ingreso laboral mayor a cero.</p>
-          <h4>Manejo de datos atípicos</h4>
+          <h3>Manejo de datos atípicos</h3>
           <p>Antes de calcular el promedio se identifican los valores extremos en la parte alta de la distribución de ingresos de cada carrera. El procedimiento tiene tres pasos:</p>
           <ol>
             <li>Se calcula la razón entre el valor de cada uno de los percentiles 80, 85, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99 y el máximo, respecto del ingreso promedio de la carrera.</li>
             <li>Se considera que existe una observación atípica si esa razón supera el promedio de todas las carreras más dos desviaciones estándar.</li>
             <li>En ese caso, el salario promedio de la carrera se calcula solo sobre los valores menores al percentil donde se detectó el dato atípico.</li>
           </ol>
-          <h4>Ajuste por subreporte de ingresos</h4>
+          <h3>Ajuste por subreporte de ingresos</h3>
           <p>Los ingresos de la ENOE se ajustan al alza para corregir el <a href="/One-pager Subestimación de ingresos.pdf">subreporte</a> que caracteriza a esta encuesta. El factor de ajuste se estima por nivel de escolaridad. Compara el ingreso laboral promedio que reporta la ENOE de 2024 con el que reporta la Encuesta Nacional de Ingresos y Gastos de los Hogares (ENIGH) 2024, la fuente más reciente disponible.</p>
-          <h4>Indicadores publicados</h4>
+          <h3>Indicadores publicados</h3>
           <ul>
             <li><strong>Salario promedio mensual:</strong> Promedio aritmético del salario mensual de las personas de la carrera, sin datos atípicos y ajustado por subreporte.</li>
             <li><strong>Comparación con la población ocupada:</strong> Salario mensual promedio de toda la población ocupada de México, en cualquier nivel de escolaridad. Se muestra como punto de referencia.</li>
@@ -112,7 +112,7 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>II. Indicadores de matrícula y demanda</h3>
+          <h2>II. Indicadores de matrícula y demanda</h2>
           <p>Esta sección se elabora con los Anuarios Estadísticos de Educación Superior de la ANUIES, correspondientes al ciclo escolar 2024-2025. La fuente reporta, por programa de estudio y por institución, la matrícula total, el nuevo ingreso, el egreso, los lugares ofertados y las solicitudes de nuevo ingreso. También distingue el sostenimiento público o privado de cada institución.</p>
           <p>Los programas de la ANUIES se agregan a los campos detallados de la CMPE 2016 para que sean comparables con los indicadores laborales.</p>
           <ul>
@@ -126,7 +126,7 @@ export default function Metodologia() {
         </div>
 
         <div className="metodologia-card">
-          <h3>III. Calculadora del retorno sobre la inversión</h3>
+          <h2>III. Calculadora del retorno sobre la inversión</h2>
           <p>La calculadora de retorno sobre la inversión (ROI) estima la tasa de retorno anualizada a partir de la información que proporciona la persona usuaria. Con base en los datos que ingresa, es decir, la carrera, los costos y la duración del plan de estudios, el sistema genera los valores correspondientes a tres indicadores.</p>
           <ul>
             <li><strong>Costo total de la carrera:</strong> Costo total de estudiar la carrera. Se obtiene al multiplicar el número de periodos que dura la carrera por el costo de cada periodo.</li>

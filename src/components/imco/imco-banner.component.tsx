@@ -11,10 +11,10 @@ export default function ImcoBanner() {
       className="saberes-banner imco-banner"
     >
       <div className="saberes-banner-content">
-        <h3 className="saberes-banner-title">
+        <h2 className="saberes-banner-title">
           <span className="saberes-banner-title-desktop">Conoce el IMCO</span>
           <span className="saberes-banner-title-mobile">Conoce el IMCO</span>
-        </h3>
+        </h2>
         <p className="saberes-banner-description">
           Somos un centro de investigación en política pública que propone
           soluciones efectivas a los desafíos más importantes de México.

@@ -15,9 +15,9 @@ export default function Las10Mas() {
                   <div className="top10-card-icon">
                     <top.icon size={26} />
                   </div>
-                  <h3>
+                  <h2>
                     {top.topName}
-                  </h3>
+                  </h2>
                 </Link>
               </div>
             ))

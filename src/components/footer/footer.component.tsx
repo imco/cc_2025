@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { FacebookIcon, XIcon, InstagramIcon } from "@/components/icons"
 import ParametrosGenerales from "@/parametros_generales.json"
 
@@ -40,11 +41,11 @@ export default function Footer() {
           target="_blank">
           Aviso de privacidad
         </a>
-        <a
+        <Link
           href="/accesibilidad"
           style={{ color: "inherit" }}>
           Accesibilidad
-        </a>
+        </Link>
       </div>
     </footer>
   )

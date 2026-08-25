@@ -10,14 +10,14 @@ export default function SaberesBanner() {
       className="saberes-banner"
     >
       <div className="saberes-banner-content">
-        <h3 className="saberes-banner-title">
+        <h2 className="saberes-banner-title">
           <span className="saberes-banner-title-desktop">
             Un espacio para la democratización del conocimiento
           </span>
           <span className="saberes-banner-title-mobile">
             Un espacio para la democratización del conocimiento
           </span>
-        </h3>
+        </h2>
         <p className="saberes-banner-description">
           En <strong>SaberesMX</strong>, la plataforma de la Secretaría de Educación Pública, puedes seguir trayectorias formativas a través de cursos gratuitos que te permiten actualizar tus conocimientos de manera flexible, profundizar en áreas que sean de tu interés y fortalecer tu desarrollo académico y profesional.
         </p>
