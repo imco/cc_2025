@@ -53,8 +53,10 @@ import ShareButtons from '@/components/share/share-buttons.component';
 import { SearchIcon } from '@/components/icons';
 import { legendSliceSync, sliceHoverRefresh, sliceHoverStyle, barLegendHover, activarBarra } from './chart-hover-sync';
 
+// el primer color (sector mayoritario) debe contrastar con el fondo azul
+// del contenedor (>= 3:1); #4e79a7 se perdía contra él
 const SECTOR_COLORS = [
-  '#4e79a7', '#f28e2c', '#e15759', '#76b7b2', '#59a14f',
+  '#7CC4EE', '#f28e2c', '#e15759', '#76b7b2', '#59a14f',
   '#edc949', '#af7aa1', '#ff9da7', '#9c755f', '#bab0ab', '#d37295'
 ];
 
