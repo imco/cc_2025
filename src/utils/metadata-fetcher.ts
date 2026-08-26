@@ -19,9 +19,16 @@ export async function fetchResearchMetadata(url: string): Promise<Partial<Resear
     // Clean up title (remove " - IMCO" suffix if present)
     const cleanTitle = title.replace(/ - IMCO$/, '');
 
+    // WordPress agrega "&hellip; Continue reading …" al final de og:description
+    const cleanDescription = description
+      .replace(/&hellip;.*$/i, '…')
+      .replace(/Continue reading.*$/i, '')
+      .replace(/&amp;/g, '&')
+      .trim();
+
     return {
       title: cleanTitle,
-      description,
+      description: cleanDescription,
       imageUrl,
     };
   } catch (error) {
