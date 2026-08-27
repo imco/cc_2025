@@ -126,7 +126,7 @@ for (const c of carreras) {
     title: c.CARRERA,
     content: `${c.CARRERA}: salario promedio mensual de ${salario}, tasa de ocupación de ${fmtPct(c.TASA_OCUPACION)}. Conoce cuántos son, en qué trabajan y cuánto ganan en Compara Carreras del IMCO.`,
     urlMiniatura: `${SITIO}/og/${archivo}.jpg`,
-    urlCanonical: `${SITIO}/${slugPagina(c.CARRERA)}`,
+    urlCanonical: `${SITIO}/${slugPagina(c.CARRERA)}/`,
   }
   process.stdout.write(".")
 }
@@ -171,7 +171,7 @@ for (const top of registroTops) {
     title: top.name,
     content: top.description,
     urlMiniatura: `${SITIO}/og/${archivo}.jpg`,
-    urlCanonical: `${SITIO}/las-10-mas/${top.titleUrl}`,
+    urlCanonical: `${SITIO}/las-10-mas/${top.titleUrl}/`,
   }
   process.stdout.write("+")
 }

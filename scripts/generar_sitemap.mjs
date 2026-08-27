@@ -32,7 +32,7 @@ const slugCarrera = c => "/" + encodeURI(c.CARRERA.toLowerCase().replaceAll(" ",
 // --- sitemap.xml ---
 const hoy = new Date().toISOString().slice(0, 10)
 const url = (ruta, prioridad, frecuencia) => `   <url>
-      <loc>${SITIO}${ruta}</loc>
+      <loc>${SITIO}${ruta === "/" ? "/" : ruta + "/"}</loc>
       <lastmod>${hoy}</lastmod>
       <changefreq>${frecuencia}</changefreq>
       <priority>${prioridad}</priority>

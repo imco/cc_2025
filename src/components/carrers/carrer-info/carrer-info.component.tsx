@@ -134,6 +134,14 @@ export default function CarrerInfo(props: Props) {
     .sort((a, b) => b.value - a.value)
     .map((sector, index) => ({ ...sector, color: SECTOR_COLORS[index % SECTOR_COLORS.length] }))
 
+  // descripciones textuales de las gráficas: aria-label del canvas y
+  // alternativa visible en el HTML estático (sin JS)
+  const descGenero = `Distribución por género: ${formatPercentage(carrerData.PCT_MUJER)} mujeres y ${formatPercentage(carrerData.PCT_HOMBRE)} hombres`
+  const descEdad = `Distribución por edad: ${formatPercentage(carrerData.PCT_30MENOS)} menores de 30 años y ${formatPercentage(carrerData.PCT_30MAS)} de 30 años y más`
+  const descSectores = `Principales sectores en los que trabajan: ${sectores.slice(0, 3).map(s => `${s.name} ${s.value.toFixed(1)}%`).join(', ')}`
+  const descPosicion = `Posición que ocupan: ${formatPercentage(carrerData.POR_SUBORDINADO)} subordinados, ${formatPercentage(carrerData.POR_EMPLEADOR)} empleadores, ${formatPercentage(carrerData.POR_CUENTAPROPIA)} por cuenta propia y ${formatPercentage(carrerData.POR_SIN_PAGO)} sin pago`
+  const descSalario = `Distribución salarial: 25% gana menos de $${formatNumber(carrerData.INGRESO_Q25)}, mediana de $${formatNumber(carrerData.INGRESO_Q50)}, 25% gana más de $${formatNumber(carrerData.INGRESO_Q75)} y promedio de $${formatNumber(carrerData.INGRESO)}`
+
   useEffect(() => {
     const updateQualityDots = (elementId: string, quality: string | number) => {
       const dotsContainer = document.getElementById(elementId);
@@ -196,10 +204,10 @@ export default function CarrerInfo(props: Props) {
                 height: 300 + "px"
               }}
             >
-              <MountOnVisible minHeight={300}>
+              <MountOnVisible minHeight={300} fallback={descGenero}>
               <Pie
                 role="img"
-                aria-label={`Distribución por género: ${formatPercentage(carrerData.PCT_MUJER)} mujeres y ${formatPercentage(carrerData.PCT_HOMBRE)} hombres`}
+                aria-label={descGenero}
                 data={{
                   labels: ['Hombres', 'Mujeres'],
                   datasets: [
@@ -256,10 +264,10 @@ export default function CarrerInfo(props: Props) {
                 height: 300 + "px"
               }}
             >
-              <MountOnVisible minHeight={300}>
+              <MountOnVisible minHeight={300} fallback={descEdad}>
               <Pie
                 role="img"
-                aria-label={`Distribución por edad: ${formatPercentage(carrerData.PCT_30MENOS)} menores de 30 años y ${formatPercentage(carrerData.PCT_30MAS)} de 30 años y más`}
+                aria-label={descEdad}
                 data={{
                   labels: ['Menores de 30', 'Mayores de 30'],
                   datasets: [
@@ -444,11 +452,11 @@ export default function CarrerInfo(props: Props) {
               ))}
             </div>
             <div className="sectors-pie">
-              <MountOnVisible minHeight={260}>
+              <MountOnVisible minHeight={260} fallback={descSectores}>
                 <Pie
                   ref={sectorsPieRef}
                   role="img"
-                  aria-label={`Principales sectores en los que trabajan: ${sectores.slice(0, 3).map(s => `${s.name} ${s.value.toFixed(1)}%`).join(', ')}`}
+                  aria-label={descSectores}
                   data={{
                     labels: sectores.map(s => s.name),
                     datasets: [
@@ -527,10 +535,10 @@ export default function CarrerInfo(props: Props) {
             <div className="row">
               <div className="col-12">
                 <div className="doughnut-wrapper" style={{ height: (esMovil ? 400 : 300) + 'px' }}>
-                  <MountOnVisible minHeight={esMovil ? 400 : 300}>
+                  <MountOnVisible minHeight={esMovil ? 400 : 300} fallback={descPosicion}>
                   <Doughnut
                     role="img"
-                    aria-label={`Posición que ocupan: ${formatPercentage(carrerData.POR_SUBORDINADO)} subordinados, ${formatPercentage(carrerData.POR_EMPLEADOR)} empleadores, ${formatPercentage(carrerData.POR_CUENTAPROPIA)} por cuenta propia y ${formatPercentage(carrerData.POR_SIN_PAGO)} sin pago`}
+                    aria-label={descPosicion}
                     data={{
                       labels: ['Subordinado', 'Empleador', 'Cuenta propia', 'Trabajo sin pago'],
                       datasets: [
@@ -621,11 +629,11 @@ export default function CarrerInfo(props: Props) {
           <div className="salary-distribution">
             <h4>Distribución salarial</h4>
             <div className="salary-chart-box">
-            <MountOnVisible minHeight={320}>
+            <MountOnVisible minHeight={320} fallback={descSalario}>
             <Bar
               ref={salaryBarRef}
               role="img"
-              aria-label={`Distribución salarial: 25% gana menos de $${formatNumber(carrerData.INGRESO_Q25)}, mediana de $${formatNumber(carrerData.INGRESO_Q50)}, 25% gana más de $${formatNumber(carrerData.INGRESO_Q75)} y promedio de $${formatNumber(carrerData.INGRESO)}`}
+              aria-label={descSalario}
               data={{
                 labels: ['25% menos', 'Mediana', '25% más', 'Promedio'],
                 datasets: [

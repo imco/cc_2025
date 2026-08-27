@@ -60,11 +60,14 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
 type MountOnVisibleProps = {
   children: ReactNode
   minHeight?: number
+  // alternativa textual para el HTML estático (sin JS no hay canvas);
+  // con JS se oculta vía CSS (.js .chart-fallback)
+  fallback?: ReactNode
 }
 
 // Monta a sus hijos hasta que el contenedor es visible; útil para que las
 // animaciones de entrada de Chart.js corran cuando el usuario las ve
-export function MountOnVisible({ children, minHeight }: MountOnVisibleProps) {
+export function MountOnVisible({ children, minHeight, fallback }: MountOnVisibleProps) {
   const { ref, visible } = useInView<HTMLDivElement>(0.15)
   // el wrapper debe llenar a su contenedor: Chart.js (responsive) toma el
   // tamaño del padre directo y un div sin altura encoge las gráficas
@@ -77,7 +80,7 @@ export function MountOnVisible({ children, minHeight }: MountOnVisibleProps) {
         ...(minHeight && !visible ? { minHeight } : {}),
       }}
     >
-      {visible ? children : null}
+      {visible ? children : (fallback ? <p className="chart-fallback">{fallback}</p> : null)}
     </div>
   )
 }
@@ -93,7 +96,9 @@ type CountUpProps = {
 // Cuenta de 0 al valor cuando entra al viewport, usando el formateador del sitio
 export function CountUp({ value, format, prefix = "", suffix = "", duration = 1200 }: CountUpProps) {
   const { ref, visible } = useInView<HTMLSpanElement>(0.5)
-  const [display, setDisplay] = useState(`${prefix}${format(0)}${suffix}`)
+  // el estado inicial es el valor final: así el HTML estático (sin JS) muestra
+  // la cifra real y no un 0; la cuenta desde 0 solo arranca al entrar al viewport
+  const [display, setDisplay] = useState(`${prefix}${format(value)}${suffix}`)
   const target = parseFloat(String(value))
 
   // al imprimir, el contador salta directo a su valor final (y la bandera
@@ -125,6 +130,7 @@ export function CountUp({ value, format, prefix = "", suffix = "", duration = 12
       return
     }
     let frame: number
+    setDisplay(`${prefix}${format(0)}${suffix}`)
     const start = performance.now()
     const tick = (now: number) => {
       const t = Math.min((now - start) / duration, 1)

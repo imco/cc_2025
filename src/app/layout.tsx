@@ -19,7 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const pathName = usePathname()
+  // con trailingSlash el pathname llega como "/compara/": se normaliza para los lookups
+  const pathName = (usePathname() || "/").replace(/\/+$/, "") || "/"
   const link: LinkOptions | undefined = LinksList.find((link: LinkOptions) => link.url == pathName)
   // páginas de carrera: metadatos y miniatura propios (lookup generado)
   const card = link ?? CarrerCards[decodeURI(pathName)] ?? CarrerCards[pathName]
@@ -27,9 +28,13 @@ export default function RootLayout({
   const defaultDescription: string = `Cuántos profesionistas tiene cada carrera, cuáles tienen más mujeres y hombres, cuáles ofrecen mejor salario, cuáles carreras tienen una mayor tasa de desempleo, entre otras.`
 
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* progressive enhancement: marca que hay JS antes del primer paint.
+            El contenido es visible por defecto; solo con esta clase se
+            aplican los estados ocultos de las animaciones de entrada. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         {/*eslint-disable-next-line @next/next/no-page-custom-font*/}
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
         <title>{`Compara Carreras - ${card?.title || `Carreras`}`}</title>

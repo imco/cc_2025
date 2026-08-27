@@ -2362,15 +2362,36 @@ footer {
     text-align: left;
 }
 
+/* progressive enhancement: el contenido es visible por defecto; el estado
+   oculto de la animación de entrada solo aplica cuando hay JS (html.js) */
 .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.js .reveal {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
     opacity: 1;
     transform: none;
+}
+
+/* alternativa textual de las gráficas: solo se ve sin JS (canvas requiere JS) */
+.chart-fallback {
+    margin: 0;
+    padding: 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.js .chart-fallback {
+    display: none;
 }
 
 .sector-segment {
@@ -2446,7 +2467,8 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal {
+    .reveal,
+    .js .reveal {
         opacity: 1;
         transform: none;
         transition: none;
